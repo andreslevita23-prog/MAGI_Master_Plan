@@ -62,6 +62,47 @@ Estas variables estan documentadas en `.env.example`:
 - `MAGI_BOT_A_ENDPOINT`, `MAGI_BOT_B_ENDPOINT`, `MAGI_BOT_C_ENDPOINT`: placeholders para bots externos
 - `MAGI_MELCHOR_MODE`, `MAGI_BALTASAR_SOURCE`, `MAGI_GASPAR_SOURCE`, `MAGI_CEO_MODE`: placeholders para modulos MAGI
 
+## Deploy recomendado
+
+La opcion recomendada para este proyecto es **Render Web Service** porque la app ya es un servidor Express funcional y no necesita separar frontend y backend ni agregar un pipeline de build especial.
+
+Archivos de deploy preparados:
+
+- `render.yaml`
+- `npm start`
+- `GET /health` como health check
+
+Configuracion sugerida en Render:
+
+- Service type: `Web Service`
+- Branch: `chore/magi-recovery`
+- Build command: `npm install`
+- Start command: `npm start`
+- Health check path: `/health`
+
+### Dominio custom
+
+Cuando el servicio exista en Render:
+
+1. Agrega `prosperity.lat` como custom domain en el servicio.
+2. Agrega tambien `www.prosperity.lat` si quieres soportar ambas variantes.
+3. Configura DNS segun tu proveedor:
+
+Si usas **Cloudflare DNS**:
+
+- `CNAME` `@` -> `<tu-servicio>.onrender.com`
+- `CNAME` `www` -> `<tu-servicio>.onrender.com`
+- Proxy status: `DNS only` durante la verificacion
+- Elimina records `AAAA` si existen
+
+Si usas **Namecheap u otro proveedor sin flattening especial**:
+
+- `A` `@` -> `216.24.57.1`
+- `CNAME` `www` -> `<tu-servicio>.onrender.com`
+- Elimina records `AAAA` si existen
+
+Render emitira TLS automaticamente despues de verificar el dominio.
+
 ## Estructura de carpetas
 
 ```text

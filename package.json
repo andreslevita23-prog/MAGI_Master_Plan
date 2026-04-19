@@ -4,6 +4,9 @@
   "description": "Plataforma central Prosperity / MAGI para analisis, monitoreo y orquestacion operativa.",
   "type": "module",
   "main": "src/server/index.js",
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "scripts": {
     "dev": "node --watch src/server/index.js",
     "start": "node src/server/index.js",
