@@ -1,0 +1,14 @@
+{
+  "action": "hold",
+  "id_operacion": "smoke_001",
+  "details": {
+    "symbol": "EURUSD",
+    "order_type": "",
+    "entry_price": 0,
+    "stop_loss": 0,
+    "take_profit": 0,
+    "lot_size": 0,
+    "comment": "Modo local activo: se devolvio una decision mock mientras se completa la integracion con IA."
+  },
+  "timestamp": "2026-04-19T07:06:55.385Z"
+}

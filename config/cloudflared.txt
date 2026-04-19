@@ -1,0 +1,7 @@
+tunnel: prosperity-tunnel
+credentials-file: C:\Users\Asus\.cloudflared\975fc218-1d98-47bb-9bcc-985659f45f1c.json
+
+ingress:
+  - hostname: prosperity.lat
+    service: http://localhost:3000
+  - service: http_status:404

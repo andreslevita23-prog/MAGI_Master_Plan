@@ -1,0 +1,21 @@
+node_modules/
+.env
+.env.local
+.DS_Store
+npm-debug.log*
+coverage/
+dist/
+
+# Runtime data
+log.txt
+data/errors/*.tmp
+data/logs/
+data/errors/
+
+# Local tooling and binaries
+cloudflared.exe.exe
+ngrok.exe
+tools/
+
+# Legacy placeholders
+{
