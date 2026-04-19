@@ -1,0 +1,19 @@
+﻿flowchart TD
+  S["Snapshot Bot A"] --> P{"Caso activo?"}
+  P -- "Si" --> W["Esperar siguiente snapshot"]
+  P -- "No" --> H{"Posicion abierta?"}
+  H -- "No" --> E["Magos evalúan entrada"]
+  H -- "Si" --> M["Magos evalúan gestion"]
+  E --> TE{"Algun disparador?"}
+  M --> TM{"Algun disparador?"}
+  TE -- "No" --> W
+  TM -- "No" --> W
+  TE -- "Si" --> CE["Crear entry_case"]
+  TM -- "Si" --> CM["Crear management_case"]
+  CE --> V["Recolectar votos"]
+  CM --> V
+  V --> C["CEO-MAGI decide"]
+  C --> A{"Ejecutar?"}
+  A -- "Si" --> X["Bot B ejecuta"]
+  A -- "No" --> L["Bot C registra caso"]
+  X --> L

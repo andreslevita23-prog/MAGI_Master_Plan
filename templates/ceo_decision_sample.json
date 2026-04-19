@@ -1,0 +1,9 @@
+﻿{
+  "case_type": "entry_case",
+  "action": "open_trade",
+  "direction": "buy",
+  "entry_price": 1.0853,
+  "sl": 1.0841,
+  "tp": 1.0877,
+  "reason": "Baltasar valida la estructura, Melchor no detecta riesgo alto y Gaspar refuerza oportunidad alcista."
+}

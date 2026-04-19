@@ -1,0 +1,28 @@
+﻿{
+  "case_type": "entry_case",
+  "trigger_source": ["baltasar", "gaspar"],
+  "context_tag_catalog": ["trend", "range", "breakout", "reversal", "volatile", "unclear"],
+  "votes": {
+    "melchor": {
+      "decision": "approve",
+      "confidence": 0.72,
+      "risk_flag": "low",
+      "context_tag": "trend",
+      "reason": "Riesgo contextual estable y estructura clara."
+    },
+    "baltasar": {
+      "decision": "approve",
+      "confidence": 0.84,
+      "risk_flag": "low",
+      "context_tag": "trend",
+      "reason": "Confluencia tecnica suficiente para evaluar entrada."
+    },
+    "gaspar": {
+      "decision": "approve",
+      "confidence": 0.68,
+      "risk_flag": "medium",
+      "context_tag": "breakout",
+      "reason": "Momentum favorable con espacio razonable de continuacion."
+    }
+  }
+}

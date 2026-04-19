@@ -1,0 +1,21 @@
+﻿{
+  "symbol": "EURUSD",
+  "timestamp": "2026-04-19T08:00:00Z",
+  "market_structure": "trend",
+  "structure_direction": "bullish",
+  "support_levels": [1.0842, 1.0834],
+  "resistance_levels": [1.0861, 1.0870],
+  "ema_20": 1.0849,
+  "ema_50": 1.0841,
+  "ema_200": 1.0818,
+  "rsi_14": 61.4,
+  "momentum": "bullish",
+  "current_price": 1.0853,
+  "recent_range": 0.0012,
+  "has_open_position": false,
+  "position_type": null,
+  "entry_price": null,
+  "sl": null,
+  "tp": null,
+  "floating_pnl": null
+}
