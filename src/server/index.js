@@ -6,6 +6,10 @@ import OpenAI from "openai";
 import { paths } from "./config/paths.js";
 import prompt from "./prompt.js";
 import { buildDashboardSnapshot } from "./services/dashboard.js";
+import {
+  getConnectorById,
+  listConnectors,
+} from "./services/connectors/registry.js";
 import { logger } from "./services/logger.js";
 import {
   ensureProjectDirectories,
@@ -195,6 +199,21 @@ app.get("/api/settings", (_req, res) => {
       hasOpenAIKey,
     }).settings,
   );
+});
+
+app.get("/api/connectors", (_req, res) => {
+  res.json(listConnectors());
+});
+
+app.get("/api/connectors/:id", (req, res) => {
+  const connector = getConnectorById(req.params.id);
+
+  if (!connector) {
+    res.status(404).json({ error: "Connector no encontrado." });
+    return;
+  }
+
+  res.json(connector);
 });
 
 app.get("/analisis/:symbol", (req, res) => {

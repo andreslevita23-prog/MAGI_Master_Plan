@@ -59,6 +59,8 @@ Estas variables estan documentadas en `.env.example`:
 - `MAGI_OPENAI_MODEL`: modelo a usar para decisiones
 - `MAGI_SITE_URL`: URL objetivo de despliegue
 - `MAGI_ENABLE_MOCKS`: permite respuestas mock cuando falte IA o falle el parseo
+- `MAGI_BOT_A_ENDPOINT`, `MAGI_BOT_B_ENDPOINT`, `MAGI_BOT_C_ENDPOINT`: placeholders para bots externos
+- `MAGI_MELCHOR_MODE`, `MAGI_BALTASAR_SOURCE`, `MAGI_GASPAR_SOURCE`, `MAGI_CEO_MODE`: placeholders para modulos MAGI
 
 ## Estructura de carpetas
 
@@ -71,6 +73,7 @@ src/
   server/
     config/
     services/
+      connectors/
 docs/
 config/
 data/
@@ -93,6 +96,8 @@ scripts/
 - `GET /api/modules`
 - `GET /api/logs`
 - `GET /api/settings`
+- `GET /api/connectors`
+- `GET /api/connectors/:id`
 - `GET /analisis/:symbol`
 - `POST /analisis`
 
@@ -107,6 +112,7 @@ scripts/
 - [Arquitectura](./docs/architecture.md)
 - [Roadmap](./docs/roadmap.md)
 - [Plan de integracion](./docs/integration-plan.md)
+- [Contratos de connectors](./docs/connectors.md)
 - [Referencias legacy](./docs/legacy)
 
 ## Pendiente recomendado

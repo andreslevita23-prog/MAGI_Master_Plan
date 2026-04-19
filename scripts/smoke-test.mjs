@@ -13,6 +13,9 @@ try {
 
   const health = await fetch("http://localhost:3000/health").then((res) => res.json());
   const dashboard = await fetch("http://localhost:3000/api/dashboard").then((res) => res.json());
+  const connectors = await fetch("http://localhost:3000/api/connectors").then((res) =>
+    res.json(),
+  );
 
   console.log(
     JSON.stringify(
@@ -20,6 +23,7 @@ try {
         health,
         overview: dashboard.overview,
         modules: dashboard.modules.length,
+        connectors: connectors.length,
       },
       null,
       2,

@@ -1,5 +1,6 @@
 import path from "path";
 import { paths } from "../config/paths.js";
+import { listConnectorNames } from "./connectors/registry.js";
 import {
   listDirectories,
   listFiles,
@@ -182,15 +183,7 @@ function buildSettingsSnapshot(port, hasOpenAIKey) {
       logs: path.relative(paths.root, paths.logs),
       errors: path.relative(paths.root, paths.errors),
     },
-    futureConnections: [
-      "Bot A",
-      "Bot B",
-      "Bot C",
-      "Melchor",
-      "Baltasar",
-      "Gaspar",
-      "CEO-MAGI",
-    ],
+    futureConnections: listConnectorNames(),
   };
 }
 
