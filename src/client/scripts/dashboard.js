@@ -24,21 +24,39 @@ function formatDuration(seconds = 0) {
 }
 
 function renderOverview(overview) {
-  const cards = [
-    { label: "System status", value: overview.systemStatus },
-    { label: "Tracked symbols", value: overview.trackedSymbols },
-    { label: "Active signals", value: overview.activeSignals },
-    { label: "Uptime", value: formatDuration(overview.uptimeSeconds) },
-    { label: "Last decision", value: formatDate(overview.lastDecisionAt) },
-    { label: "Latest log folder", value: overview.latestFolder || "-" },
-  ];
+  document.getElementById("overviewHero").innerHTML = `
+    <article class="overview-panel">
+      <div class="overview-copy">
+        <span class="stats-label">System status</span>
+        <strong class="overview-status">${overview.status}</strong>
+        <p class="muted">${overview.summary}</p>
+      </div>
+      <div class="overview-meta">
+        <div class="overview-item">
+          <span class="stats-label">Uptime</span>
+          <strong>${overview.uptimeLabel}</strong>
+        </div>
+        <div class="overview-item">
+          <span class="stats-label">Last update</span>
+          <strong>${formatDate(overview.lastUpdated)}</strong>
+        </div>
+      </div>
+    </article>
+  `;
+}
 
-  document.getElementById("overviewCards").innerHTML = cards
+function metricToneClass(tone) {
+  return `metric-${tone || "neutral"}`;
+}
+
+function renderMetrics(metrics) {
+  document.getElementById("metricsGrid").innerHTML = metrics
     .map(
-      (card) => `
-        <article class="stats-card">
-          <span class="stats-label">${card.label}</span>
-          <strong class="stats-value">${card.value}</strong>
+      (metric) => `
+        <article class="stats-card ${metricToneClass(metric.tone)}">
+          <span class="stats-label">${metric.label}</span>
+          <strong class="stats-value">${metric.value}</strong>
+          <p class="muted">${metric.helper}</p>
         </article>
       `,
     )
@@ -52,62 +70,31 @@ function renderModules(modules) {
         <article class="module-card">
           <span class="module-role">${module.role}</span>
           <h4>${module.name}</h4>
-          <p class="muted">${module.description}</p>
-          <span class="module-status">${module.status}</span>
-          <p class="muted">${module.metric}</p>
+          <p class="muted">${module.summary}</p>
+          <span class="module-status module-status-${module.status}">${module.status}</span>
         </article>
       `,
     )
     .join("");
 }
 
-function badgeClass(action) {
-  return `badge-${String(action).toLowerCase().replace(/\s+/g, "-")}`;
+function activityTypeClass(type) {
+  return `activity-${type || "system"}`;
 }
 
-function renderSignals(signals) {
-  const table = document.getElementById("signalsTable");
+function renderActivity(items) {
+  const node = document.getElementById("activityFeed");
 
-  if (!signals.length) {
-    table.innerHTML = `
-      <tr>
-        <td colspan="6" class="muted">Todavia no hay decisiones registradas.</td>
-      </tr>
-    `;
-    return;
-  }
-
-  table.innerHTML = signals
+  node.innerHTML = items
     .map(
-      (signal) => `
-        <tr>
-          <td class="mono">${formatDate(signal.timestamp)}</td>
-          <td>${signal.symbol}</td>
-          <td><span class="badge ${badgeClass(signal.action)}">${signal.action}</span></td>
-          <td>${signal.orderType || "-"}</td>
-          <td>${signal.lotSize}</td>
-          <td>${signal.comment}</td>
-        </tr>
-      `,
-    )
-    .join("");
-}
-
-function renderLogs(logs) {
-  const node = document.getElementById("logFeed");
-
-  if (!logs.length) {
-    node.innerHTML = `<article class="log-entry"><strong>Sin logs recientes</strong></article>`;
-    return;
-  }
-
-  node.innerHTML = logs
-    .map(
-      (log) => `
-        <article class="log-entry">
-          <span class="log-source">${log.source}</span>
-          <strong>${formatDate(log.timestamp)}</strong>
-          <p>${String(log.summary).slice(0, 220)}</p>
+      (item) => `
+        <article class="activity-entry">
+          <div class="activity-head">
+            <span class="badge ${activityTypeClass(item.type)}">${item.type}</span>
+            <span class="mono muted">${formatDate(item.timestamp)}</span>
+          </div>
+          <strong>${item.title}</strong>
+          <p>${item.detail}</p>
         </article>
       `,
     )
@@ -118,20 +105,12 @@ function renderSettings(settings) {
   const cards = [
     {
       key: "Environment",
-      body: `<strong>${settings.environment}</strong><p class="muted">URL prevista: ${settings.siteUrl}</p>`,
+      body: `<strong>${settings.environment}</strong><p class="muted">Dominio previsto: ${settings.domain}</p><p class="muted">Local: ${settings.localUrl}</p>`,
     },
     {
       key: "Connectivity",
-      body: `<strong>OpenAI configurado: ${settings.openAIConfigured ? "si" : "no"}</strong><p class="muted">Mocks habilitados: ${settings.mocksEnabled ? "si" : "no"}</p>`,
-    },
-    {
-      key: "Storage",
-      body: `<strong class="mono">${settings.storage.analysis}</strong><p class="muted">Logs: ${settings.storage.logs}</p><p class="muted">Errores: ${settings.storage.errors}</p>`,
-    },
-    {
-      key: "Future connections",
-      body: `<ul>${settings.futureConnections
-        .map((item) => `<li>${item}</li>`)
+      body: `<ul>${settings.placeholders
+        .map((item) => `<li><strong>${item.key}:</strong> ${item.value}</li>`)
         .join("")}</ul>`,
     },
   ];
@@ -157,12 +136,12 @@ async function loadDashboard() {
     const payload = await response.json();
 
     renderOverview(payload.overview);
+    renderMetrics(payload.metrics);
     renderModules(payload.modules);
-    renderSignals(payload.signals);
-    renderLogs(payload.logs);
+    renderActivity(payload.recentActivity);
     renderSettings(payload.settings);
   } catch (error) {
-    document.getElementById("overviewCards").innerHTML = `
+    document.getElementById("overviewHero").innerHTML = `
       <article class="stats-card">
         <span class="stats-label">Error</span>
         <strong class="stats-value">No fue posible cargar el dashboard</strong>

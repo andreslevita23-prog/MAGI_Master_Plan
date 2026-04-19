@@ -18,21 +18,21 @@
         </div>
         <nav class="nav-list">
           <a href="#overview" class="nav-link is-active">Overview</a>
+          <a href="#metrics" class="nav-link">Metrics</a>
           <a href="#modules" class="nav-link">Modules</a>
-          <a href="#signals" class="nav-link">Decisions / Signals</a>
-          <a href="#logs" class="nav-link">Logs</a>
-          <a href="#settings" class="nav-link">Settings</a>
+          <a href="#activity" class="nav-link">Recent Activity</a>
+          <a href="#settings" class="nav-link">Settings / Connections</a>
         </nav>
         <div class="sidebar-note">
-          <p>Base lista para conectar Bot A, Bot B, Bot C y orquestacion MAGI.</p>
+          <p>Panel visual base listo para futuras metricas, conexiones y estados del sistema.</p>
         </div>
       </aside>
 
       <main class="main-panel">
         <header class="topbar">
           <div>
-            <p class="eyebrow">Operational View</p>
-            <h2>Panel central del sistema MAGI</h2>
+            <p class="eyebrow">Visual Control Center</p>
+            <h2>Prosperity / MAGI dashboard</h2>
           </div>
           <button id="refreshButton" class="button button-primary">Actualizar</button>
         </header>
@@ -40,53 +40,39 @@
         <section id="overview" class="section-block">
           <div class="section-header">
             <h3>Overview</h3>
-            <p>Estado general de la plataforma, uptime y actividad reciente.</p>
+            <p>Estado general del sistema, ultima actualizacion y resumen visual base.</p>
           </div>
-          <div id="overviewCards" class="stats-grid"></div>
+          <div id="overviewHero" class="overview-hero"></div>
+        </section>
+
+        <section id="metrics" class="section-block">
+          <div class="section-header">
+            <h3>Metrics</h3>
+            <p>Metricas placeholder coherentes para futura conexion de datos reales.</p>
+          </div>
+          <div id="metricsGrid" class="stats-grid metrics-grid"></div>
         </section>
 
         <section id="modules" class="section-block">
           <div class="section-header">
             <h3>MAGI Modules</h3>
-            <p>Melchor, Baltasar, Gaspar y CEO-MAGI como base de monitoreo y decision.</p>
+            <p>Estados visuales de Melchor, Baltasar, Gaspar y CEO-MAGI.</p>
           </div>
           <div id="moduleCards" class="module-grid"></div>
         </section>
 
-        <section id="signals" class="section-block">
+        <section id="activity" class="section-block">
           <div class="section-header">
-            <h3>Decisions / Signals</h3>
-            <p>Ultimas decisiones registradas y estado operativo por simbolo.</p>
+            <h3>Recent Activity</h3>
+            <p>Eventos recientes mock para mostrar trazabilidad futura del sistema.</p>
           </div>
-          <div class="table-shell">
-            <table class="data-table">
-              <thead>
-                <tr>
-                  <th>Timestamp</th>
-                  <th>Symbol</th>
-                  <th>Action</th>
-                  <th>Order</th>
-                  <th>Lot</th>
-                  <th>Comment</th>
-                </tr>
-              </thead>
-              <tbody id="signalsTable"></tbody>
-            </table>
-          </div>
-        </section>
-
-        <section id="logs" class="section-block">
-          <div class="section-header">
-            <h3>Logs</h3>
-            <p>Eventos recientes del sistema para trazabilidad y soporte.</p>
-          </div>
-          <div id="logFeed" class="log-feed"></div>
+          <div id="activityFeed" class="activity-feed"></div>
         </section>
 
         <section id="settings" class="section-block">
           <div class="section-header">
-            <h3>Settings</h3>
-            <p>Configuracion local, endpoints y placeholders de integracion futura.</p>
+            <h3>Settings / Connections</h3>
+            <p>Placeholders de conexiones, dominio, API y entorno de despliegue futuro.</p>
           </div>
           <div id="settingsPanel" class="settings-grid"></div>
         </section>

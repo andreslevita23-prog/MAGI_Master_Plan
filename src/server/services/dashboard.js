@@ -1,203 +1,172 @@
-import path from "path";
-import { paths } from "../config/paths.js";
-import { listConnectorNames } from "./connectors/registry.js";
-import {
-  listDirectories,
-  listFiles,
-  readJson,
-  readJsonLines,
-} from "./storage.js";
-
-const moduleCatalog = [
+const moduleCards = [
   {
     id: "melchor",
     name: "Melchor",
     role: "Seguridad / Riesgo",
-    description: "Valida limites operativos, exposicion y consistencia del riesgo.",
+    status: "healthy",
+    summary: "Politicas y limites listos para futura conexion de riesgo.",
   },
   {
     id: "baltasar",
     name: "Baltasar",
     role: "Analisis tecnico / Datos",
-    description: "Consolida estructura, momentum y calidad de entrada.",
+    status: "warning",
+    summary: "Esperando fuentes reales para poblar indicadores y series.",
   },
   {
     id: "gaspar",
     name: "Gaspar",
     role: "Exploracion / Oportunidad",
-    description: "Prioriza escenarios, simbolos y ventanas activas.",
+    status: "pending",
+    summary: "Watchlists y filtros quedaran conectados en una fase posterior.",
   },
   {
     id: "ceo-magi",
     name: "CEO-MAGI",
     role: "Decision final",
-    description: "Orquesta la salida final y alinea ejecucion con el sistema.",
+    status: "offline",
+    summary: "Reservado como capa visual hasta definir criterio de orquestacion.",
   },
 ];
 
-function formatAction(action = "hold") {
-  const labels = {
-    open: "Open",
-    hold: "Hold",
-    close: "Close",
-    modify: "Modify",
-    move_sl: "Move SL",
-  };
+const recentActivityMock = [
+  {
+    id: "evt-01",
+    timestamp: "2026-04-19T07:45:00Z",
+    title: "Dashboard base actualizado",
+    detail: "Se publico una vista limpia con placeholders para metricas y modulos.",
+    type: "ui",
+  },
+  {
+    id: "evt-02",
+    timestamp: "2026-04-19T07:20:00Z",
+    title: "Conexiones en modo placeholder",
+    detail: "Bot A, Bot B y Bot C permanecen definidos solo como referencias visuales.",
+    type: "connection",
+  },
+  {
+    id: "evt-03",
+    timestamp: "2026-04-19T06:55:00Z",
+    title: "Health local verificado",
+    detail: "La app responde en local y el dashboard se alimenta desde un endpoint minimo.",
+    type: "system",
+  },
+  {
+    id: "evt-04",
+    timestamp: "2026-04-19T06:10:00Z",
+    title: "Matriz MAGI preparada",
+    detail: "Los estados de Melchor, Baltasar, Gaspar y CEO-MAGI quedaron listos para reemplazar mocks.",
+    type: "module",
+  },
+];
 
-  return labels[action] || action;
-}
-
-function getLatestLogFolder() {
-  const folders = listDirectories(paths.logs)
-    .map((folderPath) => path.basename(folderPath))
-    .sort();
-
-  return folders.at(-1) || null;
-}
-
-function loadLatestSignals(limit = 8) {
-  const latestFolder = getLatestLogFolder();
-  if (!latestFolder) {
-    return [];
-  }
-
-  const filePath = path.join(paths.logs, latestFolder, "botB.jsonl");
-
-  return readJsonLines(filePath)
-    .slice(-limit)
-    .reverse()
-    .map((entry, index) => ({
-      id: `${entry.id_operacion || latestFolder}-${index}`,
-      timestamp: entry.timestamp_utc,
-      symbol: entry.details?.symbol || "UNKNOWN",
-      action: formatAction(entry.action),
-      confidence: entry.action === "open" ? "High" : "Monitoring",
-      comment: entry.details?.comment || "Sin comentario disponible.",
-      orderType: entry.details?.order_type || "-",
-      lotSize: entry.details?.lot_size ?? 0,
-    }));
-}
-
-function loadRecentLogs(limit = 10) {
-  const latestFolder = getLatestLogFolder();
-  if (!latestFolder) {
-    return [];
-  }
-
-  const files = ["api.jsonl", "botA.jsonl", "botB.jsonl"];
-
-  return files
-    .flatMap((fileName) => {
-      const filePath = path.join(paths.logs, latestFolder, fileName);
-      return readJsonLines(filePath).map((entry) => ({
-        source: fileName.replace(".jsonl", ""),
-        timestamp: entry.timestamp_utc,
-        summary:
-          entry.details?.comment ||
-          entry.respuesta_raw ||
-          entry.pair ||
-          entry.symbol ||
-          "Evento registrado.",
-      }));
-    })
-    .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
-    .slice(0, limit);
-}
-
-function loadAnalysisStatus() {
-  return listFiles(paths.analysis, ".json")
-    .map((filePath) => readJson(filePath))
-    .filter(Boolean)
-    .map((item) => ({
-      symbol: item.details?.symbol || "UNKNOWN",
-      action: item.action || "hold",
-      comment: item.details?.comment || "Sin comentario.",
-      updatedAt: item.timestamp || item.id_operacion || null,
-    }));
-}
-
-function computeOverview(signals, analysisStatus, uptimeSeconds) {
-  const openSignals = signals.filter((signal) => signal.action === "Open").length;
-  const latestSignal = signals[0];
+function buildOverview(uptimeSeconds) {
+  const now = new Date().toISOString();
 
   return {
-    systemStatus: "Operational",
-    trackedSymbols: analysisStatus.length,
-    activeSignals: openSignals,
-    lastDecisionAt: latestSignal?.timestamp || null,
-    uptimeSeconds,
-    activitySummary:
-      analysisStatus.length > 0
-        ? `${analysisStatus.length} simbolos con estado persistido.`
-        : "Sin simbolos persistidos aun.",
-    latestFolder: getLatestLogFolder(),
+    status: "Operational",
+    uptimeLabel: `${Math.max(4, Math.floor(uptimeSeconds / 3600) || 4)}h 18m`,
+    lastUpdated: now,
+    summary:
+      "Panel visual base activo. La interfaz ya esta lista para recibir metricas reales sin rehacer la estructura.",
   };
 }
 
-function computeModules(signals, analysisStatus) {
-  const openSignals = signals.filter((signal) => signal.action === "Open").length;
-  const recentAnalyses = analysisStatus.length;
-
-  return moduleCatalog.map((module) => {
-    if (module.id === "melchor") {
-      return {
-        ...module,
-        status: openSignals > 0 ? "Guarding risk" : "Watching exposure",
-        metric: `${openSignals} decisiones abiertas`,
-      };
-    }
-
-    if (module.id === "baltasar") {
-      return {
-        ...module,
-        status: recentAnalyses > 0 ? "Analyzing flow" : "Awaiting market data",
-        metric: `${recentAnalyses} simbolos evaluados`,
-      };
-    }
-
-    if (module.id === "gaspar") {
-      return {
-        ...module,
-        status: "Ready for discovery",
-        metric: "Mock opportunities enabled",
-      };
-    }
-
-    return {
-      ...module,
-      status: "Coordinating output",
-      metric: signals[0]?.action || "No recent decision",
-    };
-  });
+function buildMetrics() {
+  return [
+    {
+      id: "total-signals",
+      label: "Total signals",
+      value: "128",
+      helper: "Placeholder mensual",
+      tone: "neutral",
+    },
+    {
+      id: "win-rate",
+      label: "Win rate",
+      value: "61.4%",
+      helper: "Mock referencial",
+      tone: "positive",
+    },
+    {
+      id: "active-modules",
+      label: "Active modules",
+      value: "2 / 4",
+      helper: "Melchor y Baltasar visibles",
+      tone: "neutral",
+    },
+    {
+      id: "system-health",
+      label: "System health",
+      value: "92%",
+      helper: "Estado general placeholder",
+      tone: "positive",
+    },
+    {
+      id: "trades-today",
+      label: "Trades today",
+      value: "06",
+      helper: "No conectado a trading real",
+      tone: "neutral",
+    },
+    {
+      id: "alerts",
+      label: "Alerts",
+      value: "03",
+      helper: "Eventos simulados de supervision",
+      tone: "warning",
+    },
+  ];
 }
 
 function buildSettingsSnapshot(port, hasOpenAIKey) {
   return {
     environment: process.env.NODE_ENV || "development",
-    siteUrl: process.env.MAGI_SITE_URL || "https://prosperity.lat",
-    port,
-    openAIConfigured: hasOpenAIKey,
-    mocksEnabled: process.env.MAGI_ENABLE_MOCKS !== "false",
-    storage: {
-      analysis: path.relative(paths.root, paths.analysis),
-      logs: path.relative(paths.root, paths.logs),
-      errors: path.relative(paths.root, paths.errors),
-    },
-    futureConnections: listConnectorNames(),
+    domain: process.env.MAGI_SITE_URL || "https://prosperity.lat",
+    localUrl: `http://localhost:${port}`,
+    placeholders: [
+      {
+        key: "Bot A",
+        value: process.env.MAGI_BOT_A_ENDPOINT || "pending",
+        status: "placeholder",
+      },
+      {
+        key: "Bot B",
+        value: process.env.MAGI_BOT_B_ENDPOINT || "pending",
+        status: "placeholder",
+      },
+      {
+        key: "Bot C",
+        value: process.env.MAGI_BOT_C_ENDPOINT || "pending",
+        status: "placeholder",
+      },
+      {
+        key: "OpenAI",
+        value: hasOpenAIKey ? "configured" : "not configured",
+        status: hasOpenAIKey ? "ready" : "placeholder",
+      },
+      {
+        key: "API",
+        value: `/api/dashboard`,
+        status: "ready",
+      },
+      {
+        key: "Environment",
+        value: process.env.NODE_ENV || "development",
+        status: "ready",
+      },
+    ],
   };
 }
 
 export function buildDashboardSnapshot({ uptimeSeconds, port, hasOpenAIKey }) {
-  const signals = loadLatestSignals();
-  const analysisStatus = loadAnalysisStatus();
-  const logs = loadRecentLogs();
-
   return {
-    overview: computeOverview(signals, analysisStatus, uptimeSeconds),
-    modules: computeModules(signals, analysisStatus),
-    signals,
-    logs,
+    overview: buildOverview(uptimeSeconds),
+    metrics: buildMetrics(),
+    modules: moduleCards,
+    recentActivity: recentActivityMock,
     settings: buildSettingsSnapshot(port, hasOpenAIKey),
-    analysisStatus,
+    signals: [],
+    logs: [],
   };
 }

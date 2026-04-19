@@ -1,11 +1,11 @@
 # Prosperity / MAGI
 
-Base tecnica recuperada para la plataforma central de Prosperity y la futura visualizacion operativa de MAGI. El proyecto combina un backend ligero en Express con un dashboard tecnico para monitorear estado general, modulos MAGI, decisiones, logs y configuracion.
+Base tecnica recuperada para la plataforma visual de Prosperity / MAGI. El proyecto combina un backend ligero en Express con un dashboard serio y navegable para mostrar overview, metricas placeholder, estados de modulos, actividad reciente y conexiones futuras.
 
 ## Estado actual
 
 - La aplicacion corre localmente con `npm start`.
-- El dashboard minimo ya incluye `Overview`, `Modules`, `Decisions / Signals`, `Logs` y `Settings`.
+- El dashboard minimo ya incluye `Overview`, `Metrics`, `Modules`, `Recent Activity` y `Settings / Connections`.
 - El backend mantiene el endpoint historico `POST /analisis` y persiste decisiones en `data/analysis`.
 - Si falta `OPENAI_API_KEY`, el servidor puede operar en modo mock para no bloquear desarrollo local.
 
@@ -92,12 +92,8 @@ scripts/
 - `GET /health`
 - `GET /api/status`
 - `GET /api/dashboard`
-- `GET /api/signals`
 - `GET /api/modules`
-- `GET /api/logs`
 - `GET /api/settings`
-- `GET /api/connectors`
-- `GET /api/connectors/:id`
 - `GET /analisis/:symbol`
 - `POST /analisis`
 
@@ -118,6 +114,6 @@ scripts/
 ## Pendiente recomendado
 
 - Rotar la `OPENAI_API_KEY` existente si estuvo expuesta fuera del entorno local.
-- Conectar fuentes reales de Bot A, Bot B, Bot C y telemetria de MAGI.
-- Agregar pruebas automatizadas para endpoints y adaptadores de logs.
-- Inicializar o reconectar el repositorio Git con su remoto oficial antes del push final.
+- Conectar fuentes reales de Bot A, Bot B y Bot C cuando se defina la siguiente fase.
+- Reemplazar metricas y actividad mock por datos reales cuando exista backend operativo.
+- Definir si la futura capa MAGI vivira solo como visualizacion o sumara telemetria real por modulo.

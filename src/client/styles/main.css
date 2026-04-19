@@ -255,6 +255,10 @@ a {
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 }
 
+.metrics-grid {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
 .module-grid {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
@@ -267,6 +271,43 @@ a {
 .module-card,
 .setting-card {
   padding: 18px;
+}
+
+.overview-hero {
+  display: grid;
+}
+
+.overview-panel {
+  display: grid;
+  grid-template-columns: 1.4fr 0.9fr;
+  gap: 20px;
+  padding: 24px;
+  background:
+    linear-gradient(135deg, rgba(56, 189, 248, 0.08), rgba(255, 255, 255, 0.02)),
+    var(--panel-strong);
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.overview-status {
+  display: block;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1;
+  margin: 10px 0 14px;
+  letter-spacing: -0.04em;
+}
+
+.overview-meta {
+  display: grid;
+  gap: 12px;
+}
+
+.overview-item {
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: rgba(4, 10, 18, 0.48);
 }
 
 .stats-value {
@@ -285,6 +326,34 @@ a {
   color: var(--success);
   font-size: 0.84rem;
   font-weight: 700;
+}
+
+.module-status-healthy {
+  background: rgba(52, 211, 153, 0.12);
+  color: var(--success);
+}
+
+.module-status-warning {
+  background: rgba(245, 158, 11, 0.12);
+  color: var(--warning);
+}
+
+.module-status-offline {
+  background: rgba(251, 113, 133, 0.12);
+  color: var(--danger);
+}
+
+.module-status-pending {
+  background: rgba(148, 163, 184, 0.12);
+  color: #cbd5e1;
+}
+
+.metric-positive {
+  border-color: rgba(52, 211, 153, 0.2);
+}
+
+.metric-warning {
+  border-color: rgba(245, 158, 11, 0.2);
 }
 
 .table-shell {
@@ -349,13 +418,36 @@ a {
   gap: 12px;
 }
 
-.log-entry {
+.log-entry,
+.activity-entry {
   padding: 16px 18px;
 }
 
-.log-entry p {
+.log-entry p,
+.activity-entry p {
   margin: 8px 0 0;
   color: var(--muted);
+}
+
+.activity-feed {
+  display: grid;
+  gap: 12px;
+}
+
+.activity-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.activity-ui,
+.activity-system,
+.activity-module,
+.activity-connection {
+  background: rgba(56, 189, 248, 0.1);
+  color: var(--accent);
 }
 
 .setting-card ul {
@@ -378,6 +470,10 @@ a {
   }
 
   .hero-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .overview-panel {
     grid-template-columns: 1fr;
   }
 }
