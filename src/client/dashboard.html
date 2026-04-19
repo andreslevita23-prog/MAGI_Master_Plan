@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MAGI Dashboard | Prosperity</title>
+    <link rel="stylesheet" href="/static/styles/main.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-block">
+          <img src="/assets/logo.png" alt="Logo Prosperity" class="sidebar-logo" />
+          <div>
+            <p class="eyebrow">MAGI Control Center</p>
+            <h1>Prosperity</h1>
+          </div>
+        </div>
+        <nav class="nav-list">
+          <a href="#overview" class="nav-link is-active">Overview</a>
+          <a href="#modules" class="nav-link">Modules</a>
+          <a href="#signals" class="nav-link">Decisions / Signals</a>
+          <a href="#logs" class="nav-link">Logs</a>
+          <a href="#settings" class="nav-link">Settings</a>
+        </nav>
+        <div class="sidebar-note">
+          <p>Base lista para conectar Bot A, Bot B, Bot C y orquestacion MAGI.</p>
+        </div>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Operational View</p>
+            <h2>Panel central del sistema MAGI</h2>
+          </div>
+          <button id="refreshButton" class="button button-primary">Actualizar</button>
+        </header>
+
+        <section id="overview" class="section-block">
+          <div class="section-header">
+            <h3>Overview</h3>
+            <p>Estado general de la plataforma, uptime y actividad reciente.</p>
+          </div>
+          <div id="overviewCards" class="stats-grid"></div>
+        </section>
+
+        <section id="modules" class="section-block">
+          <div class="section-header">
+            <h3>MAGI Modules</h3>
+            <p>Melchor, Baltasar, Gaspar y CEO-MAGI como base de monitoreo y decision.</p>
+          </div>
+          <div id="moduleCards" class="module-grid"></div>
+        </section>
+
+        <section id="signals" class="section-block">
+          <div class="section-header">
+            <h3>Decisions / Signals</h3>
+            <p>Ultimas decisiones registradas y estado operativo por simbolo.</p>
+          </div>
+          <div class="table-shell">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Timestamp</th>
+                  <th>Symbol</th>
+                  <th>Action</th>
+                  <th>Order</th>
+                  <th>Lot</th>
+                  <th>Comment</th>
+                </tr>
+              </thead>
+              <tbody id="signalsTable"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="logs" class="section-block">
+          <div class="section-header">
+            <h3>Logs</h3>
+            <p>Eventos recientes del sistema para trazabilidad y soporte.</p>
+          </div>
+          <div id="logFeed" class="log-feed"></div>
+        </section>
+
+        <section id="settings" class="section-block">
+          <div class="section-header">
+            <h3>Settings</h3>
+            <p>Configuracion local, endpoints y placeholders de integracion futura.</p>
+          </div>
+          <div id="settingsPanel" class="settings-grid"></div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="/static/scripts/dashboard.js"></script>
+  </body>
+  </html>
