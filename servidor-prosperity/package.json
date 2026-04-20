@@ -1,0 +1,26 @@
+{
+  "name": "servidor-prosperity",
+  "version": "1.0.0",
+  "description": "Plataforma central Prosperity / MAGI para analisis, monitoreo y orquestacion operativa.",
+  "type": "module",
+  "main": "src/server/index.js",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "dev": "node --watch src/server/index.js",
+    "start": "node src/server/index.js",
+    "check": "node --check src/server/index.js",
+    "smoke": "node scripts/smoke-test.mjs",
+    "test:input": "node scripts/test-input-open.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.10.0",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "openai": "^4.100.0"
+  }
+}

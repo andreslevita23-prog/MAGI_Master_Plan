@@ -1,0 +1,14 @@
+{
+  "action": "open",
+  "id_operacion": "2025.06.17 12:00:00_99999",
+  "details": {
+    "symbol": "EURUSD",
+    "order_type": "buy",
+    "entry_price": 1.12,
+    "stop_loss": 1.115,
+    "take_profit": 1.13,
+    "lot_size": 0.01,
+    "comment": "Caso MVP detectado: confluencia alcista H1/H4 con RSI y EMAs alineadas."
+  },
+  "timestamp": "2026-04-20T06:29:11.725Z"
+}

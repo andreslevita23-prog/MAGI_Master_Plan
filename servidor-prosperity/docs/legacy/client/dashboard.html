@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consola de Prosperity</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans p-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex items-center space-x-3 mb-6">
+      <img src="https://img.icons8.com/fluency/48/combo-chart.png" class="w-8 h-8" alt="icono">
+      <h1 class="text-2xl font-bold">Consola de Prosperity <span class="text-sm text-gray-500">(Tiempo Real)</span></h1>
+      <button onclick="cargarEstado()" class="ml-auto px-3 py-1 bg-blue-600 text-white text-sm rounded hover:bg-blue-700">🔁 Actualizar ahora</button>
+      <a href="/" class="ml-3 px-3 py-1 bg-gray-700 text-white text-sm rounded hover:bg-gray-800">🏠 Ir al Landing</a>
+    </div>
+
+    <div class="overflow-x-auto shadow rounded-lg">
+      <table class="min-w-full bg-white">
+        <thead>
+          <tr class="bg-gray-200 text-gray-700">
+            <th class="px-4 py-2 text-left">Símbolo</th>
+            <th class="px-4 py-2 text-left">Análisis / Comentario</th>
+            <th class="px-4 py-2 text-left">Decisión</th>
+            <th class="px-4 py-2 text-left">Hora</th>
+            <th class="px-4 py-2 text-left">Operación</th>
+            <th class="px-4 py-2 text-left">SL / TP</th>
+          </tr>
+        </thead>
+        <tbody id="tablaEstado" class="text-sm">
+          <tr><td class="px-4 py-3 text-center" colspan="6">Cargando...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    async function cargarEstado() {
+      try {
+        const res = await fetch('/api/status');
+        const data = await res.json();
+
+        const tabla = document.getElementById("tablaEstado");
+        tabla.innerHTML = "";
+
+        for (const symbol in data) {
+          const s = data[symbol];
+          const row = document.createElement("tr");
+          row.classList.add("border-b", "hover:bg-gray-100");
+
+          row.innerHTML = `
+            <td class="px-4 py-2 font-semibold">${symbol}</td>
+            <td class="px-4 py-2">
+              <div>${s.last_analysis}</div>
+              <div class="text-xs text-gray-500">🧠 ${s.comment || '-'}</div>
+            </td>
+            <td class="px-4 py-2">${s.decision}</td>
+            <td class="px-4 py-2">${new Date(s.timestamp).toLocaleTimeString()}</td>
+            <td class="px-4 py-2">${s.open_trade ? `${s.open_trade.type} @ ${s.open_trade.entry}` : '-'}</td>
+            <td class="px-4 py-2">${s.open_trade ? `SL: ${s.open_trade.sl}<br>TP: ${s.open_trade.tp}` : '-'}</td>
+          `;
+          tabla.appendChild(row);
+        }
+      } catch (e) {
+        console.error("Error cargando estado:", e);
+      }
+    }
+
+    setInterval(cargarEstado, 30000);
+    window.onload = cargarEstado;
+  </script>
+</body>
+</html>

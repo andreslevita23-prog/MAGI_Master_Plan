@@ -1,0 +1,17 @@
+services:
+  - type: web
+    runtime: node
+    name: prosperity-magi-web
+    plan: free
+    region: oregon
+    branch: chore/magi-recovery
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MAGI_SITE_URL
+        value: https://prosperity.lat
+      - key: MAGI_ENABLE_MOCKS
+        value: "true"

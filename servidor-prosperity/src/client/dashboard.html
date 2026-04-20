@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Centro de mando MAGI | Prosperity</title>
+    <link rel="stylesheet" href="/static/styles/main.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-block">
+          <img src="/assets/logo.png" alt="Logo Prosperity" class="sidebar-logo" />
+          <div>
+            <p class="eyebrow">Centro de mando MAGI</p>
+            <h1>Prosperity</h1>
+          </div>
+        </div>
+        <nav class="nav-list">
+          <a href="#estado" class="nav-link is-active">Estado del sistema</a>
+          <a href="#snapshots" class="nav-link">Instantaneas de Bot A</a>
+          <a href="#casos" class="nav-link">Casos y decision MAGI</a>
+          <a href="#despacho" class="nav-link">Despacho y errores</a>
+        </nav>
+        <div class="sidebar-note">
+          <p>Consola operativa minima para validar entradas reales, normalizacion, decisiones MVP y salida lista para Bot B.</p>
+        </div>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Operacion diaria</p>
+            <h2>Consola inicial de MAGI</h2>
+          </div>
+          <button id="refreshButton" class="button button-primary">Actualizar datos</button>
+        </header>
+
+        <section id="estado" class="section-block">
+          <div class="section-header">
+            <div>
+              <h3>Estado del sistema</h3>
+              <p>Resumen operativo real del backend y del ultimo snapshot recibido.</p>
+            </div>
+          </div>
+          <div id="overviewHero" class="overview-hero"></div>
+          <div id="overviewCards" class="stats-grid"></div>
+        </section>
+
+        <section id="snapshots" class="section-block">
+          <div class="section-header">
+            <div>
+              <h3>Instantaneas de Bot A</h3>
+              <p>Entradas recientes guardadas en persistencia real, con estado de validacion y contexto base.</p>
+            </div>
+          </div>
+          <div id="snapshotsList" class="snapshot-list"></div>
+        </section>
+
+        <section id="casos" class="section-block">
+          <div class="section-header">
+            <div>
+              <h3>Casos y decision MAGI</h3>
+              <p>Vista operativa de si hubo sin_caso o caso_mvp, junto con la razon principal de la decision interna.</p>
+            </div>
+          </div>
+          <div id="casesList" class="case-list"></div>
+        </section>
+
+        <section id="despacho" class="section-block">
+          <div class="section-header">
+            <div>
+              <h3>Despacho y errores</h3>
+              <p>Respuesta preparada para Bot B y eventos recientes del sistema para detectar inconsistencias rapido.</p>
+            </div>
+          </div>
+          <div id="executionList" class="execution-list"></div>
+          <div id="logsPanel" class="logs-panel"></div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="/static/scripts/dashboard.js"></script>
+  </body>
+</html>
