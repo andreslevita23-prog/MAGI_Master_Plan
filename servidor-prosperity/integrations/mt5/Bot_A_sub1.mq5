@@ -7,26 +7,27 @@
 #include "core/MagiFeatureEngine.mqh"
 #include "core/MagiDatasetWriter.mqh"
 
+#define BOT_A_SUB1_RUNTIME_BUILD_TAG "bot_a_sub1_rca_2026-04-22_v1"
+
 input string           InpSymbols                     = "EURUSD";
 input ENUM_TIMEFRAMES  InpAnchorTimeframe             = PERIOD_M5;
 input ENUM_TIMEFRAMES  InpPrimaryTimeframe            = PERIOD_H1;
 input bool             InpWriteCsv                    = true;
 input bool             InpWriteJsonl                  = true;
 input bool             InpSkipInvalidSnapshots        = true;
-input MagiStorageMode  InpStorageMode                 = MAGI_STORAGE_COMMON;
-input bool             InpFallbackToLocalIfCommonFails = false;
 input string           InpStorageRootFolder           = "MAGI";
 input string           InpStorageSubfolder            = "datasets\\bot_a_sub1";
 input bool             InpSplitPathBySymbol           = true;
 input bool             InpSplitPathByTimeframe        = true;
 input bool             InpSplitPathByDate             = true;
-input string           InpStorageAttemptFolder        = "prueba_1";
 input string           InpDatasetPrefix               = "magi_bot_a_sub1";
 
 string   g_symbols_sub1[];
 datetime g_last_processed_bar_sub1[];
 datetime g_last_persisted_bar_sub1[];
 MagiStoragePolicy g_storage_policy;
+string   g_run_id = "";
+datetime g_run_started_at = 0;
 
 bool SelectDatasetSymbols()
 {
@@ -66,11 +67,11 @@ bool SelectDatasetSymbols()
 void BuildStoragePolicy()
 {
    string resolved_subfolder = InpStorageSubfolder;
-   if(StringLen(InpStorageAttemptFolder) > 0)
-      resolved_subfolder = resolved_subfolder + "\\" + InpStorageAttemptFolder;
+   if(StringLen(g_run_id) > 0)
+      resolved_subfolder = resolved_subfolder + "\\" + g_run_id;
 
-   g_storage_policy.mode = InpStorageMode;
-   g_storage_policy.fallback_to_local = InpFallbackToLocalIfCommonFails;
+   g_storage_policy.mode = MAGI_STORAGE_COMMON;
+   g_storage_policy.fallback_to_local = false;
    g_storage_policy.root_folder = InpStorageRootFolder;
    g_storage_policy.subfolder = resolved_subfolder;
    g_storage_policy.split_by_symbol = InpSplitPathBySymbol;
@@ -79,18 +80,95 @@ void BuildStoragePolicy()
    g_storage_policy.dataset_prefix = InpDatasetPrefix;
 }
 
+string BuildRunId(const datetime run_start_time)
+{
+   MqlDateTime parts;
+   TimeToStruct(run_start_time, parts);
+
+   return StringFormat("run_%04d-%02d-%02d_%02d-%02d-%02d",
+                       parts.year,
+                       parts.mon,
+                       parts.day,
+                       parts.hour,
+                       parts.min,
+                       parts.sec);
+}
+
+void InitializeRunContext()
+{
+   g_run_started_at = TimeLocal();
+   g_run_id = BuildRunId(g_run_started_at);
+}
+
+string BuildRunRootRelativePath()
+{
+   string run_root = MagiNormalizeFolderPath(g_storage_policy.root_folder);
+   string subfolder = MagiNormalizeFolderPath(g_storage_policy.subfolder);
+   if(subfolder != "")
+      run_root = (run_root == "" ? subfolder : run_root + "\\" + subfolder);
+
+   return run_root;
+}
+
+bool WriteRuntimeMarker()
+{
+   string run_root_relative = BuildRunRootRelativePath();
+   string marker_name = "__runtime_marker__" + BOT_A_SUB1_RUNTIME_BUILD_TAG + ".txt";
+   string marker_relative = (run_root_relative == "" ? marker_name : run_root_relative + "\\" + marker_name);
+   string marker_effective = MagiResolveStorageBasePath(true) + "\\" + marker_relative;
+   int open_flags = FILE_READ | FILE_WRITE | FILE_TXT | FILE_ANSI | FILE_SHARE_READ | FILE_SHARE_WRITE;
+   open_flags |= FILE_COMMON;
+
+   ResetLastError();
+   int handle = FileOpen(marker_relative, open_flags);
+   if(handle == INVALID_HANDLE)
+   {
+      int error = GetLastError();
+      MagiLog("ERROR", "INIT", StringFormat("No se pudo escribir runtime marker | path=%s | error=%d",
+                                            marker_effective,
+                                            error));
+      return false;
+   }
+
+   FileSeek(handle, 0, SEEK_SET);
+   string marker_body =
+      "runtime_build_tag=" + BOT_A_SUB1_RUNTIME_BUILD_TAG + "\r\n" +
+      "run_id=" + g_run_id + "\r\n" +
+      "storage_mode=COMMON_FILES\r\n" +
+      "run_start_local=" + MagiDateTimeToIso(g_run_started_at) + "\r\n";
+
+   ResetLastError();
+   if(FileWriteString(handle, marker_body) == 0)
+   {
+      int write_error = GetLastError();
+      FileClose(handle);
+      MagiLog("ERROR", "INIT", StringFormat("No se pudo persistir runtime marker | path=%s | error=%d",
+                                            marker_effective,
+                                            write_error));
+      return false;
+   }
+
+   FileClose(handle);
+   MagiLog("INFO", "INIT", "Runtime marker persistido: " + marker_effective);
+   return true;
+}
+
 void LogStoragePolicy()
 {
-   string base_path = MagiResolveStorageBasePath(g_storage_policy.mode == MAGI_STORAGE_COMMON);
+   string base_path = MagiResolveStorageBasePath(true);
    string runtime_mode = ((bool)MQLInfoInteger(MQL_TESTER) ? "TESTER" : "LIVE_OR_CHART");
-   string fallback_text = (g_storage_policy.mode == MAGI_STORAGE_COMMON && g_storage_policy.fallback_to_local)
-                        ? "Si Common Files falla, se intentara Local Files."
-                        : "No habra fallback automatico a Local Files.";
+   string run_root_relative = BuildRunRootRelativePath();
+   string run_root = base_path + "\\" + run_root_relative;
 
    MagiLog("INFO", "INIT", "Politica de almacenamiento: " + MagiBuildStorageDescription(g_storage_policy));
-    MagiLog("INFO", "INIT", "Modo de ejecucion detectado: " + runtime_mode);
+   MagiLog("INFO", "INIT", "Modo de ejecucion detectado: " + runtime_mode);
+   MagiLog("INFO", "INIT", "Modo de storage forzado para Bot_A_sub1: COMMON_FILES");
+   MagiLog("INFO", "INIT", "RUNTIME_BUILD_TAG: " + BOT_A_SUB1_RUNTIME_BUILD_TAG);
+   MagiLog("INFO", "INIT", "Run ID generado: " + g_run_id);
+   MagiLog("INFO", "INIT", "Run start local: " + MagiDateTimeToIso(g_run_started_at));
+   MagiLog("INFO", "INIT", "Ruta base COMMON_FILES para esta corrida: " + run_root);
    MagiLog("INFO", "INIT", "Base path efectiva primaria: " + base_path);
-   MagiLog("INFO", "INIT", fallback_text);
+   MagiLog("INFO", "INIT", "Common Files habilitado. No habra fallback a rutas antiguas ni a carpetas fijas.");
 }
 
 bool IsNewClosedBarForDataset(const string symbol,const int symbol_index,datetime &bar_time)
@@ -129,7 +207,7 @@ void LogExpectedPaths(const string symbol,const datetime bar_time)
    {
       string csv_relative = MagiBuildDatasetDirectory(g_storage_policy, preview);
       string csv_name = MagiBuildDatasetBaseName(g_storage_policy, preview) + ".csv";
-      string csv_path = MagiResolveStorageBasePath(g_storage_policy.mode == MAGI_STORAGE_COMMON) + "\\" +
+      string csv_path = MagiResolveStorageBasePath(true) + "\\" +
                         (csv_relative == "" ? csv_name : csv_relative + "\\" + csv_name);
       MagiLog("INFO", symbol, "Ruta esperada CSV: " + csv_path);
    }
@@ -138,7 +216,7 @@ void LogExpectedPaths(const string symbol,const datetime bar_time)
    {
       string jsonl_relative = MagiBuildDatasetDirectory(g_storage_policy, preview);
       string jsonl_name = MagiBuildDatasetBaseName(g_storage_policy, preview) + ".jsonl";
-      string jsonl_path = MagiResolveStorageBasePath(g_storage_policy.mode == MAGI_STORAGE_COMMON) + "\\" +
+      string jsonl_path = MagiResolveStorageBasePath(true) + "\\" +
                           (jsonl_relative == "" ? jsonl_name : jsonl_relative + "\\" + jsonl_name);
       MagiLog("INFO", symbol, "Ruta esperada JSONL: " + jsonl_path);
    }
@@ -213,8 +291,10 @@ int OnInit()
       return INIT_FAILED;
    }
 
+   InitializeRunContext();
    BuildStoragePolicy();
    LogStoragePolicy();
+   WriteRuntimeMarker();
 
    for(int i = 0; i < ArraySize(g_symbols_sub1); i++)
    {

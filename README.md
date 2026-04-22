@@ -48,3 +48,13 @@ Este repositorio documenta la arquitectura objetivo, el alcance del MVP, los con
 ## Estado esperado de la siguiente fase
 
 Con esta base, la siguiente etapa puede traducir la arquitectura a implementacion modular sin redefinir contratos, semantica de casos ni gobierno de decision.
+
+## Dataset inicial de Baltasar
+
+La etapa de generacion del dataset inicial con `Bot_A_sub1` queda cerrada con una corrida limpia empaquetada fuera del repo principal.
+
+- Documentacion del dataset: `datasets/README.md`
+- Paquete local: `C:\Users\Asus\Desktop\MAGI_Master_Plan\dataset\dataset_botA_sub1_4months_v1.zip`
+- Objetivo: entrenamiento inicial de Baltasar sobre `EURUSD`, con ancla `M5` y timeframe primario `H1`
+
+El paquete no se versiona en GitHub por tamano. El repositorio conserva codigo, documentacion y referencias para reproducir o extender esta etapa.

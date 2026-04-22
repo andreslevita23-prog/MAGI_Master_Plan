@@ -26,6 +26,7 @@ struct MagiStoragePolicy
 struct MagiDatasetTarget
 {
    string file_name;
+   string directory;
    string relative_path;
    string effective_path;
    bool   use_common;
@@ -82,9 +83,6 @@ string MagiResolveStorageBasePath(const bool use_common)
       return TerminalInfoString(TERMINAL_COMMONDATA_PATH) + "\\Files";
 
    string root = TerminalInfoString(TERMINAL_DATA_PATH);
-   if((bool)MQLInfoInteger(MQL_TESTER))
-      return root + "\\MQL5\\Tester\\Files";
-
    return root + "\\MQL5\\Files";
 }
 
@@ -152,11 +150,54 @@ bool MagiBuildDatasetTarget(const MagiStoragePolicy &policy,
 {
    string directory = MagiBuildDatasetDirectory(policy, snapshot);
    string file_name = MagiBuildDatasetBaseName(policy, snapshot) + "." + extension;
+   target.directory = directory;
    target.relative_path = (directory == "" ? file_name : directory + "\\" + file_name);
    target.file_name = target.relative_path;
    target.effective_path = MagiResolveStorageBasePath(use_common) + "\\" + target.relative_path;
    target.use_common = use_common;
    target.existed_before_open = FileIsExist(target.relative_path, use_common ? FILE_COMMON : 0);
+   return true;
+}
+
+bool MagiEnsureDirectoryTreeExists(const string relative_directory,const bool use_common,string &failure_reason)
+{
+   failure_reason = "";
+
+   string normalized = MagiNormalizeFolderPath(relative_directory);
+   if(normalized == "")
+      return true;
+
+   string parts[];
+   int total = StringSplit(normalized, '\\', parts);
+   if(total <= 0)
+   {
+      failure_reason = "no se pudo dividir la ruta relativa";
+      return false;
+   }
+
+   string current = "";
+   int common_flag = (use_common ? FILE_COMMON : 0);
+
+   for(int i = 0; i < total; i++)
+   {
+      string segment = MagiSanitizePathSegment(parts[i]);
+      if(segment == "")
+         continue;
+
+      current = (current == "" ? segment : current + "\\" + segment);
+
+      ResetLastError();
+      if(FolderCreate(current, common_flag))
+         continue;
+
+      int error = GetLastError();
+      if(error == 5019)
+         continue;
+
+      failure_reason = StringFormat("FolderCreate fallo en '%s' con error=%d", current, error);
+      return false;
+   }
+
    return true;
 }
 
@@ -298,6 +339,16 @@ bool MagiAppendTextLineWithPolicy(const MagiStoragePolicy &policy,
          continue;
       }
 
+      string mkdir_reason = "";
+      if(!MagiEnsureDirectoryTreeExists(target.directory, use_common, mkdir_reason))
+      {
+         MagiLog("ERROR", snapshot.symbol, StringFormat("No se pudo preparar carpeta dataset | path=%s | mode=%s | detail=%s",
+                                                        target.effective_path,
+                                                        MagiStorageModeToString(use_common ? MAGI_STORAGE_COMMON : MAGI_STORAGE_LOCAL),
+                                                        mkdir_reason));
+         continue;
+      }
+
       int open_flags = FILE_READ | FILE_WRITE | FILE_TXT | FILE_ANSI | FILE_SHARE_READ | FILE_SHARE_WRITE;
       if(use_common)
          open_flags |= FILE_COMMON;
@@ -307,8 +358,9 @@ bool MagiAppendTextLineWithPolicy(const MagiStoragePolicy &policy,
       if(handle == INVALID_HANDLE)
       {
          int error = GetLastError();
-         MagiLog("ERROR", snapshot.symbol, StringFormat("No se pudo abrir archivo dataset | path=%s | mode=%s | error=%d",
+         MagiLog("ERROR", snapshot.symbol, StringFormat("No se pudo abrir archivo dataset | path=%s | relative=%s | mode=%s | error=%d",
                                                         target.effective_path,
+                                                        target.relative_path,
                                                         MagiStorageModeToString(use_common ? MAGI_STORAGE_COMMON : MAGI_STORAGE_LOCAL),
                                                         error));
          if(i + 1 < mode_count)

@@ -14,3 +14,9 @@ venv/
 *.log
 *.tmp
 *.bak
+
+# MT5 local artifacts
+servidor-prosperity/integrations/mt5/*.ex5
+
+# Local packaged datasets (do not commit)
+dataset/*.zip
