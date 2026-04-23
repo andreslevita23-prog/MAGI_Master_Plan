@@ -1,0 +1,188 @@
+experiment:
+  name: baltasar_training_v1
+  seed: 42
+  notes: "Official Baltasar v1.1 baseline with compact features and h18_t05 target."
+
+dataset:
+  source:
+    type: zip
+    path: ../dataset/dataset_botA_sub1_4months_v1.zip
+    zip_glob: "*.csv"
+  timestamp_column: anchor_bar_timestamp
+  sort_ascending: true
+  feature_variant: compact
+  target_column: null
+  derived_target:
+    enabled: true
+    price_column: current_price
+    horizon_steps: 18
+    buy_threshold: 0.0005
+    sell_threshold: -0.0005
+    label_name: triple_label_direction
+  required_columns:
+    - snapshot_id
+    - symbol
+    - anchor_bar_timestamp
+    - current_price
+    - anchor_open
+    - anchor_high
+    - anchor_low
+    - anchor_close
+    - market_structure
+    - structure_direction
+    - ema_20
+    - ema_50
+    - ema_200
+    - rsi_14
+    - momentum
+    - recent_range
+    - validation_is_valid
+  feature_drop_columns:
+    - schema_version
+    - snapshot_id
+    - symbol
+    - timestamp
+    - anchor_bar_timestamp
+    - bar_timestamp
+    - anchor_timeframe
+    - primary_timeframe
+    - source_mode
+    - trigger_type
+    - support_levels
+    - resistance_levels
+    - validation_issues
+    - features_json
+    - forward_return
+    - future_price
+  boolean_columns:
+    - has_open_position
+    - validation_is_valid
+  categorical_columns:
+    - market_structure
+    - structure_direction
+    - momentum
+    - position_type
+  label_order:
+    - SELL
+    - NEUTRAL
+    - BUY
+
+validation:
+  max_missing_ratio: 0.35
+  enforce_unique_snapshot_id: true
+  min_rows: 100
+
+split:
+  method: temporal
+  test_size: 0.2
+
+models:
+  baseline_tree:
+    enabled: true
+    class_name: DecisionTreeClassifier
+    params:
+      max_depth: 4
+      min_samples_leaf: 40
+      class_weight: balanced
+      random_state: 42
+  random_forest:
+    enabled: true
+    class_name: RandomForestClassifier
+    params:
+      n_estimators: 250
+      max_depth: 6
+      min_samples_leaf: 25
+      class_weight: balanced_subsample
+      random_state: 42
+      n_jobs: 1
+  hist_gradient_boosting:
+    enabled: true
+    class_name: HistGradientBoostingClassifier
+    params:
+      max_depth: 6
+      max_iter: 250
+      learning_rate: 0.06
+      min_samples_leaf: 30
+      random_state: 42
+
+artifacts:
+  metrics_dir: artifacts/metrics
+  models_dir: artifacts/models
+  figures_dir: artifacts/figures
+  reports_dir: artifacts/reports
+  processed_dir: data/processed
+  data_reports_dir: data/reports
+  history_file: artifacts/metrics/run_history.csv
+
+dashboard:
+  title: "Baltasar Training Lab v1.1"
+  default_model: baseline_tree
+
+official_baseline:
+  version: "Baltasar v1.1"
+  target_name: "h18_t05"
+  feature_variant: "compact"
+  baseline_model: "baseline_tree"
+  challenger_model: "random_forest"
+  rationale:
+    - "Chosen for balance between signal quality, temporal stability and interpretability."
+    - "Not selected by best point F1 alone; walk-forward stability weighed more."
+    - "Compact features reduce redundancy and make the lab easier to explain."
+
+diagnostics:
+  target_scenarios:
+    - name: current_h12_t08
+      horizon_steps: 12
+      buy_threshold: 0.0008
+      sell_threshold: -0.0008
+    - name: tighter_h12_t05
+      horizon_steps: 12
+      buy_threshold: 0.0005
+      sell_threshold: -0.0005
+    - name: longer_h24_t08
+      horizon_steps: 24
+      buy_threshold: 0.0008
+      sell_threshold: -0.0008
+    - name: shorter_h6_t06
+      horizon_steps: 6
+      buy_threshold: 0.0006
+      sell_threshold: -0.0006
+  walk_forward:
+    n_folds: 4
+    min_train_fraction: 0.5
+  top_features: 12
+
+phase3:
+  target_grid:
+    horizons:
+      - 6
+      - 12
+      - 18
+      - 24
+    thresholds:
+      - 0.0004
+      - 0.0005
+      - 0.0006
+      - 0.0008
+  target_selection:
+    max_candidates: 3
+    score_weights:
+      f1_macro: 0.45
+      balance: 0.30
+      stability: 0.25
+  feature_variants:
+    current:
+      description: "Current snapshot-heavy feature set."
+    compact:
+      description: "Compact feature set with normalized price relationships and fewer low-utility columns."
+  comparison:
+    scenarios:
+      - name: current_target_current_features
+        target_source: current
+        feature_variant: current
+      - name: candidate_target_current_features
+        target_source: candidate
+        feature_variant: current
+      - name: candidate_target_compact_features
+        target_source: candidate
+        feature_variant: compact

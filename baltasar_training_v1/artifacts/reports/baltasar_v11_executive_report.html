@@ -1,0 +1,167 @@
+<html><head><meta charset='utf-8'><title>Baltasar v1.1 Executive Report</title>
+<style>body{font-family:Segoe UI,Arial,sans-serif;max-width:980px;margin:32px auto;padding:0 16px;line-height:1.55;color:#1f2937;} h1,h2{color:#111827;} img{max-width:100%;height:auto;border:1px solid #e5e7eb;border-radius:8px;margin:12px 0 24px;} code{background:#f3f4f6;padding:2px 5px;border-radius:4px;} ul{padding-left:22px;} </style></head><body>
+<h1>Baltasar v1.1 Executive Report</h1>
+<p></p>
+<h2>Executive Summary</h2>
+<p></p>
+<p>Baltasar v1.1 ya esta consolidado como baseline oficial del laboratorio de clasificacion de direccion de mercado dentro de MAGI. La configuracion oficial usa target `h18_t05`, features `compact`, `baseline_tree` como baseline y `random_forest` como challenger.</p>
+<p></p>
+<p>La recomendacion ejecutiva es adoptar Baltasar v1.1 como referencia operativa de laboratorio para Prosperity, porque mejora de forma material la estabilidad y la trazabilidad respecto a la version inicial, aun cuando no maximiza la mejor metrica puntual observada.</p>
+<p></p>
+<img alt='Evolution' src='../figures/baltasar_v11_exec_phase_evolution.png' />
+<p></p>
+<h2>Que construyo Codex</h2>
+<p></p>
+<ul>
+<li>un laboratorio reproducible de entrenamiento, diagnostico y consolidacion para Baltasar</li>
+<li>validacion de dataset, dashboards, notebooks y artefactos exportables</li>
+<li>una ruta de decision por fases: corrida inicial, diagnostico, rediseno y consolidacion oficial</li>
+<li>una base oficial v1.1 y un challenger documentado</li>
+</ul>
+<p></p>
+<h2>Cual era el problema inicial</h2>
+<p></p>
+<p>El laboratorio arranco con una version honesta pero debil:</p>
+<p></p>
+<ul>
+<li>target muy dominado por `NEUTRAL`</li>
+<li>bajo `F1 macro`</li>
+<li>alta sensibilidad al horizonte y threshold del target</li>
+<li>inestabilidad real entre tramos temporales</li>
+<li>redundancia alta en snapshots de precio</li>
+</ul>
+<p></p>
+<h2>Que se diagnostico</h2>
+<p></p>
+<p>La conclusion del diagnostico fue clara:</p>
+<p></p>
+<ul>
+<li>el problema principal no era solo el modelo; era la definicion del target y la estructura del set de features</li>
+<li>el target original `h12_t08` estaba demasiado cargado hacia `NEUTRAL`</li>
+<li>varias features aportaban poco o duplicaban informacion</li>
+<li>la estabilidad temporal debia pesar mas que una sola corrida holdout</li>
+</ul>
+<p></p>
+<h2>Como cambio el target</h2>
+<p></p>
+<p>Se rediseno el target oficial a `h18_t05`:</p>
+<p></p>
+<ul>
+<li>horizonte futuro: `18`</li>
+<li>threshold: `0.0005`</li>
+</ul>
+<p></p>
+<p>Esto mejoro el balance de clases y la calidad de senal para entrenamiento. La distribucion objetivo redisenada queda aproximadamente:</p>
+<p></p>
+<ul>
+<li>{&#x27;SELL&#x27;: 6193, &#x27;NEUTRAL&#x27;: 12038, &#x27;BUY&#x27;: 6096}</li>
+</ul>
+<p></p>
+<img alt='Target Distribution' src='../figures/baltasar_v11_exec_target_distribution.png' />
+<p></p>
+<h2>Como se simplificaron las features</h2>
+<p></p>
+<p>Se reemplazo un set cargado de snapshots absolutos por una variante `compact` basada en relaciones mas explicativas:</p>
+<p></p>
+<ul>
+<li>rangos normalizados</li>
+<li>gaps entre EMAs</li>
+<li>precio relativo frente a EMAs</li>
+<li>RSI</li>
+<li>direccion estructural</li>
+</ul>
+<p></p>
+<p>Features compactas mas relevantes:</p>
+<p></p>
+<ul>
+<li>numeric__candle_range_ratio, numeric__normalized_recent_range, numeric__ema_gap_50_200, numeric__ema_gap_20_50, numeric__price_vs_ema20, numeric__rsi_14, numeric__ema_gap_20_200, categorical__structure_direction_bullish</li>
+</ul>
+<p></p>
+<img alt='Compact Features' src='../figures/baltasar_v11_exec_feature_importance.png' />
+<p></p>
+<h2>Por que `baseline_tree` quedo como baseline oficial</h2>
+<p></p>
+<p>`baseline_tree` no fue el mejor modelo puntual, pero si el mejor baseline para gobernanza del laboratorio:</p>
+<p></p>
+<ul>
+<li>holdout `F1 macro`: 0.3066</li>
+<li>walk-forward `F1 mean`: 0.3128</li>
+<li>walk-forward `F1 std`: 0.0243</li>
+<li>numero de features: 16</li>
+</ul>
+<p></p>
+<p>La dispersion temporal fue claramente menor que la del challenger. Para Prosperity, esto significa una base mas interpretable, mas estable y mas facil de monitorear.</p>
+<p></p>
+<h2>Por que `random_forest` quedo como challenger</h2>
+<p></p>
+<p>`random_forest` compacto quedo documentado como challenger porque:</p>
+<p></p>
+<ul>
+<li>logra mejor `F1 macro` puntual: 0.3886</li>
+<li>logra mejor `walk-forward F1 mean`: 0.3251</li>
+<li>pero su variabilidad temporal es bastante mayor: 0.0611</li>
+</ul>
+<p></p>
+<p>En terminos ejecutivos: hoy parece mas fuerte en una foto, pero menos confiable como referencia oficial del laboratorio.</p>
+<p></p>
+<img alt='Official vs Challenger' src='../figures/baltasar_v11_exec_official_vs_challenger.png' />
+<p></p>
+<h2>Que metricas importan</h2>
+<p></p>
+<p>Para esta etapa importan principalmente:</p>
+<p></p>
+<ul>
+<li>`F1 macro`: porque evita premiar solo la clase dominante</li>
+<li>`accuracy`: como referencia general, pero no como criterio principal</li>
+<li>metricas por clase: para entender si el sistema realmente distingue `BUY`, `SELL` y `NEUTRAL`</li>
+<li>`walk_forward_f1_mean`: porque mide robustez entre tramos temporales</li>
+<li>`walk_forward_f1_std`: porque mide estabilidad</li>
+</ul>
+<p></p>
+<h2>Que significa el trade-off entre F1 puntual y estabilidad temporal</h2>
+<p></p>
+<p>El laboratorio eligio una configuracion que no persigue solo el mejor numero puntual, sino la mejor combinacion entre rendimiento, estabilidad y explicabilidad.</p>
+<p></p>
+<p>Eso significa aceptar un `F1` puntual menor si a cambio obtenemos:</p>
+<p></p>
+<ul>
+<li>menor dispersion entre tramos</li>
+<li>mayor trazabilidad del comportamiento</li>
+<li>mejor capacidad de explicar por que el baseline fue elegido</li>
+</ul>
+<p></p>
+<img alt='Original vs v1.1' src='../figures/baltasar_v11_exec_original_vs_v11.png' />
+<p></p>
+<img alt='Walk-forward' src='../figures/20260422T235032Z_candidate_target_compact_features_walk_forward.png' />
+<p></p>
+<img alt='Trade-off' src='../figures/baltasar_v11_exec_tradeoff.png' />
+<p></p>
+<h2>Que puede hacer Baltasar hoy</h2>
+<p></p>
+<ul>
+<li>clasificar direccion de mercado en tres clases con una base reproducible y monitoreable</li>
+<li>servir como baseline serio para comparaciones futuras</li>
+<li>mostrar una estructura clara de gobierno entre baseline oficial y challenger</li>
+<li>sostener una narrativa tecnica defendible frente a decisiones futuras</li>
+</ul>
+<p></p>
+<h2>Que no puede hacer todavia</h2>
+<p></p>
+<ul>
+<li>no esta listo para produccion operativa sin mas fases</li>
+<li>no garantiza robustez suficiente para todos los regimenes de mercado</li>
+<li>no incorpora calibracion, costos de clase ni tuning fino</li>
+<li>no reemplaza todavia una logica de negocio completa de trading</li>
+</ul>
+<p></p>
+<h2>Recomendacion ejecutiva para Prosperity</h2>
+<p></p>
+<p>Adoptar Baltasar v1.1 como baseline oficial del laboratorio y usarlo como referencia de control para las siguientes fases. Mantener `random_forest` compacto como challenger formal, pero no promoverlo todavia mientras su estabilidad temporal siga siendo sensiblemente peor.</p>
+<p></p>
+<h2>Decision sugerida para Prosperity</h2>
+<p></p>
+<p>1. Aprobar Baltasar v1.1 como baseline oficial del laboratorio MAGI.</p>
+<p>2. Usar esta base para toda comunicacion interna, demos y seguimiento tecnico inmediato.</p>
+<p>3. Mantener el challenger activo solo como comparador, no como baseline oficial.</p>
+<p>4. Autorizar una futura fase enfocada en calibracion, robustez temporal y reglas de promocion del challenger antes de cualquier salto a uso operativo mas exigente.</p>
+</body></html>

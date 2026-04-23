@@ -1,0 +1,3 @@
+role,version,scenario_name,target_name,feature_variant,model_name,feature_count,accuracy,f1_macro,walk_forward_f1_mean,walk_forward_f1_std,trade_off
+official_baseline,Baltasar v1.1,candidate_target_compact_features,h18_t05,compact,baseline_tree,16,0.3933415536374846,0.306621227888016,0.312845757723348,0.0243325745710744,Chosen for higher temporal stability and clearer interpretability.
+challenger,Baltasar v1.1,candidate_target_compact_features,h18_t05,compact,random_forest,16,0.3898479243732018,0.3886199385190519,0.3251076640405242,0.0611219508955261,Kept as challenger due to stronger point metrics but weaker stability.

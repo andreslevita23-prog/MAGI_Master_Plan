@@ -1,0 +1,25 @@
+{
+  "rows": 24345,
+  "columns": 35,
+  "missing_required_columns": [],
+  "duplicate_snapshot_ids": 0,
+  "invalid_validation_rows": 0,
+  "missing_ratio_top_10": {
+    "floating_pnl": 1.0,
+    "tp": 1.0,
+    "sl": 1.0,
+    "entry_price": 1.0,
+    "position_type": 1.0,
+    "validation_issues": 1.0,
+    "schema_version": 0.0,
+    "symbol": 0.0,
+    "snapshot_id": 0.0,
+    "source_mode": 0.0
+  },
+  "timestamp_min": "2025-12-15 00:00:00+00:00",
+  "timestamp_max": "2026-04-14 23:50:00+00:00",
+  "passed": true,
+  "warnings": [
+    "Columns above missing threshold: floating_pnl, tp, sl, entry_price, position_type, validation_issues"
+  ]
+}

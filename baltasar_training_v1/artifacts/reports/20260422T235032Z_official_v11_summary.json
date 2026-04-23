@@ -1,0 +1,37 @@
+{
+  "run_id": "20260422T235032Z",
+  "version": "Baltasar v1.1",
+  "benchmark_path": "C:\\Users\\Asus\\Desktop\\MAGI_Master_Plan\\baltasar_training_v1\\artifacts\\metrics\\20260422T235032Z_official_v11_benchmark.csv",
+  "report_path": "C:\\Users\\Asus\\Desktop\\MAGI_Master_Plan\\baltasar_training_v1\\artifacts\\reports\\20260422T235032Z_official_v11_consolidation.md",
+  "official_baseline": {
+    "role": "official_baseline",
+    "version": "Baltasar v1.1",
+    "scenario_name": "candidate_target_compact_features",
+    "target_name": "h18_t05",
+    "feature_variant": "compact",
+    "model_name": "baseline_tree",
+    "feature_count": 16,
+    "accuracy": 0.3933415536374846,
+    "f1_macro": 0.306621227888016,
+    "walk_forward_f1_mean": 0.312845757723348,
+    "walk_forward_f1_std": 0.0243325745710744,
+    "trade_off": "Chosen for higher temporal stability and clearer interpretability."
+  },
+  "challenger": {
+    "role": "challenger",
+    "version": "Baltasar v1.1",
+    "scenario_name": "candidate_target_compact_features",
+    "target_name": "h18_t05",
+    "feature_variant": "compact",
+    "model_name": "random_forest",
+    "feature_count": 16,
+    "accuracy": 0.3898479243732018,
+    "f1_macro": 0.3886199385190519,
+    "walk_forward_f1_mean": 0.3251076640405242,
+    "walk_forward_f1_std": 0.0611219508955261,
+    "trade_off": "Kept as challenger due to stronger point metrics but weaker stability."
+  },
+  "compact_feature_importance_path": "C:\\Users\\Asus\\Desktop\\MAGI_Master_Plan\\baltasar_training_v1\\artifacts\\metrics\\candidate_target_compact_features__baseline_tree_feature_importance.csv",
+  "baseline_class_metrics_path": "C:\\Users\\Asus\\Desktop\\MAGI_Master_Plan\\baltasar_training_v1\\artifacts\\metrics\\candidate_target_compact_features__baseline_tree_class_metrics.csv",
+  "challenger_class_metrics_path": "C:\\Users\\Asus\\Desktop\\MAGI_Master_Plan\\baltasar_training_v1\\artifacts\\metrics\\candidate_target_compact_features__random_forest_class_metrics.csv"
+}

@@ -1,0 +1,15 @@
+{
+  "run_id": "20260422T235032Z",
+  "markdown_report_path": "C:\\Users\\Asus\\Desktop\\MAGI_Master_Plan\\baltasar_training_v1\\artifacts\\reports\\baltasar_v11_executive_report.md",
+  "html_report_path": "C:\\Users\\Asus\\Desktop\\MAGI_Master_Plan\\baltasar_training_v1\\artifacts\\reports\\baltasar_v11_executive_report.html",
+  "figure_paths": {
+    "phase_evolution": "C:\\Users\\Asus\\Desktop\\MAGI_Master_Plan\\baltasar_training_v1\\artifacts\\figures\\baltasar_v11_exec_phase_evolution.png",
+    "original_vs_v11": "C:\\Users\\Asus\\Desktop\\MAGI_Master_Plan\\baltasar_training_v1\\artifacts\\figures\\baltasar_v11_exec_original_vs_v11.png",
+    "official_vs_challenger": "C:\\Users\\Asus\\Desktop\\MAGI_Master_Plan\\baltasar_training_v1\\artifacts\\figures\\baltasar_v11_exec_official_vs_challenger.png",
+    "feature_importance": "C:\\Users\\Asus\\Desktop\\MAGI_Master_Plan\\baltasar_training_v1\\artifacts\\figures\\baltasar_v11_exec_feature_importance.png",
+    "tradeoff": "C:\\Users\\Asus\\Desktop\\MAGI_Master_Plan\\baltasar_training_v1\\artifacts\\figures\\baltasar_v11_exec_tradeoff.png",
+    "target_distribution": "C:\\Users\\Asus\\Desktop\\MAGI_Master_Plan\\baltasar_training_v1\\artifacts\\figures\\baltasar_v11_exec_target_distribution.png",
+    "walk_forward": "C:\\Users\\Asus\\Desktop\\MAGI_Master_Plan\\baltasar_training_v1\\artifacts\\figures\\20260422T235032Z_candidate_target_compact_features_walk_forward.png"
+  },
+  "official_summary_path": "C:\\Users\\Asus\\Desktop\\MAGI_Master_Plan\\baltasar_training_v1\\artifacts\\reports\\20260422T235032Z_official_v11_summary.json"
+}

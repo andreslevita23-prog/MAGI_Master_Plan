@@ -1,0 +1,32 @@
+{
+  "run_id": "20260422T235032Z",
+  "report_path": "C:\\Users\\Asus\\Desktop\\MAGI_Master_Plan\\baltasar_training_v1\\artifacts\\reports\\20260422T235032Z_diagnostic_report.md",
+  "target_audit_path": "C:\\Users\\Asus\\Desktop\\MAGI_Master_Plan\\baltasar_training_v1\\artifacts\\metrics\\20260422T235032Z_target_audit.csv",
+  "walk_forward_path": "C:\\Users\\Asus\\Desktop\\MAGI_Master_Plan\\baltasar_training_v1\\artifacts\\metrics\\20260422T235032Z_walk_forward_metrics.csv",
+  "class_metric_paths": {
+    "baseline_tree": "C:\\Users\\Asus\\Desktop\\MAGI_Master_Plan\\baltasar_training_v1\\artifacts\\metrics\\20260422T235032Z_baseline_tree_class_metrics.csv",
+    "random_forest": "C:\\Users\\Asus\\Desktop\\MAGI_Master_Plan\\baltasar_training_v1\\artifacts\\metrics\\20260422T235032Z_random_forest_class_metrics.csv"
+  },
+  "prediction_summaries": [
+    {
+      "model_name": "baseline_tree",
+      "prediction_distribution": {
+        "SELL": 0.7411136223546333,
+        "BUY": 0.15040065748921308,
+        "NEUTRAL": 0.1084857201561537
+      }
+    },
+    {
+      "model_name": "random_forest",
+      "prediction_distribution": {
+        "SELL": 0.6431066365317444,
+        "BUY": 0.23423053215533182,
+        "NEUTRAL": 0.12266283131292377
+      }
+    }
+  ],
+  "best_model_name": "baseline_tree",
+  "failed_models": {
+    "hist_gradient_boosting": "[WinError 5] Acceso denegado"
+  }
+}

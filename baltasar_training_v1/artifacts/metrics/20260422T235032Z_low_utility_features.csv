@@ -1,0 +1,9 @@
+feature,importance,f_score,p_value,importance_rank,univariate_rank,combined_rank
+position_type,0.0,,,9.0,11.0,20.0
+open_positions_count,0.0,0.0,1.0,9.0,11.0,20.0
+sl,0.0,,,9.0,11.0,20.0
+entry_price,0.0,,,9.0,11.0,20.0
+floating_pnl,0.0,,,9.0,11.0,20.0
+tp,0.0,,,9.0,11.0,20.0
+validation_is_valid,0.0,,,9.0,11.0,20.0
+market_structure,0.0,,,9.0,11.0,20.0

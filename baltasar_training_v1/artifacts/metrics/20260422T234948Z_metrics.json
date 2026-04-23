@@ -1,0 +1,68 @@
+{
+  "baseline_tree": {
+    "accuracy": 1.0,
+    "precision_macro": 1.0,
+    "recall_macro": 1.0,
+    "f1_macro": 1.0,
+    "f1_by_class": {
+      "SELL": 1.0,
+      "NEUTRAL": 1.0,
+      "BUY": 1.0
+    },
+    "support_by_class": {
+      "SELL": 591,
+      "NEUTRAL": 3566,
+      "BUY": 710
+    },
+    "confusion_matrix": [
+      [
+        591,
+        0,
+        0
+      ],
+      [
+        0,
+        3566,
+        0
+      ],
+      [
+        0,
+        0,
+        710
+      ]
+    ]
+  },
+  "random_forest": {
+    "accuracy": 1.0,
+    "precision_macro": 1.0,
+    "recall_macro": 1.0,
+    "f1_macro": 1.0,
+    "f1_by_class": {
+      "SELL": 1.0,
+      "NEUTRAL": 1.0,
+      "BUY": 1.0
+    },
+    "support_by_class": {
+      "SELL": 591,
+      "NEUTRAL": 3566,
+      "BUY": 710
+    },
+    "confusion_matrix": [
+      [
+        591,
+        0,
+        0
+      ],
+      [
+        0,
+        3566,
+        0
+      ],
+      [
+        0,
+        0,
+        710
+      ]
+    ]
+  }
+}
