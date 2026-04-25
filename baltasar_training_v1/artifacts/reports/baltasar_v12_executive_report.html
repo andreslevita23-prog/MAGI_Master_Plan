@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Baltasar v1.2 Executive Report</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 18mm 14mm 18mm 14mm;
+    }
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: #1f2937;
+      margin: 0;
+      line-height: 1.55;
+      background: #f4f1ea;
+    }
+    .page {
+      background: white;
+      padding: 28px 34px;
+      margin: 0 auto 18px auto;
+      box-sizing: border-box;
+      page-break-after: always;
+    }
+    .page:last-child { page-break-after: auto; }
+    .cover {
+      min-height: 1000px;
+      background: linear-gradient(135deg, #14342b 0%, #255b4d 55%, #d7e6d8 100%);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .cover h1 {
+      font-size: 34px;
+      margin: 0 0 14px 0;
+      line-height: 1.1;
+    }
+    .cover h2 {
+      font-size: 18px;
+      font-weight: 500;
+      margin: 0 0 28px 0;
+      color: #e6f2ea;
+    }
+    .cover .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+    .cover .meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 28px;
+      max-width: 620px;
+    }
+    .cover .meta-card {
+      background: rgba(255,255,255,0.12);
+      border-radius: 14px;
+      padding: 14px 16px;
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+    .cover .meta-card .label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      opacity: 0.8;
+    }
+    .cover .meta-card .value {
+      font-size: 18px;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+    h1, h2, h3 {
+      color: #0f172a;
+      margin-top: 0;
+    }
+    h1 { font-size: 28px; margin-bottom: 12px; }
+    h2 {
+      font-size: 22px;
+      margin-top: 26px;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #dbe7df;
+      padding-bottom: 6px;
+    }
+    h3 {
+      font-size: 16px;
+      margin-top: 18px;
+      margin-bottom: 8px;
+    }
+    .lead {
+      font-size: 17px;
+      color: #334155;
+    }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 22px 0;
+    }
+    .card {
+      background: #f8faf9;
+      border: 1px solid #dce8df;
+      border-radius: 16px;
+      padding: 16px 18px;
+    }
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin: 18px 0 22px 0;
+    }
+    .kpi {
+      background: #f7f8fb;
+      border: 1px solid #e1e6ef;
+      border-radius: 14px;
+      padding: 14px;
+    }
+    .kpi .label {
+      font-size: 11px;
+      text-transform: uppercase;
+      color: #64748b;
+      letter-spacing: 0.05em;
+    }
+    .kpi .value {
+      font-size: 22px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-top: 4px;
+    }
+    .kpi .note {
+      font-size: 12px;
+      color: #475569;
+      margin-top: 3px;
+    }
+    ul {
+      padding-left: 22px;
+      margin-top: 8px;
+    }
+    li {
+      margin-bottom: 6px;
+    }
+    .figure {
+      margin: 20px 0 26px 0;
+      page-break-inside: avoid;
+    }
+    .figure img {
+      width: 100%;
+      border: 1px solid #d6dde7;
+      border-radius: 14px;
+      display: block;
+      background: #fff;
+    }
+    .caption {
+      font-size: 13px;
+      color: #475569;
+      margin-top: 8px;
+    }
+    .decision {
+      background: linear-gradient(135deg, #e8f3ed 0%, #f5fbf8 100%);
+      border: 1px solid #c6decf;
+      border-radius: 18px;
+      padding: 20px 22px;
+      margin-top: 18px;
+    }
+    .decision h2 {
+      border: 0;
+      padding-bottom: 0;
+      margin-bottom: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 18px 0;
+      font-size: 13px;
+    }
+    th, td {
+      border-bottom: 1px solid #dbe3ec;
+      padding: 8px 10px;
+      text-align: left;
+    }
+    th {
+      background: #f5f8fb;
+      color: #0f172a;
+    }
+    .small {
+      font-size: 12px;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+  <section class="page cover">
+    <div class="badge">Prosperity · MAGI · Executive Report</div>
+    <h1>Baltasar v1.2</h1>
+    <h2>Consolidacion ejecutiva desde v1.1 hasta la nueva base oficial</h2>
+    <p class="lead">Este documento resume en lenguaje claro que se construyo, que se descubrio, que cambio y por que Baltasar v1.2 quedo promovido como la nueva base oficial del laboratorio.</p>
+    <div class="meta">
+      <div class="meta-card"><div class="label">Target oficial</div><div class="value">h12_t03</div></div>
+      <div class="meta-card"><div class="label">Features</div><div class="value">compact</div></div>
+      <div class="meta-card"><div class="label">Baseline oficial</div><div class="value">random_forest</div></div>
+      <div class="meta-card"><div class="label">Referencia explicable</div><div class="value">baseline_tree</div></div>
+      <div class="meta-card"><div class="label">Dataset extendido</div><div class="value">148,551 filas</div></div>
+      <div class="meta-card"><div class="label">Cobertura</div><div class="value">24 meses</div></div>
+    </div>
+  </section>
+
+  <section class="page">
+    <h1>Resumen Ejecutivo</h1>
+    <p class="lead">Baltasar v1.2 es una mejora real sobre v1.1. La nueva configuracion no solo eleva la senal, sino que tambien reduce la dispersion temporal. Esa combinacion es la razon por la que `random_forest` ahora si puede ser promovido como baseline oficial.</p>
+    <div class="kpi-grid">
+      <div class="kpi"><div class="label">RF F1 macro</div><div class="value">0.4014</div><div class="note">baseline oficial v1.2</div></div>
+      <div class="kpi"><div class="label">RF WF mean</div><div class="value">0.3865</div><div class="note">mejor generalizacion</div></div>
+      <div class="kpi"><div class="label">RF WF std</div><div class="value">0.0119</div><div class="note">dispersion baja</div></div>
+      <div class="kpi"><div class="label">Dataset</div><div class="value">148,551</div><div class="note">filas brutas</div></div>
+    </div>
+    <div class="summary-grid">
+      <div class="card">
+        <h3>Lo que cambio</h3>
+        <ul>
+          <li>El target oficial paso de `h18_t05` a `h12_t03`.</li>
+          <li>La muestra crecio desde el dataset inicial a un dataset extendido de casi 24 meses.</li>
+          <li>`random_forest` paso de challenger a baseline oficial.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Por que importa</h3>
+        <ul>
+          <li>Se mejoro `F1 macro` sin empeorar estabilidad.</li>
+          <li>La dispersion temporal cayo de forma fuerte.</li>
+          <li>El laboratorio queda mejor preparado para una fase posterior de calibracion.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="figure">
+      <img src="../figures/baltasar_v12_exec_phase_evolution.png" alt="Evolucion del laboratorio" />
+      <div class="caption">La evolucion por fases muestra que Baltasar deja atras la primera corrida debil, consolida v1.1 y da un salto adicional en v1.2 al combinar mejor senal y estabilidad.</div>
+    </div>
+  </section>
+
+  <section class="page">
+    <h2>Que construyo Codex</h2>
+    <ul>
+      <li>Un laboratorio reproducible de entrenamiento, diagnostico, rediseño y consolidacion.</li>
+      <li>Un proceso auditable para revisar target, features, modelos y estabilidad temporal.</li>
+      <li>Artefactos ejecutivos, tecnicos y visuales para explicar decisiones sin depender de interpretaciones ad hoc.</li>
+    </ul>
+
+    <h2>Problema inicial de v1.1</h2>
+    <p>Antes de la nueva consolidacion, el laboratorio ya habia avanzado, pero todavia habia una tension entre rendimiento puntual y estabilidad temporal. La muestra inicial permitia aprender, pero no era suficiente para validar una promocion mas agresiva del baseline.</p>
+
+    <h2>Por que se reviso el target</h2>
+    <p>La fase de diagnostico mostro que gran parte del problema estaba en la definicion del target: demasiado peso de `NEUTRAL`, sensibilidad a thresholds y horizonte, e inestabilidad al cambiar de tramo temporal.</p>
+
+    <h2>Por que `h12_t03` reemplaza a `h18_t05`</h2>
+    <p>`h18_t05` fue una mejora correcta para v1.1, pero `h12_t03` mostro mejor consistencia cruzando dos modelos y luego sobre el dataset extendido. En pocas palabras: no solo se ve mejor, tambien resiste mejor.</p>
+    <div class="figure">
+      <img src="../figures/baltasar_v12_target_distribution.png" alt="Distribucion del target" />
+      <div class="caption">La distribucion del target oficial queda mucho mas equilibrada: `NEUTRAL` 39.96%, `BUY` 30.39%, `SELL` 29.65%. Eso hace que `F1 macro` capture mejor valor real.</div>
+    </div>
+  </section>
+
+  <section class="page">
+    <h2>Por que se uso el dataset extendido de 24 meses</h2>
+    <p>La decision de negocio no podia apoyarse solo en una muestra corta. Por eso v1.2 se validó sobre un dataset extendido de casi 24 meses, desde 2024-04-15 00:00:00+00:00 hasta 2026-04-14 23:50:00+00:00.</p>
+    <table>
+      <tr><th>Dato</th><th>Valor</th></tr>
+      <tr><td>Run del dataset</td><td>run_2024-04-15_00-00-00</td></tr>
+      <tr><td>Filas brutas</td><td>148,551</td></tr>
+      <tr><td>Columnas</td><td>35</td></tr>
+      <tr><td>CSV diarios</td><td>520</td></tr>
+      <tr><td>Aprox. meses</td><td>23.95</td></tr>
+    </table>
+    <p class="small">La muestra extendida permite medir mejor robustez entre regimenes de mercado y reduce el riesgo de sobreajustar conclusiones a una ventana corta.</p>
+
+    <h2>Comparacion v1.1 vs v1.2</h2>
+    <div class="figure">
+      <img src="../figures/baltasar_v12_exec_v11_v12_delta.png" alt="Comparacion v1.1 vs v1.2" />
+      <div class="caption">La mejora en v1.2 no se limita al F1 puntual. Tambien cae la dispersion temporal, especialmente en `random_forest`, que era el gran pendiente de v1.1.</div>
+    </div>
+    <div class="figure">
+      <img src="../figures/baltasar_v12_vs_v11.png" alt="Benchmark oficial v1.2" />
+      <div class="caption">El benchmark final confirma que v1.2 supera a v1.1 tanto en señal promedio como en estabilidad entre tramos.</div>
+    </div>
+  </section>
+
+  <section class="page">
+    <h2>Por que `random_forest` ahora si es baseline oficial</h2>
+    <p>En v1.1, el bosque aleatorio parecia mejor en una foto, pero no lo suficiente en estabilidad. En v1.2 esa objecion desaparece: ahora mejora simultaneamente `F1 macro`, `walk-forward mean` y `walk-forward std`.</p>
+    <table>
+      <tr><th>Modelo</th><th>F1 macro</th><th>Accuracy</th><th>WF mean</th><th>WF std</th></tr>
+      <tr><td>random_forest</td><td>0.4014</td><td>0.4196</td><td>0.3865</td><td>0.0119</td></tr>
+      <tr><td>baseline_tree</td><td>0.3906</td><td>0.4254</td><td>0.3792</td><td>0.0144</td></tr>
+    </table>
+    <div class="figure">
+      <img src="../figures/baltasar_v12_walk_forward.png" alt="Walk-forward v1.2" />
+      <div class="caption">El walk-forward de v1.2 muestra que los dos modelos convergen a una zona mucho mas estable. Esa es la base de la promocion del bosque aleatorio.</div>
+    </div>
+
+    <h2>Papel del `baseline_tree` como referencia explicable</h2>
+    <p>El arbol sigue siendo clave para auditoria, explicacion interna y lectura de comportamiento por clase. No pierde valor por dejar de ser baseline oficial; cambia su funcion dentro del gobierno del laboratorio.</p>
+    <div class="summary-grid">
+      <div class="figure">
+        <img src="../figures/baltasar_v12_random_forest_confusion_matrix.png" alt="RF confusion" />
+        <div class="caption">El baseline oficial reparte mejor la señal entre las tres clases y evita una concentracion excesiva.</div>
+      </div>
+      <div class="figure">
+        <img src="../figures/baltasar_v12_baseline_tree_confusion_matrix.png" alt="Tree confusion" />
+        <div class="caption">La referencia explicable permite entender mejor decisiones y trade-offs, aun con algo menos de desempeño total.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page">
+    <h2>Riesgos y limitaciones actuales</h2>
+    <ul>
+      <li>El target sigue siendo derivado, no una etiqueta final de negocio.</li>
+      <li>El dataset extendido vive fuera del repo y depende de la ruta local de `Common Files` de MT5.</li>
+      <li>Persisten gaps temporales largos compatibles con mercado, que deben seguir monitoreandose.</li>
+      <li>No hubo tuning ni calibracion; esta version consolida una base, no un optimo final.</li>
+    </ul>
+
+    <h2>Decision sugerida para Prosperity</h2>
+    <div class="decision">
+      <h2>Decision sugerida para Prosperity</h2>
+      <p>Adoptar Baltasar v1.2 como nueva base oficial del laboratorio MAGI. Usar `random_forest` como baseline tecnico de referencia para comparaciones futuras y mantener `baseline_tree` como modelo explicable para auditoria y comunicacion.</p>
+      <p>La siguiente fase recomendada no es cambiar de modelo, sino mejorar calibracion, robustez operacional y definicion de etiqueta de negocio.</p>
+    </div>
+
+    <h2>Proximos pasos recomendados</h2>
+    <ul>
+      <li>Calibracion probabilistica y criterios de confianza por clase.</li>
+      <li>Monitoreo recurrente de estabilidad temporal.</li>
+      <li>Revision de target hacia una etiqueta mas cercana al resultado operativo real.</li>
+      <li>Definicion formal de reglas de promocion para futuras versiones.</li>
+    </ul>
+  </section>
+</body>
+</html>

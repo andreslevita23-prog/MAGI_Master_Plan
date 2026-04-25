@@ -55,6 +55,21 @@ python run_baltasar_v12.py --config config/experiment.yaml
 python run_phase6_consolidation.py --config config/experiment.yaml
 ```
 
+## Baltasar v1.2 Executive PDF Report
+
+Reporte ejecutivo final de Baltasar v1.2:
+
+- Markdown: `artifacts/reports/baltasar_v12_executive_report.md`
+- HTML: `artifacts/reports/baltasar_v12_executive_report.html`
+- PDF: `artifacts/reports/baltasar_v12_executive_report.pdf`
+
+Para regenerarlo:
+
+```bash
+cd baltasar_training_v1
+python run_baltasar_v12_pdf_report.py --config config/experiment.yaml
+```
+
 ## Estructura
 
 ```text

@@ -1,0 +1,15 @@
+{
+  "markdown_report_path": "C:\\Users\\Asus\\Desktop\\MAGI_Master_Plan\\baltasar_training_v1\\artifacts\\reports\\baltasar_v12_executive_report.md",
+  "html_report_path": "C:\\Users\\Asus\\Desktop\\MAGI_Master_Plan\\baltasar_training_v1\\artifacts\\reports\\baltasar_v12_executive_report.html",
+  "pdf_report_path": "C:\\Users\\Asus\\Desktop\\MAGI_Master_Plan\\baltasar_training_v1\\artifacts\\reports\\baltasar_v12_executive_report.pdf",
+  "figure_paths": {
+    "phase_evolution": "C:\\Users\\Asus\\Desktop\\MAGI_Master_Plan\\baltasar_training_v1\\artifacts\\figures\\baltasar_v12_exec_phase_evolution.png",
+    "v11_v12_delta": "C:\\Users\\Asus\\Desktop\\MAGI_Master_Plan\\baltasar_training_v1\\artifacts\\figures\\baltasar_v12_exec_v11_v12_delta.png",
+    "v12_vs_v11": "C:\\Users\\Asus\\Desktop\\MAGI_Master_Plan\\baltasar_training_v1\\artifacts\\figures\\baltasar_v12_vs_v11.png",
+    "walk_forward": "C:\\Users\\Asus\\Desktop\\MAGI_Master_Plan\\baltasar_training_v1\\artifacts\\figures\\baltasar_v12_walk_forward.png",
+    "target_distribution": "C:\\Users\\Asus\\Desktop\\MAGI_Master_Plan\\baltasar_training_v1\\artifacts\\figures\\baltasar_v12_target_distribution.png",
+    "rf_confusion": "C:\\Users\\Asus\\Desktop\\MAGI_Master_Plan\\baltasar_training_v1\\artifacts\\figures\\baltasar_v12_random_forest_confusion_matrix.png",
+    "tree_confusion": "C:\\Users\\Asus\\Desktop\\MAGI_Master_Plan\\baltasar_training_v1\\artifacts\\figures\\baltasar_v12_baseline_tree_confusion_matrix.png"
+  },
+  "pdf_size_bytes": 484635
+}
