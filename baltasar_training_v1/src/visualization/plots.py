@@ -10,12 +10,15 @@ import pandas as pd
 
 
 def save_target_distribution(y: pd.Series, output_path: Path) -> None:
-    counts = y.value_counts().sort_index()
+    if pd.api.types.is_numeric_dtype(y) and y.index.dtype == "object":
+        counts = y.sort_index()
+    else:
+        counts = y.value_counts().sort_index()
     fig, ax = plt.subplots(figsize=(8, 4))
     counts.plot(kind="bar", ax=ax, color=["#c44e52", "#8172b2", "#55a868"])
     ax.set_title("Target Distribution")
     ax.set_xlabel("Label")
-    ax.set_ylabel("Count")
+    ax.set_ylabel("Count" if counts.sum() > 1.5 else "Share")
     fig.tight_layout()
     fig.savefig(output_path, dpi=160)
     plt.close(fig)

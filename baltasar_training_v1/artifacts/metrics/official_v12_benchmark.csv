@@ -1,0 +1,3 @@
+role,version,target_name,feature_variant,model_name,feature_count,accuracy,f1_macro,walk_forward_f1_mean,walk_forward_f1_std,trade_off
+official_baseline,Baltasar v1.2,h12_t03,compact,random_forest,16,0.4196176114177999,0.4014176766864503,0.3864995446372727,0.0118864532675907,Promoted because the 24-month run improved both signal and temporal stability.
+explanatory_reference,Baltasar v1.2,h12_t03,compact,baseline_tree,16,0.4253736367308469,0.390638544246686,0.3792234981685201,0.0144384662560305,Retained as the explanatory reference because it is simpler to interpret and audit.

@@ -48,7 +48,7 @@ def build_preprocessor(X: pd.DataFrame, config: dict[str, Any]) -> ColumnTransfo
     """Build a preprocessing step safe for tree-based estimators."""
     configured_categorical = set(config["dataset"].get("categorical_columns", []))
     detected_categorical = set(
-        X.select_dtypes(include=["object", "category", "bool", "string", "str"]).columns.tolist()
+        X.select_dtypes(include=["object", "category", "bool", "string"]).columns.tolist()
     )
     categorical_columns = []
     for column in X.columns:

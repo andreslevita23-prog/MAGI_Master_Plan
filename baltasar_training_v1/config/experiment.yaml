@@ -1,7 +1,7 @@
 experiment:
   name: baltasar_training_v1
   seed: 42
-  notes: "Official Baltasar v1.1 baseline with compact features and h18_t05 target."
+  notes: "Official Baltasar v1.2 baseline with compact features and h12_t03 target."
 
 dataset:
   source:
@@ -15,9 +15,9 @@ dataset:
   derived_target:
     enabled: true
     price_column: current_price
-    horizon_steps: 18
-    buy_threshold: 0.0005
-    sell_threshold: -0.0005
+    horizon_steps: 12
+    buy_threshold: 0.0003
+    sell_threshold: -0.0003
     label_name: triple_label_direction
   required_columns:
     - snapshot_id
@@ -115,19 +115,19 @@ artifacts:
   history_file: artifacts/metrics/run_history.csv
 
 dashboard:
-  title: "Baltasar Training Lab v1.1"
-  default_model: baseline_tree
+  title: "Baltasar Training Lab v1.2"
+  default_model: random_forest
 
 official_baseline:
-  version: "Baltasar v1.1"
-  target_name: "h18_t05"
+  version: "Baltasar v1.2"
+  target_name: "h12_t03"
   feature_variant: "compact"
-  baseline_model: "baseline_tree"
-  challenger_model: "random_forest"
+  baseline_model: "random_forest"
+  challenger_model: "baseline_tree"
   rationale:
-    - "Chosen for balance between signal quality, temporal stability and interpretability."
-    - "Not selected by best point F1 alone; walk-forward stability weighed more."
-    - "Compact features reduce redundancy and make the lab easier to explain."
+    - "Promoted after the 24-month run improved both point metrics and temporal stability."
+    - "Random forest now leads on F1 macro and walk-forward mean while also lowering dispersion."
+    - "The decision tree remains the explanatory reference because it is easier to interpret and audit."
 
 diagnostics:
   target_scenarios:
@@ -186,3 +186,33 @@ phase3:
       - name: candidate_target_compact_features
         target_source: candidate
         feature_variant: compact
+
+phase5:
+  target_sweep:
+    horizons:
+      - 12
+      - 18
+      - 24
+      - 36
+    thresholds:
+      - 0.0003
+      - 0.0005
+      - 0.0007
+      - 0.0010
+    max_candidates: 3
+    score_weights:
+      f1_macro: 0.20
+      walk_forward_mean: 0.40
+      stability: 0.30
+      balance: 0.10
+  target_validation:
+    targets:
+      - name: h12_t03
+        horizon_steps: 12
+        threshold: 0.0003
+      - name: h12_t05
+        horizon_steps: 12
+        threshold: 0.0005
+    models:
+      - baseline_tree
+      - random_forest

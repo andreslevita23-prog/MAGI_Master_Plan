@@ -26,6 +26,8 @@ def load_dataset(config: dict, project_root: Path) -> pd.DataFrame:
         return load_csvs_from_zip(dataset_path, source.get("zip_glob", "*.csv"))
     if source_type == "csv":
         return pd.read_csv(dataset_path)
+    if source_type == "directory":
+        return load_csvs_from_directory(dataset_path, source.get("csv_glob", "*.csv"))
 
     raise ValueError(f"Unsupported dataset source type: {source_type}")
 
@@ -42,4 +44,14 @@ def load_csvs_from_zip(zip_path: Path, pattern: str = "*.csv") -> pd.DataFrame:
     if not frames:
         raise FileNotFoundError(f"No files matching {pattern!r} found inside {zip_path}.")
 
+    return pd.concat(frames, ignore_index=True)
+
+
+def load_csvs_from_directory(directory_path: Path, pattern: str = "*.csv") -> pd.DataFrame:
+    """Read and concatenate matching CSV files from a directory tree."""
+    files = sorted(directory_path.rglob(pattern))
+    if not files:
+        raise FileNotFoundError(f"No files matching {pattern!r} found inside {directory_path}.")
+
+    frames = [pd.read_csv(file_path) for file_path in files]
     return pd.concat(frames, ignore_index=True)

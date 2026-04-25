@@ -86,15 +86,17 @@ def main() -> None:
     diagnostic_report = load_optional_text(reports_dir / f"{run_id}_diagnostic_report.md")
     phase3_summary = load_optional_json(reports_dir / f"{run_id}_phase3_summary.json")
     phase3_report = load_optional_text(reports_dir / f"{run_id}_phase3_report.md")
-    official_summary = load_optional_json(reports_dir / f"{run_id}_official_v11_summary.json")
-    official_report = load_optional_text(reports_dir / f"{run_id}_official_v11_consolidation.md")
+    official_summary = load_optional_json(reports_dir / "baltasar_v12_consolidation_summary.json")
+    official_report = load_optional_text(reports_dir / "baltasar_v12_consolidation.md")
+    v12_training_summary = load_optional_json(reports_dir / "baltasar_v12_training_summary.json")
+    v12_training_report = load_optional_text(reports_dir / "baltasar_v12_training_report.md")
 
     st.sidebar.markdown("### Run info")
     st.sidebar.write(f"Run ID: `{run_id}`")
     st.sidebar.write(f"Best model: `{summary['best_model_name']}`")
     st.sidebar.write(f"Diagnostics: `{'available' if diagnostic_summary else 'missing'}`")
     st.sidebar.write(f"Phase 3: `{'available' if phase3_summary else 'missing'}`")
-    st.sidebar.write(f"Official v1.1: `{'available' if official_summary else 'missing'}`")
+    st.sidebar.write(f"Official v1.2: `{'available' if official_summary else 'missing'}`")
 
     col1, col2, col3, col4 = st.columns(4)
     col1.metric("Rows", summary["dataset_summary"]["rows"])
@@ -127,9 +129,12 @@ def main() -> None:
     st.subheader("Features Used")
     st.dataframe(pd.DataFrame({"feature": dataset_summary["feature_columns"]}), use_container_width=True)
 
-    st.subheader("Baltasar v1.1 Official Baseline")
+    st.subheader("Baltasar v1.2 Official Baseline")
     if not official_summary:
-        st.info("Run `python run_phase4.py --config config/experiment.yaml` to consolidate the official baseline.")
+        st.info(
+            "Run `python run_baltasar_v12.py --config config/experiment.yaml` and "
+            "`python run_phase6_consolidation.py --config config/experiment.yaml` to consolidate the official baseline."
+        )
     else:
         if official_report:
             st.markdown(official_report)
@@ -141,39 +146,64 @@ def main() -> None:
         cols[2].metric("Features", official_baseline_cfg.get("feature_variant", "n/a"))
         cols[3].metric("Baseline Model", official_baseline_cfg.get("baseline_model", "n/a"))
 
-        benchmark_df = load_optional_csv(metrics_dir / f"{run_id}_official_v11_benchmark.csv")
+        benchmark_df = load_optional_csv(metrics_dir / "official_v12_benchmark.csv")
         if benchmark_df is not None:
             st.write("Official benchmark")
             st.dataframe(benchmark_df, use_container_width=True)
 
-        baseline_class_df = load_optional_csv(
-            metrics_dir / f"candidate_target_compact_features__{official_baseline_cfg.get('baseline_model', 'baseline_tree')}_class_metrics.csv"
-        )
-        challenger_class_df = load_optional_csv(
-            metrics_dir / f"candidate_target_compact_features__{official_baseline_cfg.get('challenger_model', 'random_forest')}_class_metrics.csv"
-        )
+        baseline_class_df = load_optional_csv(metrics_dir / "baltasar_v12_random_forest_class_metrics.csv")
+        challenger_class_df = load_optional_csv(metrics_dir / "baltasar_v12_baseline_tree_class_metrics.csv")
         left, right = st.columns(2)
         with left:
             st.write("Official baseline metrics by class")
             if baseline_class_df is not None:
                 st.dataframe(baseline_class_df, use_container_width=True)
         with right:
-            st.write("Official challenger metrics by class")
+            st.write("Explanatory reference metrics by class")
             if challenger_class_df is not None:
                 st.dataframe(challenger_class_df, use_container_width=True)
 
-        official_fi_df = load_optional_csv(
-            metrics_dir / f"candidate_target_compact_features__{official_baseline_cfg.get('baseline_model', 'baseline_tree')}_feature_importance.csv"
-        )
-        if official_fi_df is not None:
-            st.write("Compact selected features")
-            st.dataframe(official_fi_df.head(16), use_container_width=True)
+        v12_metrics_df = load_optional_csv(metrics_dir / "baltasar_v12_metrics.csv")
+        if v12_metrics_df is not None:
+            st.write("Official v1.2 model metrics")
+            st.dataframe(v12_metrics_df, use_container_width=True)
+
+        if v12_training_summary:
+            st.write("Target distribution on the extended dataset")
+            st.json(v12_training_summary.get("target_distribution", {}))
 
         rationale = official_baseline_cfg.get("rationale", [])
         if rationale:
             st.write("Trade-off summary")
             for item in rationale:
                 st.write(f"- {item}")
+
+        left, right = st.columns(2)
+        with left:
+            render_figure_if_exists(figures_dir / "baltasar_v12_vs_v11.png", "Baltasar v1.1 vs v1.2")
+        with right:
+            render_figure_if_exists(figures_dir / "baltasar_v12_walk_forward.png", "Baltasar v1.2 walk-forward")
+
+        left, right = st.columns(2)
+        with left:
+            render_figure_if_exists(
+                figures_dir / "baltasar_v12_random_forest_confusion_matrix.png",
+                "Official baseline confusion matrix",
+            )
+        with right:
+            render_figure_if_exists(
+                figures_dir / "baltasar_v12_baseline_tree_confusion_matrix.png",
+                "Explanatory reference confusion matrix",
+            )
+
+        render_figure_if_exists(
+            figures_dir / "baltasar_v12_target_distribution.png",
+            "Baltasar v1.2 target distribution",
+        )
+
+        if v12_training_report:
+            with st.expander("Baltasar v1.2 training report"):
+                st.markdown(v12_training_report)
 
     st.subheader("Run Parameters")
     st.json(summary["config_snapshot"])
@@ -194,7 +224,10 @@ def main() -> None:
         )
 
     st.subheader("Per-model Review")
-    model_name = st.selectbox("Model", list(summary["models"].keys()), index=0)
+    model_names = list(summary["models"].keys())
+    default_model = config.get("dashboard", {}).get("default_model")
+    default_index = model_names.index(default_model) if default_model in model_names else 0
+    model_name = st.selectbox("Model", model_names, index=default_index)
     model_metrics = summary["models"][model_name]
 
     metric_cols = st.columns(4)

@@ -1,0 +1,31 @@
+{
+  "version": "Baltasar v1.2",
+  "benchmark_path": "C:\\Users\\Asus\\Desktop\\MAGI_Master_Plan\\baltasar_training_v1\\artifacts\\metrics\\official_v12_benchmark.csv",
+  "report_path": "C:\\Users\\Asus\\Desktop\\MAGI_Master_Plan\\baltasar_training_v1\\artifacts\\reports\\baltasar_v12_consolidation.md",
+  "baseline": {
+    "role": "official_baseline",
+    "version": "Baltasar v1.2",
+    "target_name": "h12_t03",
+    "feature_variant": "compact",
+    "model_name": "random_forest",
+    "feature_count": 16,
+    "accuracy": 0.4196176114177999,
+    "f1_macro": 0.4014176766864503,
+    "walk_forward_f1_mean": 0.3864995446372727,
+    "walk_forward_f1_std": 0.0118864532675907,
+    "trade_off": "Promoted because the 24-month run improved both signal and temporal stability."
+  },
+  "explanatory_reference": {
+    "role": "explanatory_reference",
+    "version": "Baltasar v1.2",
+    "target_name": "h12_t03",
+    "feature_variant": "compact",
+    "model_name": "baseline_tree",
+    "feature_count": 16,
+    "accuracy": 0.4253736367308469,
+    "f1_macro": 0.390638544246686,
+    "walk_forward_f1_mean": 0.3792234981685201,
+    "walk_forward_f1_std": 0.0144384662560305,
+    "trade_off": "Retained as the explanatory reference because it is simpler to interpret and audit."
+  }
+}
