@@ -12,6 +12,7 @@
     "start": "node src/server/index.js",
     "check": "node --check src/server/index.js",
     "smoke": "node scripts/smoke-test.mjs",
+    "test:melchor": "node scripts/test-melchor-risk-engine.mjs",
     "test:input": "node scripts/test-input-open.js"
   },
   "keywords": [],

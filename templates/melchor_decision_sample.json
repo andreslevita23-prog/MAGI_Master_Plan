@@ -1,0 +1,19 @@
+{
+  "module": "MELCHOR",
+  "version": "v1.0",
+  "vote": "BLOCK",
+  "risk_block_recommendation": true,
+  "confidence": 1.0,
+  "risk_level": "HIGH",
+  "reason": "Relacion riesgo/beneficio menor a 1.5.",
+  "rules_triggered": ["min_rr"],
+  "recommended_action": {
+    "action": "hold",
+    "details": {
+      "risk_reward_ratio": 1.2
+    }
+  },
+  "timestamp": "2026-04-25T00:00:00.000Z",
+  "symbol": "EURUSD",
+  "snapshot_id": "EURUSD_sample_snapshot"
+}

@@ -81,6 +81,8 @@ export function adaptBotALegacySnapshot(payload = {}, validation = null) {
     price: normalizeNumber(payload.price),
     high: normalizeNumber(payload.high),
     low: normalizeNumber(payload.low),
+    spread_pips: normalizeNumber(payload.spread_pips, null),
+    session: payload.session || null,
     context: String(payload.context || "unknown").trim() || "unknown",
     allowed_actions: normalizeAllowedActions(payload.allowed_actions),
     stop_distance_pips: normalizeNumber(payload.stop_distance_pips),
@@ -88,8 +90,21 @@ export function adaptBotALegacySnapshot(payload = {}, validation = null) {
   normalized.position = {
     has_open_position: normalizeNumber(payload.open_positions_count) > 0,
     open_positions_count: normalizeNumber(payload.open_positions_count),
+    profit_progress_to_tp: normalizeNumber(payload.profit_progress_to_tp, null),
     summary: payload.position_info || null,
   };
+  normalized.account = {
+    balance: normalizeNumber(payload.balance, null),
+    equity: normalizeNumber(payload.equity, null),
+    daily_drawdown_percent: normalizeNumber(payload.daily_drawdown_percent, null),
+    consecutive_losses: normalizeNumber(payload.consecutive_losses, null),
+    risk_percent_per_trade: normalizeNumber(payload.risk_percent_per_trade, null),
+  };
+  normalized.news = Array.isArray(payload.news)
+    ? payload.news
+    : payload.news
+      ? [payload.news]
+      : [];
   normalized.raw_indicators = Object.fromEntries(
     Object.entries(payload).filter(([key]) =>
       ["candle_pattern_", "market_structure_", "ema20_", "ema50_", "rsi14_"].some(
