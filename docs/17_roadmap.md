@@ -30,3 +30,12 @@
 - Entrenar progresivamente `Melchor`, `Baltasar` y `Gaspar`.
 - Validar en shadow mode.
 - Promover modelos sin romper contratos.
+
+## Fase 4A - Gaspar Training v1
+
+- Mantener `gaspar_training_v1/` como laboratorio modular separado de Baltasar.
+- Usar `Bot_A_sub2.mq5` para generar dataset estructural/temporal de Gaspar.
+- Entrenar baseline inicial con target heuristico de cuatro pilares.
+- Comparar resultados por F1 macro, matriz de confusion, distribucion de clases y walk-forward.
+- Reemplazar o calibrar la heuristica con resultados reales registrados por Bot C.
+- Antes de operar, agregar en Bot A principal un bloque `gaspar_context` con estructura, contexto temporal y `proposed_direction`, sin confianza, probabilidades, features ni indicadores de Baltasar.

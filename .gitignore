@@ -24,3 +24,13 @@ dataset/*.zip
 # Baltasar training generated heavy artifacts
 baltasar_training_v1/data/processed/
 baltasar_training_v1/artifacts/models/
+
+# Gaspar local artifacts
+gaspar_training_v1/.deps/
+gaspar_training_v1/.venv/
+gaspar_training_v1/.audit_tmp/
+gaspar_training_v1/.tmp_proxy_check/
+gaspar_training_v1/.target_v*_audit/
+gaspar_training_v1/.pytest_cache/
+gaspar_training_v1/data/**/*.csv
+gaspar_training_v1/data/**/*.jsonl

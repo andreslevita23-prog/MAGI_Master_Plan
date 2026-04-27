@@ -1,0 +1,79 @@
+{
+  "rows": 24346,
+  "train_rows": 17042,
+  "test_rows": 7304,
+  "f1_macro": 0.5602909386819219,
+  "labels": [
+    "GOOD",
+    "FAIR",
+    "POOR"
+  ],
+  "classification_report": {
+    "GOOD": {
+      "precision": 0.27547169811320754,
+      "recall": 0.4866666666666667,
+      "f1-score": 0.35180722891566263,
+      "support": 150.0
+    },
+    "FAIR": {
+      "precision": 0.9723529411764706,
+      "recall": 0.9494543365881677,
+      "f1-score": 0.960767218831735,
+      "support": 6964.0
+    },
+    "POOR": {
+      "precision": 0.3305439330543933,
+      "recall": 0.41578947368421054,
+      "f1-score": 0.3682983682983683,
+      "support": 190.0
+    },
+    "accuracy": 0.9260679079956189,
+    "macro avg": {
+      "precision": 0.5261228574480238,
+      "recall": 0.617303492313015,
+      "f1-score": 0.5602909386819219,
+      "support": 7304.0
+    },
+    "weighted avg": {
+      "precision": 0.9413458357544164,
+      "recall": 0.9260679079956189,
+      "f1-score": 0.9328492177242939,
+      "support": 7304.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      73,
+      77,
+      0
+    ],
+    [
+      192,
+      6612,
+      160
+    ],
+    [
+      0,
+      111,
+      79
+    ]
+  ],
+  "feature_columns": [
+    "proposed_direction",
+    "h4_structure",
+    "d1_structure",
+    "directional_alignment",
+    "distance_to_d1_support",
+    "distance_to_d1_resistance",
+    "position_in_d1_range",
+    "near_key_level",
+    "active_session",
+    "daily_atr_consumed_pct",
+    "available_range_to_next_level",
+    "h4_candle_pattern",
+    "day_of_week",
+    "d1_volatility_vs_20d_avg",
+    "current_d1_range_vs_atr"
+  ],
+  "target_source": "existing_or_heuristic_initial_v1"
+}

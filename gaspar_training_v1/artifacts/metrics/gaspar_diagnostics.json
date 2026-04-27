@@ -1,0 +1,51 @@
+{
+  "rows": 24346,
+  "columns": [
+    "module",
+    "role",
+    "symbol",
+    "timestamp",
+    "proposed_direction",
+    "h4_structure",
+    "d1_structure",
+    "directional_alignment",
+    "distance_to_d1_support",
+    "distance_to_d1_resistance",
+    "position_in_d1_range",
+    "near_key_level",
+    "active_session",
+    "daily_atr_consumed_pct",
+    "available_range_to_next_level",
+    "h4_candle_pattern",
+    "day_of_week",
+    "d1_volatility_vs_20d_avg",
+    "current_d1_range_vs_atr",
+    "source_file",
+    "score_oportunidad",
+    "voto"
+  ],
+  "missing_ratio": {
+    "proposed_direction": 0.0,
+    "h4_structure": 0.0,
+    "d1_structure": 0.0,
+    "directional_alignment": 0.0,
+    "distance_to_d1_support": 0.0,
+    "distance_to_d1_resistance": 0.0,
+    "position_in_d1_range": 0.0,
+    "near_key_level": 0.0,
+    "active_session": 0.0,
+    "daily_atr_consumed_pct": 0.0,
+    "available_range_to_next_level": 0.0,
+    "h4_candle_pattern": 0.0,
+    "day_of_week": 0.0,
+    "d1_volatility_vs_20d_avg": 0.0,
+    "current_d1_range_vs_atr": 0.0
+  },
+  "class_distribution": {
+    "FAIR": 22580,
+    "GOOD": 1067,
+    "POOR": 699
+  },
+  "timestamp_min": "2025-12-12T23:55:00+00:00",
+  "timestamp_max": "2026-04-14T23:50:00+00:00"
+}

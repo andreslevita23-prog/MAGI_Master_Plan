@@ -1,0 +1,33 @@
+{
+  "module": "GASPAR",
+  "role": "opportunity_quality",
+  "symbol": "EURUSD",
+  "timestamp": "2026-04-27T12:00:00Z",
+  "proposed_direction": "BUY",
+  "higher_timeframe_confluence": {
+    "h4_structure": "bullish",
+    "d1_structure": "bullish",
+    "directional_alignment": "aligned"
+  },
+  "price_structure_position": {
+    "distance_to_d1_support": 0.0012,
+    "distance_to_d1_resistance": 0.0048,
+    "position_in_d1_range": 0.25,
+    "near_key_level": true
+  },
+  "timing_quality": {
+    "active_session": "london",
+    "daily_atr_consumed_pct": 0.42,
+    "available_range_to_next_level": 0.0036,
+    "h4_candle_pattern": "rejection"
+  },
+  "day_context": {
+    "day_of_week": "tuesday",
+    "d1_volatility_vs_20d_avg": 1.05,
+    "current_d1_range_vs_atr": 0.58
+  },
+  "target": {
+    "voto": "GOOD",
+    "score_oportunidad": 0.78
+  }
+}
