@@ -30,7 +30,7 @@ Melchor gobierna riesgo y seguridad. Puede vetar operaciones aunque Gaspar vote 
 
 1. `Bot_A_sub2.mq5` exporta snapshots estructurales y temporales en CSV/JSONL.
 2. `run_training.py` carga los archivos desde una carpeta.
-3. El pipeline limpia datos, construye features y crea un target provisional.
+3. El pipeline limpia datos, construye features y crea un target provisional versionado.
 4. Se entrena un baseline simple y se valida con split temporal y walk-forward.
 5. Se guardan metricas, figuras, modelo y reporte.
 6. `run_diagnostics.py` audita distribucion de clases, columnas y datos faltantes.
@@ -54,14 +54,14 @@ Si el dataset no trae target, el pipeline crea `score_oportunidad` y `voto` con 
 ```bash
 cd gaspar_training_v1
 pip install -r requirements.txt
-python run_training.py --data-path data
-python run_diagnostics.py --data-path data
+python run_training.py --data-path data --target-version v2
+python run_diagnostics.py --data-path data --target-version v2
 ```
 
 Tambien puedes apuntar a la carpeta exportada por MT5:
 
 ```bash
-python run_training.py --data-path "C:\Users\Public\AppData\MetaQuotes\Terminal\Common\Files\MAGI\datasets\bot_a_sub2"
+python run_training.py --data-path "C:\Users\Public\AppData\MetaQuotes\Terminal\Common\Files\MAGI\datasets\bot_a_sub2" --target-version v2
 ```
 
 ## Outputs
@@ -74,22 +74,23 @@ python run_training.py --data-path "C:\Users\Public\AppData\MetaQuotes\Terminal\
 - `reports/gaspar_training_report.md`
 - `reports/gaspar_diagnostics_report.md`
 
-## Target provisional
+## Targets provisionales
 
-El target inicial usa cuatro pilares:
+Los targets usan cuatro pilares:
 
 - `higher_timeframe_confluence`: 0.40
 - `price_structure_position`: 0.30
 - `timing_quality`: 0.20
 - `day_context`: 0.10
 
-Umbrales:
+Versiones actuales:
 
-- `GOOD`: score >= 0.65
-- `FAIR`: score >= 0.40 y < 0.65
-- `POOR`: score < 0.40
+- `v1`: heuristica inicial historica.
+- `v2`: baseline oficial actual para Gaspar. En la auditoria de 24 meses obtuvo F1 macro 0.8912, accuracy 0.8809 y walk-forward medio 0.8665.
+- `v3`: experimento intermedio conservado para trazabilidad.
+- `v4`: challenger experimental; discretiza el contexto de rango diario con `daily_range_state` (`EARLY`, `MID`, `LATE`) y excluye `current_d1_range_vs_atr_capped` del entrenamiento v4. En 24 meses obtuvo F1 macro 0.8903, accuracy 0.8949 y walk-forward medio 0.8816.
 
-Esta heuristica es provisional. Debe refinarse con resultados reales registrados por Bot C antes de promocionar Gaspar a operacion.
+La decision actual es mantener `v2` como baseline oficial y conservar `v4` como challenger hasta validar impacto economico con resultados reales registrados por Bot C.
 
 ## Operacion futura
 

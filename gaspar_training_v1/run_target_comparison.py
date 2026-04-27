@@ -48,6 +48,7 @@ def main() -> None:
             target_distribution(raw, "v1"),
             target_distribution(raw, "v2"),
             target_distribution(raw, "v3"),
+            target_distribution(raw, "v4"),
         ],
     }
     output_dir = Path(args.output_root) / "artifacts" / "metrics"

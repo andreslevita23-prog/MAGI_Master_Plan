@@ -57,22 +57,26 @@ Flujo:
 4. Se entrena un baseline simple.
 5. Se reportan F1 macro, matriz de confusion, distribucion de clases y validacion temporal/walk-forward.
 
-## Target provisional
+## Targets provisionales
 
-Pesos iniciales:
+Pesos base:
 
 - `higher_timeframe_confluence`: 0.40
 - `price_structure_position`: 0.30
 - `timing_quality`: 0.20
 - `day_context`: 0.10
 
-Umbrales:
+Estado actual:
 
-- `GOOD`: score >= 0.65
-- `FAIR`: 0.40 <= score < 0.65
-- `POOR`: score < 0.40
+- `target_v2` queda como baseline oficial actual para Gaspar tras la auditoria de 24 meses.
+- `target_v4` queda como challenger experimental: reemplaza la dependencia directa de `current_d1_range_vs_atr` por `daily_range_state` (`EARLY`, `MID`, `LATE`) y mejora estabilidad temporal, pero no se promueve todavia.
 
-Este target es una heuristica inicial. Debe refinarse con resultados reales registrados por Bot C.
+Resultados de referencia en 24 meses:
+
+- `target_v2`: F1 macro 0.8912, accuracy 0.8809, walk-forward medio 0.8665.
+- `target_v4`: F1 macro 0.8903, accuracy 0.8949, walk-forward medio 0.8816.
+
+Estos targets siguen siendo heuristicas provisionales. Deben refinarse con resultados reales registrados por Bot C antes de promocionar Gaspar a operacion.
 
 ## Pendiente operativo
 

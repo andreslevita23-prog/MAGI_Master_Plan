@@ -100,4 +100,6 @@ Salida esperada:
 
 Durante entrenamiento, si no existe una direccion real externa, `proposed_direction` se genera como proxy heuristico usando solo estructura H4/D1: D1 bullish y H4 no bearish => `BUY`, D1 bearish y H4 no bullish => `SELL`, D1 range o conflicto fuerte H4/D1 => `NEUTRAL`.
 
+Para `target_v4`, el pipeline deriva una feature discreta `daily_range_state` desde `current_d1_range_vs_atr`: `EARLY` si es menor a 0.60, `MID` entre 0.60 y 1.20, y `LATE` si es mayor a 1.20. Esta feature es derivada del contrato; no requiere que Bot A_sub2 la exporte.
+
 Pendiente: cuando Gaspar pase de entrenamiento a operacion, Bot A principal debera incluir un bloque separado `gaspar_context` con los datos estructurales y temporales necesarios para Gaspar. Ese bloque no debe incluir confianza, probabilidades, features ni indicadores de Baltasar.

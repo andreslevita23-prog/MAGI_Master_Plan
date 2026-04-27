@@ -122,6 +122,29 @@ def compute_pillar_scores(row: Mapping[str, object]) -> dict[str, float]:
     }
 
 
+def score_day_context_v4(row: Mapping[str, object]) -> float:
+    day = _text(row, "day_of_week")
+    volatility_ratio = _num(row, "d1_volatility_vs_20d_avg", 1.0)
+    state = daily_range_state(row)
+
+    day_score = {
+        "monday": 0.55,
+        "tuesday": 0.85,
+        "wednesday": 0.90,
+        "thursday": 0.85,
+        "friday": 0.60,
+    }.get(day, 0.50)
+    volatility_score = _clip(1.0 - abs(volatility_ratio - 1.0))
+    state_score = {"early": 0.85, "mid": 0.80, "late": 0.55}.get(state, 0.60)
+    return _clip((day_score * 0.35) + (volatility_score * 0.35) + (state_score * 0.30))
+
+
+def compute_pillar_scores_v4(row: Mapping[str, object]) -> dict[str, float]:
+    pillars = compute_pillar_scores(row)
+    pillars["day_context"] = score_day_context_v4(row)
+    return pillars
+
+
 def compute_score_v1(row: Mapping[str, object]) -> float:
     pillars = compute_pillar_scores(row)
     score = sum(pillars[name] * weight for name, weight in PILLAR_WEIGHTS.items())
@@ -174,7 +197,49 @@ def compute_score_v3(row: Mapping[str, object]) -> float:
     return round(_clip(score), 4)
 
 
+def daily_range_state(row: Mapping[str, object]) -> str:
+    d1_range_vs_atr = _num(row, "current_d1_range_vs_atr", 1.0)
+    if d1_range_vs_atr < 0.60:
+        return "early"
+    if d1_range_vs_atr <= 1.20:
+        return "mid"
+    return "late"
+
+
+def compute_score_v4(row: Mapping[str, object]) -> float:
+    pillars = compute_pillar_scores_v4(row)
+    score = sum(pillars[name] * weight for name, weight in PILLAR_WEIGHTS.items())
+    direction = _text(row, "proposed_direction")
+    available_range = _num(row, "available_range_to_next_level", 0.0)
+    range_position = _clip(_num(row, "position_in_d1_range", 0.5))
+    state = daily_range_state(row)
+
+    if available_range <= 0.0:
+        if direction in {"buy", "sell"}:
+            score = min(score, 0.30)
+        else:
+            score = min(score, 0.44)
+
+    if state == "late":
+        low_range = available_range < 0.0015
+        poor_buy_location = direction == "buy" and range_position > 0.75
+        poor_sell_location = direction == "sell" and range_position < 0.25
+        neutral_or_confused = direction == "neutral"
+
+        if available_range <= 0.0 or low_range or poor_buy_location or poor_sell_location:
+            score -= 0.14
+        elif neutral_or_confused:
+            score -= 0.06
+
+    if direction == "neutral":
+        score = min(score, 0.55)
+
+    return round(_clip(score), 4)
+
+
 def compute_score(row: Mapping[str, object], target_version: str = "v1") -> float:
+    if target_version == "v4":
+        return compute_score_v4(row)
     if target_version == "v3":
         return compute_score_v3(row)
     if target_version == "v2":
@@ -228,7 +293,36 @@ def classify_opportunity_v3(score: float, row: Mapping[str, object] | None = Non
     return "POOR"
 
 
+def classify_opportunity_v4(score: float, row: Mapping[str, object] | None = None) -> str:
+    if row is not None:
+        direction = _text(row, "proposed_direction")
+        available_range = _num(row, "available_range_to_next_level", 0.0)
+        range_position = _clip(_num(row, "position_in_d1_range", 0.5))
+        state = daily_range_state(row)
+
+        if direction not in {"buy", "sell"} and score >= 0.60:
+            return "FAIR"
+        if available_range <= 0.0 and direction in {"buy", "sell"}:
+            return "POOR"
+        if state == "late" and score < 0.45:
+            return "POOR"
+        if state == "late" and score >= 0.60:
+            low_range = available_range < 0.0015
+            poor_buy_location = direction == "buy" and range_position > 0.75
+            poor_sell_location = direction == "sell" and range_position < 0.25
+            if low_range or poor_buy_location or poor_sell_location:
+                return "FAIR"
+
+    if score >= 0.60:
+        return "GOOD"
+    if score >= 0.45:
+        return "FAIR"
+    return "POOR"
+
+
 def classify_opportunity(score: float, target_version: str = "v1", row: Mapping[str, object] | None = None) -> str:
+    if target_version == "v4":
+        return classify_opportunity_v4(score, row)
     if target_version == "v3":
         return classify_opportunity_v3(score, row)
     if target_version == "v2":

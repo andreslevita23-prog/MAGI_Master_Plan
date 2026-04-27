@@ -12,7 +12,7 @@ sys.path.insert(0, str(ROOT))
 from src.gaspar.data import load_dataset
 from src.gaspar.features import FEATURE_COLUMNS, build_feature_frame
 from src.gaspar.schemas import build_gaspar_output
-from src.gaspar.targeting import attach_heuristic_target, classify_opportunity, compute_score
+from src.gaspar.targeting import attach_heuristic_target, classify_opportunity, compute_score, daily_range_state
 
 
 def strong_record() -> dict:
@@ -142,6 +142,31 @@ def test_target_v3_guardrails_and_capped_feature() -> None:
     moderate = strong_record()
     moderate["current_d1_range_vs_atr"] = 1.3
     assert compute_score(moderate, target_version="v3") > compute_score(moderate, target_version="v2")
+
+
+def test_target_v4_daily_range_state_and_guardrails() -> None:
+    early = {**strong_record(), "current_d1_range_vs_atr": 0.59}
+    mid = {**strong_record(), "current_d1_range_vs_atr": 0.90}
+    late = {**strong_record(), "current_d1_range_vs_atr": 1.21}
+
+    assert daily_range_state(early) == "early"
+    assert daily_range_state(mid) == "mid"
+    assert daily_range_state(late) == "late"
+
+    features = build_feature_frame(pd.DataFrame([early, mid, late]), target_version="v4")
+    assert features["daily_range_state"].tolist() == ["EARLY", "MID", "LATE"]
+    assert "current_d1_range_vs_atr_capped" not in features.columns
+
+    late_with_space = {**strong_record(), "current_d1_range_vs_atr": 1.6, "available_range_to_next_level": 0.006}
+    assert compute_score(late_with_space, target_version="v4") >= compute_score(late_with_space, target_version="v2")
+
+    late_no_range = {**strong_record(), "current_d1_range_vs_atr": 1.6, "available_range_to_next_level": 0.0}
+    assert classify_opportunity(compute_score(late_no_range, target_version="v4"), target_version="v4", row=late_no_range) == "POOR"
+
+    neutral = {**strong_record(), "proposed_direction": "NEUTRAL"}
+    neutral_score = compute_score(neutral, target_version="v4")
+    assert neutral_score <= 0.55
+    assert classify_opportunity(neutral_score, target_version="v4", row=neutral) != "GOOD"
 
 
 def test_output_schema() -> None:

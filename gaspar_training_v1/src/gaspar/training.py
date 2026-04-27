@@ -14,7 +14,12 @@ from sklearn.preprocessing import OneHotEncoder
 from sklearn.tree import DecisionTreeClassifier
 
 from .data import load_dataset
-from .features import CATEGORICAL_FEATURES, FEATURE_COLUMNS, NUMERIC_FEATURES, build_feature_frame
+from .features import (
+    build_feature_frame,
+    categorical_features_for_target,
+    feature_columns_for_target,
+    numeric_features_for_target,
+)
 from .targeting import attach_heuristic_target
 
 
@@ -27,21 +32,41 @@ def temporal_split(data: pd.DataFrame, train_ratio: float = 0.70) -> tuple[pd.Da
     return ordered.iloc[:split_at].copy(), ordered.iloc[split_at:].copy()
 
 
-def build_model() -> Pipeline:
+def build_model(target_version: str = "v1") -> Pipeline:
+    numeric_features = numeric_features_for_target(target_version)
+    categorical_features = categorical_features_for_target(target_version)
     preprocessor = ColumnTransformer(
         transformers=[
-            ("num", SimpleImputer(strategy="median"), NUMERIC_FEATURES),
+            ("num", SimpleImputer(strategy="median"), numeric_features),
             ("cat", Pipeline([
                 ("imputer", SimpleImputer(strategy="most_frequent")),
                 ("encoder", OneHotEncoder(handle_unknown="ignore")),
-            ]), CATEGORICAL_FEATURES),
+            ]), categorical_features),
         ]
     )
     classifier = DecisionTreeClassifier(max_depth=5, min_samples_leaf=20, random_state=42)
     return Pipeline([("features", preprocessor), ("model", classifier)])
 
 
-def walk_forward_evaluation(data: pd.DataFrame, folds: int = 4) -> pd.DataFrame:
+def feature_importance(model: Pipeline) -> list[dict[str, float | str]]:
+    classifier = model.named_steps["model"]
+    if not hasattr(classifier, "feature_importances_"):
+        return []
+
+    try:
+        feature_names = model.named_steps["features"].get_feature_names_out()
+    except Exception:
+        feature_names = feature_columns_for_target()
+
+    rows = [
+        {"feature": str(name), "importance": float(importance)}
+        for name, importance in zip(feature_names, classifier.feature_importances_)
+    ]
+    rows.sort(key=lambda item: item["importance"], reverse=True)
+    return rows
+
+
+def walk_forward_evaluation(data: pd.DataFrame, folds: int = 4, target_version: str = "v1") -> pd.DataFrame:
     if len(data) < 12:
         return pd.DataFrame(columns=["fold", "train_rows", "test_rows", "f1_macro"])
 
@@ -57,9 +82,9 @@ def walk_forward_evaluation(data: pd.DataFrame, folds: int = 4) -> pd.DataFrame:
         test = ordered.iloc[train_end:test_end]
         if train["voto"].nunique() < 2 or test["voto"].nunique() < 1:
             continue
-        model = build_model()
-        model.fit(build_feature_frame(train), train["voto"])
-        prediction = model.predict(build_feature_frame(test))
+        model = build_model(target_version)
+        model.fit(build_feature_frame(train, target_version=target_version), train["voto"])
+        prediction = model.predict(build_feature_frame(test, target_version=target_version))
         rows.append({
             "fold": fold,
             "train_rows": len(train),
@@ -94,15 +119,15 @@ def train_pipeline(data_path: str | Path, output_root: str | Path = ".", target_
     prepared = attach_heuristic_target(raw, target_version=target_version, overwrite=True)
     train, test = temporal_split(prepared)
 
-    model = build_model()
-    model.fit(build_feature_frame(train), train["voto"])
-    predictions = model.predict(build_feature_frame(test)) if len(test) else []
+    model = build_model(target_version)
+    model.fit(build_feature_frame(train, target_version=target_version), train["voto"])
+    predictions = model.predict(build_feature_frame(test, target_version=target_version)) if len(test) else []
 
     labels = ["GOOD", "FAIR", "POOR"]
     f1_macro = f1_score(test["voto"], predictions, average="macro", zero_division=0) if len(test) else 0.0
     report = classification_report(test["voto"], predictions, labels=labels, zero_division=0, output_dict=True) if len(test) else {}
     matrix = confusion_matrix(test["voto"], predictions, labels=labels) if len(test) else [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
-    walk_forward = walk_forward_evaluation(prepared)
+    walk_forward = walk_forward_evaluation(prepared, target_version=target_version)
 
     metrics = {
         "rows": int(len(prepared)),
@@ -112,7 +137,8 @@ def train_pipeline(data_path: str | Path, output_root: str | Path = ".", target_
         "labels": labels,
         "classification_report": report,
         "confusion_matrix": matrix.tolist() if hasattr(matrix, "tolist") else matrix,
-        "feature_columns": FEATURE_COLUMNS,
+        "feature_columns": feature_columns_for_target(target_version),
+        "feature_importance": feature_importance(model),
         "target_source": f"heuristic_{target_version}",
     }
 

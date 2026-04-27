@@ -11,7 +11,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Run Gaspar dataset diagnostics.")
     parser.add_argument("--data-path", default="data", help="CSV/JSONL file or directory exported by Bot_A_sub2.")
     parser.add_argument("--output-root", default=".", help="Root where diagnostics are written.")
-    parser.add_argument("--target-version", choices=["v1", "v2", "v3"], default="v1", help="Heuristic target version.")
+    parser.add_argument("--target-version", choices=["v1", "v2", "v3", "v4"], default="v1", help="Heuristic target version.")
     args = parser.parse_args()
 
     try:

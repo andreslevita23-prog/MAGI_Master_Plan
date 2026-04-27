@@ -18,6 +18,7 @@ FEATURE_COLUMNS = [
     "day_of_week",
     "d1_volatility_vs_20d_avg",
     "current_d1_range_vs_atr_capped",
+    "daily_range_state",
 ]
 
 CATEGORICAL_FEATURES = [
@@ -29,6 +30,7 @@ CATEGORICAL_FEATURES = [
     "active_session",
     "h4_candle_pattern",
     "day_of_week",
+    "daily_range_state",
 ]
 
 NUMERIC_FEATURES = [
@@ -42,7 +44,23 @@ NUMERIC_FEATURES = [
 ]
 
 
-def build_feature_frame(data: pd.DataFrame) -> pd.DataFrame:
+def feature_columns_for_target(target_version: str = "v1") -> list[str]:
+    if target_version == "v4":
+        return [column for column in FEATURE_COLUMNS if column != "current_d1_range_vs_atr_capped"]
+    return FEATURE_COLUMNS
+
+
+def numeric_features_for_target(target_version: str = "v1") -> list[str]:
+    if target_version == "v4":
+        return [column for column in NUMERIC_FEATURES if column != "current_d1_range_vs_atr_capped"]
+    return NUMERIC_FEATURES
+
+
+def categorical_features_for_target(target_version: str = "v1") -> list[str]:
+    return CATEGORICAL_FEATURES
+
+
+def build_feature_frame(data: pd.DataFrame, target_version: str = "v1") -> pd.DataFrame:
     features = data.copy()
     for column in FEATURE_COLUMNS:
         if column not in features.columns:
@@ -65,10 +83,16 @@ def build_feature_frame(data: pd.DataFrame) -> pd.DataFrame:
     features["position_in_d1_range"] = features["position_in_d1_range"].clip(lower=0.0, upper=1.0)
     features["daily_atr_consumed_pct"] = features["daily_atr_consumed_pct"].clip(lower=0.0, upper=1.0)
     features["current_d1_range_vs_atr_capped"] = features["current_d1_range_vs_atr_capped"].clip(lower=0.0, upper=3.0)
+    features["daily_range_state"] = pd.cut(
+        raw_d1_range_vs_atr,
+        bins=[float("-inf"), 0.60, 1.20, float("inf")],
+        labels=["EARLY", "MID", "LATE"],
+        right=True,
+    ).astype("string")
 
     for column in CATEGORICAL_FEATURES:
         features[column] = features[column].astype("string").fillna("unknown")
 
     features["near_key_level"] = features["near_key_level"].astype("string").str.lower()
     features["near_key_level"] = features["near_key_level"].replace({"true": "yes", "1": "yes", "false": "no", "0": "no"})
-    return features[FEATURE_COLUMNS]
+    return features[feature_columns_for_target(target_version)]
