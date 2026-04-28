@@ -16,6 +16,11 @@ Esta implementacion separa `Bot_A` (produccion) y `Bot_A_sub1` (Strategy Tester)
   Riesgo que evita: rutas ambiguas o no reproducibles en exportacion.
   Prueba: compilar, correr en Strategy Tester y verificar archivos `.csv` y `.jsonl`.
 
+- `Bot_A_sub3.mq5`
+  Resuelve: recoleccion simple y estable de dataset operativo completo, combinando el flujo de dataset de `Bot_A_sub1` con `gaspar_context`.
+  Riesgo que evita: entrenar o simular con un contrato distinto al que produce el sensor real.
+  Prueba: compilar, correr en Strategy Tester y verificar carpeta unica por `run_id`, JSONL completo, CSV plano, `gaspar_context` y auditoria APTO.
+
 - `core/MagiCommon.mqh`
   Resuelve: tipos, timestamps, validacion y helpers comunes.
   Riesgo que evita: nombres inconsistentes y logs dispersos.
@@ -25,6 +30,11 @@ Esta implementacion separa `Bot_A` (produccion) y `Bot_A_sub1` (Strategy Tester)
   Resuelve: calculo compartido de features usando barras cerradas.
   Riesgo que evita: leakage por usar barra en formacion.
   Prueba: compilacion y validacion funcional en MT5/Tester.
+
+- `core/MagiGasparContext.mqh`
+  Resuelve: calculo del bloque separado `gaspar_context` requerido por Gaspar sin mezclar EMA, RSI, momentum ni features internas de Baltasar.
+  Riesgo que evita: contaminar el contrato de Gaspar con senales direccionales de otro modulo.
+  Prueba: inspeccionar JSONL y confirmar que `gaspar_context` contiene solo estructura H4/D1, posicion en rango, sesion y contexto diario.
 
 - `core/MagiSerializer.mqh`
   Resuelve: mismo payload JSON/CSV para vivo y tester.
@@ -78,6 +88,88 @@ Y agrega bloques utiles para escalabilidad:
 - `primary_timeframe`
 - `features`
 - `validation`
+- `spread_pips`
+- `active_session`
+- `allowed_actions`
+- `account`
+- `news`
+- `operational_notes`
+- `gaspar_context`
+
+`Bot_A_sub3` usa `MagiBuildSnapshot` y `MagiSerializeSnapshotJson`, los mismos componentes que usa `Bot_A` real. Por regla de contrato, si un campo aparece en el dataset de `Bot_A_sub3`, tambien puede ser producido por `Bot_A` real. Los campos que aun no tienen fuente operativa definitiva quedan con valor `0`, arreglo vacio o nota `pending`, pero el contrato ya existe.
+
+### Cierre de etapa Bot_A_sub3
+
+La version cerrada para dataset operativo simple es:
+
+```text
+bot_a_sub3_simple_sub1_sub2_2026-04-28_v1
+```
+
+Auditoria:
+
+```text
+decision=APTO
+score=100/100
+run_id=run_2025-12-15_00-00-00_659700906
+csv_rows=18,612
+jsonl_rows=18,612
+duplicate_snapshot_id=0
+mtf_status=OK en 74,448/74,448 features
+gaspar_context=presente en 18,612/18,612 snapshots
+```
+
+Esta version elimina la instrumentacion diagnostica pesada dentro del EA y conserva un flujo facil de entender: detectar barra cerrada, construir snapshot, persistir CSV/JSONL. Si se requiere diagnostico de snapshots parciales, correr con `InpSkipInvalidSnapshots=false`.
+
+## Politica de almacenamiento para Bot_A_sub3
+
+`Bot_A_sub3` fuerza `COMMON_FILES` y no usa fallback local para evitar mezclar corridas en rutas ambiguas del Strategy Tester.
+
+Ruta relativa recomendada:
+
+`MAGI\\datasets\\bot_a_sub3\\<run_id>\\<symbol>\\anchor_<TF>__primary_<TF>\\YYYY\\MM\\DD\\<prefix>__symbol_<SYMBOL>__anchor_<TF>__primary_<TF>__date_<YYYY-MM-DD>.<ext>`
+
+Ejemplo:
+
+- CSV:
+  `...\\Common\\Files\\MAGI\\datasets\\bot_a_sub3\\run_2026-04-28_12-00-00_123456\\EURUSD\\anchor_M5__primary_H1\\2026\\04\\28\\magi_bot_a_sub3_simple__symbol_EURUSD__anchor_M5__primary_H1__date_2026-04-28.csv`
+
+- JSONL:
+  `...\\Common\\Files\\MAGI\\datasets\\bot_a_sub3\\run_2026-04-28_12-00-00_123456\\EURUSD\\anchor_M5__primary_H1\\2026\\04\\28\\magi_bot_a_sub3_simple__symbol_EURUSD__anchor_M5__primary_H1__date_2026-04-28.jsonl`
+
+El JSONL conserva el snapshot completo. El CSV aplana los campos principales del snapshot y los campos de `gaspar_context` para analisis tabular, entrenamiento y simulador Python.
+
+## Alineacion temporal MTF
+
+Las features M15, H1, H4 y D1 se alinean contra `anchor_bar_timestamp`.
+
+`anchor_bar_timestamp` se calcula como el cierre de la vela ancla cerrada (`MqlRates.time + PeriodSeconds(anchor_timeframe)`). MT5 entrega `MqlRates.time` como apertura; usarlo directamente desplazaria el snapshot M5 una vela parcial hacia atras para la auditoria MTF.
+
+El motor registra el resultado de `iBarShift(symbol, timeframe, anchor_bar_timestamp, false)` para depuracion, pero la seleccion real es por ventana temporal con `CopyRates`: solo acepta la ultima vela cuyo `bar_time <= anchor_bar_timestamp` y cuyo cierre teorico `bar_time + PeriodSeconds(timeframe) <= anchor_bar_timestamp`. Despues vuelve a cargar una ventana historica por rango temporal y busca explicitamente `rates[i].time == selected_bar_time`; no asume que `rates[0]` venga alineado desde `CopyRates`. Si no existe una vela cerrada dentro del limite esperado, marca `alignment_status=error` en vez de usar una vela vieja.
+
+El `age_minutes` reportado mide los minutos desde el cierre de la vela usada hasta el `anchor_bar_timestamp`.
+
+Limites esperados por auditoria:
+
+- M15: `age_minutes <= 15`
+- H1: `age_minutes <= 60`
+- H4: `age_minutes <= 240`
+- D1: `age_minutes <= 1440`
+
+El snapshot incluye `mtf_alignment_status`, `mtf_alignment_warnings` y `mtf_data_source_status`. Cada item de `features` incluye `bar_timestamp`, `age_minutes`, `bars_available`, `oldest_bar_time`, `newest_bar_time`, `data_source_status`, `alignment_status` y `alignment_warning`.
+
+`mtf_data_source_status=INSUFFICIENT_HISTORY` indica que Strategy Tester no entrego historico MTF suficiente alrededor del `anchor_bar_timestamp`. `ALIGNMENT_ERROR` indica que el historico existe, pero la seleccion de vela cerrada fallo. En ambos casos Bot A observa y reporta el fallo; no sustituye la vela por contexto viejo.
+
+`Bot_A_sub3` simple no agrega una arquitectura de diagnostico propia. Usa `InpSkipInvalidSnapshots`:
+
+- `true`: genera un dataset limpio de snapshots validos para entrenamiento base.
+- `false`: permite una corrida futura con snapshots parciales/invalidos para robustez y analisis de gaps.
+
+Para auditar una corrida:
+
+```powershell
+& "C:\Users\Asus\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe" scripts\audit_bot_a_sub3_dataset.py --data-path "C:\Users\Asus\AppData\Roaming\MetaQuotes\Terminal\Common\Files\MAGI\datasets\bot_a_sub3\<run_id>" --output-dir reports\bot_a_sub3_audits
+```
 
 ## Politica de almacenamiento para Bot_A_sub1
 

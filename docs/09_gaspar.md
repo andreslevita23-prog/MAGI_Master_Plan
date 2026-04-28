@@ -81,3 +81,5 @@ Estos targets siguen siendo heuristicas provisionales. Deben refinarse con resul
 ## Pendiente operativo
 
 Cuando Gaspar pase de entrenamiento a operacion, Bot A principal debera incluir un bloque separado `gaspar_context` con los datos estructurales y temporales necesarios para Gaspar, incluyendo `proposed_direction` si viene de un modulo externo. Ese bloque no debe mezclar confianza, probabilidades, features ni indicadores de Baltasar.
+
+El contrato operativo exacto para integrar `gaspar_context` en Bot A principal esta documentado en `docs/18_gaspar_operational_contract.md`.

@@ -99,10 +99,18 @@ string MagiBuildStorageDescription(const MagiStoragePolicy &policy)
                        policy.dataset_prefix);
 }
 
+datetime MagiDatasetRoutingTimestamp(const MagiSnapshot &snapshot)
+{
+   if(snapshot.bar_timestamp > 0)
+      return snapshot.bar_timestamp;
+
+   return snapshot.anchor_bar_timestamp;
+}
+
 string MagiBuildDatasetDirectory(const MagiStoragePolicy &policy,const MagiSnapshot &snapshot)
 {
    MqlDateTime parts;
-   TimeToStruct(snapshot.bar_timestamp, parts);
+   TimeToStruct(MagiDatasetRoutingTimestamp(snapshot), parts);
 
    string path = MagiNormalizeFolderPath(MagiSanitizePathSegment(policy.root_folder));
    string subfolder = MagiNormalizeFolderPath(policy.subfolder);
@@ -130,7 +138,7 @@ string MagiBuildDatasetDirectory(const MagiStoragePolicy &policy,const MagiSnaps
 string MagiBuildDatasetBaseName(const MagiStoragePolicy &policy,const MagiSnapshot &snapshot)
 {
    MqlDateTime parts;
-   TimeToStruct(snapshot.bar_timestamp, parts);
+   TimeToStruct(MagiDatasetRoutingTimestamp(snapshot), parts);
 
    return StringFormat("%s__symbol_%s__anchor_%s__primary_%s__date_%04d-%02d-%02d",
                        MagiSanitizePathSegment(policy.dataset_prefix),
@@ -307,6 +315,53 @@ bool MagiValidateSnapshotForDatasetWrite(const MagiSnapshot &snapshot,string &re
    if(bar.open > bar.high || bar.open < bar.low || bar.close > bar.high || bar.close < bar.low)
    {
       reason = "OHLC inconsistente: open/close fuera del rango";
+      return false;
+   }
+
+   return true;
+}
+
+bool MagiValidateSnapshotForDatasetDiagnosticWrite(const MagiSnapshot &snapshot,string &reason)
+{
+   reason = "";
+
+   if(snapshot.timestamp <= 0)
+   {
+      reason = "timestamp invalido";
+      return false;
+   }
+
+   if(snapshot.symbol == "")
+   {
+      reason = "symbol vacio";
+      return false;
+   }
+
+   if(snapshot.anchor_timeframe == "" || snapshot.primary_timeframe == "")
+   {
+      reason = "timeframe vacio";
+      return false;
+   }
+
+   if(snapshot.anchor_bar_timestamp <= 0)
+   {
+      reason = "anchor_bar_timestamp invalido";
+      return false;
+   }
+
+   if(snapshot.anchor_open <= 0.0 || snapshot.anchor_high <= 0.0 || snapshot.anchor_low <= 0.0 || snapshot.anchor_close <= 0.0)
+   {
+      reason = "anchor OHLC invalido";
+      return false;
+   }
+
+   if(snapshot.anchor_high < snapshot.anchor_low ||
+      snapshot.anchor_open > snapshot.anchor_high ||
+      snapshot.anchor_open < snapshot.anchor_low ||
+      snapshot.anchor_close > snapshot.anchor_high ||
+      snapshot.anchor_close < snapshot.anchor_low)
+   {
+      reason = "anchor OHLC inconsistente";
       return false;
    }
 

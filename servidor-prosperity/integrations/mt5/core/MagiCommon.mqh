@@ -5,7 +5,7 @@
 
 #define MAGI_SCHEMA_VERSION "magi.snapshot.v2"
 #define MAGI_MAX_LEVELS 2
-#define MAGI_MAX_FEATURE_TFS 3
+#define MAGI_MAX_FEATURE_TFS 4
 #define MAGI_MAX_ISSUES 16
 
 struct MagiValidationState
@@ -31,6 +31,19 @@ struct MagiTimeframeFeatures
    string          timeframe_label;
    ENUM_TIMEFRAMES timeframe;
    datetime        bar_time;
+   datetime        bar_close_time;
+   double          age_minutes;
+   int             anchor_ibar_shift;
+   int             selected_shift;
+   int             selected_array_index;
+   int             copied_array_size;
+   bool            rates_array_as_series;
+   int             bars_available;
+   datetime        oldest_bar_time;
+   datetime        newest_bar_time;
+   string          data_source_status;
+   string          alignment_status;
+   string          alignment_warning;
    string          candle_pattern;
    string          market_structure;
    string          structure_direction;
@@ -39,6 +52,41 @@ struct MagiTimeframeFeatures
    double          ema_200;
    double          rsi_14;
    double          recent_range;
+};
+
+struct MagiGasparContext
+{
+   bool     is_available;
+   string   schema_version;
+   string   module;
+   string   role;
+   string   symbol;
+   datetime timestamp;
+   string   anchor_timeframe;
+   string   h4_timeframe;
+   string   d1_timeframe;
+   datetime h4_bar_timestamp;
+   datetime d1_bar_timestamp;
+   double   h4_age_minutes;
+   double   d1_age_minutes;
+   string   context_id;
+   string   proposed_direction;
+   string   proposed_direction_source;
+   string   h4_structure;
+   string   d1_structure;
+   string   directional_alignment;
+   double   distance_to_d1_support;
+   double   distance_to_d1_resistance;
+   double   position_in_d1_range;
+   bool     near_key_level;
+   string   active_session;
+   double   daily_atr_consumed_pct;
+   double   available_range_to_next_level;
+   string   h4_candle_pattern;
+   string   day_of_week;
+   double   d1_volatility_vs_20d_avg;
+   double   current_d1_range_vs_atr;
+   string   data_quality_flags;
 };
 
 struct MagiSnapshot
@@ -70,7 +118,19 @@ struct MagiSnapshot
    string               momentum;
    double               current_price;
    double               recent_range;
+   double               spread_pips;
+   string               active_session;
+   double               account_balance;
+   double               account_equity;
+   double               daily_drawdown_percent;
+   double               risk_percent_per_trade;
+   string               allowed_actions;
+   string               operational_notes;
+   string               mtf_alignment_status;
+   string               mtf_alignment_warnings;
+   string               mtf_data_source_status;
    MagiPositionSnapshot position;
+   MagiGasparContext    gaspar_context;
    MagiTimeframeFeatures features[MAGI_MAX_FEATURE_TFS];
    int                  feature_count;
    MagiValidationState  validation;
@@ -235,6 +295,19 @@ void MagiInitializeTimeframeFeature(MagiTimeframeFeatures &feature,const ENUM_TI
    feature.timeframe_label    = MagiTimeframeToLabel(timeframe);
    feature.timeframe          = timeframe;
    feature.bar_time           = 0;
+   feature.bar_close_time     = 0;
+   feature.age_minutes        = 0.0;
+   feature.anchor_ibar_shift  = -1;
+   feature.selected_shift     = -1;
+   feature.selected_array_index = -1;
+   feature.copied_array_size  = 0;
+   feature.rates_array_as_series = false;
+   feature.bars_available     = 0;
+   feature.oldest_bar_time    = 0;
+   feature.newest_bar_time    = 0;
+   feature.data_source_status = "PENDING";
+   feature.alignment_status   = "pending";
+   feature.alignment_warning  = "";
    feature.candle_pattern     = "unknown";
    feature.market_structure   = "unknown";
    feature.structure_direction = "neutral";
@@ -243,6 +316,41 @@ void MagiInitializeTimeframeFeature(MagiTimeframeFeatures &feature,const ENUM_TI
    feature.ema_200            = 0.0;
    feature.rsi_14             = 0.0;
    feature.recent_range       = 0.0;
+}
+
+void MagiInitializeGasparContext(MagiGasparContext &context)
+{
+   context.is_available = false;
+   context.schema_version = "1.0";
+   context.module = "GASPAR";
+   context.role = "opportunity_quality";
+   context.symbol = "";
+   context.timestamp = 0;
+   context.anchor_timeframe = "";
+   context.h4_timeframe = "H4";
+   context.d1_timeframe = "D1";
+   context.h4_bar_timestamp = 0;
+   context.d1_bar_timestamp = 0;
+   context.h4_age_minutes = 0.0;
+   context.d1_age_minutes = 0.0;
+   context.context_id = "";
+   context.proposed_direction = "NEUTRAL";
+   context.proposed_direction_source = "pending";
+   context.h4_structure = "range";
+   context.d1_structure = "range";
+   context.directional_alignment = "neutral";
+   context.distance_to_d1_support = 0.0;
+   context.distance_to_d1_resistance = 0.0;
+   context.position_in_d1_range = 0.0;
+   context.near_key_level = false;
+   context.active_session = "inactive";
+   context.daily_atr_consumed_pct = 0.0;
+   context.available_range_to_next_level = 0.0;
+   context.h4_candle_pattern = "none";
+   context.day_of_week = "inactive";
+   context.d1_volatility_vs_20d_avg = 0.0;
+   context.current_d1_range_vs_atr = 0.0;
+   context.data_quality_flags = "pending";
 }
 
 void MagiInitializeSnapshot(MagiSnapshot &snapshot)
@@ -272,6 +380,17 @@ void MagiInitializeSnapshot(MagiSnapshot &snapshot)
    snapshot.momentum          = "weak";
    snapshot.current_price     = 0.0;
    snapshot.recent_range      = 0.0;
+   snapshot.spread_pips       = 0.0;
+   snapshot.active_session    = "inactive";
+   snapshot.account_balance   = 0.0;
+   snapshot.account_equity    = 0.0;
+   snapshot.daily_drawdown_percent = 0.0;
+   snapshot.risk_percent_per_trade = 0.0;
+   snapshot.allowed_actions   = "[]";
+   snapshot.operational_notes = "";
+   snapshot.mtf_alignment_status = "pending";
+   snapshot.mtf_alignment_warnings = "";
+   snapshot.mtf_data_source_status = "PENDING";
    snapshot.feature_count     = 0;
 
    for(int i = 0; i < MAGI_MAX_LEVELS; i++)
@@ -284,6 +403,7 @@ void MagiInitializeSnapshot(MagiSnapshot &snapshot)
       MagiInitializeTimeframeFeature(snapshot.features[j], PERIOD_CURRENT);
 
    MagiInitializePositionSnapshot(snapshot.position);
+   MagiInitializeGasparContext(snapshot.gaspar_context);
    MagiValidationReset(snapshot.validation);
 }
 
