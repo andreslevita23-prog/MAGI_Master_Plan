@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import atexit
 import shutil
 import subprocess
 from pathlib import Path
@@ -21,6 +22,10 @@ class MelchorRealAdapter:
         self.engine_path = Path(config.get("engine_path", "servidor-prosperity/services/melchor-risk-engine.js"))
         self.rules_path = Path(config.get("rules_path", "config/melchor_rules.json"))
         self.timeout_seconds = float(config.get("timeout_seconds", 10.0))
+        self.persistent_process = bool(config.get("persistent_process", True))
+        self._process: subprocess.Popen[str] | None = None
+        if self.persistent_process:
+            atexit.register(self.close)
 
     def evaluate(self, snapshot: Snapshot) -> MageVote:
         try:
@@ -101,6 +106,11 @@ class MelchorRealAdapter:
         return account
 
     def run_melchor(self, payload: dict[str, Any]) -> dict[str, Any]:
+        if self.persistent_process:
+            return self.run_melchor_persistent(payload)
+        return self.run_melchor_subprocess(payload)
+
+    def run_melchor_subprocess(self, payload: dict[str, Any]) -> dict[str, Any]:
         engine_path = self.engine_path.resolve()
         if not engine_path.exists():
             raise FileNotFoundError(f"Melchor real engine not found: {engine_path}")
@@ -137,6 +147,74 @@ process.stdout.write(JSON.stringify(vote));
         if not isinstance(parsed, dict):
             raise RuntimeError("Melchor real returned a non-object JSON payload")
         return parsed
+
+    def run_melchor_persistent(self, payload: dict[str, Any]) -> dict[str, Any]:
+        process = self.ensure_process()
+        if process.stdin is None or process.stdout is None:
+            raise RuntimeError("Melchor persistent process pipes are not available")
+        process.stdin.write(json.dumps(payload, separators=(",", ":")) + "\n")
+        process.stdin.flush()
+        line = process.stdout.readline()
+        if not line:
+            stderr = process.stderr.read() if process.stderr else ""
+            self.close()
+            raise RuntimeError(f"Melchor persistent process returned no output: {stderr[:500]}")
+        parsed = json.loads(line)
+        if isinstance(parsed, dict) and parsed.get("__error__"):
+            raise RuntimeError(f"Melchor persistent process failed: {parsed.get('error')}")
+        if not isinstance(parsed, dict):
+            raise RuntimeError("Melchor real returned a non-object JSON payload")
+        return parsed
+
+    def ensure_process(self) -> subprocess.Popen[str]:
+        if self._process is not None and self._process.poll() is None:
+            return self._process
+        engine_path = self.engine_path.resolve()
+        if not engine_path.exists():
+            raise FileNotFoundError(f"Melchor real engine not found: {engine_path}")
+        script = f"""
+import {{ evaluateMelchorRisk }} from {json.dumps(engine_path.as_uri())};
+import readline from "node:readline";
+
+const rl = readline.createInterface({{ input: process.stdin, crlfDelay: Infinity }});
+for await (const line of rl) {{
+  if (!line.trim()) {{
+    continue;
+  }}
+  try {{
+    const payload = JSON.parse(line);
+    if (payload.options?.now) {{
+      payload.options.now = new Date(payload.options.now);
+    }}
+    const vote = evaluateMelchorRisk(payload.snapshot, payload.options || {{}});
+    process.stdout.write(JSON.stringify(vote) + "\\n");
+  }} catch (error) {{
+    process.stdout.write(JSON.stringify({{ __error__: true, error: String(error?.stack || error) }}) + "\\n");
+  }}
+}}
+"""
+        self._process = subprocess.Popen(
+            [self.node_path, "--input-type=module", "--eval", script],
+            text=True,
+            stdin=subprocess.PIPE,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            bufsize=1,
+        )
+        return self._process
+
+    def close(self) -> None:
+        if self._process is None:
+            return
+        process = self._process
+        self._process = None
+        try:
+            if process.stdin:
+                process.stdin.close()
+            process.terminate()
+            process.wait(timeout=2)
+        except Exception:  # noqa: BLE001
+            process.kill()
 
     def to_mage_vote(self, snapshot: Snapshot, raw_vote: dict[str, Any]) -> MageVote:
         native_vote = str(raw_vote.get("vote", "")).upper()

@@ -6,6 +6,7 @@ from uuid import uuid4
 from pathlib import Path
 
 from simulator.loaders import load_csv, load_jsonl
+from simulator.loaders import load_bot_a_snapshots
 
 
 def sample_record(snapshot_id="s1"):
@@ -39,6 +40,16 @@ class LoaderTests(unittest.TestCase):
         self.assertEqual(snapshots[0].snapshot_id, "s1")
         self.assertIsNotNone(snapshots[0].timestamp.tzinfo)
 
+    def test_loader_accepts_jsonl_file_path(self):
+        with workspace_tempdir() as temp_dir:
+            path = Path(temp_dir) / "sample.jsonl"
+            path.write_text(json.dumps(sample_record()) + "\n", encoding="utf-8")
+
+            snapshots, errors = load_bot_a_snapshots(path, "jsonl")
+
+        self.assertEqual(errors, [])
+        self.assertEqual(len(snapshots), 1)
+        self.assertEqual(snapshots[0].snapshot_id, "s1")
 
     def test_loader_csv_reads_snapshots(self):
         with workspace_tempdir() as temp_dir:

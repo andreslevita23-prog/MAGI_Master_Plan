@@ -19,6 +19,8 @@ artifacts/test_tmp/
 # Simulator generated data
 data/input/*
 !data/input/.gitkeep
+data/clean/*
+!data/clean/.gitkeep
 data/output/simulations/*
 !data/output/simulations/.gitkeep
 data/output/ceo_training/*

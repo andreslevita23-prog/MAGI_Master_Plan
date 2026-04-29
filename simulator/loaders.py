@@ -18,7 +18,16 @@ def load_bot_a_snapshots(input_path: str | Path, input_format: str = "auto") -> 
         raise LoaderError(f"Input path does not exist: {root}")
 
     formats = {input_format.lower()}
-    if "auto" in formats:
+    if root.is_file():
+        if "auto" in formats and root.suffix.lower() in {".jsonl", ".csv"}:
+            paths = [root]
+        elif "jsonl" in formats and root.suffix.lower() == ".jsonl":
+            paths = [root]
+        elif "csv" in formats and root.suffix.lower() == ".csv":
+            paths = [root]
+        else:
+            raise LoaderError(f"Input file does not match input_format: {root}")
+    elif "auto" in formats:
         paths = sorted([*root.rglob("*.jsonl"), *root.rglob("*.csv")])
     elif "jsonl" in formats:
         paths = sorted(root.rglob("*.jsonl"))

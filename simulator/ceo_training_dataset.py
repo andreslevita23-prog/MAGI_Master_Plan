@@ -86,6 +86,8 @@ def build_ceo_training_records(
 
     for symbol, symbol_snapshots in by_symbol.items():
         for index, snapshot in enumerate(symbol_snapshots):
+            if (index + 1) % 50000 == 0:
+                print(f"CEO training progress: {symbol} {index + 1}/{len(symbol_snapshots)} snapshots", flush=True)
             if has_validation_error(snapshot):
                 skipped["invalid_snapshot"] += 1
                 continue
@@ -115,7 +117,7 @@ def build_ceo_training_records(
                 "features_cutoff_timestamp": timestamp_to_iso(snapshot.timestamp),
                 "labels_generated_after_timestamp": timestamp_to_iso(snapshot.timestamp),
                 "forbidden_feature_keywords": list(FORBIDDEN_FEATURE_KEYWORDS),
-                "removed_feature_paths": find_leakage_paths(snapshot.raw),
+                "removed_feature_paths": [],
                 "features_clean": not has_forbidden_key(features),
             }
             records.append(
@@ -196,7 +198,6 @@ def calculate_future_outcomes(
 
 
 def features_at_decision_time(snapshot: Snapshot) -> dict[str, Any]:
-    raw = sanitize_features(snapshot.raw)
     base = {
         "schema_version": snapshot.schema_version,
         "run_id": snapshot.run_id,
@@ -214,7 +215,6 @@ def features_at_decision_time(snapshot: Snapshot) -> dict[str, Any]:
         "account": sanitize_features(snapshot.account),
         "source_file": snapshot.source_file,
         "source_line": snapshot.source_line,
-        "raw": raw,
     }
     return sanitize_features(base)
 
