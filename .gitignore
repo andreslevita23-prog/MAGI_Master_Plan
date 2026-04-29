@@ -14,6 +14,16 @@ venv/
 *.log
 *.tmp
 *.bak
+artifacts/test_tmp/
+
+# Simulator generated data
+data/input/*
+!data/input/.gitkeep
+data/output/simulations/*
+!data/output/simulations/.gitkeep
+data/output/ceo_training/*
+!data/output/ceo_training/.gitkeep
+data/output/test_tmp/
 
 # MT5 local artifacts
 servidor-prosperity/integrations/mt5/*.ex5
