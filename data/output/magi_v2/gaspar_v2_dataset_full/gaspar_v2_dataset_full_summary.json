@@ -1,0 +1,136 @@
+{
+  "columns": 94,
+  "explicitly_not_used": [
+    "gaspar_training_v1",
+    "existing gaspar_v2_dataset.parquet",
+    "policy_trades.csv as base"
+  ],
+  "feature_column_count": 68,
+  "feature_columns": [
+    "spread_pips",
+    "atr",
+    "daily_range_position",
+    "regime",
+    "anchor_open",
+    "anchor_high",
+    "anchor_low",
+    "anchor_close",
+    "candle_body_pct",
+    "upper_wick_pct",
+    "lower_wick_pct",
+    "returns_1",
+    "returns_3",
+    "returns_6",
+    "volatility_12",
+    "recent_range",
+    "ema_20",
+    "ema_50",
+    "ema_200",
+    "ema_20_50_distance",
+    "ema_50_200_distance",
+    "close_to_ema20",
+    "close_to_ema50",
+    "close_to_ema200",
+    "ema_20_slope",
+    "ema_50_slope",
+    "rsi_14",
+    "momentum",
+    "market_structure",
+    "structure_direction",
+    "support_distance_pips",
+    "resistance_distance_pips",
+    "mtf_alignment_status",
+    "htf_directional_alignment",
+    "htf_h4_structure",
+    "htf_d1_structure",
+    "m15_ema_20",
+    "m15_ema_50",
+    "m15_ema_200",
+    "m15_rsi_14",
+    "m15_market_structure",
+    "m15_structure_direction",
+    "m15_recent_range",
+    "m15_candle_pattern",
+    "h1_ema_20",
+    "h1_ema_50",
+    "h1_ema_200",
+    "h1_rsi_14",
+    "h1_market_structure",
+    "h1_structure_direction",
+    "h1_recent_range",
+    "h1_candle_pattern",
+    "h4_ema_20",
+    "h4_ema_50",
+    "h4_ema_200",
+    "h4_rsi_14",
+    "h4_market_structure",
+    "h4_structure_direction",
+    "h4_recent_range",
+    "h4_candle_pattern",
+    "d1_ema_20",
+    "d1_ema_50",
+    "d1_ema_200",
+    "d1_rsi_14",
+    "d1_market_structure",
+    "d1_structure_direction",
+    "d1_recent_range",
+    "d1_candle_pattern"
+  ],
+  "gaspar_training_v1_used": false,
+  "generated_at": "2026-04-30T18:41:32.884950Z",
+  "has_valid_train_2020_2023": true,
+  "label_distribution": {
+    "FAVORABLE": 58634,
+    "NEUTRAL": 1308,
+    "UNFAVORABLE": 40934
+  },
+  "label_distribution_by_split": {
+    "test": {
+      "FAVORABLE": 7822,
+      "NEUTRAL": 354,
+      "UNFAVORABLE": 11791
+    },
+    "train": {
+      "FAVORABLE": 46276,
+      "NEUTRAL": 580,
+      "UNFAVORABLE": 22628
+    },
+    "validation": {
+      "FAVORABLE": 4536,
+      "NEUTRAL": 374,
+      "UNFAVORABLE": 6515
+    }
+  },
+  "leakage_check": {
+    "forbidden_feature_intersection": [],
+    "timing_feature_intersection": []
+  },
+  "model": "data\\output\\magi_v2\\baltasar_v2_rich_features_model\\baltasar_v2_rich_model.joblib",
+  "policy": {
+    "rules": [
+      "Baltasar rich model directional probability threshold >= 0.40",
+      "block session == inactive",
+      "block daily_range_position > 0.85",
+      "block hours [13, 15, 16, 20, 22]"
+    ],
+    "threshold": "0.40",
+    "variant": "rich_policy_medium"
+  },
+  "rich_features": "data\\output\\magi_v2\\baltasar_v2_rich_features\\baltasar_v2_rich_features.parquet",
+  "rows": 100876,
+  "rr2_labels": "data\\output\\magi_v2\\rr2_first_touch_labels\\rr2_first_touch_labels.parquet",
+  "schema_version": "gaspar_v2_dataset_full_v0.1",
+  "selected_at_050": {
+    "rows": 31823,
+    "share": 0.315467
+  },
+  "split_rows": {
+    "test": 19967,
+    "train": 69484,
+    "validation": 11425
+  },
+  "temporal_range": {
+    "max": "2026-04-09T14:05:00+00:00",
+    "min": "2020-01-15T12:00:00+00:00"
+  }
+}

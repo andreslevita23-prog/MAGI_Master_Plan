@@ -1,0 +1,577 @@
+{
+  "baltasar_v1_comparison": {
+    "by_direction": [
+      {
+        "avg_r": 0.122722,
+        "direction": "ENTER_BUY",
+        "max_drawdown_r": 411.44,
+        "precision": 0.267636,
+        "profit_factor": 1.231235,
+        "split": "test",
+        "threshold": "000",
+        "total_r": 2506.84,
+        "trades": 20427,
+        "win_rate": 0.429774
+      },
+      {
+        "avg_r": 0.054595,
+        "direction": "ENTER_SELL",
+        "max_drawdown_r": 942.57,
+        "precision": 0.260078,
+        "profit_factor": 1.097393,
+        "split": "test",
+        "threshold": "000",
+        "total_r": 1530.31,
+        "trades": 28030,
+        "win_rate": 0.395897
+      },
+      {
+        "avg_r": 0.011981,
+        "direction": "ENTER_BUY",
+        "max_drawdown_r": 552.58,
+        "precision": 0.197308,
+        "profit_factor": 1.022757,
+        "split": "validation",
+        "threshold": "000",
+        "total_r": 149.56,
+        "trades": 12483,
+        "win_rate": 0.407514
+      },
+      {
+        "avg_r": 0.001443,
+        "direction": "ENTER_SELL",
+        "max_drawdown_r": 528.78,
+        "precision": 0.176396,
+        "profit_factor": 1.002888,
+        "split": "validation",
+        "threshold": "000",
+        "total_r": 20.52,
+        "trades": 14218,
+        "win_rate": 0.407371
+      }
+    ],
+    "by_split": {
+      "test": {
+        "avg_r": 0.083314,
+        "buy": {
+          "avg_r": 0.122722,
+          "max_drawdown_r": 411.44,
+          "precision": 0.267636,
+          "profit_factor": 1.231235,
+          "total_r": 2506.84,
+          "trades": 20427,
+          "win_rate": 0.429774
+        },
+        "coverage": 0.646171,
+        "max_drawdown_r": 766.96,
+        "prediction_distribution": {
+          "ENTER_BUY": 20427,
+          "ENTER_SELL": 28030
+        },
+        "profit_factor": 1.152036,
+        "sell": {
+          "avg_r": 0.054595,
+          "max_drawdown_r": 942.57,
+          "precision": 0.260078,
+          "profit_factor": 1.097393,
+          "total_r": 1530.31,
+          "trades": 28030,
+          "win_rate": 0.395897
+        },
+        "total_r": 4037.15,
+        "trade_precision": 0.263264,
+        "trades": 48457,
+        "win_rate": 0.410178
+      },
+      "validation": {
+        "avg_r": 0.00637,
+        "buy": {
+          "avg_r": 0.011981,
+          "max_drawdown_r": 552.58,
+          "precision": 0.197308,
+          "profit_factor": 1.022757,
+          "total_r": 149.56,
+          "trades": 12483,
+          "win_rate": 0.407514
+        },
+        "coverage": 0.449678,
+        "max_drawdown_r": 878.24,
+        "prediction_distribution": {
+          "ENTER_BUY": 12483,
+          "ENTER_SELL": 14218
+        },
+        "profit_factor": 1.012434,
+        "sell": {
+          "avg_r": 0.001443,
+          "max_drawdown_r": 528.78,
+          "precision": 0.176396,
+          "profit_factor": 1.002888,
+          "total_r": 20.52,
+          "trades": 14218,
+          "win_rate": 0.407371
+        },
+        "total_r": 170.08,
+        "trade_precision": 0.186173,
+        "trades": 26701,
+        "win_rate": 0.407438
+      }
+    },
+    "overall": {
+      "avg_r": 0.055978,
+      "buy": {
+        "avg_r": 0.080717,
+        "max_drawdown_r": 552.58,
+        "precision": 0.24096,
+        "profit_factor": 1.152551,
+        "total_r": 2656.4,
+        "trades": 32910,
+        "win_rate": 0.421331
+      },
+      "coverage": 0.55934,
+      "max_drawdown_r": 878.24,
+      "prediction_distribution": {
+        "ENTER_BUY": 32910,
+        "ENTER_SELL": 42248
+      },
+      "profit_factor": 1.104573,
+      "sell": {
+        "avg_r": 0.036708,
+        "max_drawdown_r": 1112.86,
+        "precision": 0.231916,
+        "profit_factor": 1.067962,
+        "total_r": 1550.83,
+        "trades": 42248,
+        "win_rate": 0.399759
+      },
+      "total_r": 4207.23,
+      "trade_precision": 0.235876,
+      "trades": 75158,
+      "win_rate": 0.409205
+    }
+  },
+  "diagnostic_2026q2": [
+    {
+      "avg_r": -0.057211,
+      "buy": {
+        "avg_r": -0.455,
+        "max_drawdown_r": 1.0,
+        "precision": 0.0,
+        "profit_factor": 0.09,
+        "total_r": -0.91,
+        "trades": 2,
+        "win_rate": 0.5
+      },
+      "coverage": 0.200087,
+      "end": "2026-04-14T23:59:59+00:00",
+      "max_drawdown_r": 93.66,
+      "period": "2026Q2_partial",
+      "prediction_distribution": {
+        "ENTER_BUY": 2,
+        "ENTER_SELL": 457
+      },
+      "profit_factor": 0.900311,
+      "sell": {
+        "avg_r": -0.05547,
+        "max_drawdown_r": 93.75,
+        "precision": 0.227571,
+        "profit_factor": 0.903399,
+        "total_r": -25.35,
+        "trades": 457,
+        "win_rate": 0.341357
+      },
+      "start": "2026-04-01T00:00:00+00:00",
+      "threshold": "040",
+      "total_r": -26.26,
+      "trade_precision": 0.22658,
+      "trades": 459,
+      "win_rate": 0.342048
+    },
+    {
+      "avg_r": -0.201062,
+      "buy": {
+        "avg_r": 0.0,
+        "max_drawdown_r": 0.0,
+        "precision": 0.0,
+        "profit_factor": 0.0,
+        "total_r": 0.0,
+        "trades": 0,
+        "win_rate": 0.0
+      },
+      "coverage": 0.049259,
+      "end": "2026-04-14T23:59:59+00:00",
+      "max_drawdown_r": 53.89,
+      "period": "2026Q2_partial",
+      "prediction_distribution": {
+        "ENTER_SELL": 113
+      },
+      "profit_factor": 0.688767,
+      "sell": {
+        "avg_r": -0.201062,
+        "max_drawdown_r": 53.89,
+        "precision": 0.20354,
+        "profit_factor": 0.688767,
+        "total_r": -22.72,
+        "trades": 113,
+        "win_rate": 0.300885
+      },
+      "start": "2026-04-01T00:00:00+00:00",
+      "threshold": "050",
+      "total_r": -22.72,
+      "trade_precision": 0.20354,
+      "trades": 113,
+      "win_rate": 0.300885
+    }
+  ],
+  "generated_at": "2026-04-30T17:54:07.100718Z",
+  "labels": "data\\output\\magi_v2\\rr2_first_touch_labels\\rr2_first_touch_labels.parquet",
+  "metrics_by_direction": [
+    {
+      "avg_r": 0.122639,
+      "direction": "ENTER_BUY",
+      "max_drawdown_r": 190.86,
+      "precision": 0.310004,
+      "profit_factor": 1.216115,
+      "split": "test",
+      "threshold": "040",
+      "total_r": 930.46,
+      "trades": 7587,
+      "win_rate": 0.40833
+    },
+    {
+      "avg_r": 0.075112,
+      "direction": "ENTER_SELL",
+      "max_drawdown_r": 410.55,
+      "precision": 0.286591,
+      "profit_factor": 1.129633,
+      "split": "test",
+      "threshold": "040",
+      "total_r": 929.89,
+      "trades": 12380,
+      "win_rate": 0.393134
+    },
+    {
+      "avg_r": 0.109703,
+      "direction": "ENTER_BUY",
+      "max_drawdown_r": 237.59,
+      "precision": 0.244259,
+      "profit_factor": 1.207537,
+      "split": "validation",
+      "threshold": "040",
+      "total_r": 735.67,
+      "trades": 6706,
+      "win_rate": 0.434536
+    },
+    {
+      "avg_r": -0.021316,
+      "direction": "ENTER_SELL",
+      "max_drawdown_r": 517.05,
+      "precision": 0.232465,
+      "profit_factor": 0.963263,
+      "split": "validation",
+      "threshold": "040",
+      "total_r": -100.59,
+      "trades": 4719,
+      "win_rate": 0.371265
+    },
+    {
+      "avg_r": 0.301891,
+      "direction": "ENTER_BUY",
+      "max_drawdown_r": 61.0,
+      "precision": 0.385256,
+      "profit_factor": 1.575023,
+      "split": "test",
+      "threshold": "050",
+      "total_r": 253.89,
+      "trades": 841,
+      "win_rate": 0.454221
+    },
+    {
+      "avg_r": 0.1089,
+      "direction": "ENTER_SELL",
+      "max_drawdown_r": 142.71,
+      "precision": 0.318942,
+      "profit_factor": 1.188028,
+      "split": "test",
+      "threshold": "050",
+      "total_r": 234.57,
+      "trades": 2154,
+      "win_rate": 0.393222
+    },
+    {
+      "avg_r": 0.211409,
+      "direction": "ENTER_BUY",
+      "max_drawdown_r": 77.21,
+      "precision": 0.291107,
+      "profit_factor": 1.420891,
+      "split": "validation",
+      "threshold": "050",
+      "total_r": 252.0,
+      "trades": 1192,
+      "win_rate": 0.465604
+    },
+    {
+      "avg_r": 0.261917,
+      "direction": "ENTER_SELL",
+      "max_drawdown_r": 64.27,
+      "precision": 0.3375,
+      "profit_factor": 1.509772,
+      "split": "validation",
+      "threshold": "050",
+      "total_r": 188.58,
+      "trades": 720,
+      "win_rate": 0.4625
+    }
+  ],
+  "output_dir": "data\\output\\magi_v2\\baltasar_v2_rich_features_model\\policy_medium_r_simulation",
+  "policy_trades": "data\\output\\magi_v2\\baltasar_v2_rich_features_model\\policy\\policy_trades.csv",
+  "policy_variant": "rich_policy_medium",
+  "schema_version": "baltasar_v2_policy_medium_r_simulation_v0.1",
+  "split_metrics": [
+    {
+      "avg_r": 0.093171,
+      "buy": {
+        "avg_r": 0.122639,
+        "max_drawdown_r": 190.86,
+        "precision": 0.310004,
+        "profit_factor": 1.216115,
+        "total_r": 930.46,
+        "trades": 7587,
+        "win_rate": 0.40833
+      },
+      "coverage": 0.266259,
+      "label_distribution": {
+        "DO_NOTHING": 43774,
+        "ENTER_BUY": 15606,
+        "ENTER_SELL": 15611
+      },
+      "max_drawdown_r": 266.14,
+      "prediction_distribution": {
+        "ENTER_BUY": 7587,
+        "ENTER_SELL": 12380
+      },
+      "profit_factor": 1.162071,
+      "sell": {
+        "avg_r": 0.075112,
+        "max_drawdown_r": 410.55,
+        "precision": 0.286591,
+        "profit_factor": 1.129633,
+        "total_r": 929.89,
+        "trades": 12380,
+        "win_rate": 0.393134
+      },
+      "split": "test",
+      "threshold": "040",
+      "total_r": 1860.35,
+      "trade_precision": 0.295488,
+      "trades": 19967,
+      "win_rate": 0.398908
+    },
+    {
+      "avg_r": 0.055587,
+      "buy": {
+        "avg_r": 0.109703,
+        "max_drawdown_r": 237.59,
+        "precision": 0.244259,
+        "profit_factor": 1.207537,
+        "total_r": 735.67,
+        "trades": 6706,
+        "win_rate": 0.434536
+      },
+      "coverage": 0.192411,
+      "label_distribution": {
+        "DO_NOTHING": 42450,
+        "ENTER_BUY": 8148,
+        "ENTER_SELL": 8780
+      },
+      "max_drawdown_r": 348.18,
+      "prediction_distribution": {
+        "ENTER_BUY": 6706,
+        "ENTER_SELL": 4719
+      },
+      "profit_factor": 1.101081,
+      "sell": {
+        "avg_r": -0.021316,
+        "max_drawdown_r": 517.05,
+        "precision": 0.232465,
+        "profit_factor": 0.963263,
+        "total_r": -100.59,
+        "trades": 4719,
+        "win_rate": 0.371265
+      },
+      "split": "validation",
+      "threshold": "040",
+      "total_r": 635.08,
+      "trade_precision": 0.239387,
+      "trades": 11425,
+      "win_rate": 0.408403
+    },
+    {
+      "avg_r": 0.163092,
+      "buy": {
+        "avg_r": 0.301891,
+        "max_drawdown_r": 61.0,
+        "precision": 0.385256,
+        "profit_factor": 1.575023,
+        "total_r": 253.89,
+        "trades": 841,
+        "win_rate": 0.454221
+      },
+      "coverage": 0.039938,
+      "label_distribution": {
+        "DO_NOTHING": 43774,
+        "ENTER_BUY": 15606,
+        "ENTER_SELL": 15611
+      },
+      "max_drawdown_r": 134.09,
+      "prediction_distribution": {
+        "ENTER_BUY": 841,
+        "ENTER_SELL": 2154
+      },
+      "profit_factor": 1.28919,
+      "sell": {
+        "avg_r": 0.1089,
+        "max_drawdown_r": 142.71,
+        "precision": 0.318942,
+        "profit_factor": 1.188028,
+        "total_r": 234.57,
+        "trades": 2154,
+        "win_rate": 0.393222
+      },
+      "split": "test",
+      "threshold": "050",
+      "total_r": 488.46,
+      "trade_precision": 0.337563,
+      "trades": 2995,
+      "win_rate": 0.410351
+    },
+    {
+      "avg_r": 0.230429,
+      "buy": {
+        "avg_r": 0.211409,
+        "max_drawdown_r": 77.21,
+        "precision": 0.291107,
+        "profit_factor": 1.420891,
+        "total_r": 252.0,
+        "trades": 1192,
+        "win_rate": 0.465604
+      },
+      "coverage": 0.0322,
+      "label_distribution": {
+        "DO_NOTHING": 42450,
+        "ENTER_BUY": 8148,
+        "ENTER_SELL": 8780
+      },
+      "max_drawdown_r": 75.21,
+      "prediction_distribution": {
+        "ENTER_BUY": 1192,
+        "ENTER_SELL": 720
+      },
+      "profit_factor": 1.454835,
+      "sell": {
+        "avg_r": 0.261917,
+        "max_drawdown_r": 64.27,
+        "precision": 0.3375,
+        "profit_factor": 1.509772,
+        "total_r": 188.58,
+        "trades": 720,
+        "win_rate": 0.4625
+      },
+      "split": "validation",
+      "threshold": "050",
+      "total_r": 440.58,
+      "trade_precision": 0.308577,
+      "trades": 1912,
+      "win_rate": 0.464435
+    }
+  ],
+  "target": "tradeable_direction_rr2_first_touch",
+  "technical_decisions": [
+    "No model retraining is performed.",
+    "Only trades already selected by rich_policy_medium are simulated.",
+    "Realized R is taken from first-touch RR 1:2 labels: buy_R for ENTER_BUY and sell_R for ENTER_SELL.",
+    "Coverage uses rr2_first_touch_labels as denominator for validation/test periods.",
+    "2026Q2 is analyzed as diagnostic only; no calendar blocking rule is added."
+  ],
+  "threshold_metrics": [
+    {
+      "avg_r": 0.079493,
+      "buy": {
+        "avg_r": 0.11657,
+        "max_drawdown_r": 237.59,
+        "precision": 0.279158,
+        "profit_factor": 1.212242,
+        "total_r": 1666.13,
+        "trades": 14293,
+        "win_rate": 0.420625
+      },
+      "coverage": 0.233625,
+      "label_distribution": {
+        "DO_NOTHING": 86224,
+        "ENTER_BUY": 23754,
+        "ENTER_SELL": 24391
+      },
+      "max_drawdown_r": 348.18,
+      "prediction_distribution": {
+        "ENTER_BUY": 14293,
+        "ENTER_SELL": 17099
+      },
+      "profit_factor": 1.140497,
+      "sell": {
+        "avg_r": 0.0485,
+        "max_drawdown_r": 737.1,
+        "precision": 0.271653,
+        "profit_factor": 1.083672,
+        "total_r": 829.3,
+        "trades": 17099,
+        "win_rate": 0.387099
+      },
+      "threshold": "040",
+      "total_r": 2495.43,
+      "trade_precision": 0.27507,
+      "trades": 31392,
+      "win_rate": 0.402364
+    },
+    {
+      "avg_r": 0.18933,
+      "buy": {
+        "avg_r": 0.248839,
+        "max_drawdown_r": 84.87,
+        "precision": 0.330054,
+        "profit_factor": 1.486311,
+        "total_r": 505.89,
+        "trades": 2033,
+        "win_rate": 0.460895
+      },
+      "coverage": 0.036519,
+      "label_distribution": {
+        "DO_NOTHING": 86224,
+        "ENTER_BUY": 23754,
+        "ENTER_SELL": 24391
+      },
+      "max_drawdown_r": 134.09,
+      "prediction_distribution": {
+        "ENTER_BUY": 2033,
+        "ENTER_SELL": 2874
+      },
+      "profit_factor": 1.349563,
+      "sell": {
+        "avg_r": 0.147234,
+        "max_drawdown_r": 186.15,
+        "precision": 0.323591,
+        "profit_factor": 1.261614,
+        "total_r": 423.15,
+        "trades": 2874,
+        "win_rate": 0.410578
+      },
+      "threshold": "050",
+      "total_r": 929.04,
+      "trade_precision": 0.326269,
+      "trades": 4907,
+      "win_rate": 0.431424
+    }
+  ],
+  "thresholds": [
+    "040",
+    "050"
+  ]
+}

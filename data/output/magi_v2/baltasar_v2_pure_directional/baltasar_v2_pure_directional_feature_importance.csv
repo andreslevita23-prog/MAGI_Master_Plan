@@ -1,0 +1,8 @@
+feature,importance,method
+hour,0.0934015537,permutation_f1_macro
+weekday,0.0164364727,permutation_f1_macro
+spread_pips,0.0029842988,permutation_f1_macro
+session,0.0014727657,permutation_f1_macro
+regime,-0.0008114852,permutation_f1_macro
+daily_range_position,-0.0055605969,permutation_f1_macro
+atr,-0.0096378837,permutation_f1_macro

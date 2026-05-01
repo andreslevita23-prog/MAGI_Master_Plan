@@ -1,0 +1,5 @@
+split,direction,blocked_trades,blocked_share,solo_trades,solo_avg_r,solo_total_r,solo_profit_factor,solo_max_drawdown_r,solo_win_rate,integrated_trades,integrated_avg_r,integrated_total_r,integrated_profit_factor,integrated_max_drawdown_r,integrated_win_rate
+validation,ENTER_BUY,392,0.058455,6706,0.109703,735.67,1.207537,237.59,0.434536,6314,0.137111,865.72,1.263997,222.59,0.445518
+validation,ENTER_SELL,94,0.019919,4719,-0.021316,-100.59,0.963263,517.05,0.371265,4625,-0.015001,-69.38,0.974067,486.6,0.374486
+test,ENTER_BUY,476,0.062739,7587,0.122639,930.46,1.216115,190.86,0.40833,7111,0.132138,939.63,1.234525,168.93,0.412881
+test,ENTER_SELL,903,0.07294,12380,0.075112,929.89,1.129633,410.55,0.393134,11477,0.104733,1202.02,1.184191,314.77,0.403764

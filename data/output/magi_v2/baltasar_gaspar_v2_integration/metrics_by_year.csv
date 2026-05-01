@@ -1,0 +1,4 @@
+split,year,blocked_trades,blocked_share,solo_trades,solo_avg_r,solo_total_r,solo_profit_factor,solo_max_drawdown_r,solo_win_rate,integrated_trades,integrated_avg_r,integrated_total_r,integrated_profit_factor,integrated_max_drawdown_r,integrated_win_rate
+validation,2024,486,0.042538,11425,0.055587,635.08,1.101081,348.18,0.408403,10939,0.072798,796.34,1.133735,332.3,0.415486
+test,2025,1133,0.072161,15701,0.098233,1542.35,1.170274,266.14,0.400548,14568,0.119123,1735.39,1.209218,240.14,0.408704
+test,2026,246,0.057665,4266,0.074543,318.0,1.131373,145.87,0.392874,4020,0.10106,406.26,1.181543,143.87,0.40199

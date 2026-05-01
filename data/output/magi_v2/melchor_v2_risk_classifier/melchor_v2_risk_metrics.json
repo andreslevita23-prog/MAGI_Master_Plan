@@ -1,0 +1,774 @@
+{
+  "baseline_original": {
+    "test": {
+      "avg_r": 0.093171,
+      "max_drawdown_r": 266.14,
+      "profit_factor": 1.162071,
+      "total_r": 1860.35,
+      "trades": 19967,
+      "win_rate": 0.398908
+    },
+    "validation": {
+      "avg_r": 0.055587,
+      "max_drawdown_r": 348.18,
+      "profit_factor": 1.101081,
+      "total_r": 635.08,
+      "trades": 11425,
+      "win_rate": 0.408403
+    }
+  },
+  "classification": {
+    "test": {
+      "accuracy": 0.396354,
+      "block_precision": 0.540767,
+      "block_recall": 0.067204,
+      "confusion_matrix": {
+        "labels": [
+          "APPROVE",
+          "CAUTION",
+          "BLOCK"
+        ],
+        "matrix": [
+          [
+            7136,
+            74,
+            626
+          ],
+          [
+            549,
+            2,
+            33
+          ],
+          [
+            10671,
+            100,
+            776
+          ]
+        ]
+      },
+      "macro_f1": 0.223238,
+      "per_class": {
+        "APPROVE": {
+          "f1": 0.544899,
+          "precision": 0.388756,
+          "recall": 0.910669,
+          "support": 7836
+        },
+        "BLOCK": {
+          "f1": 0.11955,
+          "precision": 0.540767,
+          "recall": 0.067204,
+          "support": 11547
+        },
+        "CAUTION": {
+          "f1": 0.005263,
+          "precision": 0.011364,
+          "recall": 0.003425,
+          "support": 584
+        }
+      },
+      "prediction_distribution": {
+        "APPROVE": 18356,
+        "BLOCK": 1435,
+        "CAUTION": 176
+      },
+      "target_distribution": {
+        "APPROVE": 7836,
+        "BLOCK": 11547,
+        "CAUTION": 584
+      }
+    },
+    "validation": {
+      "accuracy": 0.330941,
+      "block_precision": 0.657935,
+      "block_recall": 0.109445,
+      "confusion_matrix": {
+        "labels": [
+          "APPROVE",
+          "CAUTION",
+          "BLOCK"
+        ],
+        "matrix": [
+          [
+            2927,
+            65,
+            428
+          ],
+          [
+            186,
+            0,
+            16
+          ],
+          [
+            6866,
+            83,
+            854
+          ]
+        ]
+      },
+      "macro_f1": 0.20819,
+      "per_class": {
+        "APPROVE": {
+          "f1": 0.436898,
+          "precision": 0.293316,
+          "recall": 0.855848,
+          "support": 3420
+        },
+        "BLOCK": {
+          "f1": 0.187672,
+          "precision": 0.657935,
+          "recall": 0.109445,
+          "support": 7803
+        },
+        "CAUTION": {
+          "f1": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "support": 202
+        }
+      },
+      "prediction_distribution": {
+        "APPROVE": 9979,
+        "BLOCK": 1298,
+        "CAUTION": 148
+      },
+      "target_distribution": {
+        "APPROVE": 3420,
+        "BLOCK": 7803,
+        "CAUTION": 202
+      }
+    }
+  },
+  "dataset": "data\\output\\magi_v2\\melchor_v2_risk_dataset\\melchor_v2_risk_dataset.parquet",
+  "diagnostic_target": "risk_block_rr2_strict",
+  "feature_column_count": 23,
+  "feature_columns": [
+    "rolling_pf_20",
+    "rolling_pf_50",
+    "rolling_pf_100",
+    "rolling_avg_R_20",
+    "rolling_avg_R_50",
+    "rolling_avg_R_100",
+    "rolling_drawdown_50",
+    "rolling_drawdown_100",
+    "rolling_win_rate_20",
+    "rolling_win_rate_50",
+    "rolling_win_rate_100",
+    "rolling_unfavorable_rate_50",
+    "rolling_unfavorable_rate_100",
+    "rolling_sell_pf_20",
+    "rolling_sell_pf_50",
+    "rolling_sell_pf_100",
+    "rolling_sell_avg_R_20",
+    "rolling_sell_avg_R_50",
+    "rolling_sell_avg_R_100",
+    "recent_loss_streak",
+    "recent_sell_loss_streak",
+    "daily_range_position",
+    "predicted_direction"
+  ],
+  "filter_simulation": {
+    "test": {
+      "block_only": {
+        "blocked": {
+          "avg_r": -0.017909,
+          "max_drawdown_r": 199.64,
+          "profit_factor": 0.971741,
+          "total_r": -25.7,
+          "trades": 1435,
+          "win_rate": 0.349129
+        },
+        "blocked_share": 0.071869,
+        "filtered": {
+          "avg_r": 0.101773,
+          "max_drawdown_r": 244.14,
+          "profit_factor": 1.178448,
+          "total_r": 1886.05,
+          "trades": 18532,
+          "win_rate": 0.402763
+        },
+        "impact_buy": {
+          "blocked": 592,
+          "filtered": {
+            "avg_r": 0.108339,
+            "max_drawdown_r": 224.94,
+            "profit_factor": 1.189676,
+            "total_r": 757.83,
+            "trades": 6995,
+            "win_rate": 0.404432
+          },
+          "original": {
+            "avg_r": 0.122639,
+            "max_drawdown_r": 190.86,
+            "profit_factor": 1.216115,
+            "total_r": 930.46,
+            "trades": 7587,
+            "win_rate": 0.40833
+          }
+        },
+        "impact_sell": {
+          "blocked": 843,
+          "filtered": {
+            "avg_r": 0.097791,
+            "max_drawdown_r": 339.35,
+            "profit_factor": 1.171624,
+            "total_r": 1128.22,
+            "trades": 11537,
+            "win_rate": 0.401751
+          },
+          "original": {
+            "avg_r": 0.075112,
+            "max_drawdown_r": 410.55,
+            "profit_factor": 1.129633,
+            "total_r": 929.89,
+            "trades": 12380,
+            "win_rate": 0.393134
+          }
+        },
+        "original": {
+          "avg_r": 0.093171,
+          "max_drawdown_r": 266.14,
+          "profit_factor": 1.162071,
+          "total_r": 1860.35,
+          "trades": 19967,
+          "win_rate": 0.398908
+        },
+        "trades_blocked": 1435,
+        "trades_original": 19967,
+        "trades_remaining": 18532
+      },
+      "block_plus_caution": {
+        "blocked": {
+          "avg_r": -0.059851,
+          "max_drawdown_r": 226.26,
+          "profit_factor": 0.907236,
+          "total_r": -96.42,
+          "trades": 1611,
+          "win_rate": 0.335816
+        },
+        "blocked_share": 0.080683,
+        "filtered": {
+          "avg_r": 0.106601,
+          "max_drawdown_r": 244.14,
+          "profit_factor": 1.187444,
+          "total_r": 1956.77,
+          "trades": 18356,
+          "win_rate": 0.404445
+        },
+        "impact_buy": {
+          "blocked": 669,
+          "filtered": {
+            "avg_r": 0.113429,
+            "max_drawdown_r": 223.64,
+            "profit_factor": 1.19931,
+            "total_r": 784.7,
+            "trades": 6918,
+            "win_rate": 0.406331
+          },
+          "original": {
+            "avg_r": 0.122639,
+            "max_drawdown_r": 190.86,
+            "profit_factor": 1.216115,
+            "total_r": 930.46,
+            "trades": 7587,
+            "win_rate": 0.40833
+          }
+        },
+        "impact_sell": {
+          "blocked": 942,
+          "filtered": {
+            "avg_r": 0.102472,
+            "max_drawdown_r": 330.41,
+            "profit_factor": 1.180259,
+            "total_r": 1172.07,
+            "trades": 11438,
+            "win_rate": 0.403305
+          },
+          "original": {
+            "avg_r": 0.075112,
+            "max_drawdown_r": 410.55,
+            "profit_factor": 1.129633,
+            "total_r": 929.89,
+            "trades": 12380,
+            "win_rate": 0.393134
+          }
+        },
+        "original": {
+          "avg_r": 0.093171,
+          "max_drawdown_r": 266.14,
+          "profit_factor": 1.162071,
+          "total_r": 1860.35,
+          "trades": 19967,
+          "win_rate": 0.398908
+        },
+        "trades_blocked": 1611,
+        "trades_original": 19967,
+        "trades_remaining": 18356
+      }
+    },
+    "validation": {
+      "block_only": {
+        "blocked": {
+          "avg_r": 0.157342,
+          "max_drawdown_r": 149.91,
+          "profit_factor": 1.297399,
+          "total_r": 204.23,
+          "trades": 1298,
+          "win_rate": 0.437596
+        },
+        "blocked_share": 0.113611,
+        "filtered": {
+          "avg_r": 0.042545,
+          "max_drawdown_r": 335.22,
+          "profit_factor": 1.07699,
+          "total_r": 430.85,
+          "trades": 10127,
+          "win_rate": 0.404661
+        },
+        "impact_buy": {
+          "blocked": 941,
+          "filtered": {
+            "avg_r": 0.079053,
+            "max_drawdown_r": 177.09,
+            "profit_factor": 1.146499,
+            "total_r": 455.74,
+            "trades": 5765,
+            "win_rate": 0.423591
+          },
+          "original": {
+            "avg_r": 0.109703,
+            "max_drawdown_r": 237.59,
+            "profit_factor": 1.207537,
+            "total_r": 735.67,
+            "trades": 6706,
+            "win_rate": 0.434536
+          }
+        },
+        "impact_sell": {
+          "blocked": 357,
+          "filtered": {
+            "avg_r": -0.005706,
+            "max_drawdown_r": 430.92,
+            "profit_factor": 0.989985,
+            "total_r": -24.89,
+            "trades": 4362,
+            "win_rate": 0.379642
+          },
+          "original": {
+            "avg_r": -0.021316,
+            "max_drawdown_r": 517.05,
+            "profit_factor": 0.963263,
+            "total_r": -100.59,
+            "trades": 4719,
+            "win_rate": 0.371265
+          }
+        },
+        "original": {
+          "avg_r": 0.055587,
+          "max_drawdown_r": 348.18,
+          "profit_factor": 1.101081,
+          "total_r": 635.08,
+          "trades": 11425,
+          "win_rate": 0.408403
+        },
+        "trades_blocked": 1298,
+        "trades_original": 11425,
+        "trades_remaining": 10127
+      },
+      "block_plus_caution": {
+        "blocked": {
+          "avg_r": 0.086971,
+          "max_drawdown_r": 180.49,
+          "profit_factor": 1.156816,
+          "total_r": 125.76,
+          "trades": 1446,
+          "win_rate": 0.41148
+        },
+        "blocked_share": 0.126565,
+        "filtered": {
+          "avg_r": 0.051039,
+          "max_drawdown_r": 335.22,
+          "profit_factor": 1.092926,
+          "total_r": 509.32,
+          "trades": 9979,
+          "win_rate": 0.407957
+        },
+        "impact_buy": {
+          "blocked": 1004,
+          "filtered": {
+            "avg_r": 0.084472,
+            "max_drawdown_r": 177.09,
+            "profit_factor": 1.157356,
+            "total_r": 481.66,
+            "trades": 5702,
+            "win_rate": 0.426166
+          },
+          "original": {
+            "avg_r": 0.109703,
+            "max_drawdown_r": 237.59,
+            "profit_factor": 1.207537,
+            "total_r": 735.67,
+            "trades": 6706,
+            "win_rate": 0.434536
+          }
+        },
+        "impact_sell": {
+          "blocked": 442,
+          "filtered": {
+            "avg_r": 0.006467,
+            "max_drawdown_r": 408.43,
+            "profit_factor": 1.01143,
+            "total_r": 27.66,
+            "trades": 4277,
+            "win_rate": 0.38368
+          },
+          "original": {
+            "avg_r": -0.021316,
+            "max_drawdown_r": 517.05,
+            "profit_factor": 0.963263,
+            "total_r": -100.59,
+            "trades": 4719,
+            "win_rate": 0.371265
+          }
+        },
+        "original": {
+          "avg_r": 0.055587,
+          "max_drawdown_r": 348.18,
+          "profit_factor": 1.101081,
+          "total_r": 635.08,
+          "trades": 11425,
+          "win_rate": 0.408403
+        },
+        "trades_blocked": 1446,
+        "trades_original": 11425,
+        "trades_remaining": 9979
+      }
+    }
+  },
+  "forbidden_feature_intersection": [],
+  "generated_at": "2026-05-01T05:45:57.054975Z",
+  "labels": [
+    "APPROVE",
+    "CAUTION",
+    "BLOCK"
+  ],
+  "model_type": "HistGradientBoostingClassifier",
+  "q2_2026": {
+    "filters": {
+      "block_only": {
+        "blocked": {
+          "avg_r": 2.0,
+          "max_drawdown_r": 0.0,
+          "profit_factor": Infinity,
+          "total_r": 2.0,
+          "trades": 1,
+          "win_rate": 1.0
+        },
+        "blocked_share": 0.002179,
+        "filtered": {
+          "avg_r": -0.061703,
+          "max_drawdown_r": 93.66,
+          "profit_factor": 0.892719,
+          "total_r": -28.26,
+          "trades": 458,
+          "win_rate": 0.340611
+        },
+        "impact_buy": {
+          "blocked": 0,
+          "filtered": {
+            "avg_r": -0.455,
+            "max_drawdown_r": 1.0,
+            "profit_factor": 0.09,
+            "total_r": -0.91,
+            "trades": 2,
+            "win_rate": 0.5
+          },
+          "original": {
+            "avg_r": -0.455,
+            "max_drawdown_r": 1.0,
+            "profit_factor": 0.09,
+            "total_r": -0.91,
+            "trades": 2,
+            "win_rate": 0.5
+          }
+        },
+        "impact_sell": {
+          "blocked": 1,
+          "filtered": {
+            "avg_r": -0.059978,
+            "max_drawdown_r": 93.75,
+            "profit_factor": 0.895778,
+            "total_r": -27.35,
+            "trades": 456,
+            "win_rate": 0.339912
+          },
+          "original": {
+            "avg_r": -0.05547,
+            "max_drawdown_r": 93.75,
+            "profit_factor": 0.903399,
+            "total_r": -25.35,
+            "trades": 457,
+            "win_rate": 0.341357
+          }
+        },
+        "original": {
+          "avg_r": -0.057211,
+          "max_drawdown_r": 93.66,
+          "profit_factor": 0.900311,
+          "total_r": -26.26,
+          "trades": 459,
+          "win_rate": 0.342048
+        },
+        "trades_blocked": 1,
+        "trades_original": 459,
+        "trades_remaining": 458
+      },
+      "block_plus_caution": {
+        "blocked": {
+          "avg_r": 2.0,
+          "max_drawdown_r": 0.0,
+          "profit_factor": Infinity,
+          "total_r": 4.0,
+          "trades": 2,
+          "win_rate": 1.0
+        },
+        "blocked_share": 0.004357,
+        "filtered": {
+          "avg_r": -0.066214,
+          "max_drawdown_r": 93.66,
+          "profit_factor": 0.885126,
+          "total_r": -30.26,
+          "trades": 457,
+          "win_rate": 0.339168
+        },
+        "impact_buy": {
+          "blocked": 0,
+          "filtered": {
+            "avg_r": -0.455,
+            "max_drawdown_r": 1.0,
+            "profit_factor": 0.09,
+            "total_r": -0.91,
+            "trades": 2,
+            "win_rate": 0.5
+          },
+          "original": {
+            "avg_r": -0.455,
+            "max_drawdown_r": 1.0,
+            "profit_factor": 0.09,
+            "total_r": -0.91,
+            "trades": 2,
+            "win_rate": 0.5
+          }
+        },
+        "impact_sell": {
+          "blocked": 2,
+          "filtered": {
+            "avg_r": -0.064505,
+            "max_drawdown_r": 93.75,
+            "profit_factor": 0.888156,
+            "total_r": -29.35,
+            "trades": 455,
+            "win_rate": 0.338462
+          },
+          "original": {
+            "avg_r": -0.05547,
+            "max_drawdown_r": 93.75,
+            "profit_factor": 0.903399,
+            "total_r": -25.35,
+            "trades": 457,
+            "win_rate": 0.341357
+          }
+        },
+        "original": {
+          "avg_r": -0.057211,
+          "max_drawdown_r": 93.66,
+          "profit_factor": 0.900311,
+          "total_r": -26.26,
+          "trades": 459,
+          "win_rate": 0.342048
+        },
+        "trades_blocked": 2,
+        "trades_original": 459,
+        "trades_remaining": 457
+      }
+    },
+    "original": {
+      "avg_r": -0.057211,
+      "max_drawdown_r": 93.66,
+      "profit_factor": 0.900311,
+      "total_r": -26.26,
+      "trades": 459,
+      "win_rate": 0.342048
+    }
+  },
+  "rows": {
+    "test": 19967,
+    "train": 69484,
+    "validation": 11425
+  },
+  "schema_version": "melchor_v2_risk_classifier_v0.1",
+  "strict_target_alignment": {
+    "test": {
+      "accuracy": 0.403566,
+      "block_precision": 0.511498,
+      "block_recall": 0.068254,
+      "confusion_matrix": {
+        "labels": [
+          "APPROVE",
+          "CAUTION",
+          "BLOCK"
+        ],
+        "matrix": [
+          [
+            7319,
+            77,
+            627
+          ],
+          [
+            1111,
+            5,
+            74
+          ],
+          [
+            9926,
+            94,
+            734
+          ]
+        ]
+      },
+      "macro_f1": 0.227556,
+      "per_class": {
+        "APPROVE": {
+          "f1": 0.554911,
+          "precision": 0.398725,
+          "recall": 0.912252,
+          "support": 8023
+        },
+        "BLOCK": {
+          "f1": 0.120436,
+          "precision": 0.511498,
+          "recall": 0.068254,
+          "support": 10754
+        },
+        "CAUTION": {
+          "f1": 0.007321,
+          "precision": 0.028409,
+          "recall": 0.004202,
+          "support": 1190
+        }
+      },
+      "prediction_distribution": {
+        "APPROVE": 18356,
+        "BLOCK": 1435,
+        "CAUTION": 176
+      },
+      "target_distribution": {
+        "APPROVE": 8023,
+        "BLOCK": 10754,
+        "CAUTION": 1190
+      }
+    },
+    "validation": {
+      "accuracy": 0.329716,
+      "block_precision": 0.641757,
+      "block_recall": 0.109808,
+      "confusion_matrix": {
+        "labels": [
+          "APPROVE",
+          "CAUTION",
+          "BLOCK"
+        ],
+        "matrix": [
+          [
+            2927,
+            66,
+            425
+          ],
+          [
+            374,
+            7,
+            40
+          ],
+          [
+            6678,
+            75,
+            833
+          ]
+        ]
+      },
+      "macro_f1": 0.216365,
+      "per_class": {
+        "APPROVE": {
+          "f1": 0.436963,
+          "precision": 0.293316,
+          "recall": 0.856349,
+          "support": 3418
+        },
+        "BLOCK": {
+          "f1": 0.187528,
+          "precision": 0.641757,
+          "recall": 0.109808,
+          "support": 7586
+        },
+        "CAUTION": {
+          "f1": 0.024605,
+          "precision": 0.047297,
+          "recall": 0.016627,
+          "support": 421
+        }
+      },
+      "prediction_distribution": {
+        "APPROVE": 9979,
+        "BLOCK": 1298,
+        "CAUTION": 148
+      },
+      "target_distribution": {
+        "APPROVE": 3418,
+        "BLOCK": 7586,
+        "CAUTION": 421
+      }
+    }
+  },
+  "strict_target_distribution": {
+    "test": {
+      "APPROVE": 8023,
+      "BLOCK": 10754,
+      "CAUTION": 1190
+    },
+    "train": {
+      "APPROVE": 61401,
+      "BLOCK": 6212,
+      "CAUTION": 1871
+    },
+    "validation": {
+      "APPROVE": 3418,
+      "BLOCK": 7586,
+      "CAUTION": 421
+    }
+  },
+  "target": "risk_block_rr2",
+  "target_distribution": {
+    "test": {
+      "APPROVE": 7836,
+      "BLOCK": 11547,
+      "CAUTION": 584
+    },
+    "train": {
+      "APPROVE": 61086,
+      "BLOCK": 7396,
+      "CAUTION": 1002
+    },
+    "validation": {
+      "APPROVE": 3420,
+      "BLOCK": 7803,
+      "CAUTION": 202
+    }
+  },
+  "technical_decisions": [
+    "Melchor v2 predicts accumulated risk state, not direction or technical context.",
+    "Only feature columns declared by the Melchor risk dataset summary are used.",
+    "Realized R, future R/PF/DD diagnostics, labels, split/date flags and 2026Q2 flags are excluded from features.",
+    "Operational filtering is evaluated in two modes: block only predicted BLOCK, and block predicted BLOCK plus CAUTION.",
+    "The model is experimental and does not replace Melchor v1."
+  ]
+}

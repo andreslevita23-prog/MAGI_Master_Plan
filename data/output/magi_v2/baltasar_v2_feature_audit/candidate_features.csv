@@ -1,0 +1,27 @@
+feature_group,status,source,present_paths,missing_paths,notes
+ohlc_m5,ready,anchor_open/high/low/close,anchor_open;anchor_high;anchor_low;anchor_close,,Top-level M5 OHLC exists.
+ema_fast_m5,ready,ema_20,ema_20,,Top-level EMA 20 exists.
+ema_mid_m5,ready,ema_50,ema_50,,Top-level EMA 50 exists.
+ema_slow_m5,ready,ema_200,ema_200,,Top-level EMA 200 exists.
+rsi_m5,ready,rsi_14,rsi_14,,Top-level RSI exists.
+momentum_m5,ready,momentum,momentum,,Top-level categorical momentum exists.
+market_structure_m5,ready,market_structure + structure_direction,market_structure;structure_direction,,Top-level structure fields exist.
+recent_range_m5,ready,recent_range,recent_range,,Top-level recent range exists.
+spread,ready,spread_pips,spread_pips,,Spread exists.
+support_resistance_distance_m5,ready,support_levels/resistance_levels,support_levels.min;support_levels.max;resistance_levels.min;resistance_levels.max,,Support/resistance levels exist as numeric lists.
+mtf_ema_m15_h1_h4_d1,ready,features.*.ema_20/50/200,features.H1.ema_20;features.H4.ema_50;features.D1.ema_200,,MTF EMA values exist for M15/H1/H4/D1.
+mtf_rsi_m15_h1_h4_d1,ready,features.*.rsi_14,features.H1.rsi_14;features.H4.rsi_14;features.D1.rsi_14,,MTF RSI exists for M15/H1/H4/D1.
+mtf_structure_m15_h1_h4_d1,ready,features.*.market_structure/structure_direction,features.H1.market_structure;features.H4.structure_direction;features.D1.market_structure,,MTF structure exists.
+mtf_recent_range_m15_h1_h4_d1,ready,features.*.recent_range,features.H1.recent_range;features.H4.recent_range;features.D1.recent_range,,MTF recent range exists.
+mtf_alignment,ready,mtf_alignment_status + gaspar_context.higher_timeframe_confluence,mtf_alignment_status;gaspar_context.higher_timeframe_confluence.directional_alignment,,Alignment/context fields exist.
+session_time,ready,active_session + timestamps,active_session;anchor_bar_timestamp,,Session and timestamp fields exist.
+candle_body_wicks_m5,derivable,anchor OHLC,anchor_open;anchor_high;anchor_low;anchor_close,,Derive body and wick percentages from M5 OHLC.
+ema_distance_m5,derivable,close + EMA,anchor_close;ema_20;ema_50;ema_200,,Derive close-EMA and EMA spread distances.
+ema_slope_m5,derivable,EMA time series,ema_20;ema_50;ema_200,,Derive lagged EMA deltas after sorting by symbol/time.
+returns_m5,derivable,anchor_close time series,anchor_close,,Derive lagged returns from sorted M5 closes.
+atr_m5,derivable,anchor OHLC time series,anchor_high;anchor_low;anchor_close,,Derive true range/rolling ATR from M5 OHLC.
+distance_to_recent_high_low,derivable,anchor OHLC rolling windows,anchor_high;anchor_low;anchor_close,,Derive rolling high/low distances.
+trend_h1_h4_d1,ready,features.H1/H4/D1 structure_direction,features.H1.structure_direction;features.H4.structure_direction;features.D1.structure_direction,,Use exported MTF structure_direction and market_structure.
+momentum_h1,derivable,features.H1 EMA/RSI/structure,features.H1.ema_20;features.H1.ema_50;features.H1.rsi_14,,"No H1 momentum label, but can derive proxy from H1 EMA/RSI/structure."
+atr_h1,needs_bot_a_export,H1 OHLC or ATR,,,H1 ATR is not exported directly; recent_range is present but not ATR.
+fractals,needs_bot_a_export,swing/fractal markers,,,No explicit fractal/swing markers found.

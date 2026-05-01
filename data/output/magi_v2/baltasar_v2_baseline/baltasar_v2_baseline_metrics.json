@@ -1,0 +1,6517 @@
+{
+  "comparisons": {
+    "baltasar_v1_signal": {
+      "test": {
+        "accuracy": 0.41853,
+        "actual_distribution": {
+          "DO_NOTHING": 43774,
+          "ENTER_BUY": 15606,
+          "ENTER_SELL": 15611
+        },
+        "avg_r": 0.083469,
+        "buy_precision": 0.267636,
+        "by_month": [
+          {
+            "avg_r": -0.069791,
+            "coverage": 0.723988,
+            "max_drawdown_r": 249.83,
+            "period": "2025-01",
+            "profit_factor": 0.881217,
+            "rows": 4844,
+            "total_r": -244.34,
+            "trade_precision": 0.211292,
+            "trades": 3507
+          },
+          {
+            "avg_r": 0.082488,
+            "coverage": 0.651778,
+            "max_drawdown_r": 138.44,
+            "period": "2025-02",
+            "profit_factor": 1.157208,
+            "rows": 4612,
+            "total_r": 247.63,
+            "trade_precision": 0.228876,
+            "trades": 3006
+          },
+          {
+            "avg_r": -0.041183,
+            "coverage": 0.8156,
+            "max_drawdown_r": 534.65,
+            "period": "2025-03",
+            "profit_factor": 0.931584,
+            "rows": 4577,
+            "total_r": -153.57,
+            "trade_precision": 0.236539,
+            "trades": 3733
+          },
+          {
+            "avg_r": 0.049327,
+            "coverage": 0.903238,
+            "max_drawdown_r": 230.79,
+            "period": "2025-04",
+            "profit_factor": 1.078437,
+            "rows": 5188,
+            "total_r": 230.95,
+            "trade_precision": 0.331413,
+            "trades": 4686
+          },
+          {
+            "avg_r": 0.038401,
+            "coverage": 0.868624,
+            "max_drawdown_r": 262.77,
+            "period": "2025-05",
+            "profit_factor": 1.064413,
+            "rows": 5176,
+            "total_r": 172.42,
+            "trade_precision": 0.275133,
+            "trades": 4496
+          },
+          {
+            "avg_r": -0.103526,
+            "coverage": 0.815955,
+            "max_drawdown_r": 576.33,
+            "period": "2025-06",
+            "profit_factor": 0.838563,
+            "rows": 4613,
+            "total_r": -389.36,
+            "trade_precision": 0.227418,
+            "trades": 3764
+          },
+          {
+            "avg_r": 0.106234,
+            "coverage": 0.671442,
+            "max_drawdown_r": 204.94,
+            "period": "2025-07",
+            "profit_factor": 1.206115,
+            "rows": 5235,
+            "total_r": 372.88,
+            "trade_precision": 0.249502,
+            "trades": 3515
+          },
+          {
+            "avg_r": -0.015739,
+            "coverage": 0.580441,
+            "max_drawdown_r": 167.18,
+            "period": "2025-08",
+            "profit_factor": 0.972801,
+            "rows": 4898,
+            "total_r": -44.7,
+            "trade_precision": 0.221949,
+            "trades": 2843
+          },
+          {
+            "avg_r": -0.046373,
+            "coverage": 0.566211,
+            "max_drawdown_r": 270.75,
+            "period": "2025-09",
+            "profit_factor": 0.917923,
+            "rows": 4901,
+            "total_r": -128.5,
+            "trade_precision": 0.185946,
+            "trades": 2775
+          },
+          {
+            "avg_r": -0.105326,
+            "coverage": 0.528458,
+            "max_drawdown_r": 516.82,
+            "period": "2025-10",
+            "profit_factor": 0.820169,
+            "rows": 5429,
+            "total_r": -301.76,
+            "trade_precision": 0.188567,
+            "trades": 2869
+          },
+          {
+            "avg_r": -0.00546,
+            "coverage": 0.445577,
+            "max_drawdown_r": 202.76,
+            "period": "2025-11",
+            "profit_factor": 0.989425,
+            "rows": 4612,
+            "total_r": -11.21,
+            "trade_precision": 0.177616,
+            "trades": 2055
+          },
+          {
+            "avg_r": 0.247914,
+            "coverage": 0.33812,
+            "max_drawdown_r": 132.5,
+            "period": "2025-12",
+            "profit_factor": 1.59277,
+            "rows": 4596,
+            "total_r": 385.01,
+            "trade_precision": 0.21879,
+            "trades": 1554
+          },
+          {
+            "avg_r": 0.749617,
+            "coverage": 0.442637,
+            "max_drawdown_r": 26.0,
+            "period": "2026-01",
+            "profit_factor": 3.216137,
+            "rows": 4611,
+            "total_r": 1528.47,
+            "trade_precision": 0.487506,
+            "trades": 2041
+          },
+          {
+            "avg_r": 0.337565,
+            "coverage": 0.388632,
+            "max_drawdown_r": 64.06,
+            "period": "2026-02",
+            "profit_factor": 1.831026,
+            "rows": 4539,
+            "total_r": 594.79,
+            "trade_precision": 0.293084,
+            "trades": 1764
+          },
+          {
+            "avg_r": 0.481072,
+            "coverage": 0.831073,
+            "max_drawdown_r": 62.26,
+            "period": "2026-03",
+            "profit_factor": 2.0854,
+            "rows": 4866,
+            "total_r": 1943.05,
+            "trade_precision": 0.41271,
+            "trades": 4044
+          },
+          {
+            "avg_r": -0.093,
+            "coverage": 0.786835,
+            "max_drawdown_r": 367.46,
+            "period": "2026-04",
+            "profit_factor": 0.842137,
+            "rows": 2294,
+            "total_r": -164.61,
+            "trade_precision": 0.192798,
+            "trades": 1805
+          }
+        ],
+        "by_year": [
+          {
+            "avg_r": 0.003495,
+            "coverage": 0.661253,
+            "max_drawdown_r": 766.96,
+            "period": "2025",
+            "profit_factor": 1.00607,
+            "rows": 58681,
+            "total_r": 135.45,
+            "trade_precision": 0.237817,
+            "trades": 38803
+          },
+          {
+            "avg_r": 0.406004,
+            "coverage": 0.591907,
+            "max_drawdown_r": 367.46,
+            "period": "2026",
+            "profit_factor": 1.920573,
+            "rows": 16310,
+            "total_r": 3901.7,
+            "trade_precision": 0.365548,
+            "trades": 9654
+          }
+        ],
+        "confusion_matrix": {
+          "DO_NOTHING": {
+            "DO_NOTHING": 18629,
+            "ENTER_BUY": 10945,
+            "ENTER_SELL": 14200
+          },
+          "ENTER_BUY": {
+            "DO_NOTHING": 3599,
+            "ENTER_BUY": 5467,
+            "ENTER_SELL": 6540
+          },
+          "ENTER_SELL": {
+            "DO_NOTHING": 4306,
+            "ENTER_BUY": 4015,
+            "ENTER_SELL": 7290
+          }
+        },
+        "coverage": 0.646171,
+        "macro_f1": 0.389153,
+        "max_drawdown_r": 766.96,
+        "precision_by_class": {
+          "DO_NOTHING": 0.70208,
+          "ENTER_BUY": 0.267636,
+          "ENTER_SELL": 0.260078
+        },
+        "prediction_distribution": {
+          "DO_NOTHING": 26534,
+          "ENTER_BUY": 20427,
+          "ENTER_SELL": 28030
+        },
+        "profit_factor": 1.152036,
+        "recall_by_class": {
+          "DO_NOTHING": 0.425572,
+          "ENTER_BUY": 0.350314,
+          "ENTER_SELL": 0.466978
+        },
+        "sell_precision": 0.260078,
+        "total_r": 4037.15,
+        "trade_precision": 0.263264,
+        "trades_taken": 48457
+      },
+      "train": {
+        "accuracy": 0.395619,
+        "actual_distribution": {
+          "DO_NOTHING": 139635,
+          "ENTER_BUY": 48210,
+          "ENTER_SELL": 49287
+        },
+        "avg_r": 0.00524,
+        "buy_precision": 0.242893,
+        "by_month": [
+          {
+            "avg_r": 0.050806,
+            "coverage": 0.160669,
+            "max_drawdown_r": 56.03,
+            "period": "2020-01",
+            "profit_factor": 1.12047,
+            "rows": 3168,
+            "total_r": 25.86,
+            "trade_precision": 0.11002,
+            "trades": 509
+          },
+          {
+            "avg_r": 0.108686,
+            "coverage": 0.533637,
+            "max_drawdown_r": 171.96,
+            "period": "2020-02",
+            "profit_factor": 1.236862,
+            "rows": 4608,
+            "total_r": 267.15,
+            "trade_precision": 0.206995,
+            "trades": 2459
+          },
+          {
+            "avg_r": 0.073023,
+            "coverage": 0.974085,
+            "max_drawdown_r": 185.17,
+            "period": "2020-03",
+            "profit_factor": 1.116765,
+            "rows": 4862,
+            "total_r": 345.47,
+            "trade_precision": 0.338049,
+            "trades": 4736
+          },
+          {
+            "avg_r": 0.004218,
+            "coverage": 0.77662,
+            "max_drawdown_r": 178.69,
+            "period": "2020-04",
+            "profit_factor": 1.007,
+            "rows": 5184,
+            "total_r": 16.97,
+            "trade_precision": 0.270492,
+            "trades": 4026
+          },
+          {
+            "avg_r": -0.05229,
+            "coverage": 0.738917,
+            "max_drawdown_r": 441.8,
+            "period": "2020-05",
+            "profit_factor": 0.911063,
+            "rows": 4895,
+            "total_r": -189.08,
+            "trade_precision": 0.214542,
+            "trades": 3617
+          },
+          {
+            "avg_r": -0.134903,
+            "coverage": 0.783541,
+            "max_drawdown_r": 536.67,
+            "period": "2020-06",
+            "profit_factor": 0.787816,
+            "rows": 4897,
+            "total_r": -516.95,
+            "trade_precision": 0.216315,
+            "trades": 3837
+          },
+          {
+            "avg_r": 0.124745,
+            "coverage": 0.75233,
+            "max_drawdown_r": 310.88,
+            "period": "2020-07",
+            "profit_factor": 1.229136,
+            "rows": 5471,
+            "total_r": 512.95,
+            "trade_precision": 0.288387,
+            "trades": 4116
+          },
+          {
+            "avg_r": -0.071776,
+            "coverage": 0.737253,
+            "max_drawdown_r": 359.69,
+            "period": "2020-08",
+            "profit_factor": 0.885107,
+            "rows": 4609,
+            "total_r": -243.68,
+            "trade_precision": 0.242496,
+            "trades": 3398
+          },
+          {
+            "avg_r": -0.005597,
+            "coverage": 0.734954,
+            "max_drawdown_r": 303.84,
+            "period": "2020-09",
+            "profit_factor": 0.990485,
+            "rows": 5184,
+            "total_r": -21.32,
+            "trade_precision": 0.247507,
+            "trades": 3810
+          },
+          {
+            "avg_r": -0.002977,
+            "coverage": 0.517308,
+            "max_drawdown_r": 227.64,
+            "period": "2020-10",
+            "profit_factor": 0.994241,
+            "rows": 5171,
+            "total_r": -7.96,
+            "trade_precision": 0.175327,
+            "trades": 2675
+          },
+          {
+            "avg_r": 0.032976,
+            "coverage": 0.542299,
+            "max_drawdown_r": 180.93,
+            "period": "2020-11",
+            "profit_factor": 1.056746,
+            "rows": 4610,
+            "total_r": 82.34,
+            "trade_precision": 0.26,
+            "trades": 2500
+          },
+          {
+            "avg_r": 0.099153,
+            "coverage": 0.637928,
+            "max_drawdown_r": 179.42,
+            "period": "2020-12",
+            "profit_factor": 1.183588,
+            "rows": 5115,
+            "total_r": 323.14,
+            "trade_precision": 0.253141,
+            "trades": 3263
+          },
+          {
+            "avg_r": 0.031979,
+            "coverage": 0.586678,
+            "max_drawdown_r": 282.84,
+            "period": "2021-01",
+            "profit_factor": 1.056088,
+            "rows": 4609,
+            "total_r": 86.44,
+            "trade_precision": 0.254808,
+            "trades": 2704
+          },
+          {
+            "avg_r": -0.146552,
+            "coverage": 0.490234,
+            "max_drawdown_r": 379.1,
+            "period": "2021-02",
+            "profit_factor": 0.757875,
+            "rows": 4608,
+            "total_r": -331.06,
+            "trade_precision": 0.1722,
+            "trades": 2259
+          },
+          {
+            "avg_r": 0.069455,
+            "coverage": 0.672544,
+            "max_drawdown_r": 230.29,
+            "period": "2021-03",
+            "profit_factor": 1.134145,
+            "rows": 5161,
+            "total_r": 240.87,
+            "trade_precision": 0.220974,
+            "trades": 3471
+          },
+          {
+            "avg_r": -0.028303,
+            "coverage": 0.537912,
+            "max_drawdown_r": 363.94,
+            "period": "2021-04",
+            "profit_factor": 0.946433,
+            "rows": 5183,
+            "total_r": -78.88,
+            "trade_precision": 0.167504,
+            "trades": 2788
+          },
+          {
+            "avg_r": 0.068454,
+            "coverage": 0.466161,
+            "max_drawdown_r": 193.69,
+            "period": "2021-05",
+            "profit_factor": 1.129659,
+            "rows": 4610,
+            "total_r": 146.97,
+            "trade_precision": 0.240577,
+            "trades": 2149
+          },
+          {
+            "avg_r": 0.014228,
+            "coverage": 0.449,
+            "max_drawdown_r": 200.77,
+            "period": "2021-06",
+            "profit_factor": 1.027189,
+            "rows": 5098,
+            "total_r": 32.51,
+            "trade_precision": 0.188292,
+            "trades": 2289
+          },
+          {
+            "avg_r": 0.110451,
+            "coverage": 0.350762,
+            "max_drawdown_r": 133.37,
+            "period": "2021-07",
+            "profit_factor": 1.229848,
+            "rows": 5183,
+            "total_r": 200.8,
+            "trade_precision": 0.226073,
+            "trades": 1818
+          },
+          {
+            "avg_r": 0.015518,
+            "coverage": 0.226874,
+            "max_drawdown_r": 126.52,
+            "period": "2021-08",
+            "profit_factor": 1.034096,
+            "rows": 4897,
+            "total_r": 17.21,
+            "trade_precision": 0.156616,
+            "trades": 1111
+          },
+          {
+            "avg_r": -0.044235,
+            "coverage": 0.325424,
+            "max_drawdown_r": 240.98,
+            "period": "2021-09",
+            "profit_factor": 0.910732,
+            "rows": 5184,
+            "total_r": -74.58,
+            "trade_precision": 0.145228,
+            "trades": 1687
+          },
+          {
+            "avg_r": 0.022813,
+            "coverage": 0.305209,
+            "max_drawdown_r": 210.12,
+            "period": "2021-10",
+            "profit_factor": 1.045376,
+            "rows": 4895,
+            "total_r": 34.06,
+            "trade_precision": 0.182731,
+            "trades": 1494
+          },
+          {
+            "avg_r": 0.084148,
+            "coverage": 0.731423,
+            "max_drawdown_r": 251.47,
+            "period": "2021-11",
+            "profit_factor": 1.171408,
+            "rows": 4885,
+            "total_r": 300.24,
+            "trade_precision": 0.209348,
+            "trades": 3573
+          },
+          {
+            "avg_r": 0.074409,
+            "coverage": 0.413749,
+            "max_drawdown_r": 108.89,
+            "period": "2021-12",
+            "profit_factor": 1.136346,
+            "rows": 5426,
+            "total_r": 166.9,
+            "trade_precision": 0.25078,
+            "trades": 2245
+          },
+          {
+            "avg_r": 0.077481,
+            "coverage": 0.569104,
+            "max_drawdown_r": 161.29,
+            "period": "2022-01",
+            "profit_factor": 1.156237,
+            "rows": 4609,
+            "total_r": 203.0,
+            "trade_precision": 0.222265,
+            "trades": 2623
+          },
+          {
+            "avg_r": -0.015357,
+            "coverage": 0.672526,
+            "max_drawdown_r": 210.49,
+            "period": "2022-02",
+            "profit_factor": 0.974544,
+            "rows": 4608,
+            "total_r": -47.53,
+            "trade_precision": 0.255889,
+            "trades": 3099
+          },
+          {
+            "avg_r": -0.012436,
+            "coverage": 0.881748,
+            "max_drawdown_r": 313.35,
+            "period": "2022-03",
+            "profit_factor": 0.979746,
+            "rows": 5446,
+            "total_r": -59.67,
+            "trade_precision": 0.272803,
+            "trades": 4802
+          },
+          {
+            "avg_r": -0.089938,
+            "coverage": 0.854779,
+            "max_drawdown_r": 559.15,
+            "period": "2022-04",
+            "profit_factor": 0.848706,
+            "rows": 4896,
+            "total_r": -376.12,
+            "trade_precision": 0.208841,
+            "trades": 4185
+          },
+          {
+            "avg_r": 0.193511,
+            "coverage": 0.924867,
+            "max_drawdown_r": 180.48,
+            "period": "2022-05",
+            "profit_factor": 1.35915,
+            "rows": 4898,
+            "total_r": 875.83,
+            "trade_precision": 0.325828,
+            "trades": 4530
+          },
+          {
+            "avg_r": 0.031388,
+            "coverage": 0.796875,
+            "max_drawdown_r": 237.61,
+            "period": "2022-06",
+            "profit_factor": 1.0537,
+            "rows": 5184,
+            "total_r": 129.54,
+            "trade_precision": 0.271121,
+            "trades": 4131
+          },
+          {
+            "avg_r": 0.025366,
+            "coverage": 0.918284,
+            "max_drawdown_r": 231.43,
+            "period": "2022-07",
+            "profit_factor": 1.04133,
+            "rows": 4895,
+            "total_r": 113.92,
+            "trade_precision": 0.289655,
+            "trades": 4495
+          },
+          {
+            "avg_r": -0.03934,
+            "coverage": 0.865355,
+            "max_drawdown_r": 339.84,
+            "period": "2022-08",
+            "profit_factor": 0.933958,
+            "rows": 5184,
+            "total_r": -176.32,
+            "trade_precision": 0.231164,
+            "trades": 4486
+          },
+          {
+            "avg_r": -0.003337,
+            "coverage": 0.918001,
+            "max_drawdown_r": 309.93,
+            "period": "2022-09",
+            "profit_factor": 0.994645,
+            "rows": 5183,
+            "total_r": -15.86,
+            "trade_precision": 0.279739,
+            "trades": 4758
+          },
+          {
+            "avg_r": 0.003723,
+            "coverage": 0.972662,
+            "max_drawdown_r": 408.94,
+            "period": "2022-10",
+            "profit_factor": 1.006024,
+            "rows": 4609,
+            "total_r": 16.67,
+            "trade_precision": 0.283292,
+            "trades": 4483
+          },
+          {
+            "avg_r": 0.048679,
+            "coverage": 0.95785,
+            "max_drawdown_r": 276.99,
+            "period": "2022-11",
+            "profit_factor": 1.080147,
+            "rows": 5172,
+            "total_r": 240.96,
+            "trade_precision": 0.298345,
+            "trades": 4954
+          },
+          {
+            "avg_r": -0.084654,
+            "coverage": 0.822917,
+            "max_drawdown_r": 507.21,
+            "period": "2022-12",
+            "profit_factor": 0.867265,
+            "rows": 5184,
+            "total_r": -360.88,
+            "trade_precision": 0.243554,
+            "trades": 4266
+          },
+          {
+            "avg_r": 0.100492,
+            "coverage": 0.835001,
+            "max_drawdown_r": 276.81,
+            "period": "2023-01",
+            "profit_factor": 1.180296,
+            "rows": 4897,
+            "total_r": 410.51,
+            "trade_precision": 0.289313,
+            "trades": 4089
+          },
+          {
+            "avg_r": 0.007334,
+            "coverage": 0.749891,
+            "max_drawdown_r": 353.43,
+            "period": "2023-02",
+            "profit_factor": 1.012576,
+            "rows": 4606,
+            "total_r": 25.31,
+            "trade_precision": 0.251592,
+            "trades": 3454
+          },
+          {
+            "avg_r": -0.013755,
+            "coverage": 0.812926,
+            "max_drawdown_r": 335.96,
+            "period": "2023-03",
+            "profit_factor": 0.976073,
+            "rows": 5431,
+            "total_r": -60.55,
+            "trade_precision": 0.233975,
+            "trades": 4415
+          },
+          {
+            "avg_r": -0.122769,
+            "coverage": 0.629791,
+            "max_drawdown_r": 442.52,
+            "period": "2023-04",
+            "profit_factor": 0.793345,
+            "rows": 4592,
+            "total_r": -354.19,
+            "trade_precision": 0.162172,
+            "trades": 2892
+          },
+          {
+            "avg_r": -0.016254,
+            "coverage": 0.642539,
+            "max_drawdown_r": 346.93,
+            "period": "2023-05",
+            "profit_factor": 0.970999,
+            "rows": 5167,
+            "total_r": -53.85,
+            "trade_precision": 0.210241,
+            "trades": 3320
+          },
+          {
+            "avg_r": 0.06933,
+            "coverage": 0.598415,
+            "max_drawdown_r": 153.99,
+            "period": "2023-06",
+            "profit_factor": 1.139826,
+            "rows": 5172,
+            "total_r": 214.23,
+            "trade_precision": 0.230695,
+            "trades": 3095
+          },
+          {
+            "avg_r": -0.009778,
+            "coverage": 0.717926,
+            "max_drawdown_r": 456.45,
+            "period": "2023-07",
+            "profit_factor": 0.982544,
+            "rows": 4591,
+            "total_r": -32.2,
+            "trade_precision": 0.212682,
+            "trades": 3296
+          },
+          {
+            "avg_r": -0.104159,
+            "coverage": 0.591292,
+            "max_drawdown_r": 416.0,
+            "period": "2023-08",
+            "profit_factor": 0.828144,
+            "rows": 5466,
+            "total_r": -336.12,
+            "trade_precision": 0.199567,
+            "trades": 3232
+          },
+          {
+            "avg_r": -0.047701,
+            "coverage": 0.676122,
+            "max_drawdown_r": 312.99,
+            "period": "2023-09",
+            "profit_factor": 0.911834,
+            "rows": 4900,
+            "total_r": -157.89,
+            "trade_precision": 0.171446,
+            "trades": 3313
+          },
+          {
+            "avg_r": -0.107128,
+            "coverage": 0.634564,
+            "max_drawdown_r": 401.39,
+            "period": "2023-10",
+            "profit_factor": 0.819349,
+            "rows": 4901,
+            "total_r": -333.06,
+            "trade_precision": 0.188424,
+            "trades": 3110
+          },
+          {
+            "avg_r": -0.070865,
+            "coverage": 0.652434,
+            "max_drawdown_r": 326.25,
+            "period": "2023-11",
+            "profit_factor": 0.876181,
+            "rows": 5176,
+            "total_r": -239.17,
+            "trade_precision": 0.18626,
+            "trades": 3377
+          },
+          {
+            "avg_r": -0.03496,
+            "coverage": 0.779472,
+            "max_drawdown_r": 477.66,
+            "period": "2023-12",
+            "profit_factor": 0.935073,
+            "rows": 4852,
+            "total_r": -132.08,
+            "trade_precision": 0.186674,
+            "trades": 3782
+          }
+        ],
+        "by_year": [
+          {
+            "avg_r": 0.015287,
+            "coverage": 0.674109,
+            "max_drawdown_r": 1051.65,
+            "period": "2020",
+            "profit_factor": 1.026461,
+            "rows": 57774,
+            "total_r": 594.89,
+            "trade_precision": 0.250603,
+            "trades": 38946
+          },
+          {
+            "avg_r": 0.026898,
+            "coverage": 0.461809,
+            "max_drawdown_r": 570.45,
+            "period": "2021",
+            "profit_factor": 1.051328,
+            "rows": 59739,
+            "total_r": 741.48,
+            "trade_precision": 0.205669,
+            "trades": 27588
+          },
+          {
+            "avg_r": 0.010707,
+            "coverage": 0.848734,
+            "max_drawdown_r": 815.46,
+            "period": "2022",
+            "profit_factor": 1.017921,
+            "rows": 59868,
+            "total_r": 543.54,
+            "trade_precision": 0.267909,
+            "trades": 50812
+          },
+          {
+            "avg_r": -0.02539,
+            "coverage": 0.692457,
+            "max_drawdown_r": 1868.01,
+            "period": "2023",
+            "profit_factor": 0.955022,
+            "rows": 59751,
+            "total_r": -1049.06,
+            "trade_precision": 0.212713,
+            "trades": 41375
+          }
+        ],
+        "confusion_matrix": {
+          "DO_NOTHING": {
+            "DO_NOTHING": 55966,
+            "ENTER_BUY": 37810,
+            "ENTER_SELL": 45859
+          },
+          "ENTER_BUY": {
+            "DO_NOTHING": 10983,
+            "ENTER_BUY": 17849,
+            "ENTER_SELL": 19378
+          },
+          "ENTER_SELL": {
+            "DO_NOTHING": 11462,
+            "ENTER_BUY": 17826,
+            "ENTER_SELL": 19999
+          }
+        },
+        "coverage": 0.669336,
+        "macro_f1": 0.368004,
+        "max_drawdown_r": 1868.01,
+        "precision_by_class": {
+          "DO_NOTHING": 0.713752,
+          "ENTER_BUY": 0.242893,
+          "ENTER_SELL": 0.234631
+        },
+        "prediction_distribution": {
+          "DO_NOTHING": 78411,
+          "ENTER_BUY": 73485,
+          "ENTER_SELL": 85236
+        },
+        "profit_factor": 1.009172,
+        "recall_by_class": {
+          "DO_NOTHING": 0.400802,
+          "ENTER_BUY": 0.370234,
+          "ENTER_SELL": 0.405766
+        },
+        "sell_precision": 0.234631,
+        "total_r": 830.85,
+        "trade_precision": 0.238456,
+        "trades_taken": 158721
+      },
+      "validation": {
+        "accuracy": 0.516269,
+        "actual_distribution": {
+          "DO_NOTHING": 42450,
+          "ENTER_BUY": 8148,
+          "ENTER_SELL": 8780
+        },
+        "avg_r": 0.006375,
+        "buy_precision": 0.197308,
+        "by_month": [
+          {
+            "avg_r": -0.025553,
+            "coverage": 0.551633,
+            "max_drawdown_r": 257.36,
+            "period": "2024-01",
+            "profit_factor": 0.955652,
+            "rows": 4900,
+            "total_r": -69.02,
+            "trade_precision": 0.205327,
+            "trades": 2703
+          },
+          {
+            "avg_r": -0.043959,
+            "coverage": 0.420816,
+            "max_drawdown_r": 327.51,
+            "period": "2024-02",
+            "profit_factor": 0.917346,
+            "rows": 4900,
+            "total_r": -90.6,
+            "trade_precision": 0.180407,
+            "trades": 2062
+          },
+          {
+            "avg_r": 0.101681,
+            "coverage": 0.306568,
+            "max_drawdown_r": 109.82,
+            "period": "2024-03",
+            "profit_factor": 1.239225,
+            "rows": 4857,
+            "total_r": 151.2,
+            "trade_precision": 0.149765,
+            "trades": 1489
+          },
+          {
+            "avg_r": 0.055,
+            "coverage": 0.525403,
+            "max_drawdown_r": 188.99,
+            "period": "2024-04",
+            "profit_factor": 1.111745,
+            "rows": 4901,
+            "total_r": 141.57,
+            "trade_precision": 0.210097,
+            "trades": 2575
+          },
+          {
+            "avg_r": 0.01516,
+            "coverage": 0.273192,
+            "max_drawdown_r": 85.9,
+            "period": "2024-05",
+            "profit_factor": 1.033941,
+            "rows": 5476,
+            "total_r": 22.68,
+            "trade_precision": 0.125668,
+            "trades": 1496
+          },
+          {
+            "avg_r": -0.222902,
+            "coverage": 0.352342,
+            "max_drawdown_r": 439.39,
+            "period": "2024-06",
+            "profit_factor": 0.601588,
+            "rows": 4612,
+            "total_r": -361.77,
+            "trade_precision": 0.106462,
+            "trades": 1625
+          },
+          {
+            "avg_r": -0.07077,
+            "coverage": 0.2628,
+            "max_drawdown_r": 233.31,
+            "period": "2024-07",
+            "profit_factor": 0.843616,
+            "rows": 5000,
+            "total_r": -92.85,
+            "trade_precision": 0.085236,
+            "trades": 1314
+          },
+          {
+            "avg_r": 0.063116,
+            "coverage": 0.510794,
+            "max_drawdown_r": 190.42,
+            "period": "2024-08",
+            "profit_factor": 1.139936,
+            "rows": 5188,
+            "total_r": 167.13,
+            "trade_precision": 0.164151,
+            "trades": 2650
+          },
+          {
+            "avg_r": -0.001488,
+            "coverage": 0.365922,
+            "max_drawdown_r": 129.43,
+            "period": "2024-09",
+            "profit_factor": 0.997249,
+            "rows": 4613,
+            "total_r": -2.51,
+            "trade_precision": 0.205569,
+            "trades": 1688
+          },
+          {
+            "avg_r": -0.033531,
+            "coverage": 0.496713,
+            "max_drawdown_r": 195.56,
+            "period": "2024-10",
+            "profit_factor": 0.930149,
+            "rows": 5476,
+            "total_r": -91.17,
+            "trade_precision": 0.145956,
+            "trades": 2720
+          },
+          {
+            "avg_r": 0.01599,
+            "coverage": 0.775164,
+            "max_drawdown_r": 497.09,
+            "period": "2024-11",
+            "profit_factor": 1.027551,
+            "rows": 4888,
+            "total_r": 60.54,
+            "trade_precision": 0.243072,
+            "trades": 3789
+          },
+          {
+            "avg_r": 0.129547,
+            "coverage": 0.567112,
+            "max_drawdown_r": 186.41,
+            "period": "2024-12",
+            "profit_factor": 1.248481,
+            "rows": 4567,
+            "total_r": 334.88,
+            "trade_precision": 0.272973,
+            "trades": 2590
+          }
+        ],
+        "by_year": [
+          {
+            "avg_r": 0.006375,
+            "coverage": 0.449678,
+            "max_drawdown_r": 878.24,
+            "period": "2024",
+            "profit_factor": 1.012434,
+            "rows": 59378,
+            "total_r": 170.08,
+            "trade_precision": 0.186173,
+            "trades": 26701
+          }
+        ],
+        "confusion_matrix": {
+          "DO_NOTHING": {
+            "DO_NOTHING": 25684,
+            "ENTER_BUY": 7452,
+            "ENTER_SELL": 9314
+          },
+          "ENTER_BUY": {
+            "DO_NOTHING": 3289,
+            "ENTER_BUY": 2463,
+            "ENTER_SELL": 2396
+          },
+          "ENTER_SELL": {
+            "DO_NOTHING": 3704,
+            "ENTER_BUY": 2568,
+            "ENTER_SELL": 2508
+          }
+        },
+        "coverage": 0.449678,
+        "macro_f1": 0.380207,
+        "max_drawdown_r": 878.24,
+        "precision_by_class": {
+          "DO_NOTHING": 0.785996,
+          "ENTER_BUY": 0.197308,
+          "ENTER_SELL": 0.176396
+        },
+        "prediction_distribution": {
+          "DO_NOTHING": 32677,
+          "ENTER_BUY": 12483,
+          "ENTER_SELL": 14218
+        },
+        "profit_factor": 1.012434,
+        "recall_by_class": {
+          "DO_NOTHING": 0.605041,
+          "ENTER_BUY": 0.302283,
+          "ENTER_SELL": 0.285649
+        },
+        "sell_precision": 0.176396,
+        "total_r": 170.08,
+        "trade_precision": 0.186173,
+        "trades_taken": 26701
+      }
+    }
+  },
+  "features": [
+    "session",
+    "hour",
+    "weekday",
+    "spread_pips",
+    "atr",
+    "daily_range_position",
+    "regime",
+    "melchor_signal",
+    "melchor_confidence",
+    "melchor_risk_flags",
+    "baltasar_signal",
+    "baltasar_confidence",
+    "gaspar_signal",
+    "gaspar_confidence",
+    "mage_agreement",
+    "baltasar_gaspar_alignment"
+  ],
+  "generated_at": "2026-04-29T23:08:47.415653Z",
+  "leakage_check": {
+    "forbidden_features_in_model": [],
+    "passed": true
+  },
+  "metrics_argmax": {
+    "test": {
+      "accuracy": 0.450721,
+      "actual_distribution": {
+        "DO_NOTHING": 43774,
+        "ENTER_BUY": 15606,
+        "ENTER_SELL": 15611
+      },
+      "avg_r": 0.003646,
+      "buy_precision": 0.262385,
+      "by_month": [
+        {
+          "avg_r": 0.046626,
+          "coverage": 0.605285,
+          "max_drawdown_r": 182.83,
+          "period": "2025-01",
+          "profit_factor": 1.080454,
+          "rows": 4844,
+          "total_r": 136.66,
+          "trade_precision": 0.270123,
+          "trades": 2932
+        },
+        {
+          "avg_r": -0.102904,
+          "coverage": 0.603209,
+          "max_drawdown_r": 558.13,
+          "period": "2025-02",
+          "profit_factor": 0.838448,
+          "rows": 4612,
+          "total_r": -286.28,
+          "trade_precision": 0.227534,
+          "trades": 2782
+        },
+        {
+          "avg_r": 0.071859,
+          "coverage": 0.610007,
+          "max_drawdown_r": 249.27,
+          "period": "2025-03",
+          "profit_factor": 1.118851,
+          "rows": 4577,
+          "total_r": 200.63,
+          "trade_precision": 0.318052,
+          "trades": 2792
+        },
+        {
+          "avg_r": 0.053852,
+          "coverage": 0.613531,
+          "max_drawdown_r": 180.18,
+          "period": "2025-04",
+          "profit_factor": 1.085185,
+          "rows": 5188,
+          "total_r": 171.41,
+          "trade_precision": 0.334276,
+          "trades": 3183
+        },
+        {
+          "avg_r": -0.00552,
+          "coverage": 0.617079,
+          "max_drawdown_r": 362.24,
+          "period": "2025-05",
+          "profit_factor": 0.991239,
+          "rows": 5176,
+          "total_r": -17.62,
+          "trade_precision": 0.29712,
+          "trades": 3194
+        },
+        {
+          "avg_r": 0.0178,
+          "coverage": 0.606113,
+          "max_drawdown_r": 132.11,
+          "period": "2025-06",
+          "profit_factor": 1.029279,
+          "rows": 4613,
+          "total_r": 49.77,
+          "trade_precision": 0.286838,
+          "trades": 2796
+        },
+        {
+          "avg_r": 0.131201,
+          "coverage": 0.584145,
+          "max_drawdown_r": 155.24,
+          "period": "2025-07",
+          "profit_factor": 1.232721,
+          "rows": 5235,
+          "total_r": 401.08,
+          "trade_precision": 0.317528,
+          "trades": 3058
+        },
+        {
+          "avg_r": -0.126836,
+          "coverage": 0.578808,
+          "max_drawdown_r": 367.3,
+          "period": "2025-08",
+          "profit_factor": 0.803905,
+          "rows": 4898,
+          "total_r": -359.58,
+          "trade_precision": 0.226455,
+          "trades": 2835
+        },
+        {
+          "avg_r": -0.045672,
+          "coverage": 0.591716,
+          "max_drawdown_r": 381.16,
+          "period": "2025-09",
+          "profit_factor": 0.92371,
+          "rows": 4901,
+          "total_r": -132.45,
+          "trade_precision": 0.22931,
+          "trades": 2900
+        },
+        {
+          "avg_r": -0.074058,
+          "coverage": 0.575244,
+          "max_drawdown_r": 374.52,
+          "period": "2025-10",
+          "profit_factor": 0.87554,
+          "rows": 5429,
+          "total_r": -231.21,
+          "trade_precision": 0.211015,
+          "trades": 3123
+        },
+        {
+          "avg_r": -0.05471,
+          "coverage": 0.538161,
+          "max_drawdown_r": 295.94,
+          "period": "2025-11",
+          "profit_factor": 0.907362,
+          "rows": 4612,
+          "total_r": -135.79,
+          "trade_precision": 0.210314,
+          "trades": 2482
+        },
+        {
+          "avg_r": -0.120785,
+          "coverage": 0.520888,
+          "max_drawdown_r": 398.82,
+          "period": "2025-12",
+          "profit_factor": 0.794032,
+          "rows": 4596,
+          "total_r": -289.16,
+          "trade_precision": 0.154553,
+          "trades": 2394
+        },
+        {
+          "avg_r": 0.116038,
+          "coverage": 0.54435,
+          "max_drawdown_r": 148.25,
+          "period": "2026-01",
+          "profit_factor": 1.222599,
+          "rows": 4611,
+          "total_r": 291.14,
+          "trade_precision": 0.27012,
+          "trades": 2510
+        },
+        {
+          "avg_r": -0.097093,
+          "coverage": 0.566865,
+          "max_drawdown_r": 310.54,
+          "period": "2026-02",
+          "profit_factor": 0.833996,
+          "rows": 4539,
+          "total_r": -249.82,
+          "trade_precision": 0.185775,
+          "trades": 2573
+        },
+        {
+          "avg_r": 0.210857,
+          "coverage": 0.621044,
+          "max_drawdown_r": 246.12,
+          "period": "2026-03",
+          "profit_factor": 1.379653,
+          "rows": 4866,
+          "total_r": 637.21,
+          "trade_precision": 0.35771,
+          "trades": 3022
+        },
+        {
+          "avg_r": -0.019885,
+          "coverage": 0.579337,
+          "max_drawdown_r": 227.36,
+          "period": "2026-04",
+          "profit_factor": 0.967074,
+          "rows": 2294,
+          "total_r": -26.01,
+          "trade_precision": 0.241535,
+          "trades": 1329
+        }
+      ],
+      "by_year": [
+        {
+          "avg_r": -0.014291,
+          "coverage": 0.58743,
+          "max_drawdown_r": 1278.18,
+          "period": "2025",
+          "profit_factor": 0.976437,
+          "rows": 58681,
+          "total_r": -492.54,
+          "trade_precision": 0.259842,
+          "trades": 34471
+        },
+        {
+          "avg_r": 0.069329,
+          "coverage": 0.578418,
+          "max_drawdown_r": 310.54,
+          "period": "2026",
+          "profit_factor": 1.123556,
+          "rows": 16310,
+          "total_r": 652.52,
+          "trade_precision": 0.271147,
+          "trades": 9434
+        }
+      ],
+      "confusion_matrix": {
+        "DO_NOTHING": {
+          "DO_NOTHING": 22285,
+          "ENTER_BUY": 6623,
+          "ENTER_SELL": 14866
+        },
+        "ENTER_BUY": {
+          "DO_NOTHING": 4423,
+          "ENTER_BUY": 3501,
+          "ENTER_SELL": 7682
+        },
+        "ENTER_SELL": {
+          "DO_NOTHING": 4378,
+          "ENTER_BUY": 3219,
+          "ENTER_SELL": 8014
+        }
+      },
+      "coverage": 0.58547,
+      "macro_f1": 0.394794,
+      "max_drawdown_r": 1278.18,
+      "precision_by_class": {
+        "DO_NOTHING": 0.716882,
+        "ENTER_BUY": 0.262385,
+        "ENTER_SELL": 0.262221
+      },
+      "prediction_distribution": {
+        "DO_NOTHING": 31086,
+        "ENTER_BUY": 13343,
+        "ENTER_SELL": 30562
+      },
+      "profit_factor": 1.00611,
+      "recall_by_class": {
+        "DO_NOTHING": 0.509092,
+        "ENTER_BUY": 0.224337,
+        "ENTER_SELL": 0.513356
+      },
+      "sell_precision": 0.262221,
+      "total_r": 159.98,
+      "trade_precision": 0.262271,
+      "trades_taken": 43905
+    },
+    "train": {
+      "accuracy": 0.519099,
+      "actual_distribution": {
+        "DO_NOTHING": 139635,
+        "ENTER_BUY": 48210,
+        "ENTER_SELL": 49287
+      },
+      "avg_r": 0.25463,
+      "buy_precision": 0.373505,
+      "by_month": [
+        {
+          "avg_r": 0.079426,
+          "coverage": 0.472854,
+          "max_drawdown_r": 202.26,
+          "period": "2020-01",
+          "profit_factor": 1.18133,
+          "rows": 3168,
+          "total_r": 118.98,
+          "trade_precision": 0.149533,
+          "trades": 1498
+        },
+        {
+          "avg_r": 0.315892,
+          "coverage": 0.547309,
+          "max_drawdown_r": 83.68,
+          "period": "2020-02",
+          "profit_factor": 1.713545,
+          "rows": 4608,
+          "total_r": 796.68,
+          "trade_precision": 0.303727,
+          "trades": 2522
+        },
+        {
+          "avg_r": 0.203696,
+          "coverage": 0.629371,
+          "max_drawdown_r": 87.86,
+          "period": "2020-03",
+          "profit_factor": 1.343191,
+          "rows": 4862,
+          "total_r": 623.31,
+          "trade_precision": 0.396732,
+          "trades": 3060
+        },
+        {
+          "avg_r": 0.211035,
+          "coverage": 0.607446,
+          "max_drawdown_r": 131.7,
+          "period": "2020-04",
+          "profit_factor": 1.371739,
+          "rows": 5184,
+          "total_r": 664.55,
+          "trade_precision": 0.373452,
+          "trades": 3149
+        },
+        {
+          "avg_r": 0.289262,
+          "coverage": 0.608784,
+          "max_drawdown_r": 120.89,
+          "period": "2020-05",
+          "profit_factor": 1.560148,
+          "rows": 4895,
+          "total_r": 862.0,
+          "trade_precision": 0.368456,
+          "trades": 2980
+        },
+        {
+          "avg_r": 0.224629,
+          "coverage": 0.60874,
+          "max_drawdown_r": 94.81,
+          "period": "2020-06",
+          "profit_factor": 1.411919,
+          "rows": 4897,
+          "total_r": 669.62,
+          "trade_precision": 0.357598,
+          "trades": 2981
+        },
+        {
+          "avg_r": 0.005042,
+          "coverage": 0.608298,
+          "max_drawdown_r": 512.35,
+          "period": "2020-07",
+          "profit_factor": 1.00811,
+          "rows": 5471,
+          "total_r": 16.78,
+          "trade_precision": 0.289062,
+          "trades": 3328
+        },
+        {
+          "avg_r": 0.210685,
+          "coverage": 0.611195,
+          "max_drawdown_r": 142.27,
+          "period": "2020-08",
+          "profit_factor": 1.375372,
+          "rows": 4609,
+          "total_r": 593.5,
+          "trade_precision": 0.370962,
+          "trades": 2817
+        },
+        {
+          "avg_r": 0.310287,
+          "coverage": 0.604552,
+          "max_drawdown_r": 103.01,
+          "period": "2020-09",
+          "profit_factor": 1.59781,
+          "rows": 5184,
+          "total_r": 972.44,
+          "trade_precision": 0.391832,
+          "trades": 3134
+        },
+        {
+          "avg_r": 0.045452,
+          "coverage": 0.556179,
+          "max_drawdown_r": 277.18,
+          "period": "2020-10",
+          "profit_factor": 1.079847,
+          "rows": 5171,
+          "total_r": 130.72,
+          "trade_precision": 0.270862,
+          "trades": 2876
+        },
+        {
+          "avg_r": 0.272674,
+          "coverage": 0.545987,
+          "max_drawdown_r": 183.27,
+          "period": "2020-11",
+          "profit_factor": 1.539492,
+          "rows": 4610,
+          "total_r": 686.32,
+          "trade_precision": 0.346047,
+          "trades": 2517
+        },
+        {
+          "avg_r": 0.21363,
+          "coverage": 0.582405,
+          "max_drawdown_r": 171.26,
+          "period": "2020-12",
+          "profit_factor": 1.404002,
+          "rows": 5115,
+          "total_r": 636.19,
+          "trade_precision": 0.320577,
+          "trades": 2979
+        },
+        {
+          "avg_r": 0.349884,
+          "coverage": 0.577783,
+          "max_drawdown_r": 84.72,
+          "period": "2021-01",
+          "profit_factor": 1.695853,
+          "rows": 4609,
+          "total_r": 931.74,
+          "trade_precision": 0.394292,
+          "trades": 2663
+        },
+        {
+          "avg_r": 0.234071,
+          "coverage": 0.542101,
+          "max_drawdown_r": 108.08,
+          "period": "2021-02",
+          "profit_factor": 1.458614,
+          "rows": 4608,
+          "total_r": 584.71,
+          "trade_precision": 0.320256,
+          "trades": 2498
+        },
+        {
+          "avg_r": 0.412691,
+          "coverage": 0.560938,
+          "max_drawdown_r": 73.55,
+          "period": "2021-03",
+          "profit_factor": 1.893244,
+          "rows": 5161,
+          "total_r": 1194.74,
+          "trade_precision": 0.380656,
+          "trades": 2895
+        },
+        {
+          "avg_r": 0.009027,
+          "coverage": 0.555084,
+          "max_drawdown_r": 392.1,
+          "period": "2021-04",
+          "profit_factor": 1.015878,
+          "rows": 5183,
+          "total_r": 25.97,
+          "trade_precision": 0.23879,
+          "trades": 2877
+        },
+        {
+          "avg_r": 0.237614,
+          "coverage": 0.552711,
+          "max_drawdown_r": 167.2,
+          "period": "2021-05",
+          "profit_factor": 1.447466,
+          "rows": 4610,
+          "total_r": 605.44,
+          "trade_precision": 0.352041,
+          "trades": 2548
+        },
+        {
+          "avg_r": 0.152866,
+          "coverage": 0.529031,
+          "max_drawdown_r": 278.91,
+          "period": "2021-06",
+          "profit_factor": 1.298958,
+          "rows": 5098,
+          "total_r": 411.82,
+          "trade_precision": 0.270671,
+          "trades": 2697
+        },
+        {
+          "avg_r": 0.2575,
+          "coverage": 0.513988,
+          "max_drawdown_r": 116.55,
+          "period": "2021-07",
+          "profit_factor": 1.522771,
+          "rows": 5183,
+          "total_r": 685.98,
+          "trade_precision": 0.312312,
+          "trades": 2664
+        },
+        {
+          "avg_r": 0.346062,
+          "coverage": 0.491117,
+          "max_drawdown_r": 61.1,
+          "period": "2021-08",
+          "profit_factor": 1.931327,
+          "rows": 4897,
+          "total_r": 832.28,
+          "trade_precision": 0.253222,
+          "trades": 2405
+        },
+        {
+          "avg_r": 0.34334,
+          "coverage": 0.506559,
+          "max_drawdown_r": 137.33,
+          "period": "2021-09",
+          "profit_factor": 1.82671,
+          "rows": 5184,
+          "total_r": 901.61,
+          "trade_precision": 0.295887,
+          "trades": 2626
+        },
+        {
+          "avg_r": 0.245278,
+          "coverage": 0.510112,
+          "max_drawdown_r": 201.89,
+          "period": "2021-10",
+          "profit_factor": 1.54177,
+          "rows": 4895,
+          "total_r": 612.46,
+          "trade_precision": 0.268322,
+          "trades": 2497
+        },
+        {
+          "avg_r": 0.447272,
+          "coverage": 0.586899,
+          "max_drawdown_r": 89.66,
+          "period": "2021-11",
+          "profit_factor": 2.0729,
+          "rows": 4885,
+          "total_r": 1282.33,
+          "trade_precision": 0.369027,
+          "trades": 2867
+        },
+        {
+          "avg_r": 0.317919,
+          "coverage": 0.563214,
+          "max_drawdown_r": 93.25,
+          "period": "2021-12",
+          "profit_factor": 1.653066,
+          "rows": 5426,
+          "total_r": 971.56,
+          "trade_precision": 0.354058,
+          "trades": 3056
+        },
+        {
+          "avg_r": 0.129886,
+          "coverage": 0.568887,
+          "max_drawdown_r": 309.64,
+          "period": "2022-01",
+          "profit_factor": 1.244492,
+          "rows": 4609,
+          "total_r": 340.56,
+          "trade_precision": 0.274981,
+          "trades": 2622
+        },
+        {
+          "avg_r": 0.27378,
+          "coverage": 0.600477,
+          "max_drawdown_r": 97.69,
+          "period": "2022-02",
+          "profit_factor": 1.526413,
+          "rows": 4608,
+          "total_r": 757.55,
+          "trade_precision": 0.358511,
+          "trades": 2767
+        },
+        {
+          "avg_r": 0.326158,
+          "coverage": 0.613845,
+          "max_drawdown_r": 87.0,
+          "period": "2022-03",
+          "profit_factor": 1.623057,
+          "rows": 5446,
+          "total_r": 1090.02,
+          "trade_precision": 0.405325,
+          "trades": 3343
+        },
+        {
+          "avg_r": 0.319397,
+          "coverage": 0.593137,
+          "max_drawdown_r": 160.0,
+          "period": "2022-04",
+          "profit_factor": 1.622395,
+          "rows": 4896,
+          "total_r": 927.53,
+          "trade_precision": 0.38292,
+          "trades": 2904
+        },
+        {
+          "avg_r": 0.380835,
+          "coverage": 0.628216,
+          "max_drawdown_r": 88.0,
+          "period": "2022-05",
+          "profit_factor": 1.733494,
+          "rows": 4898,
+          "total_r": 1171.83,
+          "trade_precision": 0.433864,
+          "trades": 3077
+        },
+        {
+          "avg_r": 0.284211,
+          "coverage": 0.624807,
+          "max_drawdown_r": 155.62,
+          "period": "2022-06",
+          "profit_factor": 1.530842,
+          "rows": 5184,
+          "total_r": 920.56,
+          "trade_precision": 0.387157,
+          "trades": 3239
+        },
+        {
+          "avg_r": 0.333967,
+          "coverage": 0.635955,
+          "max_drawdown_r": 132.0,
+          "period": "2022-07",
+          "profit_factor": 1.619837,
+          "rows": 4895,
+          "total_r": 1039.64,
+          "trade_precision": 0.421137,
+          "trades": 3113
+        },
+        {
+          "avg_r": 0.279741,
+          "coverage": 0.611497,
+          "max_drawdown_r": 193.84,
+          "period": "2022-08",
+          "profit_factor": 1.525005,
+          "rows": 5184,
+          "total_r": 886.78,
+          "trade_precision": 0.377287,
+          "trades": 3170
+        },
+        {
+          "avg_r": 0.286834,
+          "coverage": 0.622805,
+          "max_drawdown_r": 78.78,
+          "period": "2022-09",
+          "profit_factor": 1.519156,
+          "rows": 5183,
+          "total_r": 925.9,
+          "trade_precision": 0.41109,
+          "trades": 3228
+        },
+        {
+          "avg_r": 0.316285,
+          "coverage": 0.634845,
+          "max_drawdown_r": 75.0,
+          "period": "2022-10",
+          "profit_factor": 1.589188,
+          "rows": 4609,
+          "total_r": 925.45,
+          "trade_precision": 0.415243,
+          "trades": 2926
+        },
+        {
+          "avg_r": 0.352702,
+          "coverage": 0.62819,
+          "max_drawdown_r": 86.29,
+          "period": "2022-11",
+          "profit_factor": 1.672214,
+          "rows": 5172,
+          "total_r": 1145.93,
+          "trade_precision": 0.426285,
+          "trades": 3249
+        },
+        {
+          "avg_r": 0.096078,
+          "coverage": 0.626543,
+          "max_drawdown_r": 161.52,
+          "period": "2022-12",
+          "profit_factor": 1.15821,
+          "rows": 5184,
+          "total_r": 312.06,
+          "trade_precision": 0.330973,
+          "trades": 3248
+        },
+        {
+          "avg_r": 0.279544,
+          "coverage": 0.618542,
+          "max_drawdown_r": 110.33,
+          "period": "2023-01",
+          "profit_factor": 1.523066,
+          "rows": 4897,
+          "total_r": 846.74,
+          "trade_precision": 0.384946,
+          "trades": 3029
+        },
+        {
+          "avg_r": 0.404641,
+          "coverage": 0.607251,
+          "max_drawdown_r": 144.9,
+          "period": "2023-02",
+          "profit_factor": 1.831714,
+          "rows": 4606,
+          "total_r": 1131.78,
+          "trade_precision": 0.41187,
+          "trades": 2797
+        },
+        {
+          "avg_r": 0.253896,
+          "coverage": 0.621985,
+          "max_drawdown_r": 88.53,
+          "period": "2023-03",
+          "profit_factor": 1.488044,
+          "rows": 5431,
+          "total_r": 857.66,
+          "trade_precision": 0.35672,
+          "trades": 3378
+        },
+        {
+          "avg_r": 0.232977,
+          "coverage": 0.578615,
+          "max_drawdown_r": 106.95,
+          "period": "2023-04",
+          "profit_factor": 1.457913,
+          "rows": 4592,
+          "total_r": 619.02,
+          "trade_precision": 0.333459,
+          "trades": 2657
+        },
+        {
+          "avg_r": 0.469752,
+          "coverage": 0.561448,
+          "max_drawdown_r": 64.84,
+          "period": "2023-05",
+          "profit_factor": 2.032715,
+          "rows": 5167,
+          "total_r": 1362.75,
+          "trade_precision": 0.413995,
+          "trades": 2901
+        },
+        {
+          "avg_r": 0.242262,
+          "coverage": 0.5843,
+          "max_drawdown_r": 91.8,
+          "period": "2023-06",
+          "profit_factor": 1.489293,
+          "rows": 5172,
+          "total_r": 731.63,
+          "trade_precision": 0.323296,
+          "trades": 3022
+        },
+        {
+          "avg_r": 0.013014,
+          "coverage": 0.589632,
+          "max_drawdown_r": 242.5,
+          "period": "2023-07",
+          "profit_factor": 1.022122,
+          "rows": 4591,
+          "total_r": 35.23,
+          "trade_precision": 0.262283,
+          "trades": 2707
+        },
+        {
+          "avg_r": 0.218283,
+          "coverage": 0.585803,
+          "max_drawdown_r": 122.51,
+          "period": "2023-08",
+          "profit_factor": 1.414285,
+          "rows": 5466,
+          "total_r": 698.07,
+          "trade_precision": 0.332292,
+          "trades": 3202
+        },
+        {
+          "avg_r": 0.203233,
+          "coverage": 0.568163,
+          "max_drawdown_r": 139.02,
+          "period": "2023-09",
+          "profit_factor": 1.396105,
+          "rows": 4900,
+          "total_r": 565.8,
+          "trade_precision": 0.293463,
+          "trades": 2784
+        },
+        {
+          "avg_r": 0.189911,
+          "coverage": 0.618241,
+          "max_drawdown_r": 122.04,
+          "period": "2023-10",
+          "profit_factor": 1.348155,
+          "rows": 4901,
+          "total_r": 575.43,
+          "trade_precision": 0.338614,
+          "trades": 3030
+        },
+        {
+          "avg_r": 0.20636,
+          "coverage": 0.601816,
+          "max_drawdown_r": 228.18,
+          "period": "2023-11",
+          "profit_factor": 1.393197,
+          "rows": 5176,
+          "total_r": 642.81,
+          "trade_precision": 0.313965,
+          "trades": 3115
+        },
+        {
+          "avg_r": 0.325962,
+          "coverage": 0.616035,
+          "max_drawdown_r": 121.69,
+          "period": "2023-12",
+          "profit_factor": 1.673659,
+          "rows": 4852,
+          "total_r": 974.3,
+          "trade_precision": 0.361325,
+          "trades": 2989
+        }
+      ],
+      "by_year": [
+        {
+          "avg_r": 0.200091,
+          "coverage": 0.585748,
+          "max_drawdown_r": 512.35,
+          "period": "2020",
+          "profit_factor": 1.369968,
+          "rows": 57774,
+          "total_r": 6771.09,
+          "trade_precision": 0.336397,
+          "trades": 33841
+        },
+        {
+          "avg_r": 0.279983,
+          "coverage": 0.540568,
+          "max_drawdown_r": 392.1,
+          "period": "2021",
+          "profit_factor": 1.586012,
+          "rows": 59739,
+          "total_r": 9040.64,
+          "trade_precision": 0.318769,
+          "trades": 32293
+        },
+        {
+          "avg_r": 0.283145,
+          "coverage": 0.616122,
+          "max_drawdown_r": 309.64,
+          "period": "2022",
+          "profit_factor": 1.527433,
+          "rows": 59868,
+          "total_r": 10443.81,
+          "trade_precision": 0.387085,
+          "trades": 36886
+        },
+        {
+          "avg_r": 0.253931,
+          "coverage": 0.59599,
+          "max_drawdown_r": 278.68,
+          "period": "2023",
+          "profit_factor": 1.492884,
+          "rows": 59751,
+          "total_r": 9041.22,
+          "trade_precision": 0.344332,
+          "trades": 35611
+        }
+      ],
+      "confusion_matrix": {
+        "DO_NOTHING": {
+          "DO_NOTHING": 74877,
+          "ENTER_BUY": 22144,
+          "ENTER_SELL": 42614
+        },
+        "ENTER_BUY": {
+          "DO_NOTHING": 12406,
+          "ENTER_BUY": 17709,
+          "ENTER_SELL": 18095
+        },
+        "ENTER_SELL": {
+          "DO_NOTHING": 11218,
+          "ENTER_BUY": 7560,
+          "ENTER_SELL": 30509
+        }
+      },
+      "coverage": 0.584615,
+      "macro_f1": 0.477843,
+      "max_drawdown_r": 512.35,
+      "precision_by_class": {
+        "DO_NOTHING": 0.760165,
+        "ENTER_BUY": 0.373505,
+        "ENTER_SELL": 0.334462
+      },
+      "prediction_distribution": {
+        "DO_NOTHING": 98501,
+        "ENTER_BUY": 47413,
+        "ENTER_SELL": 91218
+      },
+      "profit_factor": 1.491093,
+      "recall_by_class": {
+        "DO_NOTHING": 0.536234,
+        "ENTER_BUY": 0.36733,
+        "ENTER_SELL": 0.619007
+      },
+      "sell_precision": 0.334462,
+      "total_r": 35296.76,
+      "trade_precision": 0.347815,
+      "trades_taken": 138631
+    },
+    "validation": {
+      "accuracy": 0.509818,
+      "actual_distribution": {
+        "DO_NOTHING": 42450,
+        "ENTER_BUY": 8148,
+        "ENTER_SELL": 8780
+      },
+      "avg_r": -0.023658,
+      "buy_precision": 0.196101,
+      "by_month": [
+        {
+          "avg_r": -0.016186,
+          "coverage": 0.577959,
+          "max_drawdown_r": 347.66,
+          "period": "2024-01",
+          "profit_factor": 0.97337,
+          "rows": 4900,
+          "total_r": -45.84,
+          "trade_precision": 0.262359,
+          "trades": 2832
+        },
+        {
+          "avg_r": -0.045849,
+          "coverage": 0.549184,
+          "max_drawdown_r": 431.93,
+          "period": "2024-02",
+          "profit_factor": 0.919729,
+          "rows": 4900,
+          "total_r": -123.38,
+          "trade_precision": 0.202899,
+          "trades": 2691
+        },
+        {
+          "avg_r": 0.156095,
+          "coverage": 0.50978,
+          "max_drawdown_r": 171.77,
+          "period": "2024-03",
+          "profit_factor": 1.351441,
+          "rows": 4857,
+          "total_r": 386.49,
+          "trade_precision": 0.208805,
+          "trades": 2476
+        },
+        {
+          "avg_r": -0.08879,
+          "coverage": 0.569884,
+          "max_drawdown_r": 363.63,
+          "period": "2024-04",
+          "profit_factor": 0.851698,
+          "rows": 4901,
+          "total_r": -247.99,
+          "trade_precision": 0.20444,
+          "trades": 2793
+        },
+        {
+          "avg_r": -0.122152,
+          "coverage": 0.505844,
+          "max_drawdown_r": 409.06,
+          "period": "2024-05",
+          "profit_factor": 0.78761,
+          "rows": 5476,
+          "total_r": -338.36,
+          "trade_precision": 0.154874,
+          "trades": 2770
+        },
+        {
+          "avg_r": 0.046368,
+          "coverage": 0.527103,
+          "max_drawdown_r": 198.92,
+          "period": "2024-06",
+          "profit_factor": 1.09017,
+          "rows": 4612,
+          "total_r": 112.72,
+          "trade_precision": 0.202386,
+          "trades": 2431
+        },
+        {
+          "avg_r": -0.076921,
+          "coverage": 0.5094,
+          "max_drawdown_r": 364.01,
+          "period": "2024-07",
+          "profit_factor": 0.846612,
+          "rows": 5000,
+          "total_r": -195.84,
+          "trade_precision": 0.128386,
+          "trades": 2547
+        },
+        {
+          "avg_r": -0.192379,
+          "coverage": 0.558211,
+          "max_drawdown_r": 735.72,
+          "period": "2024-08",
+          "profit_factor": 0.686817,
+          "rows": 5188,
+          "total_r": -557.13,
+          "trade_precision": 0.164019,
+          "trades": 2896
+        },
+        {
+          "avg_r": -0.03343,
+          "coverage": 0.554953,
+          "max_drawdown_r": 266.47,
+          "period": "2024-09",
+          "profit_factor": 0.940691,
+          "rows": 4613,
+          "total_r": -85.58,
+          "trade_precision": 0.209766,
+          "trades": 2560
+        },
+        {
+          "avg_r": 0.126515,
+          "coverage": 0.541819,
+          "max_drawdown_r": 214.56,
+          "period": "2024-10",
+          "profit_factor": 1.256702,
+          "rows": 5476,
+          "total_r": 375.37,
+          "trade_precision": 0.235929,
+          "trades": 2967
+        },
+        {
+          "avg_r": -0.031534,
+          "coverage": 0.60536,
+          "max_drawdown_r": 300.66,
+          "period": "2024-11",
+          "profit_factor": 0.950602,
+          "rows": 4888,
+          "total_r": -93.31,
+          "trade_precision": 0.272389,
+          "trades": 2959
+        },
+        {
+          "avg_r": 0.015385,
+          "coverage": 0.588789,
+          "max_drawdown_r": 266.13,
+          "period": "2024-12",
+          "profit_factor": 1.026536,
+          "rows": 4567,
+          "total_r": 41.37,
+          "trade_precision": 0.258089,
+          "trades": 2689
+        }
+      ],
+      "by_year": [
+        {
+          "avg_r": -0.023658,
+          "coverage": 0.54921,
+          "max_drawdown_r": 1557.86,
+          "period": "2024",
+          "profit_factor": 0.957802,
+          "rows": 59378,
+          "total_r": -771.48,
+          "trade_precision": 0.209653,
+          "trades": 32611
+        }
+      ],
+      "confusion_matrix": {
+        "DO_NOTHING": {
+          "DO_NOTHING": 23435,
+          "ENTER_BUY": 6247,
+          "ENTER_SELL": 12768
+        },
+        "ENTER_BUY": {
+          "DO_NOTHING": 1471,
+          "ENTER_BUY": 2042,
+          "ENTER_SELL": 4635
+        },
+        "ENTER_SELL": {
+          "DO_NOTHING": 1861,
+          "ENTER_BUY": 2124,
+          "ENTER_SELL": 4795
+        }
+      },
+      "coverage": 0.54921,
+      "macro_f1": 0.402251,
+      "max_drawdown_r": 1557.86,
+      "precision_by_class": {
+        "DO_NOTHING": 0.875518,
+        "ENTER_BUY": 0.196101,
+        "ENTER_SELL": 0.21601
+      },
+      "prediction_distribution": {
+        "DO_NOTHING": 26767,
+        "ENTER_BUY": 10413,
+        "ENTER_SELL": 22198
+      },
+      "profit_factor": 0.957802,
+      "recall_by_class": {
+        "DO_NOTHING": 0.552061,
+        "ENTER_BUY": 0.250614,
+        "ENTER_SELL": 0.546128
+      },
+      "sell_precision": 0.21601,
+      "total_r": -771.48,
+      "trade_precision": 0.209653,
+      "trades_taken": 32611
+    }
+  },
+  "model": {
+    "params": {
+      "class_weight": "balanced_subsample",
+      "max_depth": 12,
+      "min_samples_leaf": 90,
+      "n_estimators": 180,
+      "n_jobs": 1,
+      "random_state": 202
+    },
+    "type": "RandomForestClassifier"
+  },
+  "schema_version": "baltasar_v2_baseline_metrics_v0.1",
+  "splits": {
+    "test": {
+      "end": "2026-04-14T22:55:00+00:00",
+      "rows": 74991,
+      "start": "2025-01-02T00:00:30+00:00",
+      "target_distribution": {
+        "DO_NOTHING": 43774,
+        "ENTER_BUY": 15606,
+        "ENTER_SELL": 15611
+      }
+    },
+    "train": {
+      "end": "2023-12-29T23:55:00+00:00",
+      "rows": 237132,
+      "start": "2020-01-15T00:00:00+00:00",
+      "target_distribution": {
+        "DO_NOTHING": 139635,
+        "ENTER_BUY": 48210,
+        "ENTER_SELL": 49287
+      }
+    },
+    "validation": {
+      "end": "2024-12-31T23:55:00+00:00",
+      "rows": 59378,
+      "start": "2024-01-02T00:00:00+00:00",
+      "target_distribution": {
+        "DO_NOTHING": 42450,
+        "ENTER_BUY": 8148,
+        "ENTER_SELL": 8780
+      }
+    }
+  },
+  "target": "tradeable_direction_rr2_first_touch",
+  "technical_decisions": [
+    "buy_R and sell_R are used only for evaluation, never as model features.",
+    "Threshold decisions execute only if ENTER_BUY or ENTER_SELL probability exceeds the threshold; otherwise DO_NOTHING.",
+    "Baltasar v1 comparison maps baltasar_signal BUY/SELL to ENTER_BUY/ENTER_SELL and all other values to DO_NOTHING.",
+    "n_jobs=1 avoids Windows sandbox/joblib worker permission issues."
+  ],
+  "threshold_metrics": {
+    "test": {
+      "0.50": {
+        "accuracy": 0.583723,
+        "actual_distribution": {
+          "DO_NOTHING": 43774,
+          "ENTER_BUY": 15606,
+          "ENTER_SELL": 15611
+        },
+        "avg_r": null,
+        "buy_precision": null,
+        "by_month": [
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-01",
+            "profit_factor": null,
+            "rows": 4844,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-02",
+            "profit_factor": null,
+            "rows": 4612,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-03",
+            "profit_factor": null,
+            "rows": 4577,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-04",
+            "profit_factor": null,
+            "rows": 5188,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-05",
+            "profit_factor": null,
+            "rows": 5176,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-06",
+            "profit_factor": null,
+            "rows": 4613,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-07",
+            "profit_factor": null,
+            "rows": 5235,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-08",
+            "profit_factor": null,
+            "rows": 4898,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-09",
+            "profit_factor": null,
+            "rows": 4901,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-10",
+            "profit_factor": null,
+            "rows": 5429,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-11",
+            "profit_factor": null,
+            "rows": 4612,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-12",
+            "profit_factor": null,
+            "rows": 4596,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2026-01",
+            "profit_factor": null,
+            "rows": 4611,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2026-02",
+            "profit_factor": null,
+            "rows": 4539,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2026-03",
+            "profit_factor": null,
+            "rows": 4866,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2026-04",
+            "profit_factor": null,
+            "rows": 2294,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          }
+        ],
+        "by_year": [
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025",
+            "profit_factor": null,
+            "rows": 58681,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2026",
+            "profit_factor": null,
+            "rows": 16310,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          }
+        ],
+        "confusion_matrix": {
+          "DO_NOTHING": {
+            "DO_NOTHING": 43774,
+            "ENTER_BUY": 0,
+            "ENTER_SELL": 0
+          },
+          "ENTER_BUY": {
+            "DO_NOTHING": 15606,
+            "ENTER_BUY": 0,
+            "ENTER_SELL": 0
+          },
+          "ENTER_SELL": {
+            "DO_NOTHING": 15611,
+            "ENTER_BUY": 0,
+            "ENTER_SELL": 0
+          }
+        },
+        "coverage": 0.0,
+        "macro_f1": 0.245718,
+        "max_drawdown_r": 0.0,
+        "precision_by_class": {
+          "DO_NOTHING": 0.583723,
+          "ENTER_BUY": 0.0,
+          "ENTER_SELL": 0.0
+        },
+        "prediction_distribution": {
+          "DO_NOTHING": 74991
+        },
+        "profit_factor": null,
+        "recall_by_class": {
+          "DO_NOTHING": 1.0,
+          "ENTER_BUY": 0.0,
+          "ENTER_SELL": 0.0
+        },
+        "sell_precision": null,
+        "total_r": null,
+        "trade_precision": null,
+        "trades_taken": 0
+      },
+      "0.60": {
+        "accuracy": 0.583723,
+        "actual_distribution": {
+          "DO_NOTHING": 43774,
+          "ENTER_BUY": 15606,
+          "ENTER_SELL": 15611
+        },
+        "avg_r": null,
+        "buy_precision": null,
+        "by_month": [
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-01",
+            "profit_factor": null,
+            "rows": 4844,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-02",
+            "profit_factor": null,
+            "rows": 4612,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-03",
+            "profit_factor": null,
+            "rows": 4577,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-04",
+            "profit_factor": null,
+            "rows": 5188,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-05",
+            "profit_factor": null,
+            "rows": 5176,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-06",
+            "profit_factor": null,
+            "rows": 4613,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-07",
+            "profit_factor": null,
+            "rows": 5235,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-08",
+            "profit_factor": null,
+            "rows": 4898,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-09",
+            "profit_factor": null,
+            "rows": 4901,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-10",
+            "profit_factor": null,
+            "rows": 5429,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-11",
+            "profit_factor": null,
+            "rows": 4612,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-12",
+            "profit_factor": null,
+            "rows": 4596,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2026-01",
+            "profit_factor": null,
+            "rows": 4611,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2026-02",
+            "profit_factor": null,
+            "rows": 4539,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2026-03",
+            "profit_factor": null,
+            "rows": 4866,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2026-04",
+            "profit_factor": null,
+            "rows": 2294,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          }
+        ],
+        "by_year": [
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025",
+            "profit_factor": null,
+            "rows": 58681,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2026",
+            "profit_factor": null,
+            "rows": 16310,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          }
+        ],
+        "confusion_matrix": {
+          "DO_NOTHING": {
+            "DO_NOTHING": 43774,
+            "ENTER_BUY": 0,
+            "ENTER_SELL": 0
+          },
+          "ENTER_BUY": {
+            "DO_NOTHING": 15606,
+            "ENTER_BUY": 0,
+            "ENTER_SELL": 0
+          },
+          "ENTER_SELL": {
+            "DO_NOTHING": 15611,
+            "ENTER_BUY": 0,
+            "ENTER_SELL": 0
+          }
+        },
+        "coverage": 0.0,
+        "macro_f1": 0.245718,
+        "max_drawdown_r": 0.0,
+        "precision_by_class": {
+          "DO_NOTHING": 0.583723,
+          "ENTER_BUY": 0.0,
+          "ENTER_SELL": 0.0
+        },
+        "prediction_distribution": {
+          "DO_NOTHING": 74991
+        },
+        "profit_factor": null,
+        "recall_by_class": {
+          "DO_NOTHING": 1.0,
+          "ENTER_BUY": 0.0,
+          "ENTER_SELL": 0.0
+        },
+        "sell_precision": null,
+        "total_r": null,
+        "trade_precision": null,
+        "trades_taken": 0
+      },
+      "0.70": {
+        "accuracy": 0.583723,
+        "actual_distribution": {
+          "DO_NOTHING": 43774,
+          "ENTER_BUY": 15606,
+          "ENTER_SELL": 15611
+        },
+        "avg_r": null,
+        "buy_precision": null,
+        "by_month": [
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-01",
+            "profit_factor": null,
+            "rows": 4844,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-02",
+            "profit_factor": null,
+            "rows": 4612,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-03",
+            "profit_factor": null,
+            "rows": 4577,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-04",
+            "profit_factor": null,
+            "rows": 5188,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-05",
+            "profit_factor": null,
+            "rows": 5176,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-06",
+            "profit_factor": null,
+            "rows": 4613,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-07",
+            "profit_factor": null,
+            "rows": 5235,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-08",
+            "profit_factor": null,
+            "rows": 4898,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-09",
+            "profit_factor": null,
+            "rows": 4901,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-10",
+            "profit_factor": null,
+            "rows": 5429,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-11",
+            "profit_factor": null,
+            "rows": 4612,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-12",
+            "profit_factor": null,
+            "rows": 4596,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2026-01",
+            "profit_factor": null,
+            "rows": 4611,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2026-02",
+            "profit_factor": null,
+            "rows": 4539,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2026-03",
+            "profit_factor": null,
+            "rows": 4866,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2026-04",
+            "profit_factor": null,
+            "rows": 2294,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          }
+        ],
+        "by_year": [
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025",
+            "profit_factor": null,
+            "rows": 58681,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2026",
+            "profit_factor": null,
+            "rows": 16310,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          }
+        ],
+        "confusion_matrix": {
+          "DO_NOTHING": {
+            "DO_NOTHING": 43774,
+            "ENTER_BUY": 0,
+            "ENTER_SELL": 0
+          },
+          "ENTER_BUY": {
+            "DO_NOTHING": 15606,
+            "ENTER_BUY": 0,
+            "ENTER_SELL": 0
+          },
+          "ENTER_SELL": {
+            "DO_NOTHING": 15611,
+            "ENTER_BUY": 0,
+            "ENTER_SELL": 0
+          }
+        },
+        "coverage": 0.0,
+        "macro_f1": 0.245718,
+        "max_drawdown_r": 0.0,
+        "precision_by_class": {
+          "DO_NOTHING": 0.583723,
+          "ENTER_BUY": 0.0,
+          "ENTER_SELL": 0.0
+        },
+        "prediction_distribution": {
+          "DO_NOTHING": 74991
+        },
+        "profit_factor": null,
+        "recall_by_class": {
+          "DO_NOTHING": 1.0,
+          "ENTER_BUY": 0.0,
+          "ENTER_SELL": 0.0
+        },
+        "sell_precision": null,
+        "total_r": null,
+        "trade_precision": null,
+        "trades_taken": 0
+      },
+      "0.80": {
+        "accuracy": 0.583723,
+        "actual_distribution": {
+          "DO_NOTHING": 43774,
+          "ENTER_BUY": 15606,
+          "ENTER_SELL": 15611
+        },
+        "avg_r": null,
+        "buy_precision": null,
+        "by_month": [
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-01",
+            "profit_factor": null,
+            "rows": 4844,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-02",
+            "profit_factor": null,
+            "rows": 4612,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-03",
+            "profit_factor": null,
+            "rows": 4577,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-04",
+            "profit_factor": null,
+            "rows": 5188,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-05",
+            "profit_factor": null,
+            "rows": 5176,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-06",
+            "profit_factor": null,
+            "rows": 4613,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-07",
+            "profit_factor": null,
+            "rows": 5235,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-08",
+            "profit_factor": null,
+            "rows": 4898,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-09",
+            "profit_factor": null,
+            "rows": 4901,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-10",
+            "profit_factor": null,
+            "rows": 5429,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-11",
+            "profit_factor": null,
+            "rows": 4612,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025-12",
+            "profit_factor": null,
+            "rows": 4596,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2026-01",
+            "profit_factor": null,
+            "rows": 4611,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2026-02",
+            "profit_factor": null,
+            "rows": 4539,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2026-03",
+            "profit_factor": null,
+            "rows": 4866,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2026-04",
+            "profit_factor": null,
+            "rows": 2294,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          }
+        ],
+        "by_year": [
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2025",
+            "profit_factor": null,
+            "rows": 58681,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2026",
+            "profit_factor": null,
+            "rows": 16310,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          }
+        ],
+        "confusion_matrix": {
+          "DO_NOTHING": {
+            "DO_NOTHING": 43774,
+            "ENTER_BUY": 0,
+            "ENTER_SELL": 0
+          },
+          "ENTER_BUY": {
+            "DO_NOTHING": 15606,
+            "ENTER_BUY": 0,
+            "ENTER_SELL": 0
+          },
+          "ENTER_SELL": {
+            "DO_NOTHING": 15611,
+            "ENTER_BUY": 0,
+            "ENTER_SELL": 0
+          }
+        },
+        "coverage": 0.0,
+        "macro_f1": 0.245718,
+        "max_drawdown_r": 0.0,
+        "precision_by_class": {
+          "DO_NOTHING": 0.583723,
+          "ENTER_BUY": 0.0,
+          "ENTER_SELL": 0.0
+        },
+        "prediction_distribution": {
+          "DO_NOTHING": 74991
+        },
+        "profit_factor": null,
+        "recall_by_class": {
+          "DO_NOTHING": 1.0,
+          "ENTER_BUY": 0.0,
+          "ENTER_SELL": 0.0
+        },
+        "sell_precision": null,
+        "total_r": null,
+        "trade_precision": null,
+        "trades_taken": 0
+      }
+    },
+    "train": {
+      "0.50": {
+        "accuracy": 0.588963,
+        "actual_distribution": {
+          "DO_NOTHING": 139635,
+          "ENTER_BUY": 48210,
+          "ENTER_SELL": 49287
+        },
+        "avg_r": 1.264151,
+        "buy_precision": null,
+        "by_month": [
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-01",
+            "profit_factor": null,
+            "rows": 3168,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-02",
+            "profit_factor": null,
+            "rows": 4608,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-03",
+            "profit_factor": null,
+            "rows": 4862,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-04",
+            "profit_factor": null,
+            "rows": 5184,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-05",
+            "profit_factor": null,
+            "rows": 4895,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-06",
+            "profit_factor": null,
+            "rows": 4897,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-07",
+            "profit_factor": null,
+            "rows": 5471,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-08",
+            "profit_factor": null,
+            "rows": 4609,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-09",
+            "profit_factor": null,
+            "rows": 5184,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-10",
+            "profit_factor": null,
+            "rows": 5171,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-11",
+            "profit_factor": null,
+            "rows": 4610,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-12",
+            "profit_factor": null,
+            "rows": 5115,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-01",
+            "profit_factor": null,
+            "rows": 4609,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-02",
+            "profit_factor": null,
+            "rows": 4608,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-03",
+            "profit_factor": null,
+            "rows": 5161,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-04",
+            "profit_factor": null,
+            "rows": 5183,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-05",
+            "profit_factor": null,
+            "rows": 4610,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-06",
+            "profit_factor": null,
+            "rows": 5098,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-07",
+            "profit_factor": null,
+            "rows": 5183,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-08",
+            "profit_factor": null,
+            "rows": 4897,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-09",
+            "profit_factor": null,
+            "rows": 5184,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-10",
+            "profit_factor": null,
+            "rows": 4895,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-11",
+            "profit_factor": null,
+            "rows": 4885,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-12",
+            "profit_factor": null,
+            "rows": 5426,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-01",
+            "profit_factor": null,
+            "rows": 4609,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-02",
+            "profit_factor": null,
+            "rows": 4608,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-03",
+            "profit_factor": null,
+            "rows": 5446,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-04",
+            "profit_factor": null,
+            "rows": 4896,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-05",
+            "profit_factor": null,
+            "rows": 4898,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": 1.108108,
+            "coverage": 0.007137,
+            "max_drawdown_r": 6.0,
+            "period": "2022-06",
+            "profit_factor": 4.727273,
+            "rows": 5184,
+            "total_r": 41.0,
+            "trade_precision": 0.702703,
+            "trades": 37
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-07",
+            "profit_factor": null,
+            "rows": 4895,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-08",
+            "profit_factor": null,
+            "rows": 5184,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-09",
+            "profit_factor": null,
+            "rows": 5183,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-10",
+            "profit_factor": null,
+            "rows": 4609,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-11",
+            "profit_factor": null,
+            "rows": 5172,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-12",
+            "profit_factor": null,
+            "rows": 5184,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-01",
+            "profit_factor": null,
+            "rows": 4897,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-02",
+            "profit_factor": null,
+            "rows": 4606,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-03",
+            "profit_factor": null,
+            "rows": 5431,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-04",
+            "profit_factor": null,
+            "rows": 4592,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-05",
+            "profit_factor": null,
+            "rows": 5167,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-06",
+            "profit_factor": null,
+            "rows": 5172,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-07",
+            "profit_factor": null,
+            "rows": 4591,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": 1.625,
+            "coverage": 0.002927,
+            "max_drawdown_r": 2.0,
+            "period": "2023-08",
+            "profit_factor": 14.0,
+            "rows": 5466,
+            "total_r": 26.0,
+            "trade_precision": 0.875,
+            "trades": 16
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-09",
+            "profit_factor": null,
+            "rows": 4900,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-10",
+            "profit_factor": null,
+            "rows": 4901,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-11",
+            "profit_factor": null,
+            "rows": 5176,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-12",
+            "profit_factor": null,
+            "rows": 4852,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          }
+        ],
+        "by_year": [
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020",
+            "profit_factor": null,
+            "rows": 57774,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021",
+            "profit_factor": null,
+            "rows": 59739,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": 1.108108,
+            "coverage": 0.000618,
+            "max_drawdown_r": 6.0,
+            "period": "2022",
+            "profit_factor": 4.727273,
+            "rows": 59868,
+            "total_r": 41.0,
+            "trade_precision": 0.702703,
+            "trades": 37
+          },
+          {
+            "avg_r": 1.625,
+            "coverage": 0.000268,
+            "max_drawdown_r": 2.0,
+            "period": "2023",
+            "profit_factor": 14.0,
+            "rows": 59751,
+            "total_r": 26.0,
+            "trade_precision": 0.875,
+            "trades": 16
+          }
+        ],
+        "confusion_matrix": {
+          "DO_NOTHING": {
+            "DO_NOTHING": 139622,
+            "ENTER_BUY": 0,
+            "ENTER_SELL": 13
+          },
+          "ENTER_BUY": {
+            "DO_NOTHING": 48210,
+            "ENTER_BUY": 0,
+            "ENTER_SELL": 0
+          },
+          "ENTER_SELL": {
+            "DO_NOTHING": 49247,
+            "ENTER_BUY": 0,
+            "ENTER_SELL": 40
+          }
+        },
+        "coverage": 0.000224,
+        "macro_f1": 0.247628,
+        "max_drawdown_r": 6.0,
+        "precision_by_class": {
+          "DO_NOTHING": 0.588926,
+          "ENTER_BUY": 0.0,
+          "ENTER_SELL": 0.754717
+        },
+        "prediction_distribution": {
+          "DO_NOTHING": 237079,
+          "ENTER_SELL": 53
+        },
+        "profit_factor": 6.153846,
+        "recall_by_class": {
+          "DO_NOTHING": 0.999907,
+          "ENTER_BUY": 0.0,
+          "ENTER_SELL": 0.000812
+        },
+        "sell_precision": 0.754717,
+        "total_r": 67.0,
+        "trade_precision": 0.754717,
+        "trades_taken": 53
+      },
+      "0.60": {
+        "accuracy": 0.588849,
+        "actual_distribution": {
+          "DO_NOTHING": 139635,
+          "ENTER_BUY": 48210,
+          "ENTER_SELL": 49287
+        },
+        "avg_r": null,
+        "buy_precision": null,
+        "by_month": [
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-01",
+            "profit_factor": null,
+            "rows": 3168,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-02",
+            "profit_factor": null,
+            "rows": 4608,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-03",
+            "profit_factor": null,
+            "rows": 4862,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-04",
+            "profit_factor": null,
+            "rows": 5184,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-05",
+            "profit_factor": null,
+            "rows": 4895,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-06",
+            "profit_factor": null,
+            "rows": 4897,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-07",
+            "profit_factor": null,
+            "rows": 5471,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-08",
+            "profit_factor": null,
+            "rows": 4609,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-09",
+            "profit_factor": null,
+            "rows": 5184,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-10",
+            "profit_factor": null,
+            "rows": 5171,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-11",
+            "profit_factor": null,
+            "rows": 4610,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-12",
+            "profit_factor": null,
+            "rows": 5115,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-01",
+            "profit_factor": null,
+            "rows": 4609,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-02",
+            "profit_factor": null,
+            "rows": 4608,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-03",
+            "profit_factor": null,
+            "rows": 5161,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-04",
+            "profit_factor": null,
+            "rows": 5183,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-05",
+            "profit_factor": null,
+            "rows": 4610,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-06",
+            "profit_factor": null,
+            "rows": 5098,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-07",
+            "profit_factor": null,
+            "rows": 5183,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-08",
+            "profit_factor": null,
+            "rows": 4897,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-09",
+            "profit_factor": null,
+            "rows": 5184,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-10",
+            "profit_factor": null,
+            "rows": 4895,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-11",
+            "profit_factor": null,
+            "rows": 4885,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-12",
+            "profit_factor": null,
+            "rows": 5426,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-01",
+            "profit_factor": null,
+            "rows": 4609,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-02",
+            "profit_factor": null,
+            "rows": 4608,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-03",
+            "profit_factor": null,
+            "rows": 5446,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-04",
+            "profit_factor": null,
+            "rows": 4896,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-05",
+            "profit_factor": null,
+            "rows": 4898,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-06",
+            "profit_factor": null,
+            "rows": 5184,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-07",
+            "profit_factor": null,
+            "rows": 4895,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-08",
+            "profit_factor": null,
+            "rows": 5184,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-09",
+            "profit_factor": null,
+            "rows": 5183,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-10",
+            "profit_factor": null,
+            "rows": 4609,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-11",
+            "profit_factor": null,
+            "rows": 5172,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-12",
+            "profit_factor": null,
+            "rows": 5184,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-01",
+            "profit_factor": null,
+            "rows": 4897,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-02",
+            "profit_factor": null,
+            "rows": 4606,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-03",
+            "profit_factor": null,
+            "rows": 5431,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-04",
+            "profit_factor": null,
+            "rows": 4592,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-05",
+            "profit_factor": null,
+            "rows": 5167,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-06",
+            "profit_factor": null,
+            "rows": 5172,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-07",
+            "profit_factor": null,
+            "rows": 4591,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-08",
+            "profit_factor": null,
+            "rows": 5466,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-09",
+            "profit_factor": null,
+            "rows": 4900,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-10",
+            "profit_factor": null,
+            "rows": 4901,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-11",
+            "profit_factor": null,
+            "rows": 5176,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-12",
+            "profit_factor": null,
+            "rows": 4852,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          }
+        ],
+        "by_year": [
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020",
+            "profit_factor": null,
+            "rows": 57774,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021",
+            "profit_factor": null,
+            "rows": 59739,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022",
+            "profit_factor": null,
+            "rows": 59868,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023",
+            "profit_factor": null,
+            "rows": 59751,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          }
+        ],
+        "confusion_matrix": {
+          "DO_NOTHING": {
+            "DO_NOTHING": 139635,
+            "ENTER_BUY": 0,
+            "ENTER_SELL": 0
+          },
+          "ENTER_BUY": {
+            "DO_NOTHING": 48210,
+            "ENTER_BUY": 0,
+            "ENTER_SELL": 0
+          },
+          "ENTER_SELL": {
+            "DO_NOTHING": 49287,
+            "ENTER_BUY": 0,
+            "ENTER_SELL": 0
+          }
+        },
+        "coverage": 0.0,
+        "macro_f1": 0.247076,
+        "max_drawdown_r": 0.0,
+        "precision_by_class": {
+          "DO_NOTHING": 0.588849,
+          "ENTER_BUY": 0.0,
+          "ENTER_SELL": 0.0
+        },
+        "prediction_distribution": {
+          "DO_NOTHING": 237132
+        },
+        "profit_factor": null,
+        "recall_by_class": {
+          "DO_NOTHING": 1.0,
+          "ENTER_BUY": 0.0,
+          "ENTER_SELL": 0.0
+        },
+        "sell_precision": null,
+        "total_r": null,
+        "trade_precision": null,
+        "trades_taken": 0
+      },
+      "0.70": {
+        "accuracy": 0.588849,
+        "actual_distribution": {
+          "DO_NOTHING": 139635,
+          "ENTER_BUY": 48210,
+          "ENTER_SELL": 49287
+        },
+        "avg_r": null,
+        "buy_precision": null,
+        "by_month": [
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-01",
+            "profit_factor": null,
+            "rows": 3168,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-02",
+            "profit_factor": null,
+            "rows": 4608,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-03",
+            "profit_factor": null,
+            "rows": 4862,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-04",
+            "profit_factor": null,
+            "rows": 5184,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-05",
+            "profit_factor": null,
+            "rows": 4895,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-06",
+            "profit_factor": null,
+            "rows": 4897,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-07",
+            "profit_factor": null,
+            "rows": 5471,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-08",
+            "profit_factor": null,
+            "rows": 4609,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-09",
+            "profit_factor": null,
+            "rows": 5184,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-10",
+            "profit_factor": null,
+            "rows": 5171,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-11",
+            "profit_factor": null,
+            "rows": 4610,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-12",
+            "profit_factor": null,
+            "rows": 5115,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-01",
+            "profit_factor": null,
+            "rows": 4609,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-02",
+            "profit_factor": null,
+            "rows": 4608,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-03",
+            "profit_factor": null,
+            "rows": 5161,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-04",
+            "profit_factor": null,
+            "rows": 5183,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-05",
+            "profit_factor": null,
+            "rows": 4610,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-06",
+            "profit_factor": null,
+            "rows": 5098,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-07",
+            "profit_factor": null,
+            "rows": 5183,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-08",
+            "profit_factor": null,
+            "rows": 4897,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-09",
+            "profit_factor": null,
+            "rows": 5184,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-10",
+            "profit_factor": null,
+            "rows": 4895,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-11",
+            "profit_factor": null,
+            "rows": 4885,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-12",
+            "profit_factor": null,
+            "rows": 5426,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-01",
+            "profit_factor": null,
+            "rows": 4609,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-02",
+            "profit_factor": null,
+            "rows": 4608,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-03",
+            "profit_factor": null,
+            "rows": 5446,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-04",
+            "profit_factor": null,
+            "rows": 4896,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-05",
+            "profit_factor": null,
+            "rows": 4898,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-06",
+            "profit_factor": null,
+            "rows": 5184,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-07",
+            "profit_factor": null,
+            "rows": 4895,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-08",
+            "profit_factor": null,
+            "rows": 5184,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-09",
+            "profit_factor": null,
+            "rows": 5183,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-10",
+            "profit_factor": null,
+            "rows": 4609,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-11",
+            "profit_factor": null,
+            "rows": 5172,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-12",
+            "profit_factor": null,
+            "rows": 5184,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-01",
+            "profit_factor": null,
+            "rows": 4897,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-02",
+            "profit_factor": null,
+            "rows": 4606,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-03",
+            "profit_factor": null,
+            "rows": 5431,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-04",
+            "profit_factor": null,
+            "rows": 4592,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-05",
+            "profit_factor": null,
+            "rows": 5167,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-06",
+            "profit_factor": null,
+            "rows": 5172,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-07",
+            "profit_factor": null,
+            "rows": 4591,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-08",
+            "profit_factor": null,
+            "rows": 5466,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-09",
+            "profit_factor": null,
+            "rows": 4900,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-10",
+            "profit_factor": null,
+            "rows": 4901,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-11",
+            "profit_factor": null,
+            "rows": 5176,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-12",
+            "profit_factor": null,
+            "rows": 4852,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          }
+        ],
+        "by_year": [
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020",
+            "profit_factor": null,
+            "rows": 57774,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021",
+            "profit_factor": null,
+            "rows": 59739,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022",
+            "profit_factor": null,
+            "rows": 59868,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023",
+            "profit_factor": null,
+            "rows": 59751,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          }
+        ],
+        "confusion_matrix": {
+          "DO_NOTHING": {
+            "DO_NOTHING": 139635,
+            "ENTER_BUY": 0,
+            "ENTER_SELL": 0
+          },
+          "ENTER_BUY": {
+            "DO_NOTHING": 48210,
+            "ENTER_BUY": 0,
+            "ENTER_SELL": 0
+          },
+          "ENTER_SELL": {
+            "DO_NOTHING": 49287,
+            "ENTER_BUY": 0,
+            "ENTER_SELL": 0
+          }
+        },
+        "coverage": 0.0,
+        "macro_f1": 0.247076,
+        "max_drawdown_r": 0.0,
+        "precision_by_class": {
+          "DO_NOTHING": 0.588849,
+          "ENTER_BUY": 0.0,
+          "ENTER_SELL": 0.0
+        },
+        "prediction_distribution": {
+          "DO_NOTHING": 237132
+        },
+        "profit_factor": null,
+        "recall_by_class": {
+          "DO_NOTHING": 1.0,
+          "ENTER_BUY": 0.0,
+          "ENTER_SELL": 0.0
+        },
+        "sell_precision": null,
+        "total_r": null,
+        "trade_precision": null,
+        "trades_taken": 0
+      },
+      "0.80": {
+        "accuracy": 0.588849,
+        "actual_distribution": {
+          "DO_NOTHING": 139635,
+          "ENTER_BUY": 48210,
+          "ENTER_SELL": 49287
+        },
+        "avg_r": null,
+        "buy_precision": null,
+        "by_month": [
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-01",
+            "profit_factor": null,
+            "rows": 3168,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-02",
+            "profit_factor": null,
+            "rows": 4608,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-03",
+            "profit_factor": null,
+            "rows": 4862,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-04",
+            "profit_factor": null,
+            "rows": 5184,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-05",
+            "profit_factor": null,
+            "rows": 4895,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-06",
+            "profit_factor": null,
+            "rows": 4897,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-07",
+            "profit_factor": null,
+            "rows": 5471,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-08",
+            "profit_factor": null,
+            "rows": 4609,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-09",
+            "profit_factor": null,
+            "rows": 5184,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-10",
+            "profit_factor": null,
+            "rows": 5171,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-11",
+            "profit_factor": null,
+            "rows": 4610,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020-12",
+            "profit_factor": null,
+            "rows": 5115,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-01",
+            "profit_factor": null,
+            "rows": 4609,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-02",
+            "profit_factor": null,
+            "rows": 4608,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-03",
+            "profit_factor": null,
+            "rows": 5161,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-04",
+            "profit_factor": null,
+            "rows": 5183,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-05",
+            "profit_factor": null,
+            "rows": 4610,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-06",
+            "profit_factor": null,
+            "rows": 5098,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-07",
+            "profit_factor": null,
+            "rows": 5183,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-08",
+            "profit_factor": null,
+            "rows": 4897,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-09",
+            "profit_factor": null,
+            "rows": 5184,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-10",
+            "profit_factor": null,
+            "rows": 4895,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-11",
+            "profit_factor": null,
+            "rows": 4885,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021-12",
+            "profit_factor": null,
+            "rows": 5426,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-01",
+            "profit_factor": null,
+            "rows": 4609,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-02",
+            "profit_factor": null,
+            "rows": 4608,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-03",
+            "profit_factor": null,
+            "rows": 5446,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-04",
+            "profit_factor": null,
+            "rows": 4896,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-05",
+            "profit_factor": null,
+            "rows": 4898,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-06",
+            "profit_factor": null,
+            "rows": 5184,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-07",
+            "profit_factor": null,
+            "rows": 4895,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-08",
+            "profit_factor": null,
+            "rows": 5184,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-09",
+            "profit_factor": null,
+            "rows": 5183,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-10",
+            "profit_factor": null,
+            "rows": 4609,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-11",
+            "profit_factor": null,
+            "rows": 5172,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022-12",
+            "profit_factor": null,
+            "rows": 5184,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-01",
+            "profit_factor": null,
+            "rows": 4897,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-02",
+            "profit_factor": null,
+            "rows": 4606,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-03",
+            "profit_factor": null,
+            "rows": 5431,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-04",
+            "profit_factor": null,
+            "rows": 4592,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-05",
+            "profit_factor": null,
+            "rows": 5167,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-06",
+            "profit_factor": null,
+            "rows": 5172,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-07",
+            "profit_factor": null,
+            "rows": 4591,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-08",
+            "profit_factor": null,
+            "rows": 5466,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-09",
+            "profit_factor": null,
+            "rows": 4900,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-10",
+            "profit_factor": null,
+            "rows": 4901,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-11",
+            "profit_factor": null,
+            "rows": 5176,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023-12",
+            "profit_factor": null,
+            "rows": 4852,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          }
+        ],
+        "by_year": [
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2020",
+            "profit_factor": null,
+            "rows": 57774,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2021",
+            "profit_factor": null,
+            "rows": 59739,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2022",
+            "profit_factor": null,
+            "rows": 59868,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2023",
+            "profit_factor": null,
+            "rows": 59751,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          }
+        ],
+        "confusion_matrix": {
+          "DO_NOTHING": {
+            "DO_NOTHING": 139635,
+            "ENTER_BUY": 0,
+            "ENTER_SELL": 0
+          },
+          "ENTER_BUY": {
+            "DO_NOTHING": 48210,
+            "ENTER_BUY": 0,
+            "ENTER_SELL": 0
+          },
+          "ENTER_SELL": {
+            "DO_NOTHING": 49287,
+            "ENTER_BUY": 0,
+            "ENTER_SELL": 0
+          }
+        },
+        "coverage": 0.0,
+        "macro_f1": 0.247076,
+        "max_drawdown_r": 0.0,
+        "precision_by_class": {
+          "DO_NOTHING": 0.588849,
+          "ENTER_BUY": 0.0,
+          "ENTER_SELL": 0.0
+        },
+        "prediction_distribution": {
+          "DO_NOTHING": 237132
+        },
+        "profit_factor": null,
+        "recall_by_class": {
+          "DO_NOTHING": 1.0,
+          "ENTER_BUY": 0.0,
+          "ENTER_SELL": 0.0
+        },
+        "sell_precision": null,
+        "total_r": null,
+        "trade_precision": null,
+        "trades_taken": 0
+      }
+    },
+    "validation": {
+      "0.50": {
+        "accuracy": 0.714911,
+        "actual_distribution": {
+          "DO_NOTHING": 42450,
+          "ENTER_BUY": 8148,
+          "ENTER_SELL": 8780
+        },
+        "avg_r": null,
+        "buy_precision": null,
+        "by_month": [
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-01",
+            "profit_factor": null,
+            "rows": 4900,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-02",
+            "profit_factor": null,
+            "rows": 4900,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-03",
+            "profit_factor": null,
+            "rows": 4857,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-04",
+            "profit_factor": null,
+            "rows": 4901,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-05",
+            "profit_factor": null,
+            "rows": 5476,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-06",
+            "profit_factor": null,
+            "rows": 4612,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-07",
+            "profit_factor": null,
+            "rows": 5000,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-08",
+            "profit_factor": null,
+            "rows": 5188,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-09",
+            "profit_factor": null,
+            "rows": 4613,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-10",
+            "profit_factor": null,
+            "rows": 5476,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-11",
+            "profit_factor": null,
+            "rows": 4888,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-12",
+            "profit_factor": null,
+            "rows": 4567,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          }
+        ],
+        "by_year": [
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024",
+            "profit_factor": null,
+            "rows": 59378,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          }
+        ],
+        "confusion_matrix": {
+          "DO_NOTHING": {
+            "DO_NOTHING": 42450,
+            "ENTER_BUY": 0,
+            "ENTER_SELL": 0
+          },
+          "ENTER_BUY": {
+            "DO_NOTHING": 8148,
+            "ENTER_BUY": 0,
+            "ENTER_SELL": 0
+          },
+          "ENTER_SELL": {
+            "DO_NOTHING": 8780,
+            "ENTER_BUY": 0,
+            "ENTER_SELL": 0
+          }
+        },
+        "coverage": 0.0,
+        "macro_f1": 0.27792,
+        "max_drawdown_r": 0.0,
+        "precision_by_class": {
+          "DO_NOTHING": 0.714911,
+          "ENTER_BUY": 0.0,
+          "ENTER_SELL": 0.0
+        },
+        "prediction_distribution": {
+          "DO_NOTHING": 59378
+        },
+        "profit_factor": null,
+        "recall_by_class": {
+          "DO_NOTHING": 1.0,
+          "ENTER_BUY": 0.0,
+          "ENTER_SELL": 0.0
+        },
+        "sell_precision": null,
+        "total_r": null,
+        "trade_precision": null,
+        "trades_taken": 0
+      },
+      "0.60": {
+        "accuracy": 0.714911,
+        "actual_distribution": {
+          "DO_NOTHING": 42450,
+          "ENTER_BUY": 8148,
+          "ENTER_SELL": 8780
+        },
+        "avg_r": null,
+        "buy_precision": null,
+        "by_month": [
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-01",
+            "profit_factor": null,
+            "rows": 4900,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-02",
+            "profit_factor": null,
+            "rows": 4900,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-03",
+            "profit_factor": null,
+            "rows": 4857,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-04",
+            "profit_factor": null,
+            "rows": 4901,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-05",
+            "profit_factor": null,
+            "rows": 5476,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-06",
+            "profit_factor": null,
+            "rows": 4612,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-07",
+            "profit_factor": null,
+            "rows": 5000,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-08",
+            "profit_factor": null,
+            "rows": 5188,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-09",
+            "profit_factor": null,
+            "rows": 4613,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-10",
+            "profit_factor": null,
+            "rows": 5476,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-11",
+            "profit_factor": null,
+            "rows": 4888,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-12",
+            "profit_factor": null,
+            "rows": 4567,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          }
+        ],
+        "by_year": [
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024",
+            "profit_factor": null,
+            "rows": 59378,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          }
+        ],
+        "confusion_matrix": {
+          "DO_NOTHING": {
+            "DO_NOTHING": 42450,
+            "ENTER_BUY": 0,
+            "ENTER_SELL": 0
+          },
+          "ENTER_BUY": {
+            "DO_NOTHING": 8148,
+            "ENTER_BUY": 0,
+            "ENTER_SELL": 0
+          },
+          "ENTER_SELL": {
+            "DO_NOTHING": 8780,
+            "ENTER_BUY": 0,
+            "ENTER_SELL": 0
+          }
+        },
+        "coverage": 0.0,
+        "macro_f1": 0.27792,
+        "max_drawdown_r": 0.0,
+        "precision_by_class": {
+          "DO_NOTHING": 0.714911,
+          "ENTER_BUY": 0.0,
+          "ENTER_SELL": 0.0
+        },
+        "prediction_distribution": {
+          "DO_NOTHING": 59378
+        },
+        "profit_factor": null,
+        "recall_by_class": {
+          "DO_NOTHING": 1.0,
+          "ENTER_BUY": 0.0,
+          "ENTER_SELL": 0.0
+        },
+        "sell_precision": null,
+        "total_r": null,
+        "trade_precision": null,
+        "trades_taken": 0
+      },
+      "0.70": {
+        "accuracy": 0.714911,
+        "actual_distribution": {
+          "DO_NOTHING": 42450,
+          "ENTER_BUY": 8148,
+          "ENTER_SELL": 8780
+        },
+        "avg_r": null,
+        "buy_precision": null,
+        "by_month": [
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-01",
+            "profit_factor": null,
+            "rows": 4900,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-02",
+            "profit_factor": null,
+            "rows": 4900,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-03",
+            "profit_factor": null,
+            "rows": 4857,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-04",
+            "profit_factor": null,
+            "rows": 4901,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-05",
+            "profit_factor": null,
+            "rows": 5476,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-06",
+            "profit_factor": null,
+            "rows": 4612,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-07",
+            "profit_factor": null,
+            "rows": 5000,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-08",
+            "profit_factor": null,
+            "rows": 5188,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-09",
+            "profit_factor": null,
+            "rows": 4613,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-10",
+            "profit_factor": null,
+            "rows": 5476,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-11",
+            "profit_factor": null,
+            "rows": 4888,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-12",
+            "profit_factor": null,
+            "rows": 4567,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          }
+        ],
+        "by_year": [
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024",
+            "profit_factor": null,
+            "rows": 59378,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          }
+        ],
+        "confusion_matrix": {
+          "DO_NOTHING": {
+            "DO_NOTHING": 42450,
+            "ENTER_BUY": 0,
+            "ENTER_SELL": 0
+          },
+          "ENTER_BUY": {
+            "DO_NOTHING": 8148,
+            "ENTER_BUY": 0,
+            "ENTER_SELL": 0
+          },
+          "ENTER_SELL": {
+            "DO_NOTHING": 8780,
+            "ENTER_BUY": 0,
+            "ENTER_SELL": 0
+          }
+        },
+        "coverage": 0.0,
+        "macro_f1": 0.27792,
+        "max_drawdown_r": 0.0,
+        "precision_by_class": {
+          "DO_NOTHING": 0.714911,
+          "ENTER_BUY": 0.0,
+          "ENTER_SELL": 0.0
+        },
+        "prediction_distribution": {
+          "DO_NOTHING": 59378
+        },
+        "profit_factor": null,
+        "recall_by_class": {
+          "DO_NOTHING": 1.0,
+          "ENTER_BUY": 0.0,
+          "ENTER_SELL": 0.0
+        },
+        "sell_precision": null,
+        "total_r": null,
+        "trade_precision": null,
+        "trades_taken": 0
+      },
+      "0.80": {
+        "accuracy": 0.714911,
+        "actual_distribution": {
+          "DO_NOTHING": 42450,
+          "ENTER_BUY": 8148,
+          "ENTER_SELL": 8780
+        },
+        "avg_r": null,
+        "buy_precision": null,
+        "by_month": [
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-01",
+            "profit_factor": null,
+            "rows": 4900,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-02",
+            "profit_factor": null,
+            "rows": 4900,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-03",
+            "profit_factor": null,
+            "rows": 4857,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-04",
+            "profit_factor": null,
+            "rows": 4901,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-05",
+            "profit_factor": null,
+            "rows": 5476,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-06",
+            "profit_factor": null,
+            "rows": 4612,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-07",
+            "profit_factor": null,
+            "rows": 5000,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-08",
+            "profit_factor": null,
+            "rows": 5188,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-09",
+            "profit_factor": null,
+            "rows": 4613,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-10",
+            "profit_factor": null,
+            "rows": 5476,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-11",
+            "profit_factor": null,
+            "rows": 4888,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          },
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024-12",
+            "profit_factor": null,
+            "rows": 4567,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          }
+        ],
+        "by_year": [
+          {
+            "avg_r": null,
+            "coverage": 0.0,
+            "max_drawdown_r": 0.0,
+            "period": "2024",
+            "profit_factor": null,
+            "rows": 59378,
+            "total_r": null,
+            "trade_precision": null,
+            "trades": 0
+          }
+        ],
+        "confusion_matrix": {
+          "DO_NOTHING": {
+            "DO_NOTHING": 42450,
+            "ENTER_BUY": 0,
+            "ENTER_SELL": 0
+          },
+          "ENTER_BUY": {
+            "DO_NOTHING": 8148,
+            "ENTER_BUY": 0,
+            "ENTER_SELL": 0
+          },
+          "ENTER_SELL": {
+            "DO_NOTHING": 8780,
+            "ENTER_BUY": 0,
+            "ENTER_SELL": 0
+          }
+        },
+        "coverage": 0.0,
+        "macro_f1": 0.27792,
+        "max_drawdown_r": 0.0,
+        "precision_by_class": {
+          "DO_NOTHING": 0.714911,
+          "ENTER_BUY": 0.0,
+          "ENTER_SELL": 0.0
+        },
+        "prediction_distribution": {
+          "DO_NOTHING": 59378
+        },
+        "profit_factor": null,
+        "recall_by_class": {
+          "DO_NOTHING": 1.0,
+          "ENTER_BUY": 0.0,
+          "ENTER_SELL": 0.0
+        },
+        "sell_precision": null,
+        "total_r": null,
+        "trade_precision": null,
+        "trades_taken": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "assumptions": [
+    "Uses real M5 first-touch from Bot A clean anchor candles, not aggregated future_return labels.",
+    "Entry price is anchor_close at the snapshot timestamp.",
+    "SL is fixed at 10 pips and TP is fixed at 20 pips.",
+    "The next 48 M5 candles are evaluated in timestamp order.",
+    "same_bar_ambiguous is labeled DO_NOTHING for the principal target.",
+    "Timeout R subtracts spread_pips; TP/SL touch levels use raw fixed pip distances because bid/ask OHLC is not available.",
+    "This dataset contains outcome diagnostics and labels; future model feature lists must exclude outcome columns."
+  ],
+  "avg_r_by_label": [
+    {
+      "buy_R": -0.32654,
+      "sell_R": -0.356485,
+      "tradeable_direction_rr2_first_touch": "DO_NOTHING"
+    },
+    {
+      "buy_R": 2.0,
+      "sell_R": -1.0,
+      "tradeable_direction_rr2_first_touch": "ENTER_BUY"
+    },
+    {
+      "buy_R": -1.0,
+      "sell_R": 2.0,
+      "tradeable_direction_rr2_first_touch": "ENTER_SELL"
+    }
+  ],
+  "columns": [
+    "source_index",
+    "snapshot_id",
+    "timestamp",
+    "anchor_bar_timestamp",
+    "entry_match_method",
+    "symbol",
+    "entry_price",
+    "buy_outcome",
+    "sell_outcome",
+    "buy_R",
+    "sell_R",
+    "buy_first_touch",
+    "sell_first_touch",
+    "buy_bars_to_exit",
+    "sell_bars_to_exit",
+    "tradeable_direction_rr2_first_touch",
+    "same_bar_ambiguous_flag",
+    "spread_pips",
+    "session",
+    "hour",
+    "weekday",
+    "atr",
+    "daily_range_position",
+    "regime",
+    "melchor_signal",
+    "melchor_confidence",
+    "melchor_risk_flags",
+    "baltasar_signal",
+    "baltasar_confidence",
+    "gaspar_signal",
+    "gaspar_confidence",
+    "mage_agreement",
+    "baltasar_gaspar_alignment"
+  ],
+  "entry_match_method_distribution": {
+    "exact_timestamp": 369012,
+    "floor_to_m5": 2070,
+    "missing_entry_bar": 419
+  },
+  "generated_at": "2026-04-29T23:01:01.355750Z",
+  "label_distribution": {
+    "DO_NOTHING": 225859,
+    "ENTER_BUY": 71964,
+    "ENTER_SELL": 73678
+  },
+  "null_counts": {
+    "anchor_bar_timestamp": 0,
+    "atr": 0,
+    "baltasar_confidence": 0,
+    "baltasar_gaspar_alignment": 0,
+    "baltasar_signal": 0,
+    "buy_R": 455,
+    "buy_bars_to_exit": 455,
+    "buy_first_touch": 0,
+    "buy_outcome": 0,
+    "daily_range_position": 0,
+    "entry_match_method": 0,
+    "entry_price": 419,
+    "gaspar_confidence": 0,
+    "gaspar_signal": 0,
+    "hour": 0,
+    "mage_agreement": 0,
+    "melchor_confidence": 0,
+    "melchor_risk_flags": 0,
+    "melchor_signal": 0,
+    "regime": 0,
+    "same_bar_ambiguous_flag": 0,
+    "sell_R": 455,
+    "sell_bars_to_exit": 455,
+    "sell_first_touch": 0,
+    "sell_outcome": 0,
+    "session": 0,
+    "snapshot_id": 419,
+    "source_index": 0,
+    "spread_pips": 0,
+    "symbol": 0,
+    "timestamp": 0,
+    "tradeable_direction_rr2_first_touch": 0,
+    "weekday": 0
+  },
+  "outcome_distribution": {
+    "buy_outcome": {
+      "CLOSE_BY_TIMEOUT": 116230,
+      "INSUFFICIENT_FUTURE_BARS": 36,
+      "SAME_BAR_AMBIGUOUS": 584,
+      "SL_FIRST": 182268,
+      "TP_FIRST": 71964,
+      "missing_entry_bar": 419
+    },
+    "sell_outcome": {
+      "CLOSE_BY_TIMEOUT": 115705,
+      "INSUFFICIENT_FUTURE_BARS": 36,
+      "SAME_BAR_AMBIGUOUS": 673,
+      "SL_FIRST": 180990,
+      "TP_FIRST": 73678,
+      "missing_entry_bar": 419
+    }
+  },
+  "reference_first_touch_trades": {
+    "available": true,
+    "rows": 76722,
+    "rr2_exit_reason_distribution": {
+      "CLOSE_BY_TIMEOUT": 4727,
+      "SAME_BAR_AMBIGUOUS": 24,
+      "SL_FIRST": 13722,
+      "TP_FIRST": 7086,
+      "missing_entry_bar": 15
+    },
+    "rr2_rows": 25574
+  },
+  "rows": 371501,
+  "same_bar_ambiguous_count": 1101,
+  "same_bar_ambiguous_pct": 0.002964,
+  "schema_version": "magi_v2_rr2_first_touch_labels_v0.1",
+  "target": "tradeable_direction_rr2_first_touch",
+  "temporal_coverage": {
+    "end": "2026-04-14T22:55:00Z",
+    "start": "2020-01-15T00:00:00Z",
+    "years": {
+      "2020": 57774,
+      "2021": 59739,
+      "2022": 59868,
+      "2023": 59751,
+      "2024": 59378,
+      "2025": 58681,
+      "2026": 16310
+    }
+  }
+}

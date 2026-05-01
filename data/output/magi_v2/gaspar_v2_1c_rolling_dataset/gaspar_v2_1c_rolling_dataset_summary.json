@@ -1,0 +1,568 @@
+{
+  "causal_controls": [
+    "All rolling feature columns use only previous trades and are shifted by construction.",
+    "Future windows are used only to build target labels.",
+    "No date, month or quarter is used as a predictive feature.",
+    "The 2026Q2-like proxy uses only past rolling PF, sell PF, drawdown and unfavorable rate."
+  ],
+  "deterioration_examples": [
+    {
+      "prediction": "ENTER_BUY",
+      "realized_R": 2.0,
+      "recent_loss_streak": 0,
+      "recent_sell_loss_streak": 0,
+      "regime_deteriorating_rr2": "DETERIORATING",
+      "rolling_avg_R_50": NaN,
+      "rolling_drawdown_50": NaN,
+      "rolling_pf_50": NaN,
+      "rolling_sell_avg_R_50": NaN,
+      "rolling_sell_pf_50": NaN,
+      "sell_risk_next_window": "HIGH",
+      "split": "train",
+      "timestamp": "2020-01-15 12:00:00+00:00"
+    },
+    {
+      "prediction": "ENTER_BUY",
+      "realized_R": 2.0,
+      "recent_loss_streak": 0,
+      "recent_sell_loss_streak": 0,
+      "regime_deteriorating_rr2": "DETERIORATING",
+      "rolling_avg_R_50": 2.0,
+      "rolling_drawdown_50": 0.0,
+      "rolling_pf_50": Infinity,
+      "rolling_sell_avg_R_50": NaN,
+      "rolling_sell_pf_50": NaN,
+      "sell_risk_next_window": "HIGH",
+      "split": "train",
+      "timestamp": "2020-01-15 12:05:00+00:00"
+    },
+    {
+      "prediction": "ENTER_BUY",
+      "realized_R": 2.0,
+      "recent_loss_streak": 0,
+      "recent_sell_loss_streak": 0,
+      "regime_deteriorating_rr2": "DETERIORATING",
+      "rolling_avg_R_50": 2.0,
+      "rolling_drawdown_50": 0.0,
+      "rolling_pf_50": Infinity,
+      "rolling_sell_avg_R_50": NaN,
+      "rolling_sell_pf_50": NaN,
+      "sell_risk_next_window": "HIGH",
+      "split": "train",
+      "timestamp": "2020-01-15 12:10:00+00:00"
+    },
+    {
+      "prediction": "ENTER_BUY",
+      "realized_R": 2.0,
+      "recent_loss_streak": 0,
+      "recent_sell_loss_streak": 0,
+      "regime_deteriorating_rr2": "DETERIORATING",
+      "rolling_avg_R_50": 2.0,
+      "rolling_drawdown_50": 0.0,
+      "rolling_pf_50": Infinity,
+      "rolling_sell_avg_R_50": NaN,
+      "rolling_sell_pf_50": NaN,
+      "sell_risk_next_window": "HIGH",
+      "split": "train",
+      "timestamp": "2020-01-15 12:15:00+00:00"
+    },
+    {
+      "prediction": "ENTER_BUY",
+      "realized_R": 2.0,
+      "recent_loss_streak": 0,
+      "recent_sell_loss_streak": 0,
+      "regime_deteriorating_rr2": "DETERIORATING",
+      "rolling_avg_R_50": 2.0,
+      "rolling_drawdown_50": 0.0,
+      "rolling_pf_50": Infinity,
+      "rolling_sell_avg_R_50": NaN,
+      "rolling_sell_pf_50": NaN,
+      "sell_risk_next_window": "HIGH",
+      "split": "train",
+      "timestamp": "2020-01-15 12:20:00+00:00"
+    },
+    {
+      "prediction": "ENTER_BUY",
+      "realized_R": 2.0,
+      "recent_loss_streak": 0,
+      "recent_sell_loss_streak": 0,
+      "regime_deteriorating_rr2": "DETERIORATING",
+      "rolling_avg_R_50": 2.0,
+      "rolling_drawdown_50": 0.0,
+      "rolling_pf_50": Infinity,
+      "rolling_sell_avg_R_50": NaN,
+      "rolling_sell_pf_50": NaN,
+      "sell_risk_next_window": "HIGH",
+      "split": "train",
+      "timestamp": "2020-01-15 12:25:00+00:00"
+    },
+    {
+      "prediction": "ENTER_BUY",
+      "realized_R": 2.0,
+      "recent_loss_streak": 0,
+      "recent_sell_loss_streak": 0,
+      "regime_deteriorating_rr2": "DETERIORATING",
+      "rolling_avg_R_50": 2.0,
+      "rolling_drawdown_50": 0.0,
+      "rolling_pf_50": Infinity,
+      "rolling_sell_avg_R_50": NaN,
+      "rolling_sell_pf_50": NaN,
+      "sell_risk_next_window": "HIGH",
+      "split": "train",
+      "timestamp": "2020-01-15 12:30:00+00:00"
+    },
+    {
+      "prediction": "ENTER_BUY",
+      "realized_R": 2.0,
+      "recent_loss_streak": 0,
+      "recent_sell_loss_streak": 0,
+      "regime_deteriorating_rr2": "DETERIORATING",
+      "rolling_avg_R_50": 2.0,
+      "rolling_drawdown_50": 0.0,
+      "rolling_pf_50": Infinity,
+      "rolling_sell_avg_R_50": NaN,
+      "rolling_sell_pf_50": NaN,
+      "sell_risk_next_window": "HIGH",
+      "split": "train",
+      "timestamp": "2020-01-15 12:35:00+00:00"
+    },
+    {
+      "prediction": "ENTER_BUY",
+      "realized_R": 2.0,
+      "recent_loss_streak": 0,
+      "recent_sell_loss_streak": 0,
+      "regime_deteriorating_rr2": "DETERIORATING",
+      "rolling_avg_R_50": 2.0,
+      "rolling_drawdown_50": 0.0,
+      "rolling_pf_50": Infinity,
+      "rolling_sell_avg_R_50": NaN,
+      "rolling_sell_pf_50": NaN,
+      "sell_risk_next_window": "HIGH",
+      "split": "train",
+      "timestamp": "2020-01-15 12:40:00+00:00"
+    },
+    {
+      "prediction": "ENTER_BUY",
+      "realized_R": 2.0,
+      "recent_loss_streak": 0,
+      "recent_sell_loss_streak": 0,
+      "regime_deteriorating_rr2": "DETERIORATING",
+      "rolling_avg_R_50": 2.0,
+      "rolling_drawdown_50": 0.0,
+      "rolling_pf_50": Infinity,
+      "rolling_sell_avg_R_50": NaN,
+      "rolling_sell_pf_50": NaN,
+      "sell_risk_next_window": "HIGH",
+      "split": "train",
+      "timestamp": "2020-01-15 12:45:00+00:00"
+    }
+  ],
+  "feature_columns": [
+    "recent_loss_streak",
+    "recent_sell_loss_streak",
+    "rolling_avg_R_20",
+    "rolling_pf_20",
+    "rolling_win_rate_20",
+    "rolling_sample_size_20",
+    "rolling_buy_avg_R_20",
+    "rolling_buy_pf_20",
+    "rolling_buy_win_rate_20",
+    "rolling_buy_sample_size_20",
+    "rolling_sell_avg_R_20",
+    "rolling_sell_pf_20",
+    "rolling_sell_win_rate_20",
+    "rolling_sell_sample_size_20",
+    "rolling_unfavorable_rate_20",
+    "rolling_avg_R_50",
+    "rolling_pf_50",
+    "rolling_win_rate_50",
+    "rolling_sample_size_50",
+    "rolling_buy_avg_R_50",
+    "rolling_buy_pf_50",
+    "rolling_buy_win_rate_50",
+    "rolling_buy_sample_size_50",
+    "rolling_sell_avg_R_50",
+    "rolling_sell_pf_50",
+    "rolling_sell_win_rate_50",
+    "rolling_sell_sample_size_50",
+    "rolling_unfavorable_rate_50",
+    "rolling_avg_R_100",
+    "rolling_pf_100",
+    "rolling_win_rate_100",
+    "rolling_sample_size_100",
+    "rolling_buy_avg_R_100",
+    "rolling_buy_pf_100",
+    "rolling_buy_win_rate_100",
+    "rolling_buy_sample_size_100",
+    "rolling_sell_avg_R_100",
+    "rolling_sell_pf_100",
+    "rolling_sell_win_rate_100",
+    "rolling_sell_sample_size_100",
+    "rolling_unfavorable_rate_100",
+    "rolling_drawdown_50",
+    "rolling_drawdown_100",
+    "rolling_2026q2_like_proxy"
+  ],
+  "generated_at": "2026-04-30T21:14:15.270714Z",
+  "input": "data\\output\\magi_v2\\gaspar_v2_dataset_full\\gaspar_v2_dataset_full.parquet",
+  "label_columns": [
+    "regime_deteriorating_rr2",
+    "sell_risk_next_window",
+    "regime_deteriorating_rr2_20",
+    "regime_deteriorating_rr2_50",
+    "regime_deteriorating_rr2_100",
+    "sell_risk_next_window_20",
+    "sell_risk_next_window_50",
+    "sell_risk_next_window_100"
+  ],
+  "label_distribution_by_split": {
+    "regime_deteriorating_rr2": {
+      "test": {
+        "DETERIORATING": 8882,
+        "NEUTRAL": 20,
+        "STABLE": 11065
+      },
+      "train": {
+        "DETERIORATING": 4220,
+        "STABLE": 65264
+      },
+      "validation": {
+        "DETERIORATING": 5371,
+        "STABLE": 6054
+      }
+    },
+    "sell_risk_next_window": {
+      "test": {
+        "HIGH": 9310,
+        "LOW": 10637,
+        "NEUTRAL": 20
+      },
+      "train": {
+        "HIGH": 5044,
+        "LOW": 64440
+      },
+      "validation": {
+        "HIGH": 6001,
+        "LOW": 5424
+      }
+    }
+  },
+  "primary_window": 50,
+  "q2_capture": {
+    "q2_like_proxy_rate": 0.455338,
+    "regime_distribution": {
+      "DETERIORATING": 259,
+      "NEUTRAL": 20,
+      "STABLE": 180
+    },
+    "rows": 459,
+    "sell_distribution": {
+      "HIGH": 259,
+      "LOW": 180,
+      "NEUTRAL": 20
+    }
+  },
+  "rolling_nulls": {
+    "recent_loss_streak": 0,
+    "recent_sell_loss_streak": 0,
+    "rolling_2026q2_like_proxy": 0,
+    "rolling_avg_R_100": 1,
+    "rolling_avg_R_20": 1,
+    "rolling_avg_R_50": 1,
+    "rolling_buy_avg_R_100": 1,
+    "rolling_buy_avg_R_20": 1,
+    "rolling_buy_avg_R_50": 1,
+    "rolling_buy_pf_100": 1,
+    "rolling_buy_pf_20": 1,
+    "rolling_buy_pf_50": 1,
+    "rolling_buy_sample_size_100": 0,
+    "rolling_buy_sample_size_20": 0,
+    "rolling_buy_sample_size_50": 0,
+    "rolling_buy_win_rate_100": 1,
+    "rolling_buy_win_rate_20": 1,
+    "rolling_buy_win_rate_50": 1,
+    "rolling_drawdown_100": 1,
+    "rolling_drawdown_50": 1,
+    "rolling_pf_100": 1,
+    "rolling_pf_20": 1,
+    "rolling_pf_50": 1,
+    "rolling_sample_size_100": 0,
+    "rolling_sample_size_20": 0,
+    "rolling_sample_size_50": 0,
+    "rolling_sell_avg_R_100": 13,
+    "rolling_sell_avg_R_20": 13,
+    "rolling_sell_avg_R_50": 13,
+    "rolling_sell_pf_100": 13,
+    "rolling_sell_pf_20": 13,
+    "rolling_sell_pf_50": 13,
+    "rolling_sell_sample_size_100": 0,
+    "rolling_sell_sample_size_20": 0,
+    "rolling_sell_sample_size_50": 0,
+    "rolling_sell_win_rate_100": 13,
+    "rolling_sell_win_rate_20": 13,
+    "rolling_sell_win_rate_50": 13,
+    "rolling_unfavorable_rate_100": 1,
+    "rolling_unfavorable_rate_20": 1,
+    "rolling_unfavorable_rate_50": 1,
+    "rolling_win_rate_100": 1,
+    "rolling_win_rate_20": 1,
+    "rolling_win_rate_50": 1
+  },
+  "rows": 100876,
+  "schema_version": "gaspar_v2_1c_rolling_dataset_v0.1",
+  "sell_high_examples": [
+    {
+      "prediction": "ENTER_BUY",
+      "realized_R": 2.0,
+      "recent_loss_streak": 0,
+      "recent_sell_loss_streak": 0,
+      "regime_deteriorating_rr2": "DETERIORATING",
+      "rolling_avg_R_50": NaN,
+      "rolling_drawdown_50": NaN,
+      "rolling_pf_50": NaN,
+      "rolling_sell_avg_R_50": NaN,
+      "rolling_sell_pf_50": NaN,
+      "sell_risk_next_window": "HIGH",
+      "split": "train",
+      "timestamp": "2020-01-15 12:00:00+00:00"
+    },
+    {
+      "prediction": "ENTER_BUY",
+      "realized_R": 2.0,
+      "recent_loss_streak": 0,
+      "recent_sell_loss_streak": 0,
+      "regime_deteriorating_rr2": "DETERIORATING",
+      "rolling_avg_R_50": 2.0,
+      "rolling_drawdown_50": 0.0,
+      "rolling_pf_50": Infinity,
+      "rolling_sell_avg_R_50": NaN,
+      "rolling_sell_pf_50": NaN,
+      "sell_risk_next_window": "HIGH",
+      "split": "train",
+      "timestamp": "2020-01-15 12:05:00+00:00"
+    },
+    {
+      "prediction": "ENTER_BUY",
+      "realized_R": 2.0,
+      "recent_loss_streak": 0,
+      "recent_sell_loss_streak": 0,
+      "regime_deteriorating_rr2": "DETERIORATING",
+      "rolling_avg_R_50": 2.0,
+      "rolling_drawdown_50": 0.0,
+      "rolling_pf_50": Infinity,
+      "rolling_sell_avg_R_50": NaN,
+      "rolling_sell_pf_50": NaN,
+      "sell_risk_next_window": "HIGH",
+      "split": "train",
+      "timestamp": "2020-01-15 12:10:00+00:00"
+    },
+    {
+      "prediction": "ENTER_BUY",
+      "realized_R": 2.0,
+      "recent_loss_streak": 0,
+      "recent_sell_loss_streak": 0,
+      "regime_deteriorating_rr2": "DETERIORATING",
+      "rolling_avg_R_50": 2.0,
+      "rolling_drawdown_50": 0.0,
+      "rolling_pf_50": Infinity,
+      "rolling_sell_avg_R_50": NaN,
+      "rolling_sell_pf_50": NaN,
+      "sell_risk_next_window": "HIGH",
+      "split": "train",
+      "timestamp": "2020-01-15 12:15:00+00:00"
+    },
+    {
+      "prediction": "ENTER_BUY",
+      "realized_R": 2.0,
+      "recent_loss_streak": 0,
+      "recent_sell_loss_streak": 0,
+      "regime_deteriorating_rr2": "DETERIORATING",
+      "rolling_avg_R_50": 2.0,
+      "rolling_drawdown_50": 0.0,
+      "rolling_pf_50": Infinity,
+      "rolling_sell_avg_R_50": NaN,
+      "rolling_sell_pf_50": NaN,
+      "sell_risk_next_window": "HIGH",
+      "split": "train",
+      "timestamp": "2020-01-15 12:20:00+00:00"
+    },
+    {
+      "prediction": "ENTER_BUY",
+      "realized_R": 2.0,
+      "recent_loss_streak": 0,
+      "recent_sell_loss_streak": 0,
+      "regime_deteriorating_rr2": "DETERIORATING",
+      "rolling_avg_R_50": 2.0,
+      "rolling_drawdown_50": 0.0,
+      "rolling_pf_50": Infinity,
+      "rolling_sell_avg_R_50": NaN,
+      "rolling_sell_pf_50": NaN,
+      "sell_risk_next_window": "HIGH",
+      "split": "train",
+      "timestamp": "2020-01-15 12:25:00+00:00"
+    },
+    {
+      "prediction": "ENTER_BUY",
+      "realized_R": 2.0,
+      "recent_loss_streak": 0,
+      "recent_sell_loss_streak": 0,
+      "regime_deteriorating_rr2": "DETERIORATING",
+      "rolling_avg_R_50": 2.0,
+      "rolling_drawdown_50": 0.0,
+      "rolling_pf_50": Infinity,
+      "rolling_sell_avg_R_50": NaN,
+      "rolling_sell_pf_50": NaN,
+      "sell_risk_next_window": "HIGH",
+      "split": "train",
+      "timestamp": "2020-01-15 12:30:00+00:00"
+    },
+    {
+      "prediction": "ENTER_BUY",
+      "realized_R": 2.0,
+      "recent_loss_streak": 0,
+      "recent_sell_loss_streak": 0,
+      "regime_deteriorating_rr2": "DETERIORATING",
+      "rolling_avg_R_50": 2.0,
+      "rolling_drawdown_50": 0.0,
+      "rolling_pf_50": Infinity,
+      "rolling_sell_avg_R_50": NaN,
+      "rolling_sell_pf_50": NaN,
+      "sell_risk_next_window": "HIGH",
+      "split": "train",
+      "timestamp": "2020-01-15 12:35:00+00:00"
+    },
+    {
+      "prediction": "ENTER_BUY",
+      "realized_R": 2.0,
+      "recent_loss_streak": 0,
+      "recent_sell_loss_streak": 0,
+      "regime_deteriorating_rr2": "DETERIORATING",
+      "rolling_avg_R_50": 2.0,
+      "rolling_drawdown_50": 0.0,
+      "rolling_pf_50": Infinity,
+      "rolling_sell_avg_R_50": NaN,
+      "rolling_sell_pf_50": NaN,
+      "sell_risk_next_window": "HIGH",
+      "split": "train",
+      "timestamp": "2020-01-15 12:40:00+00:00"
+    },
+    {
+      "prediction": "ENTER_BUY",
+      "realized_R": 2.0,
+      "recent_loss_streak": 0,
+      "recent_sell_loss_streak": 0,
+      "regime_deteriorating_rr2": "DETERIORATING",
+      "rolling_avg_R_50": 2.0,
+      "rolling_drawdown_50": 0.0,
+      "rolling_pf_50": Infinity,
+      "rolling_sell_avg_R_50": NaN,
+      "rolling_sell_pf_50": NaN,
+      "sell_risk_next_window": "HIGH",
+      "split": "train",
+      "timestamp": "2020-01-15 12:45:00+00:00"
+    }
+  ],
+  "split_rows": {
+    "test": 19967,
+    "train": 69484,
+    "validation": 11425
+  },
+  "window_label_distribution": {
+    "regime_deteriorating_rr2_100": {
+      "test": {
+        "DETERIORATING": 8161,
+        "NEUTRAL": 40,
+        "STABLE": 11766
+      },
+      "train": {
+        "DETERIORATING": 1292,
+        "STABLE": 68192
+      },
+      "validation": {
+        "DETERIORATING": 5345,
+        "STABLE": 6080
+      }
+    },
+    "regime_deteriorating_rr2_20": {
+      "test": {
+        "DETERIORATING": 10042,
+        "NEUTRAL": 10,
+        "STABLE": 9915
+      },
+      "train": {
+        "DETERIORATING": 9989,
+        "STABLE": 59495
+      },
+      "validation": {
+        "DETERIORATING": 5901,
+        "STABLE": 5524
+      }
+    },
+    "regime_deteriorating_rr2_50": {
+      "test": {
+        "DETERIORATING": 8882,
+        "NEUTRAL": 20,
+        "STABLE": 11065
+      },
+      "train": {
+        "DETERIORATING": 4220,
+        "STABLE": 65264
+      },
+      "validation": {
+        "DETERIORATING": 5371,
+        "STABLE": 6054
+      }
+    },
+    "sell_risk_next_window_100": {
+      "test": {
+        "HIGH": 8291,
+        "LOW": 11636,
+        "NEUTRAL": 40
+      },
+      "train": {
+        "HIGH": 1490,
+        "LOW": 67994
+      },
+      "validation": {
+        "HIGH": 5392,
+        "LOW": 6033
+      }
+    },
+    "sell_risk_next_window_20": {
+      "test": {
+        "HIGH": 11057,
+        "LOW": 8900,
+        "NEUTRAL": 10
+      },
+      "train": {
+        "HIGH": 12659,
+        "LOW": 56823,
+        "NEUTRAL": 2
+      },
+      "validation": {
+        "HIGH": 6663,
+        "LOW": 4762
+      }
+    },
+    "sell_risk_next_window_50": {
+      "test": {
+        "HIGH": 9310,
+        "LOW": 10637,
+        "NEUTRAL": 20
+      },
+      "train": {
+        "HIGH": 5044,
+        "LOW": 64440
+      },
+      "validation": {
+        "HIGH": 6001,
+        "LOW": 5424
+      }
+    }
+  },
+  "windows": [
+    20,
+    50,
+    100
+  ]
+}

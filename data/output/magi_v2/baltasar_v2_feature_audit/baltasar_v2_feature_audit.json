@@ -1,0 +1,425 @@
+{
+  "available_columns_count": 176,
+  "candidate_feature_count": 26,
+  "candidate_features": [
+    {
+      "feature_group": "ohlc_m5",
+      "missing_paths": "",
+      "notes": "Top-level M5 OHLC exists.",
+      "present_paths": "anchor_open;anchor_high;anchor_low;anchor_close",
+      "source": "anchor_open/high/low/close",
+      "status": "ready"
+    },
+    {
+      "feature_group": "ema_fast_m5",
+      "missing_paths": "",
+      "notes": "Top-level EMA 20 exists.",
+      "present_paths": "ema_20",
+      "source": "ema_20",
+      "status": "ready"
+    },
+    {
+      "feature_group": "ema_mid_m5",
+      "missing_paths": "",
+      "notes": "Top-level EMA 50 exists.",
+      "present_paths": "ema_50",
+      "source": "ema_50",
+      "status": "ready"
+    },
+    {
+      "feature_group": "ema_slow_m5",
+      "missing_paths": "",
+      "notes": "Top-level EMA 200 exists.",
+      "present_paths": "ema_200",
+      "source": "ema_200",
+      "status": "ready"
+    },
+    {
+      "feature_group": "rsi_m5",
+      "missing_paths": "",
+      "notes": "Top-level RSI exists.",
+      "present_paths": "rsi_14",
+      "source": "rsi_14",
+      "status": "ready"
+    },
+    {
+      "feature_group": "momentum_m5",
+      "missing_paths": "",
+      "notes": "Top-level categorical momentum exists.",
+      "present_paths": "momentum",
+      "source": "momentum",
+      "status": "ready"
+    },
+    {
+      "feature_group": "market_structure_m5",
+      "missing_paths": "",
+      "notes": "Top-level structure fields exist.",
+      "present_paths": "market_structure;structure_direction",
+      "source": "market_structure + structure_direction",
+      "status": "ready"
+    },
+    {
+      "feature_group": "recent_range_m5",
+      "missing_paths": "",
+      "notes": "Top-level recent range exists.",
+      "present_paths": "recent_range",
+      "source": "recent_range",
+      "status": "ready"
+    },
+    {
+      "feature_group": "spread",
+      "missing_paths": "",
+      "notes": "Spread exists.",
+      "present_paths": "spread_pips",
+      "source": "spread_pips",
+      "status": "ready"
+    },
+    {
+      "feature_group": "support_resistance_distance_m5",
+      "missing_paths": "",
+      "notes": "Support/resistance levels exist as numeric lists.",
+      "present_paths": "support_levels.min;support_levels.max;resistance_levels.min;resistance_levels.max",
+      "source": "support_levels/resistance_levels",
+      "status": "ready"
+    },
+    {
+      "feature_group": "mtf_ema_m15_h1_h4_d1",
+      "missing_paths": "",
+      "notes": "MTF EMA values exist for M15/H1/H4/D1.",
+      "present_paths": "features.H1.ema_20;features.H4.ema_50;features.D1.ema_200",
+      "source": "features.*.ema_20/50/200",
+      "status": "ready"
+    },
+    {
+      "feature_group": "mtf_rsi_m15_h1_h4_d1",
+      "missing_paths": "",
+      "notes": "MTF RSI exists for M15/H1/H4/D1.",
+      "present_paths": "features.H1.rsi_14;features.H4.rsi_14;features.D1.rsi_14",
+      "source": "features.*.rsi_14",
+      "status": "ready"
+    },
+    {
+      "feature_group": "mtf_structure_m15_h1_h4_d1",
+      "missing_paths": "",
+      "notes": "MTF structure exists.",
+      "present_paths": "features.H1.market_structure;features.H4.structure_direction;features.D1.market_structure",
+      "source": "features.*.market_structure/structure_direction",
+      "status": "ready"
+    },
+    {
+      "feature_group": "mtf_recent_range_m15_h1_h4_d1",
+      "missing_paths": "",
+      "notes": "MTF recent range exists.",
+      "present_paths": "features.H1.recent_range;features.H4.recent_range;features.D1.recent_range",
+      "source": "features.*.recent_range",
+      "status": "ready"
+    },
+    {
+      "feature_group": "mtf_alignment",
+      "missing_paths": "",
+      "notes": "Alignment/context fields exist.",
+      "present_paths": "mtf_alignment_status;gaspar_context.higher_timeframe_confluence.directional_alignment",
+      "source": "mtf_alignment_status + gaspar_context.higher_timeframe_confluence",
+      "status": "ready"
+    },
+    {
+      "feature_group": "session_time",
+      "missing_paths": "",
+      "notes": "Session and timestamp fields exist.",
+      "present_paths": "active_session;anchor_bar_timestamp",
+      "source": "active_session + timestamps",
+      "status": "ready"
+    },
+    {
+      "feature_group": "candle_body_wicks_m5",
+      "missing_paths": "",
+      "notes": "Derive body and wick percentages from M5 OHLC.",
+      "present_paths": "anchor_open;anchor_high;anchor_low;anchor_close",
+      "source": "anchor OHLC",
+      "status": "derivable"
+    },
+    {
+      "feature_group": "ema_distance_m5",
+      "missing_paths": "",
+      "notes": "Derive close-EMA and EMA spread distances.",
+      "present_paths": "anchor_close;ema_20;ema_50;ema_200",
+      "source": "close + EMA",
+      "status": "derivable"
+    },
+    {
+      "feature_group": "ema_slope_m5",
+      "missing_paths": "",
+      "notes": "Derive lagged EMA deltas after sorting by symbol/time.",
+      "present_paths": "ema_20;ema_50;ema_200",
+      "source": "EMA time series",
+      "status": "derivable"
+    },
+    {
+      "feature_group": "returns_m5",
+      "missing_paths": "",
+      "notes": "Derive lagged returns from sorted M5 closes.",
+      "present_paths": "anchor_close",
+      "source": "anchor_close time series",
+      "status": "derivable"
+    },
+    {
+      "feature_group": "atr_m5",
+      "missing_paths": "",
+      "notes": "Derive true range/rolling ATR from M5 OHLC.",
+      "present_paths": "anchor_high;anchor_low;anchor_close",
+      "source": "anchor OHLC time series",
+      "status": "derivable"
+    },
+    {
+      "feature_group": "distance_to_recent_high_low",
+      "missing_paths": "",
+      "notes": "Derive rolling high/low distances.",
+      "present_paths": "anchor_high;anchor_low;anchor_close",
+      "source": "anchor OHLC rolling windows",
+      "status": "derivable"
+    },
+    {
+      "feature_group": "trend_h1_h4_d1",
+      "missing_paths": "",
+      "notes": "Use exported MTF structure_direction and market_structure.",
+      "present_paths": "features.H1.structure_direction;features.H4.structure_direction;features.D1.structure_direction",
+      "source": "features.H1/H4/D1 structure_direction",
+      "status": "ready"
+    },
+    {
+      "feature_group": "momentum_h1",
+      "missing_paths": "",
+      "notes": "No H1 momentum label, but can derive proxy from H1 EMA/RSI/structure.",
+      "present_paths": "features.H1.ema_20;features.H1.ema_50;features.H1.rsi_14",
+      "source": "features.H1 EMA/RSI/structure",
+      "status": "derivable"
+    },
+    {
+      "feature_group": "atr_h1",
+      "missing_paths": "",
+      "notes": "H1 ATR is not exported directly; recent_range is present but not ATR.",
+      "present_paths": "",
+      "source": "H1 OHLC or ATR",
+      "status": "needs_bot_a_export"
+    },
+    {
+      "feature_group": "fractals",
+      "missing_paths": "",
+      "notes": "No explicit fractal/swing markers found.",
+      "present_paths": "",
+      "source": "swing/fractal markers",
+      "status": "needs_bot_a_export"
+    }
+  ],
+  "generated_at": "2026-04-29T23:55:43.007899Z",
+  "labels_audit": {
+    "available": true,
+    "rows": 371501,
+    "target_distribution": {
+      "DO_NOTHING": 225859,
+      "ENTER_BUY": 71964,
+      "ENTER_SELL": 73678
+    },
+    "temporal_range": {
+      "end": "2026-04-14T22:55:00+00:00",
+      "start": "2020-01-15T00:00:00+00:00"
+    }
+  },
+  "labels_dataset": "data\\output\\magi_v2\\rr2_first_touch_labels\\rr2_first_touch_labels.parquet",
+  "missing_recommended_count": 23,
+  "missing_recommended_features": [
+    {
+      "available_source_or_gap": "features.H1.structure_direction / features.H1.market_structure",
+      "feature": "trend_h1",
+      "needs_bot_a_export": false,
+      "status": "ready"
+    },
+    {
+      "available_source_or_gap": "features.H4.structure_direction / features.H4.market_structure",
+      "feature": "trend_h4",
+      "needs_bot_a_export": false,
+      "status": "ready"
+    },
+    {
+      "available_source_or_gap": "features.D1.structure_direction / features.D1.market_structure",
+      "feature": "trend_d1",
+      "needs_bot_a_export": false,
+      "status": "ready"
+    },
+    {
+      "available_source_or_gap": "ema_20",
+      "feature": "ema_fast_m5",
+      "needs_bot_a_export": false,
+      "status": "ready"
+    },
+    {
+      "available_source_or_gap": "ema_200",
+      "feature": "ema_slow_m5",
+      "needs_bot_a_export": false,
+      "status": "ready"
+    },
+    {
+      "available_source_or_gap": "anchor_close, ema_20, ema_50, ema_200",
+      "feature": "ema_distance",
+      "needs_bot_a_export": false,
+      "status": "derivable"
+    },
+    {
+      "available_source_or_gap": "lagged EMA time series",
+      "feature": "ema_slope",
+      "needs_bot_a_export": false,
+      "status": "derivable"
+    },
+    {
+      "available_source_or_gap": "rsi_14",
+      "feature": "rsi_m5",
+      "needs_bot_a_export": false,
+      "status": "ready"
+    },
+    {
+      "available_source_or_gap": "features.H1.rsi_14",
+      "feature": "rsi_h1",
+      "needs_bot_a_export": false,
+      "status": "ready"
+    },
+    {
+      "available_source_or_gap": "M5 OHLC rolling true range",
+      "feature": "atr_m5",
+      "needs_bot_a_export": false,
+      "status": "derivable"
+    },
+    {
+      "available_source_or_gap": "H1 ATR or H1 OHLC bars",
+      "feature": "atr_h1",
+      "needs_bot_a_export": true,
+      "status": "needs_bot_a_export"
+    },
+    {
+      "available_source_or_gap": "momentum",
+      "feature": "momentum_m5",
+      "needs_bot_a_export": false,
+      "status": "ready"
+    },
+    {
+      "available_source_or_gap": "H1 EMA/RSI/structure proxy; direct label missing",
+      "feature": "momentum_h1",
+      "needs_bot_a_export": false,
+      "status": "derivable"
+    },
+    {
+      "available_source_or_gap": "M5 OHLC",
+      "feature": "candle_body_pct",
+      "needs_bot_a_export": false,
+      "status": "derivable"
+    },
+    {
+      "available_source_or_gap": "M5 OHLC",
+      "feature": "upper_wick_pct",
+      "needs_bot_a_export": false,
+      "status": "derivable"
+    },
+    {
+      "available_source_or_gap": "M5 OHLC",
+      "feature": "lower_wick_pct",
+      "needs_bot_a_export": false,
+      "status": "derivable"
+    },
+    {
+      "available_source_or_gap": "rolling M5 highs",
+      "feature": "distance_to_recent_high",
+      "needs_bot_a_export": false,
+      "status": "derivable"
+    },
+    {
+      "available_source_or_gap": "rolling M5 lows",
+      "feature": "distance_to_recent_low",
+      "needs_bot_a_export": false,
+      "status": "derivable"
+    },
+    {
+      "available_source_or_gap": "support_levels",
+      "feature": "support_distance_pips",
+      "needs_bot_a_export": false,
+      "status": "ready"
+    },
+    {
+      "available_source_or_gap": "resistance_levels",
+      "feature": "resistance_distance_pips",
+      "needs_bot_a_export": false,
+      "status": "ready"
+    },
+    {
+      "available_source_or_gap": "features.H1.market_structure",
+      "feature": "structure_h1",
+      "needs_bot_a_export": false,
+      "status": "ready"
+    },
+    {
+      "available_source_or_gap": "features.H4.market_structure",
+      "feature": "structure_h4",
+      "needs_bot_a_export": false,
+      "status": "ready"
+    },
+    {
+      "available_source_or_gap": "mtf_alignment_status / gaspar_context.higher_timeframe_confluence.directional_alignment",
+      "feature": "mtf_trend_alignment",
+      "needs_bot_a_export": false,
+      "status": "ready"
+    }
+  ],
+  "records": 371513,
+  "schema_version": "baltasar_v2_feature_audit_v0.1",
+  "source_jsonl": "data\\clean\\bot_a_sub3_full\\cleaned_dataset.jsonl",
+  "technical_decisions": [
+    "Nested feature dictionaries are expanded by timeframe, e.g. features.H1.ema_20.",
+    "Numeric lists such as support_levels/resistance_levels are summarized as count/min/max/first/last paths.",
+    "Null percentage is computed as records where the path is missing or null over total JSONL records.",
+    "Candidate status values: ready, derivable, needs_bot_a_export."
+  ],
+  "temporal_range": {
+    "end": "2026-04-14T23:55:00Z",
+    "start": "2020-01-15T00:00:00Z"
+  },
+  "top_level_columns": {
+    "account": 371513,
+    "active_session": 371513,
+    "allowed_actions": 371513,
+    "anchor_bar_timestamp": 371513,
+    "anchor_close": 371513,
+    "anchor_high": 371513,
+    "anchor_low": 371513,
+    "anchor_open": 371513,
+    "anchor_timeframe": 371513,
+    "bar_timestamp": 371513,
+    "current_price": 371513,
+    "ema_20": 371513,
+    "ema_200": 371513,
+    "ema_50": 371513,
+    "features": 371513,
+    "gaspar_context": 371513,
+    "has_gap_forward": 371513,
+    "is_high_spread": 371513,
+    "market_structure": 371513,
+    "momentum": 371513,
+    "mtf_alignment_status": 371513,
+    "mtf_alignment_warnings": 371513,
+    "mtf_data_source_status": 371513,
+    "news": 371513,
+    "operational_notes": 371513,
+    "position": 371513,
+    "primary_timeframe": 371513,
+    "recent_range": 371513,
+    "resistance_levels": 371513,
+    "rsi_14": 371513,
+    "schema_version": 371513,
+    "snapshot_id": 371513,
+    "source_mode": 371513,
+    "spread_pips": 371513,
+    "structure_direction": 371513,
+    "support_levels": 371513,
+    "symbol": 371513,
+    "timestamp": 371513,
+    "trigger_type": 371513,
+    "validation": 371513
+  }
+}

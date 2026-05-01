@@ -1,0 +1,896 @@
+{
+  "bad_contexts_2026q2": [
+    {
+      "avg_r": -1.0,
+      "d1_market_structure": "breakout",
+      "daily_range_bucket": "mid",
+      "direction": "SELL",
+      "gaspar_block_rate": 0.0,
+      "gaspar_blocked": 0,
+      "h4_market_structure": "breakout",
+      "max_drawdown_r": 12.0,
+      "profit_factor": 0.0,
+      "session": "new_york",
+      "total_r": -12.0,
+      "trades": 12,
+      "win_rate": 0.0
+    },
+    {
+      "avg_r": -1.0,
+      "d1_market_structure": "trend",
+      "daily_range_bucket": "mid_high",
+      "direction": "SELL",
+      "gaspar_block_rate": 0.0,
+      "gaspar_blocked": 0,
+      "h4_market_structure": "breakout",
+      "max_drawdown_r": 6.0,
+      "profit_factor": 0.0,
+      "session": "overlap",
+      "total_r": -6.0,
+      "trades": 6,
+      "win_rate": 0.0
+    },
+    {
+      "avg_r": -1.0,
+      "d1_market_structure": "breakout",
+      "daily_range_bucket": "mid",
+      "direction": "SELL",
+      "gaspar_block_rate": 0.0,
+      "gaspar_blocked": 0,
+      "h4_market_structure": "breakout",
+      "max_drawdown_r": 3.0,
+      "profit_factor": 0.0,
+      "session": "london",
+      "total_r": -3.0,
+      "trades": 3,
+      "win_rate": 0.0
+    },
+    {
+      "avg_r": -1.0,
+      "d1_market_structure": "breakout",
+      "daily_range_bucket": "mid",
+      "direction": "SELL",
+      "gaspar_block_rate": 0.0,
+      "gaspar_blocked": 0,
+      "h4_market_structure": "trend",
+      "max_drawdown_r": 2.0,
+      "profit_factor": 0.0,
+      "session": "london",
+      "total_r": -2.0,
+      "trades": 2,
+      "win_rate": 0.0
+    },
+    {
+      "avg_r": -1.0,
+      "d1_market_structure": "trend",
+      "daily_range_bucket": "mid",
+      "direction": "BUY",
+      "gaspar_block_rate": 0.0,
+      "gaspar_blocked": 0,
+      "h4_market_structure": "breakout",
+      "max_drawdown_r": 1.0,
+      "profit_factor": 0.0,
+      "session": "london",
+      "total_r": -1.0,
+      "trades": 1,
+      "win_rate": 0.0
+    },
+    {
+      "avg_r": -0.984583,
+      "d1_market_structure": "trend",
+      "daily_range_bucket": "mid_high",
+      "direction": "SELL",
+      "gaspar_block_rate": 0.0,
+      "gaspar_blocked": 0,
+      "h4_market_structure": "breakout",
+      "max_drawdown_r": 47.26,
+      "profit_factor": 0.0,
+      "session": "london",
+      "total_r": -47.26,
+      "trades": 48,
+      "win_rate": 0.0
+    },
+    {
+      "avg_r": -0.875,
+      "d1_market_structure": "breakout",
+      "daily_range_bucket": "mid_high",
+      "direction": "SELL",
+      "gaspar_block_rate": 0.0,
+      "gaspar_blocked": 0,
+      "h4_market_structure": "breakout",
+      "max_drawdown_r": 22.0,
+      "profit_factor": 0.086957,
+      "session": "overlap",
+      "total_r": -21.0,
+      "trades": 24,
+      "win_rate": 0.041667
+    },
+    {
+      "avg_r": -0.805,
+      "d1_market_structure": "breakout",
+      "daily_range_bucket": "mid",
+      "direction": "SELL",
+      "gaspar_block_rate": 0.0,
+      "gaspar_blocked": 0,
+      "h4_market_structure": "range",
+      "max_drawdown_r": 6.5,
+      "profit_factor": 0.009231,
+      "session": "new_york",
+      "total_r": -6.44,
+      "trades": 8,
+      "win_rate": 0.125
+    },
+    {
+      "avg_r": -0.756667,
+      "d1_market_structure": "breakout",
+      "daily_range_bucket": "mid",
+      "direction": "SELL",
+      "gaspar_block_rate": 0.0,
+      "gaspar_blocked": 0,
+      "h4_market_structure": "breakout",
+      "max_drawdown_r": 9.08,
+      "profit_factor": 0.0,
+      "session": "asia",
+      "total_r": -9.08,
+      "trades": 12,
+      "win_rate": 0.0
+    },
+    {
+      "avg_r": -0.516129,
+      "d1_market_structure": "breakout",
+      "daily_range_bucket": "mid_high",
+      "direction": "SELL",
+      "gaspar_block_rate": 0.0,
+      "gaspar_blocked": 0,
+      "h4_market_structure": "range",
+      "max_drawdown_r": 26.0,
+      "profit_factor": 0.384615,
+      "session": "london",
+      "total_r": -16.0,
+      "trades": 31,
+      "win_rate": 0.16129
+    },
+    {
+      "avg_r": -0.515435,
+      "d1_market_structure": "breakout",
+      "daily_range_bucket": "mid",
+      "direction": "SELL",
+      "gaspar_block_rate": 0.0,
+      "gaspar_blocked": 0,
+      "h4_market_structure": "range",
+      "max_drawdown_r": 50.42,
+      "profit_factor": 0.262749,
+      "session": "london",
+      "total_r": -47.42,
+      "trades": 92,
+      "win_rate": 0.141304
+    },
+    {
+      "avg_r": -0.3625,
+      "d1_market_structure": "trend",
+      "daily_range_bucket": "mid",
+      "direction": "SELL",
+      "gaspar_block_rate": 0.0,
+      "gaspar_blocked": 0,
+      "h4_market_structure": "breakout",
+      "max_drawdown_r": 12.71,
+      "profit_factor": 0.346356,
+      "session": "overlap",
+      "total_r": -8.7,
+      "trades": 24,
+      "win_rate": 0.208333
+    },
+    {
+      "avg_r": -0.142857,
+      "d1_market_structure": "breakout",
+      "daily_range_bucket": "mid_high",
+      "direction": "SELL",
+      "gaspar_block_rate": 0.0,
+      "gaspar_blocked": 0,
+      "h4_market_structure": "trend",
+      "max_drawdown_r": 10.0,
+      "profit_factor": 0.8,
+      "session": "new_york",
+      "total_r": -3.0,
+      "trades": 21,
+      "win_rate": 0.285714
+    },
+    {
+      "avg_r": -0.006667,
+      "d1_market_structure": "breakout",
+      "daily_range_bucket": "mid_high",
+      "direction": "SELL",
+      "gaspar_block_rate": 0.0,
+      "gaspar_blocked": 0,
+      "h4_market_structure": "range",
+      "max_drawdown_r": 0.1,
+      "profit_factor": 0.8,
+      "session": "new_york",
+      "total_r": -0.02,
+      "trades": 3,
+      "win_rate": 0.333333
+    },
+    {
+      "avg_r": 0.09,
+      "d1_market_structure": "trend",
+      "daily_range_bucket": "mid_high",
+      "direction": "BUY",
+      "gaspar_block_rate": 0.0,
+      "gaspar_blocked": 0,
+      "h4_market_structure": "breakout",
+      "max_drawdown_r": 0.0,
+      "profit_factor": Infinity,
+      "session": "asia",
+      "total_r": 0.09,
+      "trades": 1,
+      "win_rate": 1.0
+    },
+    {
+      "avg_r": 0.165833,
+      "d1_market_structure": "trend",
+      "daily_range_bucket": "mid_high",
+      "direction": "SELL",
+      "gaspar_block_rate": 0.0,
+      "gaspar_blocked": 0,
+      "h4_market_structure": "range",
+      "max_drawdown_r": 0.47,
+      "profit_factor": 4.372881,
+      "session": "asia",
+      "total_r": 1.99,
+      "trades": 12,
+      "win_rate": 0.5
+    },
+    {
+      "avg_r": 0.253333,
+      "d1_market_structure": "trend",
+      "daily_range_bucket": "mid_high",
+      "direction": "SELL",
+      "gaspar_block_rate": 0.0,
+      "gaspar_blocked": 0,
+      "h4_market_structure": "range",
+      "max_drawdown_r": 0.63,
+      "profit_factor": 4.41573,
+      "session": "london",
+      "total_r": 3.04,
+      "trades": 12,
+      "win_rate": 0.75
+    },
+    {
+      "avg_r": 0.487273,
+      "d1_market_structure": "trend",
+      "daily_range_bucket": "mid",
+      "direction": "SELL",
+      "gaspar_block_rate": 0.0,
+      "gaspar_blocked": 0,
+      "h4_market_structure": "trend",
+      "max_drawdown_r": 6.0,
+      "profit_factor": 2.34,
+      "session": "new_york",
+      "total_r": 10.72,
+      "trades": 22,
+      "win_rate": 0.636364
+    },
+    {
+      "avg_r": 0.67,
+      "d1_market_structure": "trend",
+      "daily_range_bucket": "mid",
+      "direction": "SELL",
+      "gaspar_block_rate": 0.0,
+      "gaspar_blocked": 0,
+      "h4_market_structure": "breakout",
+      "max_drawdown_r": 10.0,
+      "profit_factor": 3.367669,
+      "session": "london",
+      "total_r": 31.49,
+      "trades": 47,
+      "win_rate": 0.638298
+    },
+    {
+      "avg_r": 1.165417,
+      "d1_market_structure": "breakout",
+      "daily_range_bucket": "mid",
+      "direction": "SELL",
+      "gaspar_block_rate": 0.0,
+      "gaspar_blocked": 0,
+      "h4_market_structure": "breakout",
+      "max_drawdown_r": 12.07,
+      "profit_factor": 5.634631,
+      "session": "overlap",
+      "total_r": 55.94,
+      "trades": 48,
+      "win_rate": 0.729167
+    },
+    {
+      "avg_r": 1.449167,
+      "d1_market_structure": "trend",
+      "daily_range_bucket": "mid",
+      "direction": "SELL",
+      "gaspar_block_rate": 0.0,
+      "gaspar_blocked": 0,
+      "h4_market_structure": "range",
+      "max_drawdown_r": 0.0,
+      "profit_factor": Infinity,
+      "session": "london",
+      "total_r": 17.39,
+      "trades": 12,
+      "win_rate": 1.0
+    },
+    {
+      "avg_r": 2.0,
+      "d1_market_structure": "trend",
+      "daily_range_bucket": "mid",
+      "direction": "SELL",
+      "gaspar_block_rate": 0.0,
+      "gaspar_blocked": 0,
+      "h4_market_structure": "range",
+      "max_drawdown_r": 0.0,
+      "profit_factor": Infinity,
+      "session": "asia",
+      "total_r": 36.0,
+      "trades": 18,
+      "win_rate": 1.0
+    }
+  ],
+  "candidate_rules": [
+    {
+      "q2_blocked": 209,
+      "q2_blocked_share": 0.455338,
+      "q2_filtered": {
+        "avg_r": 0.10496,
+        "max_drawdown_r": 55.6,
+        "profit_factor": 1.222354,
+        "total_r": 26.24,
+        "trades": 250,
+        "win_rate": 0.42
+      },
+      "q2_original": {
+        "avg_r": -0.057211,
+        "max_drawdown_r": 93.66,
+        "profit_factor": 0.900311,
+        "total_r": -26.26,
+        "trades": 459,
+        "win_rate": 0.342048
+      },
+      "rule": "q2_like_proxy",
+      "test_blocked": 5711,
+      "test_blocked_share": 0.286022,
+      "test_filtered": {
+        "avg_r": 0.209054,
+        "max_drawdown_r": 154.59,
+        "profit_factor": 1.392108,
+        "total_r": 2980.27,
+        "trades": 14256,
+        "win_rate": 0.440586
+      },
+      "test_original": {
+        "avg_r": 0.093171,
+        "max_drawdown_r": 266.14,
+        "profit_factor": 1.162071,
+        "total_r": 1860.35,
+        "trades": 19967,
+        "win_rate": 0.398908
+      }
+    },
+    {
+      "q2_blocked": 412,
+      "q2_blocked_share": 0.897603,
+      "q2_filtered": {
+        "avg_r": 0.10234,
+        "max_drawdown_r": 12.0,
+        "profit_factor": 1.185,
+        "total_r": 4.81,
+        "trades": 47,
+        "win_rate": 0.446809
+      },
+      "q2_original": {
+        "avg_r": -0.057211,
+        "max_drawdown_r": 93.66,
+        "profit_factor": 0.900311,
+        "total_r": -26.26,
+        "trades": 459,
+        "win_rate": 0.342048
+      },
+      "rule": "sell_mid_high_h4_breakout_or_range",
+      "test_blocked": 6612,
+      "test_blocked_share": 0.331146,
+      "test_filtered": {
+        "avg_r": 0.109168,
+        "max_drawdown_r": 210.58,
+        "profit_factor": 1.192214,
+        "total_r": 1457.94,
+        "trades": 13355,
+        "win_rate": 0.405541
+      },
+      "test_original": {
+        "avg_r": 0.093171,
+        "max_drawdown_r": 266.14,
+        "profit_factor": 1.162071,
+        "total_r": 1860.35,
+        "trades": 19967,
+        "win_rate": 0.398908
+      }
+    },
+    {
+      "q2_blocked": 9,
+      "q2_blocked_share": 0.019608,
+      "q2_filtered": {
+        "avg_r": -0.048067,
+        "max_drawdown_r": 92.66,
+        "profit_factor": 0.916361,
+        "total_r": -21.63,
+        "trades": 450,
+        "win_rate": 0.344444
+      },
+      "q2_original": {
+        "avg_r": -0.057211,
+        "max_drawdown_r": 93.66,
+        "profit_factor": 0.900311,
+        "total_r": -26.26,
+        "trades": 459,
+        "win_rate": 0.342048
+      },
+      "rule": "sell_low_gaspar_prob_030",
+      "test_blocked": 2809,
+      "test_blocked_share": 0.140682,
+      "test_filtered": {
+        "avg_r": 0.129528,
+        "max_drawdown_r": 212.04,
+        "profit_factor": 1.230905,
+        "total_r": 2222.45,
+        "trades": 17158,
+        "win_rate": 0.412519
+      },
+      "test_original": {
+        "avg_r": 0.093171,
+        "max_drawdown_r": 266.14,
+        "profit_factor": 1.162071,
+        "total_r": 1860.35,
+        "trades": 19967,
+        "win_rate": 0.398908
+      }
+    },
+    {
+      "q2_blocked": 278,
+      "q2_blocked_share": 0.605664,
+      "q2_filtered": {
+        "avg_r": 0.367127,
+        "max_drawdown_r": 34.02,
+        "profit_factor": 1.920105,
+        "total_r": 66.45,
+        "trades": 181,
+        "win_rate": 0.508287
+      },
+      "q2_original": {
+        "avg_r": -0.057211,
+        "max_drawdown_r": 93.66,
+        "profit_factor": 0.900311,
+        "total_r": -26.26,
+        "trades": 459,
+        "win_rate": 0.342048
+      },
+      "rule": "rolling_sell_pf_below_1",
+      "test_blocked": 9289,
+      "test_blocked_share": 0.465218,
+      "test_filtered": {
+        "avg_r": 0.210521,
+        "max_drawdown_r": 162.0,
+        "profit_factor": 1.393537,
+        "total_r": 2247.94,
+        "trades": 10678,
+        "win_rate": 0.43997
+      },
+      "test_original": {
+        "avg_r": 0.093171,
+        "max_drawdown_r": 266.14,
+        "profit_factor": 1.162071,
+        "total_r": 1860.35,
+        "trades": 19967,
+        "win_rate": 0.398908
+      }
+    },
+    {
+      "q2_blocked": 209,
+      "q2_blocked_share": 0.455338,
+      "q2_filtered": {
+        "avg_r": 0.10496,
+        "max_drawdown_r": 55.6,
+        "profit_factor": 1.222354,
+        "total_r": 26.24,
+        "trades": 250,
+        "win_rate": 0.42
+      },
+      "q2_original": {
+        "avg_r": -0.057211,
+        "max_drawdown_r": 93.66,
+        "profit_factor": 0.900311,
+        "total_r": -26.26,
+        "trades": 459,
+        "win_rate": 0.342048
+      },
+      "rule": "rolling_pf_below_1_and_drawdown_high",
+      "test_blocked": 7457,
+      "test_blocked_share": 0.373466,
+      "test_filtered": {
+        "avg_r": 0.264959,
+        "max_drawdown_r": 83.06,
+        "profit_factor": 1.51535,
+        "total_r": 3314.64,
+        "trades": 12510,
+        "win_rate": 0.459313
+      },
+      "test_original": {
+        "avg_r": 0.093171,
+        "max_drawdown_r": 266.14,
+        "profit_factor": 1.162071,
+        "total_r": 1860.35,
+        "trades": 19967,
+        "win_rate": 0.398908
+      }
+    }
+  ],
+  "feature_comparison": [
+    {
+      "2025Q4_mean": 0.219564,
+      "2025Q4_median": -0.25,
+      "2026Q1_mean": 0.090428,
+      "2026Q1_median": -1.0,
+      "2026Q2_mean": -0.057211,
+      "2026Q2_median": -1.0,
+      "feature": "realized_R"
+    },
+    {
+      "2025Q4_mean": 0.186834,
+      "2025Q4_median": 0.132788,
+      "2026Q1_mean": 0.183898,
+      "2026Q1_median": 0.132852,
+      "2026Q2_mean": 0.098761,
+      "2026Q2_median": 0.068086,
+      "feature": "gaspar_p_deteriorating"
+    },
+    {
+      "2025Q4_mean": 0.82226,
+      "2025Q4_median": 0.834958,
+      "2026Q1_mean": 0.873059,
+      "2026Q1_median": 1.0,
+      "2026Q2_mean": 0.935748,
+      "2026Q2_median": 1.0,
+      "feature": "atr"
+    },
+    {
+      "2025Q4_mean": 0.401965,
+      "2025Q4_median": 0.386335,
+      "2026Q1_mean": 0.394039,
+      "2026Q1_median": 0.398859,
+      "2026Q2_mean": 0.599601,
+      "2026Q2_median": 0.54152,
+      "feature": "daily_range_position"
+    },
+    {
+      "2025Q4_mean": 0.000211,
+      "2025Q4_median": 0.000193,
+      "2026Q1_mean": 0.000273,
+      "2026Q1_median": 0.000232,
+      "2026Q2_mean": 0.000231,
+      "2026Q2_median": 0.000195,
+      "feature": "volatility_12"
+    },
+    {
+      "2025Q4_mean": -1.414143,
+      "2025Q4_median": -2.6,
+      "2026Q1_mean": -1.438639,
+      "2026Q1_median": -5.2,
+      "2026Q2_mean": 11.310458,
+      "2026Q2_median": 8.6,
+      "feature": "ema_20_50_distance"
+    },
+    {
+      "2025Q4_mean": -6.793278,
+      "2025Q4_median": -1.5,
+      "2026Q1_mean": -2.308064,
+      "2026Q1_median": -13.5,
+      "2026Q2_mean": 13.454248,
+      "2026Q2_median": 3.3,
+      "feature": "ema_50_200_distance"
+    },
+    {
+      "2025Q4_mean": -1.744692,
+      "2025Q4_median": -2.0,
+      "2026Q1_mean": -2.95419,
+      "2026Q1_median": -3.2,
+      "2026Q2_mean": 0.915686,
+      "2026Q2_median": 1.4,
+      "feature": "close_to_ema20"
+    },
+    {
+      "2025Q4_mean": -3.158835,
+      "2025Q4_median": -3.8,
+      "2026Q1_mean": -4.392829,
+      "2026Q1_median": -7.8,
+      "2026Q2_mean": 12.226144,
+      "2026Q2_median": 4.1,
+      "feature": "close_to_ema50"
+    },
+    {
+      "2025Q4_mean": -9.952113,
+      "2025Q4_median": -1.1,
+      "2026Q1_mean": -6.700893,
+      "2026Q1_median": -16.4,
+      "2026Q2_mean": 25.680392,
+      "2026Q2_median": 8.3,
+      "feature": "close_to_ema200"
+    },
+    {
+      "2025Q4_mean": 48.640166,
+      "2025Q4_median": 48.34,
+      "2026Q1_mean": 48.084513,
+      "2026Q1_median": 46.8,
+      "2026Q2_mean": 51.485664,
+      "2026Q2_median": 51.19,
+      "feature": "rsi_14"
+    },
+    {
+      "2025Q4_mean": null,
+      "2025Q4_median": null,
+      "2026Q1_mean": null,
+      "2026Q1_median": null,
+      "2026Q2_mean": null,
+      "2026Q2_median": null,
+      "feature": "momentum"
+    },
+    {
+      "2025Q4_mean": 0.22982,
+      "2025Q4_median": 0.2176,
+      "2026Q1_mean": 0.094358,
+      "2026Q1_median": 0.118,
+      "2026Q2_mean": -0.043486,
+      "2026Q2_median": -0.1812,
+      "feature": "rolling_avg_R_50"
+    },
+    {
+      "2025Q4_mean": 3.582953,
+      "2025Q4_median": 1.451887,
+      "2026Q1_mean": 2.983759,
+      "2026Q1_median": 1.223034,
+      "2026Q2_mean": 1.745802,
+      "2026Q2_median": 0.74166,
+      "feature": "rolling_pf_50"
+    },
+    {
+      "2025Q4_mean": 0.263768,
+      "2025Q4_median": 0.2176,
+      "2026Q1_mean": 0.159772,
+      "2026Q1_median": 0.2,
+      "2026Q2_mean": -0.039485,
+      "2026Q2_median": -0.1812,
+      "feature": "rolling_sell_avg_R_50"
+    },
+    {
+      "2025Q4_mean": 3.849544,
+      "2025Q4_median": 1.459818,
+      "2026Q1_mean": 1.736832,
+      "2026Q1_median": 1.333333,
+      "2026Q2_mean": 1.773728,
+      "2026Q2_median": 0.74166,
+      "feature": "rolling_sell_pf_50"
+    },
+    {
+      "2025Q4_mean": 18.836945,
+      "2025Q4_median": 16.0,
+      "2026Q1_mean": 20.571805,
+      "2026Q1_median": 18.0,
+      "2026Q2_mean": 24.05366,
+      "2026Q2_median": 20.06,
+      "feature": "rolling_drawdown_50"
+    },
+    {
+      "2025Q4_mean": 0.50973,
+      "2025Q4_median": 0.5,
+      "2026Q1_mean": 0.588652,
+      "2026Q1_median": 0.58,
+      "2026Q2_mean": 0.620697,
+      "2026Q2_median": 0.64,
+      "feature": "rolling_unfavorable_rate_50"
+    },
+    {
+      "2025Q4_mean": 7.403993,
+      "2025Q4_median": 1.0,
+      "2026Q1_mean": 8.245338,
+      "2026Q1_median": 2.0,
+      "2026Q2_mean": 12.437908,
+      "2026Q2_median": 5.0,
+      "feature": "recent_loss_streak"
+    },
+    {
+      "2025Q4_mean": 7.382363,
+      "2025Q4_median": 1.0,
+      "2026Q1_mean": 6.718413,
+      "2026Q1_median": 2.0,
+      "2026Q2_mean": 12.431373,
+      "2026Q2_median": 5.0,
+      "feature": "recent_sell_loss_streak"
+    }
+  ],
+  "gaspar_probability": {
+    "max": 0.385088,
+    "mean": 0.098761,
+    "median": 0.068086,
+    "p90": 0.232914,
+    "share_ge_030": 0.019608,
+    "share_ge_040": 0.0,
+    "share_ge_050": 0.0
+  },
+  "generated_at": "2026-04-30T21:34:58.944245Z",
+  "inputs": {
+    "integrated_trades": "data\\output\\magi_v2\\baltasar_gaspar_v2_integration\\integrated_trades.csv",
+    "rich_features": "data\\output\\magi_v2\\baltasar_v2_rich_features\\baltasar_v2_rich_features.parquet",
+    "rolling_dataset": "data\\output\\magi_v2\\gaspar_v2_1c_rolling_dataset\\gaspar_v2_1c_rolling_dataset.parquet"
+  },
+  "periods": {
+    "2025Q4": {
+      "avg_r": 0.219564,
+      "d1_structure_distribution": {
+        "breakout": 914,
+        "range": 423,
+        "trend": 1668
+      },
+      "daily_range_bucket_distribution": {
+        "low": 561,
+        "mid": 1210,
+        "mid_high": 518,
+        "mid_low": 716
+      },
+      "direction_distribution": {
+        "BUY": 524,
+        "SELL": 2481
+      },
+      "gaspar_block_rate": 0.066223,
+      "gaspar_blocked": 199,
+      "h4_structure_distribution": {
+        "breakout": 1598,
+        "range": 483,
+        "trend": 924
+      },
+      "hour_distribution": {
+        "10": 328,
+        "11": 353,
+        "12": 500,
+        "14": 481,
+        "17": 292,
+        "18": 29,
+        "19": 11,
+        "21": 138,
+        "6": 18,
+        "7": 244,
+        "8": 308,
+        "9": 303
+      },
+      "max_drawdown_r": 101.57,
+      "p_deteriorating_mean": 0.186834,
+      "profit_factor": 1.449543,
+      "rolling_2026q2_like_proxy_rate": 0.26589,
+      "session_distribution": {
+        "asia": 18,
+        "london": 1536,
+        "new_york": 470,
+        "overlap": 981
+      },
+      "total_r": 659.79,
+      "trades": 3005,
+      "win_rate": 0.473211
+    },
+    "2026Q1": {
+      "avg_r": 0.090428,
+      "d1_structure_distribution": {
+        "breakout": 1710,
+        "range": 1276,
+        "trend": 821
+      },
+      "daily_range_bucket_distribution": {
+        "low": 622,
+        "mid": 1452,
+        "mid_high": 682,
+        "mid_low": 1051
+      },
+      "direction_distribution": {
+        "BUY": 1326,
+        "SELL": 2481
+      },
+      "gaspar_block_rate": 0.064618,
+      "gaspar_blocked": 246,
+      "h4_structure_distribution": {
+        "breakout": 1898,
+        "range": 1002,
+        "trend": 907
+      },
+      "hour_distribution": {
+        "0": 29,
+        "1": 88,
+        "10": 368,
+        "11": 372,
+        "12": 502,
+        "14": 498,
+        "17": 330,
+        "18": 104,
+        "19": 73,
+        "2": 69,
+        "21": 146,
+        "3": 69,
+        "4": 62,
+        "5": 59,
+        "6": 105,
+        "7": 307,
+        "8": 309,
+        "9": 317
+      },
+      "max_drawdown_r": 145.87,
+      "p_deteriorating_mean": 0.183898,
+      "profit_factor": 1.159589,
+      "rolling_2026q2_like_proxy_rate": 0.236669,
+      "session_distribution": {
+        "asia": 481,
+        "london": 1673,
+        "new_york": 653,
+        "overlap": 1000
+      },
+      "total_r": 344.26,
+      "trades": 3807,
+      "win_rate": 0.399002
+    },
+    "2026Q2": {
+      "avg_r": -0.057211,
+      "d1_structure_distribution": {
+        "breakout": 256,
+        "trend": 203
+      },
+      "daily_range_bucket_distribution": {
+        "mid": 301,
+        "mid_high": 158
+      },
+      "direction_distribution": {
+        "BUY": 2,
+        "SELL": 457
+      },
+      "gaspar_block_rate": 0.0,
+      "gaspar_blocked": 0,
+      "h4_structure_distribution": {
+        "breakout": 226,
+        "range": 188,
+        "trend": 45
+      },
+      "hour_distribution": {
+        "0": 1,
+        "10": 60,
+        "11": 60,
+        "12": 52,
+        "14": 50,
+        "17": 33,
+        "18": 21,
+        "21": 12,
+        "5": 6,
+        "6": 36,
+        "7": 31,
+        "8": 44,
+        "9": 53
+      },
+      "max_drawdown_r": 93.66,
+      "p_deteriorating_mean": 0.098761,
+      "profit_factor": 0.900311,
+      "rolling_2026q2_like_proxy_rate": 0.455338,
+      "session_distribution": {
+        "asia": 43,
+        "london": 248,
+        "new_york": 66,
+        "overlap": 102
+      },
+      "total_r": -26.26,
+      "trades": 459,
+      "win_rate": 0.342048
+    }
+  },
+  "schema_version": "2026q2_regime_failure_analysis_v0.1",
+  "technical_decisions": [
+    "This is diagnostic only; no production rule is applied.",
+    "Good periods are 2025Q4 and 2026Q1 for contrast.",
+    "Rule impact is estimated on already-selected Baltasar v2 trades, not on the full market."
+  ]
+}

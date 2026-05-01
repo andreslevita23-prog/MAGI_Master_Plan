@@ -1,0 +1,148 @@
+{
+  "causal_controls": [
+    "Feature columns are past rolling state or current pre-trade context only.",
+    "Future R/PF/DD columns are target-construction diagnostics and must not be model features.",
+    "No date, month, quarter or 2026Q2 flag is a feature.",
+    "Labels use future windows by design because they are supervised targets."
+  ],
+  "feature_columns": [
+    "rolling_pf_20",
+    "rolling_pf_50",
+    "rolling_pf_100",
+    "rolling_avg_R_20",
+    "rolling_avg_R_50",
+    "rolling_avg_R_100",
+    "rolling_drawdown_50",
+    "rolling_drawdown_100",
+    "rolling_win_rate_20",
+    "rolling_win_rate_50",
+    "rolling_win_rate_100",
+    "rolling_unfavorable_rate_50",
+    "rolling_unfavorable_rate_100",
+    "rolling_sell_pf_20",
+    "rolling_sell_pf_50",
+    "rolling_sell_pf_100",
+    "rolling_sell_avg_R_20",
+    "rolling_sell_avg_R_50",
+    "rolling_sell_avg_R_100",
+    "recent_loss_streak",
+    "recent_sell_loss_streak",
+    "daily_range_position",
+    "predicted_direction"
+  ],
+  "forbidden_feature_intersection": [],
+  "generated_at": "2026-05-01T05:36:19.589367Z",
+  "inputs": {
+    "integrated_trades": "data\\output\\magi_v2\\baltasar_gaspar_v2_integration\\integrated_trades.csv",
+    "q2_analysis": "data\\output\\magi_v2\\2026q2_regime_analysis\\2026q2_regime_analysis.json",
+    "rolling_dataset": "data\\output\\magi_v2\\gaspar_v2_1c_rolling_dataset\\gaspar_v2_1c_rolling_dataset.parquet"
+  },
+  "label_distribution_by_split": {
+    "risk_block_rr2": {
+      "test": {
+        "APPROVE": 7836,
+        "BLOCK": 11547,
+        "CAUTION": 584
+      },
+      "train": {
+        "APPROVE": 61086,
+        "BLOCK": 7396,
+        "CAUTION": 1002
+      },
+      "validation": {
+        "APPROVE": 3420,
+        "BLOCK": 7803,
+        "CAUTION": 202
+      }
+    },
+    "risk_block_rr2_soft": {
+      "test": {
+        "APPROVE": 7836,
+        "BLOCK": 11547,
+        "CAUTION": 584
+      },
+      "train": {
+        "APPROVE": 61086,
+        "BLOCK": 7396,
+        "CAUTION": 1002
+      },
+      "validation": {
+        "APPROVE": 3420,
+        "BLOCK": 7803,
+        "CAUTION": 202
+      }
+    },
+    "risk_block_rr2_strict": {
+      "test": {
+        "APPROVE": 8023,
+        "BLOCK": 10754,
+        "CAUTION": 1190
+      },
+      "train": {
+        "APPROVE": 61401,
+        "BLOCK": 6212,
+        "CAUTION": 1871
+      },
+      "validation": {
+        "APPROVE": 3418,
+        "BLOCK": 7586,
+        "CAUTION": 421
+      }
+    }
+  },
+  "missing_requested_features": [
+    "spread_pips",
+    "volatility_12",
+    "close_to_ema200",
+    "ema_20_50_distance",
+    "ema_50_200_distance"
+  ],
+  "null_counts": {
+    "rolling_avg_R_100": 1,
+    "rolling_avg_R_20": 1,
+    "rolling_avg_R_50": 1,
+    "rolling_drawdown_100": 1,
+    "rolling_drawdown_50": 1,
+    "rolling_pf_100": 1,
+    "rolling_pf_20": 1,
+    "rolling_pf_50": 1,
+    "rolling_sell_avg_R_100": 13,
+    "rolling_sell_avg_R_20": 13,
+    "rolling_sell_avg_R_50": 13,
+    "rolling_sell_pf_100": 13,
+    "rolling_sell_pf_20": 13,
+    "rolling_sell_pf_50": 13,
+    "rolling_unfavorable_rate_100": 1,
+    "rolling_unfavorable_rate_50": 1,
+    "rolling_win_rate_100": 1,
+    "rolling_win_rate_20": 1,
+    "rolling_win_rate_50": 1
+  },
+  "q2_analysis_key_rules": [
+    "q2_like_proxy",
+    "rolling_sell_pf_below_1",
+    "rolling_pf_below_1_and_drawdown_high"
+  ],
+  "q2_capture": {
+    "risk_block_rr2": {
+      "APPROVE": 155,
+      "BLOCK": 263,
+      "CAUTION": 41
+    },
+    "risk_block_rr2_soft": {
+      "APPROVE": 155,
+      "BLOCK": 263,
+      "CAUTION": 41
+    },
+    "risk_block_rr2_strict": {
+      "APPROVE": 146,
+      "BLOCK": 245,
+      "CAUTION": 68
+    },
+    "rows": 459
+  },
+  "ready_for_training": true,
+  "rows": 100876,
+  "schema_version": "melchor_v2_risk_dataset_v0.1",
+  "train_block_count": 7396
+}
