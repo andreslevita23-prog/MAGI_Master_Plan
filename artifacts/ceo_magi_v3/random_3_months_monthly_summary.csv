@@ -1,0 +1,4 @@
+month,trades_executed,winning_trades,losing_trades,breakeven_trades,win_rate,gross_winning_pips,gross_losing_pips,net_pips_month,avg_duration,min_duration,max_duration,avg_duration_minutes,min_duration_minutes,max_duration_minutes
+2020-12,20,13,7,0,0.65,253.0,-65.6,129.6574,1h 51m,10m,4h 00m,110.75,10.0,240.0
+2022-01,37,30,7,0,0.8108,553.3,-60.0,373.2934,2h 10m,5m,4h 00m,130.2703,5.0,240.0
+2025-10,22,17,5,0,0.7727,282.0,-35.7,187.3266,2h 16m,30m,4h 00m,135.9091,30.0,240.0

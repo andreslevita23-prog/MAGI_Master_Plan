@@ -1,0 +1,152 @@
+{
+  "source": {
+    "input_trades": "artifacts\\magi_validation\\online_priority_scoring_trades.csv",
+    "input_trade_plans": "artifacts\\magi_realistic_scenario_c\\scenario_c_realistic_trades.csv",
+    "source_strategy": "A_base_scenario_c",
+    "policy_doc": "docs/ceo_magi_v3_decision_logic.md",
+    "realized_r_column": "adjusted_R"
+  },
+  "policy": {
+    "name": "CEO-MAGI v3",
+    "schema_version": "ceo_magi_v3.entry_decision.v1",
+    "min_operational_score": 0.2,
+    "gaspar_high_deterioration": 0.7,
+    "melchor_block_is_hard_veto": true
+  },
+  "counts": {
+    "total_decisions": 6539,
+    "by_action": {
+      "ENTER": 3346,
+      "DO_NOTHING": 3193
+    },
+    "by_aggression_mode": {
+      "none": 3193,
+      "premium": 1514,
+      "cautious": 941,
+      "normal": 891
+    },
+    "by_reason_code": {
+      "score_below_0_20": 2407,
+      "score_premium": 1514,
+      "score_cautious": 941,
+      "score_normal": 891,
+      "melchor_block": 786
+    },
+    "top_reason_codes": {
+      "score_below_0_20": 2407,
+      "score_premium": 1514,
+      "score_cautious": 941,
+      "score_normal": 891,
+      "melchor_block": 786
+    }
+  },
+  "metrics": {
+    "all": {
+      "decisions": 6539,
+      "enter_decisions": 3346,
+      "do_nothing_decisions": 3193,
+      "coverage": 0.511699,
+      "profit_factor": 3.592959,
+      "avg_r": 0.838016,
+      "max_drawdown_r": 7.516361,
+      "total_r": 2804.002544,
+      "win_rate": 0.729229,
+      "gross_profit_r": 3885.393703,
+      "gross_loss_r": -1081.391159
+    },
+    "train": {
+      "decisions": 5177,
+      "enter_decisions": 2947,
+      "do_nothing_decisions": 2230,
+      "coverage": 0.569249,
+      "profit_factor": 3.673447,
+      "avg_r": 0.862166,
+      "max_drawdown_r": 7.516361,
+      "total_r": 2540.80265,
+      "win_rate": 0.734645,
+      "gross_profit_r": 3491.187281,
+      "gross_loss_r": -950.384631
+    },
+    "validation": {
+      "decisions": 483,
+      "enter_decisions": 153,
+      "do_nothing_decisions": 330,
+      "coverage": 0.31677,
+      "profit_factor": 3.81761,
+      "avg_r": 0.726169,
+      "max_drawdown_r": 5.252041,
+      "total_r": 111.103876,
+      "win_rate": 0.712418,
+      "gross_profit_r": 150.535827,
+      "gross_loss_r": -39.431951
+    },
+    "test": {
+      "decisions": 879,
+      "enter_decisions": 246,
+      "do_nothing_decisions": 633,
+      "coverage": 0.279863,
+      "profit_factor": 2.660898,
+      "avg_r": 0.618276,
+      "max_drawdown_r": 6.843587,
+      "total_r": 152.096018,
+      "win_rate": 0.674797,
+      "gross_profit_r": 243.670595,
+      "gross_loss_r": -91.574577
+    },
+    "2026Q2": {
+      "decisions": 11,
+      "enter_decisions": 3,
+      "do_nothing_decisions": 8,
+      "coverage": 0.272727,
+      "profit_factor": 0.631058,
+      "avg_r": -0.321766,
+      "max_drawdown_r": 1.295383,
+      "total_r": -0.965299,
+      "win_rate": 0.333333,
+      "gross_profit_r": 1.651098,
+      "gross_loss_r": -2.616397
+    }
+  },
+  "direction_breakdown_test": {
+    "BUY": {
+      "decisions": 100,
+      "enter_decisions": 100,
+      "do_nothing_decisions": 0,
+      "coverage": 1.0,
+      "profit_factor": 2.404408,
+      "avg_r": 0.562318,
+      "max_drawdown_r": 5.33192,
+      "total_r": 56.231807,
+      "win_rate": 0.65,
+      "gross_profit_r": 96.271329,
+      "gross_loss_r": -40.039522
+    },
+    "SELL": {
+      "decisions": 146,
+      "enter_decisions": 146,
+      "do_nothing_decisions": 0,
+      "coverage": 1.0,
+      "profit_factor": 2.860175,
+      "avg_r": 0.656604,
+      "max_drawdown_r": 6.843587,
+      "total_r": 95.864211,
+      "win_rate": 0.691781,
+      "gross_profit_r": 147.399266,
+      "gross_loss_r": -51.535055
+    }
+  },
+  "operational_warnings": [
+    "Offline mode uses already generated/validated signals; it does not prove live connectivity or broker execution.",
+    "Bot A and Bot B were not modified. JSONL is an execution contract candidate only.",
+    "Metrics use `adjusted_R` when CEO-MAGI v3 returns ENTER; skipped trades keep hypothetical R only for audit.",
+    "Trade plans use the existing RR2 convention with 10-pip SL to derive SL/TP when entry price is available.",
+    "No Gaspar downgrades were observed in this source because `p_deteriorating` never reached 0.70.",
+    "2026Q2 remains a weak regime and should stay under special monitoring."
+  ],
+  "outputs": {
+    "decisions_csv": "artifacts\\ceo_magi_v3\\ceo_magi_v3_decisions.csv",
+    "decisions_jsonl": "artifacts\\ceo_magi_v3\\ceo_magi_v3_decisions.jsonl",
+    "summary_md": "artifacts\\ceo_magi_v3\\ceo_magi_v3_summary.md",
+    "summary_json": "artifacts\\ceo_magi_v3\\ceo_magi_v3_summary.json"
+  }
+}
