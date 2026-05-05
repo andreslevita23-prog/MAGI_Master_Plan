@@ -6,10 +6,20 @@ import { paths } from "./config/paths.js";
 import { buildDashboardSnapshot } from "./services/dashboard.js";
 import { mapMvpDecisionToBotBResponse } from "./services/adapters/mt5/bot-b-response-mapper.js";
 import {
+  buildDecisionAuditRecord,
+  ensureDecisionAuditIdentity,
+  persistDecisionAuditRecord,
+} from "./services/audit/decision-audit.service.js";
+import {
   getConnectorById,
   listConnectors,
 } from "./services/connectors/registry.js";
 import { adaptBotALegacySnapshot } from "./services/adapters/mt5/bot-a-legacy-adapter.js";
+import {
+  adaptBotASnapshotV2,
+  isSnapshotV2Payload,
+  validateSnapshotV2Payload,
+} from "./services/adapters/mt5/snapshot-v2-adapter.js";
 import { getCaseById, listCases } from "./services/cases/case-query.service.js";
 import { listExecutionStates } from "./services/execution/execution-query.service.js";
 import { persistExecutionState } from "./services/execution/execution-store.service.js";
@@ -22,6 +32,7 @@ import {
 } from "./services/snapshots/snapshot-query.service.js";
 import { persistSnapshotArtifacts } from "./services/snapshots/snapshot-store.service.js";
 import {
+  buildStorageHealth,
   ensureProjectDirectories,
   readJson,
   writeJson,
@@ -36,9 +47,58 @@ const app = express();
 const port = Number(process.env.PORT || 3000);
 const siteUrl = process.env.MAGI_SITE_URL || "https://prosperity.lat";
 const hasOpenAIKey = Boolean(process.env.OPENAI_API_KEY);
+const demoMode = String(process.env.DEMO_MODE || "").toLowerCase() === "true";
 
-app.use(express.json({ limit: "1mb" }));
-app.use(express.text({ type: ["text/*", "application/octet-stream"] }));
+function captureRawBody(req, _res, buffer) {
+  req.rawBody = buffer?.length ? buffer.toString("utf8") : "";
+}
+
+function bodyPreview(req) {
+  const rawBody = typeof req.rawBody === "string" ? req.rawBody : "";
+  if (rawBody) {
+    return rawBody.replace(/[\u0000-\u001F\u007F-\u009F]/g, "").slice(0, 500);
+  }
+
+  if (typeof req.body === "string") {
+    return req.body.replace(/[\u0000-\u001F\u007F-\u009F]/g, "").slice(0, 500);
+  }
+
+  if (req.body && typeof req.body === "object") {
+    return JSON.stringify(req.body).slice(0, 500);
+  }
+
+  return "";
+}
+
+function logPostAnalisisError(req, error, extra = {}) {
+  const payload = {
+    event: "post_analisis_error",
+    message: error.message,
+    content_type: req.get("content-type") || null,
+    body_preview: bodyPreview(req),
+    ...extra,
+  };
+
+  console.error(
+    `[POST /analisis][error] message=${payload.message} content_type=${payload.content_type || "n/a"} body_preview=${payload.body_preview}`,
+  );
+  logger.logSystem(payload);
+}
+
+app.use(express.json({ limit: "1mb", verify: captureRawBody }));
+app.use(express.text({ type: ["text/*", "application/octet-stream"], verify: captureRawBody }));
+app.use((error, req, res, next) => {
+  if (error instanceof SyntaxError && "body" in error) {
+    logPostAnalisisError(req, error, { parser: "express.json" });
+    res.status(400).json({
+      error: "JSON invalido en POST /analisis.",
+      message: error.message,
+    });
+    return;
+  }
+
+  next(error);
+});
 app.use("/assets", express.static(paths.clientAssets));
 app.use("/static", express.static(paths.client));
 
@@ -96,14 +156,110 @@ function mapStatusForApi(statusBySymbol) {
   );
 }
 
+function adaptBotAPayload(payload) {
+  if (isSnapshotV2Payload(payload)) {
+    const validation = validateSnapshotV2Payload(payload);
+    return {
+      validation,
+      snapshotData: adaptBotASnapshotV2(payload, validation),
+      contract: "magi.snapshot.v2",
+      symbol: payload.symbol,
+    };
+  }
+
+  const validation = validateLegacySnapshot(payload);
+  return {
+    validation,
+    snapshotData: adaptBotALegacySnapshot(payload, validation),
+    contract: validation.contract,
+    symbol: payload?.pair,
+  };
+}
+
 let statusBySymbol = loadStatusBySymbol();
 
+function latestSnapshotSummary() {
+  return listRecentSnapshots(1)[0] || null;
+}
+
+function logStartupSummary() {
+  const baseUrl = `http://localhost:${port}`;
+  const latestSnapshot = latestSnapshotSummary();
+  const storageHealth = buildStorageHealth();
+
+  console.log("MAGI backend demo");
+  console.log(`Puerto activo: ${port}`);
+  console.log(`URL base: ${baseUrl}`);
+  console.log(`Ruta de datos: ${paths.data}`);
+  console.log(`Endpoint Bot A: ${baseUrl}/analisis`);
+  console.log(`Overview: ${baseUrl}/api/overview`);
+  console.log(`Snapshots: ${baseUrl}/api/snapshots`);
+  console.log(`Journal audit activo: ${storageHealth.audit ? "si" : "no"} (${paths.auditDecisions})`);
+  console.log(
+    `Ultimo snapshot recibido: ${
+      latestSnapshot
+        ? `${latestSnapshot.symbol} | ${latestSnapshot.snapshot_id} | ${latestSnapshot.timestamp || "sin timestamp"}`
+        : "ninguno"
+    }`,
+  );
+  console.log(`DEMO_MODE: ${demoMode ? "true" : "false"}`);
+  console.log("MAGI backend listo para conexion MT5");
+  console.log("Esperando conexion desde MT5...");
+}
+
+if (process.argv.includes("--print-startup-check")) {
+  logStartupSummary();
+  process.exit(0);
+}
+
+function logIncomingSnapshot({ contract, symbol, snapshotData, validation }) {
+  const normalized = snapshotData.normalized || {};
+  const warnings = normalized.validation?.adapter_warnings || [];
+  const riskWarnings = [];
+  if (demoMode) {
+    if (normalized.account?.daily_drawdown_percent === 0) {
+      riskWarnings.push("daily_drawdown_percent=0.0 placeholder");
+    }
+    if (normalized.account?.risk_percent_per_trade === 0) {
+      riskWarnings.push("risk_percent_per_trade=0.0 placeholder");
+    }
+  }
+
+  console.log(
+    `[BotA] contract=${contract} symbol=${symbol || normalized.symbol || "unknown"} snapshot_id=${
+      normalized.snapshot_id || "n/a"
+    } source_mode=${normalized.source?.source_mode || normalized.raw?.source_mode || "n/a"} valid=${
+      validation.is_valid
+    }`,
+  );
+
+  for (const warning of [...warnings, ...riskWarnings]) {
+    console.log(`[BotA][warning] ${warning}`);
+  }
+}
+
+function logDecisionReady({ decision, auditFile }) {
+  console.log(
+    `[MAGI] decision_id=${decision.decision_id} action=${decision.final_action} symbol=${decision.symbol} audit_journal=${
+      auditFile ? "saved" : "missing"
+    }`,
+  );
+
+  if (demoMode) {
+    console.log(`[MAGI][demo] reason=${decision.reason || "sin razon"}`);
+  }
+}
+
 app.get("/health", (_req, res) => {
+  const services = buildStorageHealth();
   res.json({
     status: "ok",
-    service: "prosperity-magi",
-    uptimeSeconds: Math.round(process.uptime()),
     timestamp: new Date().toISOString(),
+    services: {
+      snapshots: Boolean(services.snapshots),
+      execution: Boolean(services.execution),
+      audit: Boolean(services.audit),
+    },
   });
 });
 
@@ -134,10 +290,12 @@ app.get("/api/overview", (_req, res) => {
 
 app.get("/api/snapshots", (req, res) => {
   const limit = Math.max(1, Math.min(100, Number(req.query.limit) || 20));
+  const items = listRecentSnapshots(limit);
 
   res.json({
-    items: listRecentSnapshots(limit),
-    total_returned: Math.min(limit, listRecentSnapshots(limit).length),
+    items,
+    latest: items[0] || null,
+    total_returned: items.length,
   });
 });
 
@@ -170,8 +328,12 @@ app.get("/api/cases/:id", (req, res) => {
 });
 
 app.get("/api/execution", (_req, res) => {
+  const items = listExecutionStates();
+
   res.json({
-    items: listExecutionStates(),
+    items,
+    latest: items[0] || null,
+    total_returned: items.length,
   });
 });
 
@@ -258,33 +420,47 @@ app.post("/analisis", async (req, res) => {
     const payload = safeJsonParse(req.body && Object.keys(req.body).length ? req.body : req.body || req.text || req.rawBody || "");
     logger.logBotA(payload);
 
-    const validation = validateLegacySnapshot(payload);
-    const snapshotData = adaptBotALegacySnapshot(payload, validation);
+    const { validation, snapshotData, contract, symbol } = adaptBotAPayload(payload);
+    logIncomingSnapshot({ contract, symbol, snapshotData, validation });
     const snapshotArtifacts = persistSnapshotArtifacts(snapshotData);
 
     logger.logSystem({
       event: "snapshot_received",
       snapshot_id: snapshotArtifacts.snapshot_id,
-      symbol: payload?.pair || "unknown",
+      symbol: symbol || "unknown",
+      contract,
       is_valid: validation.is_valid,
       issues: validation.issues,
+      adapter_warnings: snapshotData.normalized?.validation?.adapter_warnings || [],
     });
 
-    const mvpDecision = evaluateMvpDecision(snapshotData.normalized);
+    const mvpDecision = ensureDecisionAuditIdentity(evaluateMvpDecision(snapshotData.normalized));
     const botBResponse = mapMvpDecisionToBotBResponse(mvpDecision, payload);
     const executionState = persistExecutionState({
       decision: mvpDecision,
       response: botBResponse,
     });
+    const auditRecord = buildDecisionAuditRecord({
+      snapshot: snapshotData.normalized,
+      decision: mvpDecision,
+      executionPayload: botBResponse,
+      snapshotArtifacts,
+      executionState,
+      status: "sent",
+    });
+    const decisionAudit = persistDecisionAuditRecord(auditRecord);
+    logDecisionReady({ decision: mvpDecision, auditFile: decisionAudit.file_path });
 
     logger.logSystem({
       event: "mvp_decision_ready",
       snapshot_id: mvpDecision.snapshot_id,
+      decision_id: mvpDecision.decision_id,
       symbol: mvpDecision.symbol,
       case_state: mvpDecision.case_state,
       case_type: mvpDecision.case_type,
       final_action: mvpDecision.final_action,
       execution_file: executionState.file_path,
+      audit_file: decisionAudit.file_path,
     });
 
     logger.logBotB(botBResponse);
@@ -293,9 +469,15 @@ app.post("/analisis", async (req, res) => {
 
     res.json(botBResponse);
   } catch (error) {
-    res.status(500).json({
+    const statusCode = error.statusCode || 500;
+    logPostAnalisisError(req, error, {
+      status_code: statusCode,
+      validation: error.validation || null,
+    });
+    res.status(statusCode).json({
       error: "No fue posible procesar el analisis.",
       message: error.message,
+      validation: error.validation || null,
     });
   }
 });
@@ -308,7 +490,7 @@ app.post("/", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Prosperity / MAGI escuchando en http://localhost:${port}`);
+  logStartupSummary();
   console.log(`Dashboard listo en http://localhost:${port}/dashboard`);
   console.log(`Destino de despliegue previsto: ${siteUrl}`);
 });

@@ -573,20 +573,53 @@ bool MagiLoadTimeframeFeatures(const string symbol,
    string alignment_reason = "";
    if(!MagiCopyRatesAlignedClosed(symbol, timeframe, anchor_bar_time, 6, rates, shift_used, anchor_ibar_shift, selected_array_index, copied_array_size, rates_array_as_series, bars_available, oldest_bar_time, newest_bar_time, data_source_status, age_minutes, alignment_reason))
    {
-      feature.anchor_ibar_shift = anchor_ibar_shift;
-      feature.selected_shift = shift_used;
-      feature.selected_array_index = selected_array_index;
-      feature.copied_array_size = copied_array_size;
-      feature.rates_array_as_series = rates_array_as_series;
-      feature.bars_available = bars_available;
-      feature.oldest_bar_time = oldest_bar_time;
-      feature.newest_bar_time = newest_bar_time;
-      feature.data_source_status = data_source_status;
-      feature.age_minutes = age_minutes;
-      feature.alignment_status = "error";
-      feature.alignment_warning = alignment_reason;
-      MagiValidationAddIssue(validation, StringFormat("No se pudieron leer barras cerradas alineadas para %s en %s: %s", symbol, MagiTimeframeToLabel(timeframe), alignment_reason));
-      return false;
+      string original_data_source_status = data_source_status;
+      string original_alignment_reason = alignment_reason;
+      MqlRates fallback_rates[6];
+
+      if(!MagiCopyRatesClosed(symbol, timeframe, 1, 6, fallback_rates))
+      {
+         feature.anchor_ibar_shift = anchor_ibar_shift;
+         feature.selected_shift = shift_used;
+         feature.selected_array_index = selected_array_index;
+         feature.copied_array_size = copied_array_size;
+         feature.rates_array_as_series = rates_array_as_series;
+         feature.bars_available = bars_available;
+         feature.oldest_bar_time = oldest_bar_time;
+         feature.newest_bar_time = newest_bar_time;
+         feature.data_source_status = (timeframe == PERIOD_M15 ? "FALLBACK_FAILED" : data_source_status);
+         feature.age_minutes = age_minutes;
+         feature.alignment_status = (timeframe == PERIOD_M15 ? "warning" : "error");
+         feature.alignment_warning = StringFormat("fallback fallo; fallo MTF original: %s", original_alignment_reason);
+         if(timeframe == PERIOD_M15)
+         {
+            Print("[MAGI][WARN][M15] ignorando fallo parcial, snapshot sigue valido");
+            return true;
+         }
+
+         if(timeframe != PERIOD_M15)
+            MagiValidationAddIssue(validation, StringFormat("No se pudieron leer barras cerradas alineadas para %s en %s: %s", symbol, MagiTimeframeToLabel(timeframe), alignment_reason));
+         return false;
+      }
+
+      for(int fallback_index = 0; fallback_index < 6; fallback_index++)
+         rates[fallback_index] = fallback_rates[fallback_index];
+
+      shift_used = 1;
+      selected_array_index = 0;
+      copied_array_size = 6;
+      rates_array_as_series = ArrayGetAsSeries(fallback_rates);
+      age_minutes = MagiClosedBarAgeMinutes(anchor_bar_time, timeframe, rates[0].time);
+      data_source_status = "FALLBACK_LATEST_CLOSED";
+      alignment_reason = StringFormat("fallback aplicado; fallo MTF original: %s", original_alignment_reason);
+      MagiLog("WARN",
+              symbol,
+              StringFormat("MTF alignment fallo en %s. Fallback aplicado con ultima vela cerrada=%s close=%s status_original=%s reason=%s",
+                           MagiTimeframeToLabel(timeframe),
+                           MagiDateTimeToIso(rates[0].time),
+                           MagiDateTimeToIso(rates[0].time + PeriodSeconds(timeframe)),
+                           original_data_source_status,
+                           original_alignment_reason));
    }
 
    feature.bar_time = rates[0].time;
@@ -601,22 +634,22 @@ bool MagiLoadTimeframeFeatures(const string symbol,
    feature.oldest_bar_time = oldest_bar_time;
    feature.newest_bar_time = newest_bar_time;
    feature.data_source_status = data_source_status;
-   feature.alignment_status = "ok";
-   feature.alignment_warning = "";
+   feature.alignment_status = (data_source_status == "FALLBACK_LATEST_CLOSED" ? "fallback" : "ok");
+   feature.alignment_warning = (data_source_status == "FALLBACK_LATEST_CLOSED" ? alignment_reason : "");
    feature.candle_pattern = MagiDetectCandlePattern(rates[0], rates[1]);
    MagiDetectStructure(rates[0], rates[1], rates[2], feature.market_structure, feature.structure_direction);
    feature.recent_range = MagiComputeRecentRange(rates, 6);
 
-   if(!MagiReadMA(symbol, timeframe, 20, shift_used, feature.ema_20))
+   if(!MagiReadMA(symbol, timeframe, 20, shift_used, feature.ema_20) && timeframe != PERIOD_M15)
       MagiValidationAddIssue(validation, StringFormat("EMA 20 no disponible para %s en %s", symbol, MagiTimeframeToLabel(timeframe)));
 
-   if(!MagiReadMA(symbol, timeframe, 50, shift_used, feature.ema_50))
+   if(!MagiReadMA(symbol, timeframe, 50, shift_used, feature.ema_50) && timeframe != PERIOD_M15)
       MagiValidationAddIssue(validation, StringFormat("EMA 50 no disponible para %s en %s", symbol, MagiTimeframeToLabel(timeframe)));
 
-   if(!MagiReadMA(symbol, timeframe, 200, shift_used, feature.ema_200))
+   if(!MagiReadMA(symbol, timeframe, 200, shift_used, feature.ema_200) && timeframe != PERIOD_M15)
       MagiValidationAddIssue(validation, StringFormat("EMA 200 no disponible para %s en %s", symbol, MagiTimeframeToLabel(timeframe)));
 
-   if(!MagiReadRSI(symbol, timeframe, 14, shift_used, feature.rsi_14))
+   if(!MagiReadRSI(symbol, timeframe, 14, shift_used, feature.rsi_14) && timeframe != PERIOD_M15)
       MagiValidationAddIssue(validation, StringFormat("RSI 14 no disponible para %s en %s", symbol, MagiTimeframeToLabel(timeframe)));
 
    return true;
@@ -802,7 +835,10 @@ bool MagiBuildSnapshot(const string symbol,
    }
    else
    {
-      MagiValidationAddIssue(snapshot.validation, StringFormat("No se pudieron calcular soportes y resistencias alineados para %s: %s", snapshot.symbol, primary_alignment_reason));
+      MagiLog("WARN",
+              snapshot.symbol,
+              StringFormat("No se pudieron calcular soportes y resistencias alineados. Snapshot continua parcial. reason=%s",
+                           primary_alignment_reason));
    }
 
    MagiLoadPositionSnapshot(snapshot.symbol, snapshot.position, snapshot.validation);
@@ -833,6 +869,12 @@ bool MagiBuildSnapshot(const string symbol,
       if(snapshot.features[k].data_source_status == "INSUFFICIENT_HISTORY")
       {
          snapshot.mtf_data_source_status = "INSUFFICIENT_HISTORY";
+      }
+      else if((snapshot.features[k].data_source_status == "FALLBACK_LATEST_CLOSED" ||
+               snapshot.features[k].data_source_status == "FALLBACK_FAILED") &&
+              snapshot.mtf_data_source_status == "OK")
+      {
+         snapshot.mtf_data_source_status = "PARTIAL_FALLBACK";
       }
       else if(snapshot.features[k].data_source_status == "ALIGNMENT_ERROR" &&
               snapshot.mtf_data_source_status != "INSUFFICIENT_HISTORY")

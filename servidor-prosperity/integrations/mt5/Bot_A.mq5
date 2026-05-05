@@ -4,6 +4,7 @@
 //+------------------------------------------------------------------+
 #property strict
 
+#include "core/MagiCommon.mqh"
 #include "core/MagiFeatureEngine.mqh"
 #include "core/MagiSerializer.mqh"
 #include "core/MagiTransport.mqh"
@@ -11,7 +12,7 @@
 input string          InpSymbols               = "EURUSD,XAUUSD";
 input ENUM_TIMEFRAMES InpAnchorTimeframe       = PERIOD_M5;
 input ENUM_TIMEFRAMES InpPrimaryTimeframe      = PERIOD_H1;
-input string          InpServerUrl             = "https://prosperity.lat/analisis";
+input string          InpServerUrl             = "http://127.0.0.1:3000/analisis";
 input int             InpHttpTimeoutMs         = 5000;
 input bool            InpSkipInvalidSnapshots  = true;
 input bool            InpVerbosePayloadLog     = false;
@@ -96,6 +97,8 @@ void ProcessSymbol(const string symbol)
 
 int OnInit()
 {
+   Print("[MAGI][DEBUG] Bot_A VERSION=M15_NON_CRITICAL_FIX_ACTIVE");
+
    if(!SelectConfiguredSymbols())
    {
       MagiLog("ERROR", "INIT", "No hay simbolos configurados validos para Bot_A");

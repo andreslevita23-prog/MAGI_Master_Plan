@@ -44,6 +44,35 @@ npm start
 - `http://localhost:3000/`
 - `http://localhost:3000/dashboard`
 
+## Demo local MAGI con MT5
+
+Para la demo local estable usa el comando dedicado:
+
+```bash
+npm run start:demo
+```
+
+El backend queda escuchando por defecto en:
+
+- `http://127.0.0.1:3000/analisis` para `Bot A` por `POST`.
+- `http://127.0.0.1:3000/analisis/<SYMBOL>` para `Bot B` por `GET`.
+- `http://127.0.0.1:3000/dashboard` para monitoreo.
+
+En MT5 agrega esta URL en `Herramientas > Opciones > Asesores Expertos > Permitir WebRequest`:
+
+```text
+http://127.0.0.1:3000
+```
+
+Verificaciones rapidas en navegador:
+
+- `http://127.0.0.1:3000/health`
+- `http://127.0.0.1:3000/api/overview`
+- `http://127.0.0.1:3000/api/snapshots`
+- `http://127.0.0.1:3000/api/execution`
+
+Antes de probar ejecucion real, mantener modo observacion hasta cerrar riesgo real, lotaje y eventos de auditoria de Bot C.
+
 ## Scripts disponibles
 
 - `npm start`: inicia el servidor
@@ -106,6 +135,8 @@ data/
 
 - [Arquitectura](./docs/architecture.md)
 - [Plan de integracion](./docs/integration-plan.md)
+- [Estado actual MAGI 2026-05-05](./docs/magi-current-state-report-2026-05-05.md)
+- [Guia demo local](./docs/run-magi-demo.md)
 - [Transicion a MAGI modular](./docs/magi-modular-transition.md)
 - [Contratos de connectors](./docs/connectors.md)
 - [Estado del MVP web](./docs/mvp-web-fase0-fase1.md)

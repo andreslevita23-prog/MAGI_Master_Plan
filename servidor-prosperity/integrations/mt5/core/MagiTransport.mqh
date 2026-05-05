@@ -15,7 +15,18 @@ bool MagiHttpPostJson(const string url,
 {
    char data[];
    char result[];
-   StringToCharArray(payload, data, 0, WHOLE_ARRAY, CP_UTF8);
+   int copied = StringToCharArray(payload, data, 0, WHOLE_ARRAY, CP_UTF8);
+   bool removed_null_terminator = false;
+
+   if(copied > 0 && ArraySize(data) > 0 && data[ArraySize(data) - 1] == 0)
+   {
+      ArrayResize(data, ArraySize(data) - 1);
+      removed_null_terminator = true;
+   }
+
+   Print("[MAGI][DEBUG][TRANSPORT] StringLen=", StringLen(payload),
+         " ArraySize=", ArraySize(data),
+         " removed_null=", removed_null_terminator);
 
    string headers = "Content-Type: application/json\r\n";
    ResetLastError();

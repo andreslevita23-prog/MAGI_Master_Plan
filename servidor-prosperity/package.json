@@ -10,9 +10,13 @@
   "scripts": {
     "dev": "node --watch src/server/index.js",
     "start": "node src/server/index.js",
+    "start:demo": "node scripts/start-demo.mjs",
     "check": "node --check src/server/index.js",
+    "verify:demo-ready": "node scripts/verify-demo-ready.mjs",
     "smoke": "node scripts/smoke-test.mjs",
     "test:melchor": "node scripts/test-melchor-risk-engine.mjs",
+    "test:snapshot-v2": "node scripts/test-snapshot-v2-adapter.mjs",
+    "test:e2e-demo": "node scripts/test-end-to-end-demo.mjs",
     "test:input": "node scripts/test-input-open.js"
   },
   "keywords": [],

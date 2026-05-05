@@ -1,7 +1,8 @@
 export const executionResponseContract = {
   name: "bot_b_legacy_response",
-  description: "Contrato de salida compatible con GET /analisis/:symbol para Bot B.",
+  description: "Contrato de salida compatible con GET /analisis/:symbol para Bot B, enriquecido con IDs de auditoria.",
   requiredFields: ["action", "id_operacion", "details", "timestamp"],
+  optionalFields: ["decision_id", "snapshot_id", "decision_time"],
   nestedFields: {
     details: [
       "symbol",

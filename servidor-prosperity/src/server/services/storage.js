@@ -26,6 +26,34 @@ export function ensureProjectDirectories() {
     });
 }
 
+export function assertWritableDirectory(dirPath) {
+  ensureDir(dirPath);
+  const probePath = path.join(dirPath, `.write-probe-${process.pid}-${Date.now()}`);
+  fs.writeFileSync(probePath, "ok", "utf8");
+  fs.unlinkSync(probePath);
+  return true;
+}
+
+export function buildStorageHealth() {
+  const checks = {
+    data: paths.data,
+    snapshots: paths.snapshots,
+    execution: paths.execution,
+    audit: paths.audit,
+  };
+
+  return Object.fromEntries(
+    Object.entries(checks).map(([key, dirPath]) => {
+      try {
+        assertWritableDirectory(dirPath);
+        return [key, true];
+      } catch {
+        return [key, false];
+      }
+    }),
+  );
+}
+
 export function readJson(filePath, fallback = null) {
   try {
     if (!fs.existsSync(filePath)) {

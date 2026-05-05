@@ -11,6 +11,10 @@ log.txt
 data/errors/*.tmp
 data/logs/
 data/errors/
+data/audit/
+data/votes/
+data/snapshots/legacy/*.json
+data/snapshots/normalized/*.json
 
 # Local tooling and binaries
 cloudflared.exe.exe

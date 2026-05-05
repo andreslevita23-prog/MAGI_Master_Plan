@@ -16,6 +16,8 @@ export const paths = {
   analysis: path.join(projectRoot, "data", "analysis"),
   errors: path.join(projectRoot, "data", "errors"),
   logs: path.join(projectRoot, "data", "logs"),
+  audit: path.join(projectRoot, "data", "audit"),
+  auditDecisions: path.join(projectRoot, "data", "audit", "decisions"),
   responses: path.join(projectRoot, "data", "responses"),
   snapshots: path.join(projectRoot, "data", "snapshots"),
   snapshotLegacy: path.join(projectRoot, "data", "snapshots", "legacy"),

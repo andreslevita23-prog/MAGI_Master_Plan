@@ -11,6 +11,7 @@ Conectar la base operativa actual con una evolucion gradual hacia MAGI modular, 
 Ya estan implementados:
 
 - adaptador legacy de `Bot A`
+- adaptador `magi.snapshot.v2` de `Bot A` actual
 - snapshot normalizado interno
 - validacion de entrada
 - motor de decision MVP
@@ -32,8 +33,32 @@ La transicion debe hacerse sin tocar:
 
 - `integrations/mt5/BotA_v3.1.mq5`
 - `integrations/mt5/botB_v3.0.mq5`
-- contrato externo de `POST /analisis`
+- contrato externo legacy de `POST /analisis`
 - contrato externo de `GET /analisis/:symbol`
+
+## Contratos aceptados por POST /analisis
+
+`POST /analisis` acepta dos contratos de entrada:
+
+- `snapshot_legacy_mt5`: contrato historico de Bot A con campos como `pair`, `price`, `context`, `allowed_actions` e `id_operacion`.
+- `magi.snapshot.v2`: contrato tecnico actual de Bot A, alineado con el dataset generator `Bot_A_sub3`, con `symbol`, `current_price`, OHLC de barra ancla, indicadores, `features`, `gaspar_context`, `account`, `position` y `validation`.
+
+El backend detecta `magi.snapshot.v2` por `schema_version` y lo normaliza mediante `snapshot-v2-adapter.js`. Si no detecta v2, conserva el flujo legacy sin eliminar funciones existentes.
+
+Campos criticos para `magi.snapshot.v2`:
+
+- `symbol`
+- `current_price`
+- `timestamp`
+
+Si falta alguno, el endpoint rechaza la entrada con error `400`. Los campos no criticos faltantes se registran como issues de adaptacion para que aparezcan en logs, persistencia y consultas de snapshots.
+
+Limitaciones pendientes conocidas:
+
+- `daily_drawdown_percent` real no se calcula en Bot A; si llega en `0.0`, se conserva y se marca warning.
+- `risk_percent_per_trade` real no se calcula en Bot A; si llega en `0.0`, se conserva y se marca warning.
+- `news_context` aun llega como `news: []`.
+- Multiples posiciones abiertas no tienen detalle individual completo de SL/TP por posicion.
 
 ## Proximo objetivo tecnico
 
