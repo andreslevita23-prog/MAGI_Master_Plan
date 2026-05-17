@@ -1,0 +1,43 @@
+dataset,scenario,trades,tp,sl,be,win_rate,profit_factor,net,avg_r_or_pnl,max_drawdown,worst_loss_streak,best_win_streak,trades_removed,tp_removed,sl_removed,be_removed,removed_net,net_delta_vs_baseline,dd_delta_vs_baseline
+live_demo_organic_normalized_usd,Baseline,17,5,10,1,0.3333,1.0,0.0,0.0,1500.0,3,2,0,0,0,0,0,0.0,0.0
+live_demo_organic_normalized_usd,Friday Rule A - no opens after 12:00 Colombia,17,5,10,1,0.3333,1.0,0.0,0.0,1500.0,3,2,0,0,0,0,0,0.0,0.0
+live_demo_organic_normalized_usd,Friday Rule B - no opens after 10:00 Colombia,16,5,9,1,0.3571,1.1111,500.0,31.25,1500.0,3,2,1,0,1,0,-500.0,500.0,0.0
+live_demo_organic_normalized_usd,Friday Rule C - max 1 trade per session,11,4,6,1,0.4,1.3333,1000.0,90.909091,1000.0,2,2,6,1,4,0,-1000.0,1000.0,-500.0
+live_demo_organic_normalized_usd,Friday Rule D - after 1 SL safe until Monday,10,4,5,1,0.4444,1.6,1500.0,150.0,1000.0,2,2,7,1,5,0,-1500.0,1500.0,-500.0
+live_demo_organic_normalized_usd,Friday Rule E - after 2 SL safe until Monday,12,4,7,1,0.3636,1.1429,500.0,41.666667,1500.0,3,2,5,1,3,0,-500.0,500.0,0.0
+live_demo_organic_normalized_usd,"Friday Rule F - late only manage, no new opens",17,5,10,1,0.3333,1.0,0.0,0.0,1500.0,3,2,0,0,0,0,0,0.0,0.0
+artifacts/ceo_magi_v3/stress_months_trade_detail.csv,Baseline,278,183,95,0,0.6583,2.4272,176.727492,0.63571,7.516361,5,26,0,0,0,0,0,0.0,0.0
+artifacts/ceo_magi_v3/stress_months_trade_detail.csv,Friday Rule A - no opens after 12:00 Colombia,244,163,81,0,0.668,2.5307,161.513684,0.661941,7.481972,4,19,34,20,14,0,15.213808,-15.213808,-0.034389
+artifacts/ceo_magi_v3/stress_months_trade_detail.csv,Friday Rule B - no opens after 10:00 Colombia,244,163,81,0,0.668,2.5307,161.513684,0.661941,7.481972,4,19,34,20,14,0,15.213808,-15.213808,-0.034389
+artifacts/ceo_magi_v3/stress_months_trade_detail.csv,Friday Rule C - max 1 trade per session,221,145,76,0,0.6561,2.3907,137.807135,0.623562,7.481972,4,18,57,38,19,0,38.920357,-38.920357,-0.034389
+artifacts/ceo_magi_v3/stress_months_trade_detail.csv,Friday Rule D - after 1 SL safe until Monday,226,152,74,0,0.6726,2.5813,152.417653,0.674414,7.481972,4,26,52,31,21,0,24.309839,-24.309839,-0.034389
+artifacts/ceo_magi_v3/stress_months_trade_detail.csv,Friday Rule E - after 2 SL safe until Monday,238,160,78,0,0.6723,2.5775,160.387778,0.673898,7.481972,4,26,40,23,17,0,16.339714,-16.339714,-0.034389
+artifacts/ceo_magi_v3/stress_months_trade_detail.csv,"Friday Rule F - late only manage, no new opens",244,163,81,0,0.668,2.5307,161.513684,0.661941,7.481972,4,19,34,20,14,0,15.213808,-15.213808,-0.034389
+artifacts/ceo_magi_v3/ceo_magi_v3_decisions.csv,Baseline,3346,2440,906,0,0.7292,3.593,2804.002544,0.838016,7.516361,5,25,0,0,0,0,0,0.0,0.0
+artifacts/ceo_magi_v3/ceo_magi_v3_decisions.csv,Friday Rule A - no opens after 12:00 Colombia,2964,2147,817,0,0.7244,3.5091,2449.36199,0.82637,7.481972,6,23,382,293,89,0,354.640554,-354.640554,-0.034389
+artifacts/ceo_magi_v3/ceo_magi_v3_decisions.csv,Friday Rule B - no opens after 10:00 Colombia,2964,2147,817,0,0.7244,3.5091,2449.36199,0.82637,7.481972,6,23,382,293,89,0,354.640554,-354.640554,-0.034389
+artifacts/ceo_magi_v3/ceo_magi_v3_decisions.csv,Friday Rule C - max 1 trade per session,2895,2105,790,0,0.7271,3.5556,2398.365835,0.828451,7.481972,5,22,451,335,116,0,405.636709,-405.636709,-0.034389
+artifacts/ceo_magi_v3/ceo_magi_v3_decisions.csv,Friday Rule D - after 1 SL safe until Monday,2945,2149,796,0,0.7297,3.6022,2462.67725,0.836223,7.481972,5,25,401,291,110,0,341.325294,-341.325294,-0.034389
+artifacts/ceo_magi_v3/ceo_magi_v3_decisions.csv,Friday Rule E - after 2 SL safe until Monday,3166,2316,850,0,0.7315,3.6392,2673.988629,0.844595,7.481972,5,25,180,124,56,0,130.013915,-130.013915,-0.034389
+artifacts/ceo_magi_v3/ceo_magi_v3_decisions.csv,"Friday Rule F - late only manage, no new opens",2964,2147,817,0,0.7244,3.5091,2449.36199,0.82637,7.481972,6,23,382,293,89,0,354.640554,-354.640554,-0.034389
+artifacts/ceo_magi_v3/random_3_months_trade_audit.csv,Baseline,79,60,19,0,0.7595,4.2065,69.027735,0.873769,5.056002,4,12,0,0,0,0,0,0.0,0.0
+artifacts/ceo_magi_v3/random_3_months_trade_audit.csv,Friday Rule A - no opens after 12:00 Colombia,70,54,16,0,0.7714,4.2781,62.70341,0.895763,5.056002,4,11,9,6,3,0,6.324325,-6.324325,0.0
+artifacts/ceo_magi_v3/random_3_months_trade_audit.csv,Friday Rule B - no opens after 10:00 Colombia,70,54,16,0,0.7714,4.2781,62.70341,0.895763,5.056002,4,11,9,6,3,0,6.324325,-6.324325,0.0
+artifacts/ceo_magi_v3/random_3_months_trade_audit.csv,Friday Rule C - max 1 trade per session,75,57,18,0,0.76,4.0969,65.590472,0.87454,5.056002,4,12,4,3,1,0,3.437263,-3.437263,0.0
+artifacts/ceo_magi_v3/random_3_months_trade_audit.csv,Friday Rule D - after 1 SL safe until Monday,75,57,18,0,0.76,4.0391,64.366736,0.858223,5.056002,4,12,4,3,1,0,4.660999,-4.660999,0.0
+artifacts/ceo_magi_v3/random_3_months_trade_audit.csv,Friday Rule E - after 2 SL safe until Monday,79,60,19,0,0.7595,4.2065,69.027735,0.873769,5.056002,4,12,0,0,0,0,0,0.0,0.0
+artifacts/ceo_magi_v3/random_3_months_trade_audit.csv,"Friday Rule F - late only manage, no new opens",70,54,16,0,0.7714,4.2781,62.70341,0.895763,5.056002,4,11,9,6,3,0,6.324325,-6.324325,0.0
+artifacts/magi_realistic_scenario_c/scenario_c_realistic_trades.csv,Baseline,6539,3922,2615,0,0.6,2.8517,4669.93,0.714166,9.0,9,14,0,0,0,0,0,0.0,0.0
+artifacts/magi_realistic_scenario_c/scenario_c_realistic_trades.csv,Friday Rule A - no opens after 12:00 Colombia,5866,3526,2338,0,0.6013,2.8662,4207.14,0.717208,9.0,9,13,673,396,277,0,462.79,-462.79,0.0
+artifacts/magi_realistic_scenario_c/scenario_c_realistic_trades.csv,Friday Rule B - no opens after 10:00 Colombia,5866,3526,2338,0,0.6013,2.8662,4207.14,0.717208,9.0,9,13,673,396,277,0,462.79,-462.79,0.0
+artifacts/magi_realistic_scenario_c/scenario_c_realistic_trades.csv,Friday Rule C - max 1 trade per session,5621,3384,2235,0,0.6022,2.8698,4018.24,0.714862,10.03,9,13,918,538,380,0,651.69,-651.69,1.03
+artifacts/magi_realistic_scenario_c/scenario_c_realistic_trades.csv,Friday Rule D - after 1 SL safe until Monday,5498,3307,2189,0,0.6017,2.8593,3912.36,0.711597,9.0,9,14,1041,615,426,0,757.57,-757.57,0.0
+artifacts/magi_realistic_scenario_c/scenario_c_realistic_trades.csv,Friday Rule E - after 2 SL safe until Monday,5867,3543,2322,0,0.6041,2.8953,4232.71,0.721444,9.0,9,14,672,379,293,0,437.22,-437.22,0.0
+artifacts/magi_realistic_scenario_c/scenario_c_realistic_trades.csv,"Friday Rule F - late only manage, no new opens",5866,3526,2338,0,0.6013,2.8662,4207.14,0.717208,9.0,9,13,673,396,277,0,462.79,-462.79,0.0
+data/output/magi_v2/baltasar_v2_rich_features_model/policy_medium_r_simulation/simulated_trades_050.csv,Baseline,4907,2117,2787,3,0.4317,1.3496,929.04,0.18933,134.09,78,55,0,0,0,0,0,0.0,0.0
+data/output/magi_v2/baltasar_v2_rich_features_model/policy_medium_r_simulation/simulated_trades_050.csv,Friday Rule A - no opens after 12:00 Colombia,4523,1931,2589,3,0.4272,1.3158,778.44,0.172107,119.09,78,55,384,186,198,0,150.6,-150.6,-15.0
+data/output/magi_v2/baltasar_v2_rich_features_model/policy_medium_r_simulation/simulated_trades_050.csv,Friday Rule B - no opens after 10:00 Colombia,4523,1931,2589,3,0.4272,1.3158,778.44,0.172107,119.09,78,55,384,186,198,0,150.6,-150.6,-15.0
+data/output/magi_v2/baltasar_v2_rich_features_model/policy_medium_r_simulation/simulated_trades_050.csv,Friday Rule C - max 1 trade per session,3652,1613,2036,3,0.442,1.3831,744.06,0.20374,83.88,64,42,1255,504,751,0,184.98,-184.98,-50.21
+data/output/magi_v2/baltasar_v2_rich_features_model/policy_medium_r_simulation/simulated_trades_050.csv,Friday Rule D - after 1 SL safe until Monday,3864,1839,2022,3,0.4763,1.6078,1170.03,0.302803,77.88,63,55,1043,278,765,0,-240.99,240.99,-56.21
+data/output/magi_v2/baltasar_v2_rich_features_model/policy_medium_r_simulation/simulated_trades_050.csv,Friday Rule E - after 2 SL safe until Monday,3937,1862,2072,3,0.4733,1.5917,1165.64,0.296073,80.88,65,55,970,255,715,0,-236.6,236.6,-53.21
+data/output/magi_v2/baltasar_v2_rich_features_model/policy_medium_r_simulation/simulated_trades_050.csv,"Friday Rule F - late only manage, no new opens",4523,1931,2589,3,0.4272,1.3158,778.44,0.172107,119.09,78,55,384,186,198,0,150.6,-150.6,-15.0

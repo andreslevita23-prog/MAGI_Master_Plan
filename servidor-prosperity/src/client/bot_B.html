@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MAGI | Bot B</title>
+    <link rel="stylesheet" href="/static/styles/main.css" />
+  </head>
+  <body class="command-body" data-page="bot_B">
+    <div class="command-shell">
+      <aside class="command-sidebar">
+        <div class="brand-block"><img src="/assets/logo.png" alt="Logo Prosperity" class="sidebar-logo" /><div><p class="eyebrow">Registros</p><h1>Bot B</h1></div></div>
+        <nav class="nav-list">
+          <a href="/dashboard" class="nav-link" data-nav="dashboard">Dashboard</a>
+          <a href="/bot_A" class="nav-link" data-nav="bot_A">Bot A</a>
+          <a href="/magi" class="nav-link" data-nav="magi">MAGI</a>
+          <a href="/bot_B" class="nav-link" data-nav="bot_B">Bot B</a>
+          <a href="/bot_C" class="nav-link" data-nav="bot_C">Bot C</a>
+        </nav>
+      </aside>
+      <main class="command-main">
+        <header class="command-topbar"><div><p class="eyebrow">Payloads de ejecucion</p><h2>Bot B</h2></div><button id="refreshButton" class="button button-primary">Actualizar</button></header>
+        <section class="command-section"><div id="recordsTable"></div></section>
+      </main>
+    </div>
+    <script type="module" src="/static/scripts/platform.js"></script>
+  </body>
+</html>

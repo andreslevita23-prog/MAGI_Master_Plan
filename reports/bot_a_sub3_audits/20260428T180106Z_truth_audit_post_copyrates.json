@@ -1,0 +1,726 @@
+{
+  "generated_at": "2026-04-28T18:01:11.358835+00:00",
+  "run_path": "C:\\Users\\Asus\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\MAGI\\datasets\\bot_a_sub3\\run_2025-12-15_00-00-00",
+  "files": {
+    "csv": 86,
+    "jsonl": 86,
+    "markers": 1
+  },
+  "rows": {
+    "csv": 24346,
+    "jsonl": 24346,
+    "features": 97384
+  },
+  "parse_errors": {
+    "csv": [],
+    "jsonl": []
+  },
+  "schema": {
+    "csv_header_variants": 1,
+    "bad_features_json": 0,
+    "duplicate_snapshot_id": 0,
+    "new_fields": {
+      "selected_array_index": 97384,
+      "copied_array_size": 97384,
+      "rates_array_as_series": 97384
+    },
+    "missing_new_fields": 0
+  },
+  "validation": {
+    "true": 18603,
+    "false": 5743
+  },
+  "snapshot_mtf_data_source_status": {
+    "OK": 18603,
+    "ALIGNMENT_ERROR": 4364,
+    "INSUFFICIENT_HISTORY": 1379
+  },
+  "snapshot_mtf_alignment_status": {
+    "ok": 18603,
+    "warning": 5743
+  },
+  "feature_data_source_status": {
+    "OK": {
+      "count": 88987,
+      "pct": 91.38
+    },
+    "ALIGNMENT_ERROR": {
+      "count": 6904,
+      "pct": 7.09
+    },
+    "INSUFFICIENT_HISTORY": {
+      "count": 1493,
+      "pct": 1.53
+    }
+  },
+  "feature_alignment_status": {
+    "ok": {
+      "count": 88987,
+      "pct": 91.38
+    },
+    "error": {
+      "count": 8397,
+      "pct": 8.62
+    }
+  },
+  "tf_data_source_status": {
+    "M15": {
+      "OK": 24003,
+      "ALIGNMENT_ERROR": 44,
+      "INSUFFICIENT_HISTORY": 299
+    },
+    "H1": {
+      "OK": 22936,
+      "ALIGNMENT_ERROR": 216,
+      "INSUFFICIENT_HISTORY": 1194
+    },
+    "H4": {
+      "OK": 23424,
+      "ALIGNMENT_ERROR": 922
+    },
+    "D1": {
+      "OK": 18624,
+      "ALIGNMENT_ERROR": 5722
+    }
+  },
+  "tf_alignment_status": {
+    "M15": {
+      "ok": 24003,
+      "error": 343
+    },
+    "H1": {
+      "ok": 22936,
+      "error": 1410
+    },
+    "H4": {
+      "ok": 23424,
+      "error": 922
+    },
+    "D1": {
+      "ok": 18624,
+      "error": 5722
+    }
+  },
+  "age_stats": {
+    "M15": {
+      "count": 24346,
+      "min": -1.0,
+      "max": 10.0,
+      "mean": 4.984227388482708,
+      "over_limit": 44,
+      "over_limit_pct": 0.18
+    },
+    "H1": {
+      "count": 24346,
+      "min": -1.0,
+      "max": 55.0,
+      "mean": 27.24016265505627,
+      "over_limit": 216,
+      "over_limit_pct": 0.89
+    },
+    "H4": {
+      "count": 24346,
+      "min": -1.0,
+      "max": 235.0,
+      "mean": 112.80448533640023,
+      "over_limit": 922,
+      "over_limit_pct": 3.79
+    },
+    "D1": {
+      "count": 24346,
+      "min": -1.0,
+      "max": 1435.0,
+      "mean": 547.9215476875052,
+      "over_limit": 5722,
+      "over_limit_pct": 23.5
+    }
+  },
+  "bars_stats": {
+    "M15": {
+      "count": 24346,
+      "min": 48505,
+      "max": 56630,
+      "mean": 52571.25141707057
+    },
+    "H1": {
+      "count": 24346,
+      "min": 12135,
+      "max": 14167,
+      "mean": 13151.958104000658
+    },
+    "H4": {
+      "count": 24346,
+      "min": 3040,
+      "max": 3549,
+      "mean": 3294.4346915304363
+    },
+    "D1": {
+      "count": 24346,
+      "min": 509,
+      "max": 593,
+      "mean": 550.9889509570361
+    }
+  },
+  "critical_patterns": {
+    "selected_bar_inconsistent_old_or_rates0": 0,
+    "selected_mismatch_new_after_ordering": 0,
+    "no_closed_bar_within_limit": 6904
+  },
+  "ok_semantics": {
+    "ok_features": 88987,
+    "ok_real_bar_timestamp": 88987,
+    "ok_selected_index_valid": 88987,
+    "ok_exact_semantic_count": 88987
+  },
+  "top_reasons": [
+    {
+      "reason": "",
+      "count": 88987,
+      "pct_features": 91.38
+    },
+    {
+      "reason": "no hay vela cerrada dentro de 0..1440.00 minutos previos al anchor",
+      "count": 5722,
+      "pct_features": 5.88
+    },
+    {
+      "reason": "no hay vela cerrada dentro de 0..240.00 minutos previos al anchor",
+      "count": 922,
+      "pct_features": 0.95
+    },
+    {
+      "reason": "no hay vela cerrada dentro de 0..60.00 minutos previos al anchor",
+      "count": 216,
+      "pct_features": 0.22
+    },
+    {
+      "reason": "no hay vela cerrada dentro de 0..15.00 minutos previos al anchor",
+      "count": 44,
+      "pct_features": 0.05
+    },
+    {
+      "reason": "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2025-12-26T00:00:00; requeridas=6",
+      "count": 15,
+      "pct_features": 0.02
+    },
+    {
+      "reason": "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-01-02T00:00:00; requeridas=6",
+      "count": 15,
+      "pct_features": 0.02
+    },
+    {
+      "reason": "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-01-05T00:00:00; requeridas=6",
+      "count": 15,
+      "pct_features": 0.02
+    },
+    {
+      "reason": "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-01-12T00:00:00; requeridas=6",
+      "count": 15,
+      "pct_features": 0.02
+    },
+    {
+      "reason": "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-01-19T00:00:00; requeridas=6",
+      "count": 15,
+      "pct_features": 0.02
+    },
+    {
+      "reason": "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-01-26T00:00:00; requeridas=6",
+      "count": 15,
+      "pct_features": 0.02
+    },
+    {
+      "reason": "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-02-02T00:00:00; requeridas=6",
+      "count": 15,
+      "pct_features": 0.02
+    },
+    {
+      "reason": "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-02-09T00:00:00; requeridas=6",
+      "count": 15,
+      "pct_features": 0.02
+    },
+    {
+      "reason": "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-02-16T00:00:00; requeridas=6",
+      "count": 15,
+      "pct_features": 0.02
+    },
+    {
+      "reason": "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-02-23T00:00:00; requeridas=6",
+      "count": 15,
+      "pct_features": 0.02
+    },
+    {
+      "reason": "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-03-02T00:00:00; requeridas=6",
+      "count": 15,
+      "pct_features": 0.02
+    },
+    {
+      "reason": "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-03-09T00:00:00; requeridas=6",
+      "count": 15,
+      "pct_features": 0.02
+    },
+    {
+      "reason": "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-03-16T00:00:00; requeridas=6",
+      "count": 15,
+      "pct_features": 0.02
+    },
+    {
+      "reason": "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-03-23T00:00:00; requeridas=6",
+      "count": 15,
+      "pct_features": 0.02
+    },
+    {
+      "reason": "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-03-30T00:00:00; requeridas=6",
+      "count": 15,
+      "pct_features": 0.02
+    }
+  ],
+  "top_reasons_by_tf": {
+    "M15": [
+      {
+        "reason": "",
+        "count": 24003,
+        "pct_tf": 98.59
+      },
+      {
+        "reason": "no hay vela cerrada dentro de 0..15.00 minutos previos al anchor",
+        "count": 44,
+        "pct_tf": 0.18
+      },
+      {
+        "reason": "CopyRates por rango solo produjo 5 velas <= selected_bar_time=2025-12-15T01:00:00; requeridas=6",
+        "count": 3,
+        "pct_tf": 0.01
+      },
+      {
+        "reason": "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2025-12-26T00:00:00; requeridas=6",
+        "count": 3,
+        "pct_tf": 0.01
+      },
+      {
+        "reason": "CopyRates por rango solo produjo 2 velas <= selected_bar_time=2025-12-26T00:15:00; requeridas=6",
+        "count": 3,
+        "pct_tf": 0.01
+      },
+      {
+        "reason": "CopyRates por rango solo produjo 3 velas <= selected_bar_time=2025-12-26T00:30:00; requeridas=6",
+        "count": 3,
+        "pct_tf": 0.01
+      },
+      {
+        "reason": "CopyRates por rango solo produjo 4 velas <= selected_bar_time=2025-12-26T00:45:00; requeridas=6",
+        "count": 3,
+        "pct_tf": 0.01
+      },
+      {
+        "reason": "CopyRates por rango solo produjo 5 velas <= selected_bar_time=2025-12-26T01:00:00; requeridas=6",
+        "count": 3,
+        "pct_tf": 0.01
+      }
+    ],
+    "H1": [
+      {
+        "reason": "",
+        "count": 22936,
+        "pct_tf": 94.21
+      },
+      {
+        "reason": "no hay vela cerrada dentro de 0..60.00 minutos previos al anchor",
+        "count": 216,
+        "pct_tf": 0.89
+      },
+      {
+        "reason": "CopyRates por rango solo produjo 2 velas <= selected_bar_time=2025-12-15T01:00:00; requeridas=6",
+        "count": 12,
+        "pct_tf": 0.05
+      },
+      {
+        "reason": "CopyRates por rango solo produjo 3 velas <= selected_bar_time=2025-12-15T02:00:00; requeridas=6",
+        "count": 12,
+        "pct_tf": 0.05
+      },
+      {
+        "reason": "CopyRates por rango solo produjo 4 velas <= selected_bar_time=2025-12-15T03:00:00; requeridas=6",
+        "count": 12,
+        "pct_tf": 0.05
+      },
+      {
+        "reason": "CopyRates por rango solo produjo 5 velas <= selected_bar_time=2025-12-15T04:00:00; requeridas=6",
+        "count": 12,
+        "pct_tf": 0.05
+      },
+      {
+        "reason": "CopyRates por rango solo produjo 2 velas <= selected_bar_time=2025-12-22T01:00:00; requeridas=6",
+        "count": 12,
+        "pct_tf": 0.05
+      },
+      {
+        "reason": "CopyRates por rango solo produjo 3 velas <= selected_bar_time=2025-12-22T02:00:00; requeridas=6",
+        "count": 12,
+        "pct_tf": 0.05
+      }
+    ],
+    "H4": [
+      {
+        "reason": "",
+        "count": 23424,
+        "pct_tf": 96.21
+      },
+      {
+        "reason": "no hay vela cerrada dentro de 0..240.00 minutos previos al anchor",
+        "count": 922,
+        "pct_tf": 3.79
+      }
+    ],
+    "D1": [
+      {
+        "reason": "",
+        "count": 18624,
+        "pct_tf": 76.5
+      },
+      {
+        "reason": "no hay vela cerrada dentro de 0..1440.00 minutos previos al anchor",
+        "count": 5722,
+        "pct_tf": 23.5
+      }
+    ]
+  },
+  "samples": {
+    "M15": [
+      {
+        "timeframe": "M15",
+        "bar_timestamp": "2025-12-12T23:45:00",
+        "bar_close_timestamp": "2025-12-13T00:00:00",
+        "age_minutes": 0.0,
+        "selected_shift": 1,
+        "selected_array_index": 24,
+        "copied_array_size": 25,
+        "rates_array_as_series": false,
+        "bars_available": 48505,
+        "oldest_bar_time": "2024-01-02T00:00:00",
+        "newest_bar_time": "2025-12-15T00:00:00",
+        "data_source_status": "OK",
+        "alignment_status": "ok",
+        "alignment_warning": ""
+      },
+      {
+        "timeframe": "M15",
+        "bar_timestamp": "1970-01-01T00:00:00",
+        "bar_close_timestamp": "1970-01-01T00:00:00",
+        "age_minutes": -1.0,
+        "selected_shift": -1,
+        "selected_array_index": -1,
+        "copied_array_size": 0,
+        "rates_array_as_series": false,
+        "bars_available": 48505,
+        "oldest_bar_time": "2024-01-02T00:00:00",
+        "newest_bar_time": "2025-12-15T00:00:00",
+        "data_source_status": "ALIGNMENT_ERROR",
+        "alignment_status": "error",
+        "alignment_warning": "no hay vela cerrada dentro de 0..15.00 minutos previos al anchor"
+      },
+      {
+        "timeframe": "M15",
+        "bar_timestamp": "1970-01-01T00:00:00",
+        "bar_close_timestamp": "1970-01-01T00:00:00",
+        "age_minutes": -1.0,
+        "selected_shift": -1,
+        "selected_array_index": -1,
+        "copied_array_size": 0,
+        "rates_array_as_series": false,
+        "bars_available": 48506,
+        "oldest_bar_time": "2024-01-02T00:00:00",
+        "newest_bar_time": "2025-12-15T00:15:00",
+        "data_source_status": "ALIGNMENT_ERROR",
+        "alignment_status": "error",
+        "alignment_warning": "no hay vela cerrada dentro de 0..15.00 minutos previos al anchor"
+      },
+      {
+        "timeframe": "M15",
+        "bar_timestamp": "1970-01-01T00:00:00",
+        "bar_close_timestamp": "1970-01-01T00:00:00",
+        "age_minutes": 5.0,
+        "selected_shift": 1,
+        "selected_array_index": 0,
+        "copied_array_size": 1,
+        "rates_array_as_series": false,
+        "bars_available": 48506,
+        "oldest_bar_time": "2024-01-02T00:00:00",
+        "newest_bar_time": "2025-12-15T00:15:00",
+        "data_source_status": "INSUFFICIENT_HISTORY",
+        "alignment_status": "error",
+        "alignment_warning": "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2025-12-15T00:00:00; requeridas=6"
+      },
+      {
+        "timeframe": "M15",
+        "bar_timestamp": "1970-01-01T00:00:00",
+        "bar_close_timestamp": "1970-01-01T00:00:00",
+        "age_minutes": 10.0,
+        "selected_shift": 1,
+        "selected_array_index": 0,
+        "copied_array_size": 1,
+        "rates_array_as_series": false,
+        "bars_available": 48506,
+        "oldest_bar_time": "2024-01-02T00:00:00",
+        "newest_bar_time": "2025-12-15T00:15:00",
+        "data_source_status": "INSUFFICIENT_HISTORY",
+        "alignment_status": "error",
+        "alignment_warning": "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2025-12-15T00:00:00; requeridas=6"
+      }
+    ],
+    "H1": [
+      {
+        "timeframe": "H1",
+        "bar_timestamp": "2025-12-12T23:00:00",
+        "bar_close_timestamp": "2025-12-13T00:00:00",
+        "age_minutes": 0.0,
+        "selected_shift": 1,
+        "selected_array_index": 24,
+        "copied_array_size": 25,
+        "rates_array_as_series": false,
+        "bars_available": 12135,
+        "oldest_bar_time": "2024-01-02T00:00:00",
+        "newest_bar_time": "2025-12-15T00:00:00",
+        "data_source_status": "OK",
+        "alignment_status": "ok",
+        "alignment_warning": ""
+      },
+      {
+        "timeframe": "H1",
+        "bar_timestamp": "1970-01-01T00:00:00",
+        "bar_close_timestamp": "1970-01-01T00:00:00",
+        "age_minutes": -1.0,
+        "selected_shift": -1,
+        "selected_array_index": -1,
+        "copied_array_size": 0,
+        "rates_array_as_series": false,
+        "bars_available": 12135,
+        "oldest_bar_time": "2024-01-02T00:00:00",
+        "newest_bar_time": "2025-12-15T00:00:00",
+        "data_source_status": "ALIGNMENT_ERROR",
+        "alignment_status": "error",
+        "alignment_warning": "no hay vela cerrada dentro de 0..60.00 minutos previos al anchor"
+      },
+      {
+        "timeframe": "H1",
+        "bar_timestamp": "1970-01-01T00:00:00",
+        "bar_close_timestamp": "1970-01-01T00:00:00",
+        "age_minutes": -1.0,
+        "selected_shift": -1,
+        "selected_array_index": -1,
+        "copied_array_size": 0,
+        "rates_array_as_series": false,
+        "bars_available": 12135,
+        "oldest_bar_time": "2024-01-02T00:00:00",
+        "newest_bar_time": "2025-12-15T00:00:00",
+        "data_source_status": "ALIGNMENT_ERROR",
+        "alignment_status": "error",
+        "alignment_warning": "no hay vela cerrada dentro de 0..60.00 minutos previos al anchor"
+      },
+      {
+        "timeframe": "H1",
+        "bar_timestamp": "1970-01-01T00:00:00",
+        "bar_close_timestamp": "1970-01-01T00:00:00",
+        "age_minutes": -1.0,
+        "selected_shift": -1,
+        "selected_array_index": -1,
+        "copied_array_size": 0,
+        "rates_array_as_series": false,
+        "bars_available": 12135,
+        "oldest_bar_time": "2024-01-02T00:00:00",
+        "newest_bar_time": "2025-12-15T00:00:00",
+        "data_source_status": "ALIGNMENT_ERROR",
+        "alignment_status": "error",
+        "alignment_warning": "no hay vela cerrada dentro de 0..60.00 minutos previos al anchor"
+      },
+      {
+        "timeframe": "H1",
+        "bar_timestamp": "1970-01-01T00:00:00",
+        "bar_close_timestamp": "1970-01-01T00:00:00",
+        "age_minutes": -1.0,
+        "selected_shift": -1,
+        "selected_array_index": -1,
+        "copied_array_size": 0,
+        "rates_array_as_series": false,
+        "bars_available": 12135,
+        "oldest_bar_time": "2024-01-02T00:00:00",
+        "newest_bar_time": "2025-12-15T00:00:00",
+        "data_source_status": "ALIGNMENT_ERROR",
+        "alignment_status": "error",
+        "alignment_warning": "no hay vela cerrada dentro de 0..60.00 minutos previos al anchor"
+      }
+    ],
+    "H4": [
+      {
+        "timeframe": "H4",
+        "bar_timestamp": "2025-12-12T20:00:00",
+        "bar_close_timestamp": "2025-12-13T00:00:00",
+        "age_minutes": 0.0,
+        "selected_shift": 1,
+        "selected_array_index": 24,
+        "copied_array_size": 25,
+        "rates_array_as_series": false,
+        "bars_available": 3040,
+        "oldest_bar_time": "2024-01-02T00:00:00",
+        "newest_bar_time": "2025-12-15T00:00:00",
+        "data_source_status": "OK",
+        "alignment_status": "ok",
+        "alignment_warning": ""
+      },
+      {
+        "timeframe": "H4",
+        "bar_timestamp": "1970-01-01T00:00:00",
+        "bar_close_timestamp": "1970-01-01T00:00:00",
+        "age_minutes": -1.0,
+        "selected_shift": -1,
+        "selected_array_index": -1,
+        "copied_array_size": 0,
+        "rates_array_as_series": false,
+        "bars_available": 3040,
+        "oldest_bar_time": "2024-01-02T00:00:00",
+        "newest_bar_time": "2025-12-15T00:00:00",
+        "data_source_status": "ALIGNMENT_ERROR",
+        "alignment_status": "error",
+        "alignment_warning": "no hay vela cerrada dentro de 0..240.00 minutos previos al anchor"
+      },
+      {
+        "timeframe": "H4",
+        "bar_timestamp": "1970-01-01T00:00:00",
+        "bar_close_timestamp": "1970-01-01T00:00:00",
+        "age_minutes": -1.0,
+        "selected_shift": -1,
+        "selected_array_index": -1,
+        "copied_array_size": 0,
+        "rates_array_as_series": false,
+        "bars_available": 3040,
+        "oldest_bar_time": "2024-01-02T00:00:00",
+        "newest_bar_time": "2025-12-15T00:00:00",
+        "data_source_status": "ALIGNMENT_ERROR",
+        "alignment_status": "error",
+        "alignment_warning": "no hay vela cerrada dentro de 0..240.00 minutos previos al anchor"
+      },
+      {
+        "timeframe": "H4",
+        "bar_timestamp": "1970-01-01T00:00:00",
+        "bar_close_timestamp": "1970-01-01T00:00:00",
+        "age_minutes": -1.0,
+        "selected_shift": -1,
+        "selected_array_index": -1,
+        "copied_array_size": 0,
+        "rates_array_as_series": false,
+        "bars_available": 3040,
+        "oldest_bar_time": "2024-01-02T00:00:00",
+        "newest_bar_time": "2025-12-15T00:00:00",
+        "data_source_status": "ALIGNMENT_ERROR",
+        "alignment_status": "error",
+        "alignment_warning": "no hay vela cerrada dentro de 0..240.00 minutos previos al anchor"
+      },
+      {
+        "timeframe": "H4",
+        "bar_timestamp": "1970-01-01T00:00:00",
+        "bar_close_timestamp": "1970-01-01T00:00:00",
+        "age_minutes": -1.0,
+        "selected_shift": -1,
+        "selected_array_index": -1,
+        "copied_array_size": 0,
+        "rates_array_as_series": false,
+        "bars_available": 3040,
+        "oldest_bar_time": "2024-01-02T00:00:00",
+        "newest_bar_time": "2025-12-15T00:00:00",
+        "data_source_status": "ALIGNMENT_ERROR",
+        "alignment_status": "error",
+        "alignment_warning": "no hay vela cerrada dentro de 0..240.00 minutos previos al anchor"
+      }
+    ],
+    "D1": [
+      {
+        "timeframe": "D1",
+        "bar_timestamp": "2025-12-12T00:00:00",
+        "bar_close_timestamp": "2025-12-13T00:00:00",
+        "age_minutes": 0.0,
+        "selected_shift": 1,
+        "selected_array_index": 18,
+        "copied_array_size": 19,
+        "rates_array_as_series": false,
+        "bars_available": 509,
+        "oldest_bar_time": "2024-01-02T00:00:00",
+        "newest_bar_time": "2025-12-15T00:00:00",
+        "data_source_status": "OK",
+        "alignment_status": "ok",
+        "alignment_warning": ""
+      },
+      {
+        "timeframe": "D1",
+        "bar_timestamp": "1970-01-01T00:00:00",
+        "bar_close_timestamp": "1970-01-01T00:00:00",
+        "age_minutes": -1.0,
+        "selected_shift": -1,
+        "selected_array_index": -1,
+        "copied_array_size": 0,
+        "rates_array_as_series": false,
+        "bars_available": 509,
+        "oldest_bar_time": "2024-01-02T00:00:00",
+        "newest_bar_time": "2025-12-15T00:00:00",
+        "data_source_status": "ALIGNMENT_ERROR",
+        "alignment_status": "error",
+        "alignment_warning": "no hay vela cerrada dentro de 0..1440.00 minutos previos al anchor"
+      },
+      {
+        "timeframe": "D1",
+        "bar_timestamp": "1970-01-01T00:00:00",
+        "bar_close_timestamp": "1970-01-01T00:00:00",
+        "age_minutes": -1.0,
+        "selected_shift": -1,
+        "selected_array_index": -1,
+        "copied_array_size": 0,
+        "rates_array_as_series": false,
+        "bars_available": 509,
+        "oldest_bar_time": "2024-01-02T00:00:00",
+        "newest_bar_time": "2025-12-15T00:00:00",
+        "data_source_status": "ALIGNMENT_ERROR",
+        "alignment_status": "error",
+        "alignment_warning": "no hay vela cerrada dentro de 0..1440.00 minutos previos al anchor"
+      },
+      {
+        "timeframe": "D1",
+        "bar_timestamp": "1970-01-01T00:00:00",
+        "bar_close_timestamp": "1970-01-01T00:00:00",
+        "age_minutes": -1.0,
+        "selected_shift": -1,
+        "selected_array_index": -1,
+        "copied_array_size": 0,
+        "rates_array_as_series": false,
+        "bars_available": 509,
+        "oldest_bar_time": "2024-01-02T00:00:00",
+        "newest_bar_time": "2025-12-15T00:00:00",
+        "data_source_status": "ALIGNMENT_ERROR",
+        "alignment_status": "error",
+        "alignment_warning": "no hay vela cerrada dentro de 0..1440.00 minutos previos al anchor"
+      },
+      {
+        "timeframe": "D1",
+        "bar_timestamp": "1970-01-01T00:00:00",
+        "bar_close_timestamp": "1970-01-01T00:00:00",
+        "age_minutes": -1.0,
+        "selected_shift": -1,
+        "selected_array_index": -1,
+        "copied_array_size": 0,
+        "rates_array_as_series": false,
+        "bars_available": 509,
+        "oldest_bar_time": "2024-01-02T00:00:00",
+        "newest_bar_time": "2025-12-15T00:00:00",
+        "data_source_status": "ALIGNMENT_ERROR",
+        "alignment_status": "error",
+        "alignment_warning": "no hay vela cerrada dentro de 0..1440.00 minutos previos al anchor"
+      }
+    ]
+  },
+  "root_cause": "PARTIAL_HISTORY_GAPS",
+  "score": 80,
+  "readiness": {
+    "python_simulator": "APTO SOLO INGESTA/DEBUG",
+    "baltasar_training": "NO APTO",
+    "gaspar_training": "NO APTO",
+    "ceo_magi": "NO APTO",
+    "melchor": "NO APTO"
+  }
+}

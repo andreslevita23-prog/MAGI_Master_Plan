@@ -15,11 +15,14 @@ data/audit/
 data/votes/
 data/snapshots/legacy/*.json
 data/snapshots/normalized/*.json
+data/analysis/*.json
+data/execution/*.json
+data/system/
 
 # Local tooling and binaries
 cloudflared.exe.exe
 ngrok.exe
 tools/
 
-# Legacy placeholders
-{
+# MT5 compiled binaries
+*.ex5

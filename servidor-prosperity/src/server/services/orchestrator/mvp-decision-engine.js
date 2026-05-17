@@ -1,4 +1,5 @@
 import { evaluateAndPersistMelchorVote } from "../voting/melchor-voting.service.js";
+import { applyOperationalGovernance } from "../governance/operational-governance.service.js";
 
 function toNumber(value, fallback = 0) {
   const parsed = Number(value);
@@ -210,13 +211,14 @@ function applyCeoRiskGovernance(snapshot, preliminaryDecision) {
 
 export function evaluateMvpDecision(snapshot) {
   let preliminaryDecision;
+  const finalize = (decision) => applyOperationalGovernance(snapshot, decision);
 
   if (!snapshot?.validation?.is_valid) {
     preliminaryDecision = buildHoldDecision(
       snapshot,
       "No se crea caso: el snapshot llego con validaciones pendientes.",
     );
-    return applyCeoRiskGovernance(snapshot, preliminaryDecision);
+    return finalize(applyCeoRiskGovernance(snapshot, preliminaryDecision));
   }
 
   if (snapshot.symbol !== "EURUSD") {
@@ -224,7 +226,7 @@ export function evaluateMvpDecision(snapshot) {
       snapshot,
       "No se crea caso: el MVP actual solo opera EURUSD.",
     );
-    return applyCeoRiskGovernance(snapshot, preliminaryDecision);
+    return finalize(applyCeoRiskGovernance(snapshot, preliminaryDecision));
   }
 
   if (snapshot.position?.has_open_position || snapshot.position?.open_positions_count > 0) {
@@ -233,7 +235,7 @@ export function evaluateMvpDecision(snapshot) {
       "Se detecta posicion abierta. El MVP conserva gestion pasiva y no envia cambios todavia.",
       { case_state: "caso_mvp", case_type: "management_case" },
     );
-    return applyCeoRiskGovernance(snapshot, preliminaryDecision);
+    return finalize(applyCeoRiskGovernance(snapshot, preliminaryDecision));
   }
 
   if (snapshot.market?.context !== "waiting_for_entry" || !hasAction(snapshot, "open")) {
@@ -241,7 +243,7 @@ export function evaluateMvpDecision(snapshot) {
       snapshot,
       "No se crea caso: el contexto actual no habilita una entrada MVP.",
     );
-    return applyCeoRiskGovernance(snapshot, preliminaryDecision);
+    return finalize(applyCeoRiskGovernance(snapshot, preliminaryDecision));
   }
 
   if (isBullishSetup(snapshot)) {
@@ -250,7 +252,7 @@ export function evaluateMvpDecision(snapshot) {
       "buy",
       "Caso MVP detectado: confluencia alcista H1/H4 con RSI y EMAs alineadas.",
     );
-    return applyCeoRiskGovernance(snapshot, preliminaryDecision);
+    return finalize(applyCeoRiskGovernance(snapshot, preliminaryDecision));
   }
 
   if (isBearishSetup(snapshot)) {
@@ -259,12 +261,12 @@ export function evaluateMvpDecision(snapshot) {
       "sell",
       "Caso MVP detectado: confluencia bajista H1/H4 con RSI y EMAs alineadas.",
     );
-    return applyCeoRiskGovernance(snapshot, preliminaryDecision);
+    return finalize(applyCeoRiskGovernance(snapshot, preliminaryDecision));
   }
 
   preliminaryDecision = buildHoldDecision(
     snapshot,
     "No se crea caso: no hay confluencia minima suficiente para abrir entrada.",
   );
-  return applyCeoRiskGovernance(snapshot, preliminaryDecision);
+  return finalize(applyCeoRiskGovernance(snapshot, preliminaryDecision));
 }

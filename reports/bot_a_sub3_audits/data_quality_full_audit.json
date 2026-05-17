@@ -1,0 +1,366 @@
+{
+  "cleaning_proposal": [
+    "Usar JSONL como fuente primaria y CSV solo como respaldo/inventario para evitar duplicados.",
+    "Consolidar por snapshot_id y por (symbol, anchor_bar_timestamp), conservando el primer registro v\u00e1lido.",
+    "Ordenar siempre por symbol + anchor_bar_timestamp antes de cualquier simulaci\u00f3n.",
+    "Filtrar snapshots con validation.is_valid=false o con OHLC inv\u00e1lido.",
+    "Mantener timestamps normalizados a UTC y documentar campos fuente sin sufijo Z como UTC asumido.",
+    "Crear un calendario de mercado para distinguir cierres normales de gaps intrad\u00eda reales.",
+    "Revisar snapshots con spread_pips > 5 y decidir si se filtran o se etiquetan como r\u00e9gimen de baja calidad.",
+    "Aplicar leakage guard antes de entregar features a cualquier modelo."
+  ],
+  "data_path": "C:\\Users\\Asus\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\MAGI\\datasets\\bot_a_sub3",
+  "decision": "apto con advertencias",
+  "generated_at": "2026-04-29T01:44:09.050095Z",
+  "inventory": {
+    "corrupt_jsonl_files": 0,
+    "csv_files": 1709,
+    "csv_size_mb": 1257.68,
+    "duplicate_snapshot_ids_removed_from_view": 18612,
+    "duplicate_symbol_anchor_removed_from_view": 0,
+    "empty_jsonl_files": 0,
+    "first_anchor_bar_timestamp": "2020-01-15T00:00:00Z",
+    "first_timestamp": "2020-01-15T00:00:00Z",
+    "jsonl_files": 1709,
+    "jsonl_size_mb": 1767.27,
+    "last_anchor_bar_timestamp": "2026-04-14T23:55:00Z",
+    "last_timestamp": "2026-04-14T23:55:00Z",
+    "raw_jsonl_lines": 390125,
+    "source_runs_unique_snapshots": {
+      "run_2020-01-15_00-00-00_671181687": 371513
+    },
+    "symbols": {
+      "EURUSD": 371513
+    },
+    "timeframes": {
+      "M5": 371513
+    },
+    "total_size_mb": 3024.95,
+    "unique_snapshots": 371513
+  },
+  "issues": [
+    {
+      "code": "duplicate_snapshot_ids",
+      "count": 18612,
+      "impact": "Duplicates must be removed before simulation.",
+      "severity": "high"
+    },
+    {
+      "code": "spread_extreme_gt_5_pips",
+      "count": 1467,
+      "impact": "Extreme spreads may require filtering by session/news.",
+      "severity": "medium"
+    },
+    {
+      "code": "forbidden_future_columns_present",
+      "count": 371513,
+      "impact": "Forbidden feature names are present and must be stripped before modeling.",
+      "severity": "medium"
+    },
+    {
+      "code": "temporal_gaps_EURUSD",
+      "count": 85,
+      "impact": "Intraday M5 gaps can bias forward horizons.",
+      "severity": "medium"
+    }
+  ],
+  "magi_critical_checks": {
+    "anchor_not_m5": 0,
+    "forbidden_future_columns_non_null_top": {},
+    "forbidden_future_columns_non_null_total": 0,
+    "forbidden_future_columns_top": {
+      "position.floating_pnl": 371513
+    },
+    "forbidden_future_columns_total": 371513,
+    "gaspar_mtf_failures": {},
+    "mtf_age_failures": {},
+    "mtf_close_timestamp_leakage": {},
+    "trigger_not_closed_bar": 0
+  },
+  "market_distribution": {
+    "by_month": {
+      "2020-01": 3169,
+      "2020-02": 4608,
+      "2020-03": 4861,
+      "2020-04": 5184,
+      "2020-05": 4896,
+      "2020-06": 4896,
+      "2020-07": 5472,
+      "2020-08": 4608,
+      "2020-09": 5184,
+      "2020-10": 5172,
+      "2020-11": 4609,
+      "2020-12": 5116,
+      "2021-01": 4609,
+      "2021-02": 4608,
+      "2021-03": 5160,
+      "2021-04": 5184,
+      "2021-05": 4609,
+      "2021-06": 5098,
+      "2021-07": 5184,
+      "2021-08": 4896,
+      "2021-09": 5184,
+      "2021-10": 4896,
+      "2021-11": 4884,
+      "2021-12": 5427,
+      "2022-01": 4608,
+      "2022-02": 4608,
+      "2022-03": 5446,
+      "2022-04": 4897,
+      "2022-05": 4897,
+      "2022-06": 5184,
+      "2022-07": 4896,
+      "2022-08": 5183,
+      "2022-09": 5184,
+      "2022-10": 4608,
+      "2022-11": 5172,
+      "2022-12": 5185,
+      "2023-01": 4896,
+      "2023-02": 4607,
+      "2023-03": 5431,
+      "2023-04": 4592,
+      "2023-05": 5167,
+      "2023-06": 5171,
+      "2023-07": 4591,
+      "2023-08": 5466,
+      "2023-09": 4901,
+      "2023-10": 4900,
+      "2023-11": 5176,
+      "2023-12": 4853,
+      "2024-01": 4899,
+      "2024-02": 4900,
+      "2024-03": 4858,
+      "2024-04": 4900,
+      "2024-05": 5476,
+      "2024-06": 4613,
+      "2024-07": 4999,
+      "2024-08": 5189,
+      "2024-09": 4612,
+      "2024-10": 5476,
+      "2024-11": 4889,
+      "2024-12": 4566,
+      "2025-01": 4844,
+      "2025-02": 4612,
+      "2025-03": 4577,
+      "2025-04": 5188,
+      "2025-05": 5177,
+      "2025-06": 4612,
+      "2025-07": 5235,
+      "2025-08": 4899,
+      "2025-09": 4900,
+      "2025-10": 5430,
+      "2025-11": 4612,
+      "2025-12": 4595,
+      "2026-01": 4612,
+      "2026-02": 4539,
+      "2026-03": 4865,
+      "2026-04": 2306
+    },
+    "by_session": {
+      "asia": 108438,
+      "inactive": 30600,
+      "london": 77499,
+      "new_york": 92969,
+      "overlap": 62007
+    },
+    "by_year": {
+      "2020": 57775,
+      "2021": 59739,
+      "2022": 59868,
+      "2023": 59751,
+      "2024": 59377,
+      "2025": 58681,
+      "2026": 16322
+    },
+    "m5_range_pips": {
+      "count": 371513,
+      "max": 130.5,
+      "mean": 3.99464,
+      "median": 3.2,
+      "min": 0.0,
+      "p25": 2.0,
+      "p75": 5.0,
+      "p95": 9.6,
+      "p99": 16.2
+    },
+    "spread_pips": {
+      "count": 371513,
+      "max": 31.9,
+      "mean": 0.415663,
+      "median": 0.2,
+      "min": 0.1,
+      "p25": 0.1,
+      "p75": 0.5,
+      "p95": 1.2,
+      "p99": 3.6
+    }
+  },
+  "quality": {
+    "duplicates_by_snapshot_id": 18612,
+    "duplicates_by_symbol_anchor": 0,
+    "features_complete_count": 371513,
+    "features_complete_pct": 100.0,
+    "gaspar_context_available_count": 371513,
+    "gaspar_context_available_pct": 100.0,
+    "invalid_or_unflagged_snapshots": 0,
+    "missing_gaspar_context": 0,
+    "ohlc_invalid": 0,
+    "parse_errors_count": 0,
+    "parse_errors_sample": [],
+    "spread_extreme_gt_5_pips": 1467,
+    "spread_negative": 0,
+    "timestamps_out_of_order_count": 0,
+    "timestamps_out_of_order_sample": [],
+    "timezone_naive_fields": {
+      "anchor_bar_timestamp": 390125,
+      "bar_timestamp": 390125
+    },
+    "valid_snapshots_by_source_flag": 371513
+  },
+  "runs_detected": [
+    {
+      "last_write_time": 1777413697.8694575,
+      "path": "C:\\Users\\Asus\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\MAGI\\datasets\\bot_a_sub3\\run_2020-01-15_00-00-00_671181687"
+    },
+    {
+      "last_write_time": 1777402212.72736,
+      "path": "C:\\Users\\Asus\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\MAGI\\datasets\\bot_a_sub3\\run_2025-12-15_00-00-00_659700906"
+    }
+  ],
+  "schema_version": "bot_a_sub3_full_audit_v0.1",
+  "temporal_gaps": {
+    "EURUSD": {
+      "duplicate_anchor_count_after_id_dedupe": 0,
+      "gap_counts": {
+        "intraday_30_to_240_min": 12,
+        "major_gt_3_days": 185,
+        "market_closure_or_multiday": 149,
+        "minor_5_to_30_min": 73
+      },
+      "gap_examples": [
+        {
+          "bucket": "major_gt_3_days",
+          "from": "2020-01-17T23:55:00Z",
+          "minutes": 4325.0,
+          "to": "2020-01-21T00:00:00Z"
+        },
+        {
+          "bucket": "market_closure_or_multiday",
+          "from": "2020-01-25T00:00:00Z",
+          "minutes": 4320.0,
+          "to": "2020-01-28T00:00:00Z"
+        },
+        {
+          "bucket": "major_gt_3_days",
+          "from": "2020-01-31T23:55:00Z",
+          "minutes": 4325.0,
+          "to": "2020-02-04T00:00:00Z"
+        },
+        {
+          "bucket": "major_gt_3_days",
+          "from": "2020-02-07T23:55:00Z",
+          "minutes": 4325.0,
+          "to": "2020-02-11T00:00:00Z"
+        },
+        {
+          "bucket": "major_gt_3_days",
+          "from": "2020-02-14T23:55:00Z",
+          "minutes": 4325.0,
+          "to": "2020-02-18T00:00:00Z"
+        },
+        {
+          "bucket": "major_gt_3_days",
+          "from": "2020-02-21T23:55:00Z",
+          "minutes": 4325.0,
+          "to": "2020-02-25T00:00:00Z"
+        },
+        {
+          "bucket": "major_gt_3_days",
+          "from": "2020-02-28T23:55:00Z",
+          "minutes": 4325.0,
+          "to": "2020-03-03T00:00:00Z"
+        },
+        {
+          "bucket": "market_closure_or_multiday",
+          "from": "2020-03-07T00:00:00Z",
+          "minutes": 4320.0,
+          "to": "2020-03-10T00:00:00Z"
+        },
+        {
+          "bucket": "major_gt_3_days",
+          "from": "2020-03-13T22:55:00Z",
+          "minutes": 4385.0,
+          "to": "2020-03-17T00:00:00Z"
+        },
+        {
+          "bucket": "major_gt_3_days",
+          "from": "2020-03-20T22:55:00Z",
+          "minutes": 4385.0,
+          "to": "2020-03-24T00:00:00Z"
+        },
+        {
+          "bucket": "major_gt_3_days",
+          "from": "2020-03-27T22:55:00Z",
+          "minutes": 4385.0,
+          "to": "2020-03-31T00:00:00Z"
+        },
+        {
+          "bucket": "major_gt_3_days",
+          "from": "2020-04-03T23:55:00Z",
+          "minutes": 4325.0,
+          "to": "2020-04-07T00:00:00Z"
+        },
+        {
+          "bucket": "major_gt_3_days",
+          "from": "2020-04-10T23:55:00Z",
+          "minutes": 4325.0,
+          "to": "2020-04-14T00:00:00Z"
+        },
+        {
+          "bucket": "major_gt_3_days",
+          "from": "2020-04-17T23:55:00Z",
+          "minutes": 4325.0,
+          "to": "2020-04-21T00:00:00Z"
+        },
+        {
+          "bucket": "major_gt_3_days",
+          "from": "2020-04-24T23:55:00Z",
+          "minutes": 4325.0,
+          "to": "2020-04-28T00:00:00Z"
+        },
+        {
+          "bucket": "major_gt_3_days",
+          "from": "2020-05-01T23:55:00Z",
+          "minutes": 4325.0,
+          "to": "2020-05-05T00:00:00Z"
+        },
+        {
+          "bucket": "major_gt_3_days",
+          "from": "2020-05-08T23:55:00Z",
+          "minutes": 4325.0,
+          "to": "2020-05-12T00:00:00Z"
+        },
+        {
+          "bucket": "major_gt_3_days",
+          "from": "2020-05-15T23:55:00Z",
+          "minutes": 4325.0,
+          "to": "2020-05-19T00:00:00Z"
+        },
+        {
+          "bucket": "major_gt_3_days",
+          "from": "2020-05-22T23:55:00Z",
+          "minutes": 4325.0,
+          "to": "2020-05-26T00:00:00Z"
+        },
+        {
+          "bucket": "major_gt_3_days",
+          "from": "2020-05-29T23:55:00Z",
+          "minutes": 4325.0,
+          "to": "2020-06-02T00:00:00Z"
+        }
+      ],
+      "max_gap_minutes": 5940.0,
+      "ordered_unique_anchors": 371513
+    }
+  }
+}

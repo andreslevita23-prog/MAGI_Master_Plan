@@ -3,83 +3,109 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Centro de mando MAGI | Prosperity</title>
+    <title>MAGI | Dashboard ejecutivo</title>
     <link rel="stylesheet" href="/static/styles/main.css" />
   </head>
-  <body>
-    <div class="app-shell">
-      <aside class="sidebar">
+  <body class="command-body" data-page="dashboard">
+    <div class="command-shell">
+      <aside class="command-sidebar">
         <div class="brand-block">
           <img src="/assets/logo.png" alt="Logo Prosperity" class="sidebar-logo" />
           <div>
-            <p class="eyebrow">Centro de mando MAGI</p>
-            <h1>Prosperity</h1>
+            <p class="eyebrow">MAGI demo local</p>
+            <h1>Centro de mando</h1>
           </div>
         </div>
         <nav class="nav-list">
-          <a href="#estado" class="nav-link is-active">Estado del sistema</a>
-          <a href="#snapshots" class="nav-link">Instantaneas de Bot A</a>
-          <a href="#casos" class="nav-link">Casos y decision MAGI</a>
-          <a href="#despacho" class="nav-link">Despacho y errores</a>
+          <a href="/dashboard" class="nav-link" data-nav="dashboard">Dashboard</a>
+          <a href="/bot_A" class="nav-link" data-nav="bot_A">Bot A</a>
+          <a href="/magi" class="nav-link" data-nav="magi">MAGI</a>
+          <a href="/bot_B" class="nav-link" data-nav="bot_B">Bot B</a>
+          <a href="/bot_C" class="nav-link" data-nav="bot_C">Bot C</a>
         </nav>
         <div class="sidebar-note">
-          <p>Consola operativa minima para validar entradas reales, normalizacion, decisiones MVP y salida lista para Bot B.</p>
+          <p>Vista ejecutiva. Los registros detallados viven en paginas separadas.</p>
         </div>
       </aside>
 
-      <main class="main-panel">
-        <header class="topbar">
+      <main class="command-main">
+        <header class="command-topbar">
           <div>
             <p class="eyebrow">Operacion diaria</p>
-            <h2>Consola inicial de MAGI</h2>
+            <h2>Dashboard ejecutivo</h2>
           </div>
-          <button id="refreshButton" class="button button-primary">Actualizar datos</button>
+          <div class="topbar-actions">
+            <select id="rangeFilter" class="filter-control">
+              <option value="day">Dia</option>
+              <option value="week">Semana</option>
+              <option value="month">Mes</option>
+            </select>
+            <div class="refresh-meta">
+              <span id="lastRefresh" class="muted mono">Ultima actualizacion: no disponible</span>
+              <span id="nextRefresh" class="muted mono">Proxima actualizacion en: 30s</span>
+              <span id="refreshStatus" class="muted mono">auto activo</span>
+            </div>
+            <button id="refreshButton" class="button button-primary">Actualizar ahora</button>
+          </div>
         </header>
 
-        <section id="estado" class="section-block">
-          <div class="section-header">
-            <div>
-              <h3>Estado del sistema</h3>
-              <p>Resumen operativo real del backend y del ultimo snapshot recibido.</p>
-            </div>
-          </div>
-          <div id="overviewHero" class="overview-hero"></div>
-          <div id="overviewCards" class="stats-grid"></div>
+        <section class="executive-hero-section">
+          <div id="executiveHero"></div>
+          <div id="connectionStrip" class="connection-strip cinematic-strip"></div>
         </section>
 
-        <section id="snapshots" class="section-block">
+        <section class="magi-modules-section">
           <div class="section-header">
             <div>
-              <h3>Instantaneas de Bot A</h3>
-              <p>Entradas recientes guardadas en persistencia real, con estado de validacion y contexto base.</p>
+              <h3>Modulos MAGI</h3>
+              <p>Cadena operativa viva desde senal hasta auditoria.</p>
             </div>
           </div>
-          <div id="snapshotsList" class="snapshot-list"></div>
+          <div id="magiModules" class="magi-module-grid"></div>
         </section>
 
-        <section id="casos" class="section-block">
+        <section class="command-section">
           <div class="section-header">
             <div>
-              <h3>Casos y decision MAGI</h3>
-              <p>Vista operativa de si hubo sin_caso o caso_mvp, junto con la razon principal de la decision interna.</p>
+              <h3>Metricas principales</h3>
+              <p>Indicadores disponibles desde snapshots, decisiones y auditoria real.</p>
             </div>
           </div>
-          <div id="casesList" class="case-list"></div>
+          <div id="executiveMetrics" class="status-card-grid"></div>
         </section>
 
-        <section id="despacho" class="section-block">
+        <section class="command-section">
           <div class="section-header">
             <div>
-              <h3>Despacho y errores</h3>
-              <p>Respuesta preparada para Bot B y eventos recientes del sistema para detectar inconsistencias rapido.</p>
+              <h3>Calidad de datos</h3>
+              <p>Disponibilidad de fuentes y frescura del ultimo snapshot.</p>
             </div>
           </div>
-          <div id="executionList" class="execution-list"></div>
-          <div id="logsPanel" class="logs-panel"></div>
+          <div id="dataQualityPanel" class="data-quality-grid"></div>
+        </section>
+
+        <section class="command-section">
+          <div class="section-header">
+            <div>
+              <h3>Graficas</h3>
+              <p>Se muestran solo con datos reales suficientes.</p>
+            </div>
+          </div>
+          <div id="chartGrid" class="chart-grid"></div>
+        </section>
+
+        <section class="command-section">
+          <div class="section-header">
+            <div>
+              <h3>Ultimos registros</h3>
+              <p>Resumen corto para lectura rapida.</p>
+            </div>
+          </div>
+          <div id="recentGrid" class="recent-grid"></div>
         </section>
       </main>
     </div>
 
-    <script type="module" src="/static/scripts/dashboard.js"></script>
+    <script type="module" src="/static/scripts/platform.js"></script>
   </body>
 </html>

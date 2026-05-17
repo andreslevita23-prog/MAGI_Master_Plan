@@ -1,0 +1,62 @@
+{
+  "data_path": "C:\\Users\\Asus\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\MAGI\\datasets\\bot_a_sub3\\run_2025-12-15_00-00-00",
+  "generated_at": "2026-04-28T05:49:39.983868+00:00",
+  "files": {
+    "csv": 86,
+    "jsonl": 86
+  },
+  "rows": {
+    "csv": 24346,
+    "jsonl": 24346
+  },
+  "parse_errors": {
+    "csv": [],
+    "jsonl": []
+  },
+  "schema": {
+    "csv_header_variants": 1,
+    "missing_columns": [
+      "gaspar_h4_bar_timestamp",
+      "gaspar_d1_bar_timestamp",
+      "gaspar_h4_age_minutes",
+      "gaspar_d1_age_minutes"
+    ],
+    "critical_nulls": {
+      "snapshot_id": 0,
+      "symbol": 0,
+      "timestamp": 0,
+      "anchor_bar_timestamp": 0,
+      "bar_timestamp": 0,
+      "anchor_open": 0,
+      "anchor_high": 0,
+      "anchor_low": 0,
+      "anchor_close": 0,
+      "current_price": 0,
+      "spread_pips": 0,
+      "rsi_14": 0,
+      "validation_is_valid": 0,
+      "features_json": 0
+    }
+  },
+  "integrity": {
+    "duplicate_snapshot_id_csv": 0,
+    "duplicate_snapshot_id_json": 0
+  },
+  "logic": {
+    "ohlc_bad": 0,
+    "spread_negative": 0,
+    "rsi_out_of_range": 0,
+    "gaspar_forbidden_violations": []
+  },
+  "temporal_alignment": {
+    "features": {
+      "bad_features_json": 24346,
+      "counts": {},
+      "failures": {},
+      "max_age_seen": {}
+    },
+    "gaspar_age_failures": {}
+  },
+  "score": 75,
+  "decision": "NO APTO"
+}

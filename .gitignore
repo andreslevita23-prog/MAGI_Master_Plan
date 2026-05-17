@@ -9,6 +9,7 @@ __pycache__/
 *.pyc
 .venv/
 venv/
+.pytest_cache/
 
 # Logs / temp
 *.log
@@ -33,9 +34,21 @@ servidor-prosperity/integrations/mt5/*.ex5
 # Local packaged datasets (do not commit)
 dataset/*.zip
 
+# Generated heavy research artifacts
+artifacts/
+data/output/magi_v2/**/*.parquet
+data/output/magi_v2/**/*.joblib
+data/output/magi_v2/**/*.csv
+data/output/magi_v2/**/models/
+reports/reentry_cooldown_equity_comparison.csv
+reports/reentry_cluster_trades.csv
+reports/reentry_cluster_summary.csv
+
 # Baltasar training generated heavy artifacts
 baltasar_training_v1/data/processed/
 baltasar_training_v1/artifacts/models/
+baltasar_training_v1/artifacts/figures/
+baltasar_training_v1/artifacts/metrics/
 
 # Gaspar local artifacts
 gaspar_training_v1/.deps/

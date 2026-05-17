@@ -31,6 +31,13 @@ export function mapMvpDecisionToBotBResponse(decision, sourcePayload = {}) {
     comment: auditComment,
     reason: decision?.reason || "Decision MVP sin comentario adicional.",
   };
+  response.risk_state = decision?.risk_state || null;
+  response.cluster_state = decision?.cluster_state || null;
+  response.shadow_guardrails = decision?.shadow_guardrails || null;
+  response.current_lot_size = decision?.current_lot_size || response.details.lot_size;
+  response.demo_mode_until = decision?.demo_mode_until || null;
+  response.be_auto_status = decision?.be_auto_status || null;
+  response.news_guardrail_status = decision?.news_guardrail_status || null;
   response.timestamp = new Date().toISOString();
 
   return response;

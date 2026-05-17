@@ -1,11 +1,13 @@
 import { getLatestSnapshotSummary, countSnapshotsStored } from "../snapshots/snapshot-query.service.js";
 import { listExecutionStates } from "../execution/execution-query.service.js";
+import { getOperationalState } from "../governance/operational-governance.service.js";
 
 export function buildOverviewSnapshot({ uptimeSeconds = 0, hasOpenAIKey = false }) {
   const latestSnapshot = getLatestSnapshotSummary();
   const totalSnapshots = countSnapshotsStored();
   const executionStates = listExecutionStates();
   const latestExecution = executionStates[0] || null;
+  const governance = getOperationalState();
 
   return {
     status: "operativo",
@@ -31,6 +33,7 @@ export function buildOverviewSnapshot({ uptimeSeconds = 0, hasOpenAIKey = false 
       total_symbols: executionStates.length,
       latest: latestExecution,
     },
+    governance,
     timestamp: new Date().toISOString(),
   };
 }

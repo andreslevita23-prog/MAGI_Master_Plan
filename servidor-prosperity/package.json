@@ -15,6 +15,7 @@
     "verify:demo-ready": "node scripts/verify-demo-ready.mjs",
     "smoke": "node scripts/smoke-test.mjs",
     "test:melchor": "node scripts/test-melchor-risk-engine.mjs",
+    "test:guardrails-v1": "node scripts/test-guardrails-v1.mjs",
     "test:snapshot-v2": "node scripts/test-snapshot-v2-adapter.mjs",
     "test:e2e-demo": "node scripts/test-end-to-end-demo.mjs",
     "test:input": "node scripts/test-input-open.js"

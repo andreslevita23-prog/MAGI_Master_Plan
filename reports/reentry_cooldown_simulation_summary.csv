@@ -1,0 +1,49 @@
+dataset,scenario,trades,wins,losses,be,win_rate,net,profit_factor,max_drawdown,trades_removed,winning_trades_removed,losing_trades_removed,removed_net,net_delta_vs_baseline,dd_delta_vs_baseline,fast_same_direction_reentries,fast_reentry_wins,fast_reentry_losses,fast_reentry_net
+live_demo_organic_normalized_usd,Baseline,17,5,10,1,0.3333,0.0,1.0,1500.0,0,0,0,0,0.0,0.0,6,1,4,-1000.0
+live_demo_organic_normalized_usd,Cooldown A - 60m same direction after 1 SL,12,4,7,1,0.3636,500,1.1429,1500.0,5,1,3,-500.0,500.0,0.0,6,1,4,-1000.0
+live_demo_organic_normalized_usd,Cooldown B - 90m same direction after 1 SL,12,4,7,1,0.3636,500,1.1429,1500.0,5,1,3,-500.0,500.0,0.0,6,1,4,-1000.0
+live_demo_organic_normalized_usd,Cooldown C - 180m same direction after 1 SL,11,4,6,1,0.4,1000,1.3333,1000.0,6,1,4,-1000.0,1000.0,-500.0,6,1,4,-1000.0
+live_demo_organic_normalized_usd,Cooldown D - after 2 SL same direction/session block 3h,13,4,8,1,0.3333,0,1.0,2000.0,4,1,2,0.0,0.0,500.0,6,1,4,-1000.0
+live_demo_organic_normalized_usd,Cooldown E - after 3 SL day safe until next day,14,4,8,1,0.3333,0.0,1.0,1500.0,3,1,2,0,0.0,0.0,6,1,4,-1000.0
+live_demo_organic_normalized_usd,Cooldown F - same direction until session change,11,4,6,1,0.4,1000,1.3333,1000.0,6,1,4,-1000.0,1000.0,-500.0,6,1,4,-1000.0
+live_demo_organic_normalized_usd,Cooldown G - same direction until next day,10,4,5,1,0.4444,1500,1.6,1000.0,7,1,5,-1500.0,1500.0,-500.0,6,1,4,-1000.0
+artifacts/ceo_magi_v3/stress_months_trade_detail.csv,Baseline,278,183,95,0,0.6583,176.727492,2.4272,7.516361,0,0,0,0,0.0,0.0,79,54,25,56.076095
+artifacts/ceo_magi_v3/stress_months_trade_detail.csv,Cooldown A - 60m same direction after 1 SL,185,128,57,0,0.6919,135.345905,2.8166,7.929985,93,55,38,41.381587,-41.381587,0.413624,79,54,25,56.076095
+artifacts/ceo_magi_v3/stress_months_trade_detail.csv,Cooldown B - 90m same direction after 1 SL,176,123,53,0,0.6989,132.41245,2.9145,6.655592,102,60,42,44.315042,-44.315042,-0.860769,79,54,25,56.076095
+artifacts/ceo_magi_v3/stress_months_trade_detail.csv,Cooldown C - 180m same direction after 1 SL,157,112,45,0,0.7134,124.179188,3.1129,5.176693,121,71,50,52.548304,-52.548304,-2.339668,79,54,25,56.076095
+artifacts/ceo_magi_v3/stress_months_trade_detail.csv,Cooldown D - after 2 SL same direction/session block 3h,211,146,65,0,0.6919,152.806899,2.798,8.627293,67,37,30,23.920593,-23.920593,1.110932,79,54,25,56.076095
+artifacts/ceo_magi_v3/stress_months_trade_detail.csv,Cooldown E - after 3 SL day safe until next day,163,118,45,0,0.7239,131.938393,3.2524,6.185696,115,65,50,44.789099,-44.789099,-1.330665,79,54,25,56.076095
+artifacts/ceo_magi_v3/stress_months_trade_detail.csv,Cooldown F - same direction until session change,154,111,43,0,0.7208,124.941827,3.2199,5.260624,124,72,52,51.785665,-51.785665,-2.255737,79,54,25,56.076095
+artifacts/ceo_magi_v3/stress_months_trade_detail.csv,Cooldown G - same direction until next day,105,75,30,0,0.7143,81.211947,3.0807,5.73657,173,108,65,95.515545,-95.515545,-1.779791,79,54,25,56.076095
+artifacts/ceo_magi_v3/random_3_months_trade_audit.csv,Baseline,79,60,19,0,0.7595,69.027735,4.2065,5.056002,0,0,0,0,0.0,0.0,0,0,0,0
+artifacts/ceo_magi_v3/random_3_months_trade_audit.csv,Cooldown A - 60m same direction after 1 SL,79,60,19,0,0.7595,69.027735,4.2065,5.056002,0,0,0,0,0.0,0.0,0,0,0,0
+artifacts/ceo_magi_v3/random_3_months_trade_audit.csv,Cooldown B - 90m same direction after 1 SL,79,60,19,0,0.7595,69.027735,4.2065,5.056002,0,0,0,0,0.0,0.0,0,0,0,0
+artifacts/ceo_magi_v3/random_3_months_trade_audit.csv,Cooldown C - 180m same direction after 1 SL,79,60,19,0,0.7595,69.027735,4.2065,5.056002,0,0,0,0,0.0,0.0,0,0,0,0
+artifacts/ceo_magi_v3/random_3_months_trade_audit.csv,Cooldown D - after 2 SL same direction/session block 3h,79,60,19,0,0.7595,69.027735,4.2065,5.056002,0,0,0,0,0.0,0.0,0,0,0,0
+artifacts/ceo_magi_v3/random_3_months_trade_audit.csv,Cooldown E - after 3 SL day safe until next day,79,60,19,0,0.7595,69.027735,4.2065,5.056002,0,0,0,0,0.0,0.0,0,0,0,0
+artifacts/ceo_magi_v3/random_3_months_trade_audit.csv,Cooldown F - same direction until session change,79,60,19,0,0.7595,69.027735,4.2065,5.056002,0,0,0,0,0.0,0.0,0,0,0,0
+artifacts/ceo_magi_v3/random_3_months_trade_audit.csv,Cooldown G - same direction until next day,79,60,19,0,0.7595,69.027735,4.2065,5.056002,0,0,0,0,0.0,0.0,0,0,0,0
+artifacts/ceo_magi_v3/ceo_magi_v3_decisions.csv,Baseline,3346,2440,906,0,0.7292,2804.002544,3.593,7.516361,0,0,0,0,0.0,0.0,628,479,149,600.988945
+artifacts/ceo_magi_v3/ceo_magi_v3_decisions.csv,Cooldown A - 60m same direction after 1 SL,2697,1974,723,0,0.7319,2267.287992,3.6538,8.829939,649,466,183,536.714552,-536.714552,1.313578,628,479,149,600.988945
+artifacts/ceo_magi_v3/ceo_magi_v3_decisions.csv,Cooldown B - 90m same direction after 1 SL,2606,1905,701,0,0.731,2182.492391,3.6383,10.165813,740,535,205,621.510153,-621.510153,2.649452,628,479,149,600.988945
+artifacts/ceo_magi_v3/ceo_magi_v3_decisions.csv,Cooldown C - 180m same direction after 1 SL,2464,1816,648,0,0.737,2098.007818,3.7413,8.275674,882,624,258,705.994726,-705.994726,0.759313,628,479,149,600.988945
+artifacts/ceo_magi_v3/ceo_magi_v3_decisions.csv,Cooldown D - after 2 SL same direction/session block 3h,3053,2248,805,0,0.7363,2616.712012,3.7455,8.627293,293,192,101,187.290532,-187.290532,1.110932,628,479,149,600.988945
+artifacts/ceo_magi_v3/ceo_magi_v3_decisions.csv,Cooldown E - after 3 SL day safe until next day,2956,2186,770,0,0.7395,2559.269099,3.8235,7.003286,390,254,136,244.733445,-244.733445,-0.513075,628,479,149,600.988945
+artifacts/ceo_magi_v3/ceo_magi_v3_decisions.csv,Cooldown F - same direction until session change,2582,1904,678,0,0.7374,2203.424854,3.7493,7.276816,764,536,228,600.57769,-600.57769,-0.239545,628,479,149,600.988945
+artifacts/ceo_magi_v3/ceo_magi_v3_decisions.csv,Cooldown G - same direction until next day,2108,1547,561,0,0.7339,1766.929919,3.6962,5.73657,1238,893,345,1037.072625,-1037.072625,-1.779791,628,479,149,600.988945
+artifacts/magi_realistic_scenario_c/scenario_c_realistic_trades.csv,Baseline,6539,3922,2615,0,0.6,4669.93,2.8517,9.0,0,0,0,0,0.0,0.0,2000,1194,669,1797.3
+artifacts/magi_realistic_scenario_c/scenario_c_realistic_trades.csv,Cooldown A - 60m same direction after 1 SL,4605,2735,1868,0,0.5942,3141.73,2.7525,9.62,1934,1187,747,1528.2,-1528.2,0.62,2000,1194,669,1797.3
+artifacts/magi_realistic_scenario_c/scenario_c_realistic_trades.csv,Cooldown B - 90m same direction after 1 SL,4360,2579,1779,0,0.5918,2937.17,2.7217,9.0,2179,1343,836,1732.76,-1732.76,0.0,2000,1194,669,1797.3
+artifacts/magi_realistic_scenario_c/scenario_c_realistic_trades.csv,Cooldown C - 180m same direction after 1 SL,3939,2349,1588,0,0.5966,2683.23,2.7662,9.0,2600,1573,1027,1986.7,-1986.7,0.0,2000,1194,669,1797.3
+artifacts/magi_realistic_scenario_c/scenario_c_realistic_trades.csv,Cooldown D - after 2 SL same direction/session block 3h,5369,3223,2144,0,0.6005,3800.46,2.8473,8.46,1170,699,471,869.47,-869.47,-0.54,2000,1194,669,1797.3
+artifacts/magi_realistic_scenario_c/scenario_c_realistic_trades.csv,Cooldown E - after 3 SL day safe until next day,4706,2914,1790,0,0.6195,3539.32,3.0806,6.0,1833,1008,825,1130.61,-1130.61,-3.0,2000,1194,669,1797.3
+artifacts/magi_realistic_scenario_c/scenario_c_realistic_trades.csv,Cooldown F - same direction until session change,4226,2507,1717,0,0.5935,2865.49,2.7448,8.45,2313,1415,898,1804.44,-1804.44,-0.55,2000,1194,669,1797.3
+artifacts/magi_realistic_scenario_c/scenario_c_realistic_trades.csv,Cooldown G - same direction until next day,2894,1780,1112,0,0.6155,2070.63,2.9734,7.85,3645,2142,1503,2599.3,-2599.3,-1.15,2000,1194,669,1797.3
+data/output/magi_v2/baltasar_v2_rich_features_model/policy_medium_r_simulation/simulated_trades_050.csv,Baseline,4907,2117,2787,3,0.4317,929.04,1.3496,134.09,0,0,0,0,0.0,0.0,0,0,0,0
+data/output/magi_v2/baltasar_v2_rich_features_model/policy_medium_r_simulation/simulated_trades_050.csv,Cooldown A - 60m same direction after 1 SL,4907,2117,2787,3,0.4317,929.04,1.3496,134.09,0,0,0,0,0.0,0.0,0,0,0,0
+data/output/magi_v2/baltasar_v2_rich_features_model/policy_medium_r_simulation/simulated_trades_050.csv,Cooldown B - 90m same direction after 1 SL,4907,2117,2787,3,0.4317,929.04,1.3496,134.09,0,0,0,0,0.0,0.0,0,0,0,0
+data/output/magi_v2/baltasar_v2_rich_features_model/policy_medium_r_simulation/simulated_trades_050.csv,Cooldown C - 180m same direction after 1 SL,4907,2117,2787,3,0.4317,929.04,1.3496,134.09,0,0,0,0,0.0,0.0,0,0,0,0
+data/output/magi_v2/baltasar_v2_rich_features_model/policy_medium_r_simulation/simulated_trades_050.csv,Cooldown D - after 2 SL same direction/session block 3h,4907,2117,2787,3,0.4317,929.04,1.3496,134.09,0,0,0,0,0.0,0.0,0,0,0,0
+data/output/magi_v2/baltasar_v2_rich_features_model/policy_medium_r_simulation/simulated_trades_050.csv,Cooldown E - after 3 SL day safe until next day,4907,2117,2787,3,0.4317,929.04,1.3496,134.09,0,0,0,0,0.0,0.0,0,0,0,0
+data/output/magi_v2/baltasar_v2_rich_features_model/policy_medium_r_simulation/simulated_trades_050.csv,Cooldown F - same direction until session change,4907,2117,2787,3,0.4317,929.04,1.3496,134.09,0,0,0,0,0.0,0.0,0,0,0,0
+data/output/magi_v2/baltasar_v2_rich_features_model/policy_medium_r_simulation/simulated_trades_050.csv,Cooldown G - same direction until next day,4907,2117,2787,3,0.4317,929.04,1.3496,134.09,0,0,0,0,0.0,0.0,0,0,0,0

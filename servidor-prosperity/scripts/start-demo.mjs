@@ -36,6 +36,8 @@ const child = spawn(process.execPath, ["src/server/index.js"], {
     ...process.env,
     PORT: String(port),
     DEMO_MODE: process.env.DEMO_MODE || "true",
+    MAGI_DEMO_LOT_SIZE: process.env.MAGI_DEMO_LOT_SIZE || "1.0",
+    MAGI_DEMO_MODE_UNTIL: process.env.MAGI_DEMO_MODE_UNTIL || "2026-06-05",
   },
 });
 

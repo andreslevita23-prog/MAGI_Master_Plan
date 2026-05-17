@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import crypto from "crypto";
 import fs from "fs";
 import path from "path";
 import { paths } from "./config/paths.js";
@@ -10,6 +11,7 @@ import {
   ensureDecisionAuditIdentity,
   persistDecisionAuditRecord,
 } from "./services/audit/decision-audit.service.js";
+import { getBotCAuditSnapshot } from "./services/audit/bot-c-audit.service.js";
 import {
   getConnectorById,
   listConnectors,
@@ -24,8 +26,22 @@ import { getCaseById, listCases } from "./services/cases/case-query.service.js";
 import { listExecutionStates } from "./services/execution/execution-query.service.js";
 import { persistExecutionState } from "./services/execution/execution-store.service.js";
 import { logger } from "./services/logger.js";
+import {
+  applyDemoLotSizing,
+  getDemoGovernanceConfig,
+  getOperationalState,
+  persistOperationalState,
+} from "./services/governance/operational-governance.service.js";
 import { buildLogsSnapshot } from "./services/logs/log-query.service.js";
 import { evaluateMvpDecision } from "./services/orchestrator/mvp-decision-engine.js";
+import {
+  buildPlatformSummary,
+  listBotAEvents,
+  listBotBEvents,
+  listBotCEvents,
+  listMagiDecisions,
+} from "./services/platform/platform-records.service.js";
+import { getCurrentPositionSnapshot } from "./services/positions/current-position.service.js";
 import {
   getSnapshotDetail,
   listRecentSnapshots,
@@ -48,6 +64,175 @@ const port = Number(process.env.PORT || 3000);
 const siteUrl = process.env.MAGI_SITE_URL || "https://prosperity.lat";
 const hasOpenAIKey = Boolean(process.env.OPENAI_API_KEY);
 const demoMode = String(process.env.DEMO_MODE || "").toLowerCase() === "true";
+const readOnlyDashboard = String(process.env.READ_ONLY_DASHBOARD || "").toLowerCase() === "true";
+const dashboardAuthToken = process.env.DASHBOARD_AUTH_TOKEN || "";
+const dashboardUsersJson = process.env.DASHBOARD_USERS_JSON || "";
+const dashboardBasicUser = process.env.DASHBOARD_BASIC_USER || "";
+const dashboardBasicPassword = process.env.DASHBOARD_BASIC_PASSWORD || "";
+const serverStartedAt = new Date();
+const readOnlyAllowedPrefixes = [
+  "/",
+  "/dashboard",
+  "/dashboard.html",
+  "/bot_A",
+  "/bot_B",
+  "/bot_C",
+  "/magi",
+  "/assets/",
+  "/static/",
+  "/api/overview",
+  "/api/snapshots",
+  "/api/execution",
+  "/api/governance",
+  "/api/position/current",
+  "/api/platform/summary",
+  "/api/bot-a/events",
+  "/api/magi/decisions",
+  "/api/bot-b/events",
+  "/api/bot-c/events",
+  "/api/logs",
+  "/api/bot-c/audit",
+  "/health",
+];
+
+function parseDashboardUsers(rawValue) {
+  if (!rawValue.trim()) {
+    return { users: [], error: null };
+  }
+
+  try {
+    const parsed = JSON.parse(rawValue);
+    if (!Array.isArray(parsed)) {
+      return { users: [], error: "DASHBOARD_USERS_JSON debe ser un arreglo JSON." };
+    }
+
+    const users = parsed
+      .map((entry) => ({
+        user: String(entry?.user || ""),
+        password: String(entry?.password || ""),
+      }))
+      .filter((entry) => entry.user && entry.password);
+
+    return { users, error: users.length ? null : "DASHBOARD_USERS_JSON no contiene usuarios validos." };
+  } catch (error) {
+    return { users: [], error: `DASHBOARD_USERS_JSON invalido: ${error.message}` };
+  }
+}
+
+const dashboardUsersConfig = parseDashboardUsers(dashboardUsersJson);
+
+function hasDashboardAuthConfigured() {
+  return Boolean(dashboardAuthToken || dashboardUsersConfig.users.length || (dashboardBasicUser && dashboardBasicPassword));
+}
+
+function timingSafeEqualText(left, right) {
+  const leftBuffer = Buffer.from(String(left || ""));
+  const rightBuffer = Buffer.from(String(right || ""));
+  return leftBuffer.length === rightBuffer.length && crypto.timingSafeEqual(leftBuffer, rightBuffer);
+}
+
+function isReadOnlyAllowedPath(requestPath) {
+  return readOnlyAllowedPrefixes.some((allowedPath) => {
+    if (allowedPath === "/") {
+      return requestPath === "/";
+    }
+    if (allowedPath.endsWith("/")) {
+      return requestPath.startsWith(allowedPath);
+    }
+    return requestPath === allowedPath;
+  });
+}
+
+function cookieValue(req, name) {
+  const cookies = String(req.get("cookie") || "").split(";");
+  for (const cookie of cookies) {
+    const [rawKey, ...rawValue] = cookie.trim().split("=");
+    if (rawKey === name) {
+      return decodeURIComponent(rawValue.join("="));
+    }
+  }
+  return "";
+}
+
+function dashboardAuthMethod(req) {
+  const authorization = req.get("authorization") || "";
+  const bearerPrefix = "Bearer ";
+
+  if (dashboardAuthToken && authorization.startsWith(bearerPrefix)) {
+    return timingSafeEqualText(authorization.slice(bearerPrefix.length), dashboardAuthToken) ? "bearer" : null;
+  }
+
+  const token = req.query.token || req.get("x-dashboard-token") || cookieValue(req, "magi_dashboard_token");
+  if (dashboardAuthToken && token) {
+    return timingSafeEqualText(token, dashboardAuthToken) ? "token" : null;
+  }
+
+  if (authorization.startsWith("Basic ")) {
+    const decoded = Buffer.from(authorization.slice("Basic ".length), "base64").toString("utf8");
+    const separatorIndex = decoded.indexOf(":");
+    const user = separatorIndex >= 0 ? decoded.slice(0, separatorIndex) : "";
+    const password = separatorIndex >= 0 ? decoded.slice(separatorIndex + 1) : "";
+    const matchesMultiUser = dashboardUsersConfig.users.some(
+      (entry) => timingSafeEqualText(user, entry.user) && timingSafeEqualText(password, entry.password),
+    );
+    const matchesLegacyUser = Boolean(dashboardBasicUser && dashboardBasicPassword)
+      && timingSafeEqualText(user, dashboardBasicUser)
+      && timingSafeEqualText(password, dashboardBasicPassword);
+
+    return matchesMultiUser || matchesLegacyUser ? "basic" : null;
+  }
+
+  return null;
+}
+
+function requireDashboardAuth(req, res, next) {
+  if (!readOnlyDashboard) {
+    next();
+    return;
+  }
+
+  if (!["GET", "HEAD", "OPTIONS"].includes(req.method) || !isReadOnlyAllowedPath(req.path)) {
+    res.status(404).json({ error: "Ruta no disponible en modo dashboard solo lectura." });
+    return;
+  }
+
+  if (!hasDashboardAuthConfigured()) {
+    res.status(503).json({
+      error: "Dashboard privado sin credenciales configuradas.",
+      message: "Defina DASHBOARD_USERS_JSON, DASHBOARD_AUTH_TOKEN o DASHBOARD_BASIC_USER/DASHBOARD_BASIC_PASSWORD.",
+    });
+    return;
+  }
+
+  if (dashboardUsersConfig.error) {
+    res.status(503).json({
+      error: "Configuracion de usuarios del dashboard invalida.",
+      message: dashboardUsersConfig.error,
+    });
+    return;
+  }
+
+  res.set("X-Robots-Tag", "noindex, nofollow");
+  res.set("X-Frame-Options", "DENY");
+  res.set("Cross-Origin-Resource-Policy", "same-origin");
+  res.set("Referrer-Policy", "no-referrer");
+
+  const authMethod = dashboardAuthMethod(req);
+  if (authMethod) {
+    if (authMethod === "token" && req.query.token) {
+      res.cookie("magi_dashboard_token", String(req.query.token), {
+        httpOnly: true,
+        sameSite: "strict",
+        secure: req.secure || req.get("x-forwarded-proto") === "https",
+      });
+    }
+    next();
+    return;
+  }
+
+  res.set("WWW-Authenticate", 'Basic realm="MAGI Dashboard", charset="UTF-8"');
+  res.status(401).json({ error: "Autenticacion requerida." });
+}
 
 function captureRawBody(req, _res, buffer) {
   req.rawBody = buffer?.length ? buffer.toString("utf8") : "";
@@ -85,6 +270,7 @@ function logPostAnalisisError(req, error, extra = {}) {
   logger.logSystem(payload);
 }
 
+app.use(requireDashboardAuth);
 app.use(express.json({ limit: "1mb", verify: captureRawBody }));
 app.use(express.text({ type: ["text/*", "application/octet-stream"], verify: captureRawBody }));
 app.use((error, req, res, next) => {
@@ -203,6 +389,10 @@ function logStartupSummary() {
     }`,
   );
   console.log(`DEMO_MODE: ${demoMode ? "true" : "false"}`);
+  const governanceConfig = getDemoGovernanceConfig({ demoMode });
+  console.log(`MAGI demo lot size: ${governanceConfig.demo_lot_size}`);
+  console.log(`MAGI demo mode until: ${governanceConfig.demo_mode_until}`);
+  console.log(`READ_ONLY_DASHBOARD: ${readOnlyDashboard ? "true" : "false"}`);
   console.log("MAGI backend listo para conexion MT5");
   console.log("Esperando conexion desde MT5...");
 }
@@ -247,6 +437,13 @@ function logDecisionReady({ decision, auditFile }) {
 
   if (demoMode) {
     console.log(`[MAGI][demo] reason=${decision.reason || "sin razon"}`);
+    console.log(
+      `[MAGI][governance] lot_size=${decision.current_lot_size ?? decision.lot_size ?? 0} safe_mode=${
+        decision.risk_state?.safe_mode_active || false
+      } cluster_sl=${decision.cluster_state?.consecutive_sl ?? 0} shadow_friday=${
+        decision.shadow_guardrails?.friday_guardrail_would_block || false
+      } shadow_2sl=${decision.shadow_guardrails?.cluster_2sl_would_block || false}`,
+    );
   }
 }
 
@@ -255,6 +452,8 @@ app.get("/health", (_req, res) => {
   res.json({
     status: "ok",
     timestamp: new Date().toISOString(),
+    started_at: serverStartedAt.toISOString(),
+    uptime_seconds: Math.round(process.uptime()),
     services: {
       snapshots: Boolean(services.snapshots),
       execution: Boolean(services.execution),
@@ -264,6 +463,11 @@ app.get("/health", (_req, res) => {
 });
 
 app.get("/", (_req, res) => {
+  if (readOnlyDashboard) {
+    res.redirect("/dashboard");
+    return;
+  }
+
   res.sendFile(path.join(paths.client, "index.html"));
 });
 
@@ -273,6 +477,22 @@ app.get("/dashboard", (_req, res) => {
 
 app.get("/dashboard.html", (_req, res) => {
   res.redirect("/dashboard");
+});
+
+app.get("/bot_A", (_req, res) => {
+  res.sendFile(path.join(paths.client, "bot_A.html"));
+});
+
+app.get("/bot_B", (_req, res) => {
+  res.sendFile(path.join(paths.client, "bot_B.html"));
+});
+
+app.get("/bot_C", (_req, res) => {
+  res.sendFile(path.join(paths.client, "bot_C.html"));
+});
+
+app.get("/magi", (_req, res) => {
+  res.sendFile(path.join(paths.client, "magi.html"));
 });
 
 app.get("/api/status", (_req, res) => {
@@ -337,6 +557,46 @@ app.get("/api/execution", (_req, res) => {
   });
 });
 
+app.get("/api/governance", (_req, res) => {
+  res.json(getOperationalState());
+});
+
+app.get("/api/position/current", (_req, res) => {
+  res.json(getCurrentPositionSnapshot());
+});
+
+app.get("/api/platform/summary", (_req, res) => {
+  res.json(
+    buildPlatformSummary({
+      range: _req.query.range || "day",
+      startedAt: serverStartedAt,
+      uptimeSeconds: Math.round(process.uptime()),
+    }),
+  );
+});
+
+app.get("/api/bot-a/events", (req, res) => {
+  res.json({
+    items: listBotAEvents({ limit: req.query.limit || 100 }),
+  });
+});
+
+app.get("/api/magi/decisions", (req, res) => {
+  res.json({
+    items: listMagiDecisions({ limit: req.query.limit || 100 }),
+  });
+});
+
+app.get("/api/bot-b/events", (req, res) => {
+  res.json({
+    items: listBotBEvents({ limit: req.query.limit || 100 }),
+  });
+});
+
+app.get("/api/bot-c/events", (req, res) => {
+  res.json(listBotCEvents({ limit: req.query.limit || 100 }));
+});
+
 app.get("/api/dashboard", (_req, res) => {
   res.json(
     buildDashboardSnapshot({
@@ -369,6 +629,22 @@ app.get("/api/modules", (_req, res) => {
 
 app.get("/api/logs", (_req, res) => {
   res.json(buildLogsSnapshot());
+});
+
+app.get("/api/bot-c/audit", (req, res) => {
+  try {
+    res.json(
+      getBotCAuditSnapshot({
+        date: req.query.date || undefined,
+        limit: req.query.limit || undefined,
+      }),
+    );
+  } catch (error) {
+    res.status(error.statusCode || 500).json({
+      error: "No fue posible leer la auditoria de Bot C.",
+      message: error.message,
+    });
+  }
 });
 
 app.get("/api/settings", (_req, res) => {
@@ -434,7 +710,11 @@ app.post("/analisis", async (req, res) => {
       adapter_warnings: snapshotData.normalized?.validation?.adapter_warnings || [],
     });
 
-    const mvpDecision = ensureDecisionAuditIdentity(evaluateMvpDecision(snapshotData.normalized));
+    const mvpDecision = applyDemoLotSizing(
+      ensureDecisionAuditIdentity(evaluateMvpDecision(snapshotData.normalized)),
+      { demoMode },
+    );
+    const operationalState = persistOperationalState(snapshotData.normalized, mvpDecision);
     const botBResponse = mapMvpDecisionToBotBResponse(mvpDecision, payload);
     const executionState = persistExecutionState({
       decision: mvpDecision,
@@ -459,6 +739,12 @@ app.post("/analisis", async (req, res) => {
       case_state: mvpDecision.case_state,
       case_type: mvpDecision.case_type,
       final_action: mvpDecision.final_action,
+      risk_state: mvpDecision.risk_state || null,
+      cluster_state: mvpDecision.cluster_state || null,
+      shadow_guardrails: mvpDecision.shadow_guardrails || null,
+      current_lot_size: mvpDecision.current_lot_size || mvpDecision.lot_size || 0,
+      demo_mode_until: mvpDecision.demo_mode_until || null,
+      operational_state_file: operationalState?.stored_at ? "saved" : "saved",
       execution_file: executionState.file_path,
       audit_file: decisionAudit.file_path,
     });
@@ -492,5 +778,6 @@ app.post("/", (req, res) => {
 app.listen(port, () => {
   logStartupSummary();
   console.log(`Dashboard listo en http://localhost:${port}/dashboard`);
+  console.log(`Modo dashboard privado: ${readOnlyDashboard ? "solo lectura" : "desactivado"}`);
   console.log(`Destino de despliegue previsto: ${siteUrl}`);
 });

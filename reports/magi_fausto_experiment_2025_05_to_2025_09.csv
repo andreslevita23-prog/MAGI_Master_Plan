@@ -1,0 +1,9 @@
+scenario,lot,payouts,burns,closed_cycles,payouts_accumulated,net_total,residual_open_pnl,avg_cycle_profit,avg_cycle_days,worst_drawdown,worst_day,worst_day_usd,best_day,best_day_usd,max_balance,min_balance,payout_burn_ratio,avg_trades_before_burn,avg_trades_before_payout,survival_pct,expectancy_per_cycle,comment
+baseline,5.0,2,0,2,16881.67,16881.67,5523.2,8440.84,51.5,3421.79,2025-07-16,-3272.09,2025-08-07,4147.17,108689.89,98122.78,inf,0,28,100.0,8440.84,agresivo pero sorprendentemente limpio
+baseline,10.0,5,1,6,44713.92,44713.92,0.0,7452.32,22.17,5535.68,2025-07-16,-5236.28,2025-08-07,6619.48,109523.17,96245.56,5.0,11,11.4,83.33,7452.32,"edge sobrevive, pero con dientes; psicologicamente duro"
+baseline,15.0,8,3,11,75904.79,75904.79,2757.16,6900.44,12.27,6202.85,2025-07-16,-5753.74,2025-08-07,9988.94,110197.38,95839.12,2.67,3.33,7,72.73,6900.44,"edge sobrevive, pero con dientes; psicologicamente duro"
+baseline,20.0,9,3,12,86675.16,86675.16,7177.48,7222.93,7.67,7508.87,2025-07-16,-5399.8,2025-08-07,9795.86,110779.39,94600.2,3.0,5.33,5.44,75.0,7222.93,"edge sobrevive, pero con dientes; psicologicamente duro"
+cluster_only_3sl,5.0,2,0,2,16526.93,16526.93,4697.9,8263.46,54,2067.62,2025-07-16,-1917.91,2025-08-07,4147.17,108300.76,98122.78,inf,0,25,100.0,8263.46,agresivo pero sorprendentemente limpio
+cluster_only_3sl,10.0,4,0,4,34669.62,34669.62,7780.03,8667.41,29,4135.23,2025-07-16,-3835.83,2025-08-01,4933.51,109417.38,96245.56,inf,0,12.75,100.0,8667.41,agresivo pero sorprendentemente limpio
+cluster_only_3sl,15.0,7,2,9,65693.76,65693.76,5383.11,7299.31,14.67,6202.85,2025-07-16,-5753.74,2025-08-07,7592.24,110276.75,95821.54,3.5,4,7.14,77.78,7299.31,"edge sobrevive, pero con dientes; psicologicamente duro"
+cluster_only_3sl,20.0,9,3,12,87192.87,87192.87,7177.48,7266.07,7.83,5671.56,2025-07-25,-5571.28,2025-08-07,9795.86,110850.51,94428.72,3.0,3.33,5.33,75.0,7266.07,"edge sobrevive, pero con dientes; psicologicamente duro"

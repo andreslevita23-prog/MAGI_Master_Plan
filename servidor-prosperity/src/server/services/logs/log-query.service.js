@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { paths } from "../../config/paths.js";
+import { getBotCAuditSnapshot } from "../audit/bot-c-audit.service.js";
 import { listDirectories, listFiles, readJsonLines } from "../storage.js";
 
 function listLogDateDirectories() {
@@ -63,10 +64,12 @@ function listRecentErrorFiles(limit = 10) {
 export function buildLogsSnapshot() {
   const events = listRecentSystemEvents(20);
   const errors = listRecentErrorFiles(10);
+  const botC = getBotCAuditSnapshot({ limit: 50 });
 
   return {
     events,
     errors,
+    bot_c: botC,
     total_events: events.length,
     total_errors: errors.length,
   };

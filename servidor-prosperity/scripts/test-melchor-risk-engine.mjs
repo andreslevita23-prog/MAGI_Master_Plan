@@ -183,7 +183,8 @@ const botBResponse = mapMvpDecisionToBotBResponse(ceoOverrideDecision, {
   id_operacion: "bot_b_final_decision",
 });
 assert.equal(botBResponse.action, "open", "Bot B recibe la decision final del CEO");
-assert.equal(botBResponse.details.comment.includes("CEO-MAGI abre"), true);
+assert.equal(botBResponse.details.comment.startsWith("MAGI|"), true);
+assert.equal(botBResponse.details.reason.includes("CEO-MAGI abre"), true);
 
 console.log(
   JSON.stringify(

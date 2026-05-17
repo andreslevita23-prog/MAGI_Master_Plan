@@ -1,0 +1,78 @@
+{
+  "data_path": "C:\\Users\\Asus\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\MAGI\\datasets\\bot_a_sub3\\run_2025-12-15_00-00-00_659700906",
+  "generated_at": "2026-04-28T19:00:39.293941+00:00",
+  "files": {
+    "csv": 86,
+    "jsonl": 86
+  },
+  "rows": {
+    "csv": 18612,
+    "jsonl": 18612
+  },
+  "parse_errors": {
+    "csv": [],
+    "jsonl": []
+  },
+  "schema": {
+    "csv_header_variants": 1,
+    "missing_columns": [],
+    "critical_nulls": {
+      "snapshot_id": 0,
+      "symbol": 0,
+      "timestamp": 0,
+      "anchor_bar_timestamp": 0,
+      "bar_timestamp": 0,
+      "anchor_open": 0,
+      "anchor_high": 0,
+      "anchor_low": 0,
+      "anchor_close": 0,
+      "current_price": 0,
+      "spread_pips": 0,
+      "rsi_14": 0,
+      "mtf_data_source_status": 0,
+      "validation_is_valid": 0,
+      "features_json": 0,
+      "gaspar_h4_bar_timestamp": 0,
+      "gaspar_d1_bar_timestamp": 0,
+      "gaspar_h4_age_minutes": 0,
+      "gaspar_d1_age_minutes": 0
+    }
+  },
+  "integrity": {
+    "duplicate_snapshot_id_csv": 0,
+    "duplicate_snapshot_id_json": 0
+  },
+  "logic": {
+    "ohlc_bad": 0,
+    "spread_negative": 0,
+    "rsi_out_of_range": 0,
+    "gaspar_forbidden_violations": []
+  },
+  "temporal_alignment": {
+    "features": {
+      "bad_features_json": 0,
+      "counts": {
+        "M15": 18612,
+        "H1": 18612,
+        "H4": 18612,
+        "D1": 18612
+      },
+      "failures": {},
+      "data_source_statuses": {
+        "OK": 74448
+      },
+      "max_age_seen": {
+        "M15": 10.0,
+        "H1": 55.0,
+        "H4": 235.0,
+        "D1": 1435.0
+      }
+    },
+    "gaspar_age_failures": {
+      "H4": 0,
+      "D1": 0
+    }
+  },
+  "score": 100,
+  "decision": "APTO"
+}

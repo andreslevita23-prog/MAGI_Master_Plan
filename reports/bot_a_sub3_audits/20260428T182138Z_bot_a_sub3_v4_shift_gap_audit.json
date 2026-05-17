@@ -1,0 +1,531 @@
+{
+  "dataset_path": "C:\\Users\\Asus\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\MAGI\\datasets\\bot_a_sub3\\run_2025-12-15_00-00-00",
+  "latest_marker": "C:\\Users\\Asus\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\MAGI\\datasets\\bot_a_sub3\\run_2025-12-15_00-00-00\\__runtime_marker__bot_a_sub3_operational_snapshot_2026-04-28_v4_shift_gap_buffer_fix.txt",
+  "latest_marker_text": "runtime_build_tag=bot_a_sub3_operational_snapshot_2026-04-28_v4_shift_gap_buffer_fix\nrun_id=run_2025-12-15_00-00-00\nstorage_mode=COMMON_FILES\ncontract_source=MagiBuildSnapshot+MagiSerializeSnapshotJson\nwrite_invalid_snapshots_for_diagnostics=true\nskip_invalid_snapshots=true\nrun_start_local=2025-12-15T00:00:00\n",
+  "csv_files": 86,
+  "jsonl_files": 86,
+  "csv_rows": 48692,
+  "jsonl_rows": 48692,
+  "jsonl_parse_errors": [],
+  "csv_parse_errors": [],
+  "features_json_parse_errors": 0,
+  "duplicate_snapshot_ids": 24346,
+  "duplicate_rows_total": 24346,
+  "unique_snapshot_ids": 24346,
+  "csv_duplicate_snapshot_id_rows": 24346,
+  "csv_header_variants": 1,
+  "json_top_schema_variants_last": 1,
+  "feature_schema_variants_last": 1,
+  "validation_is_valid_last": {
+    "True": 18612,
+    "False": 5734
+  },
+  "gaspar_missing_last": {},
+  "gaspar_forbidden_last": {},
+  "full_folder_metrics": {
+    "feature_total": 194768,
+    "data_source_status": {
+      "OK": 179467,
+      "ALIGNMENT_ERROR": 13808,
+      "INSUFFICIENT_HISTORY": 1493
+    },
+    "alignment_status": {
+      "ok": 179467,
+      "error": 15301
+    },
+    "data_source_status_pct": {
+      "OK": 92.144,
+      "ALIGNMENT_ERROR": 7.0895,
+      "INSUFFICIENT_HISTORY": 0.7666
+    },
+    "alignment_status_pct": {
+      "ok": 92.144,
+      "error": 7.856
+    },
+    "by_timeframe_data_source_status": {
+      "D1": {
+        "OK": 37248,
+        "ALIGNMENT_ERROR": 11444
+      },
+      "H1": {
+        "OK": 47066,
+        "ALIGNMENT_ERROR": 432,
+        "INSUFFICIENT_HISTORY": 1194
+      },
+      "H4": {
+        "OK": 46848,
+        "ALIGNMENT_ERROR": 1844
+      },
+      "M15": {
+        "OK": 48305,
+        "ALIGNMENT_ERROR": 88,
+        "INSUFFICIENT_HISTORY": 299
+      }
+    },
+    "by_timeframe_alignment_status": {
+      "D1": {
+        "ok": 37248,
+        "error": 11444
+      },
+      "H1": {
+        "ok": 47066,
+        "error": 1626
+      },
+      "H4": {
+        "ok": 46848,
+        "error": 1844
+      },
+      "M15": {
+        "ok": 48305,
+        "error": 387
+      }
+    },
+    "by_timeframe_failures": {
+      "M15": 387,
+      "H1": 1626,
+      "H4": 1844,
+      "D1": 11444
+    },
+    "age_stats": {
+      "M15": {
+        "count": 48604,
+        "min": 0.0,
+        "p50": 5.0,
+        "p95": 10.0,
+        "max": 10.0,
+        "over_limit": 0
+      },
+      "H1": {
+        "count": 48260,
+        "min": 0.0,
+        "p50": 30.0,
+        "p95": 55.0,
+        "max": 55.0,
+        "over_limit": 0
+      },
+      "H4": {
+        "count": 46848,
+        "min": 0.0,
+        "p50": 115.0,
+        "p95": 225.0,
+        "max": 235.0,
+        "over_limit": 0
+      },
+      "D1": {
+        "count": 37248,
+        "min": 0.0,
+        "p50": 715.0,
+        "p95": 1360.0,
+        "max": 1435.0,
+        "over_limit": 0
+      }
+    },
+    "selected_bar_inconsistent": 0,
+    "selected_mismatch_new_after_ordering": 0,
+    "no_closed_bar_within_limit": 13808,
+    "insufficient_history": 1493,
+    "bad_age_values": 13808,
+    "ok_semantic_mismatch": 0,
+    "top_warnings": [
+      [
+        "no hay vela cerrada dentro de 0..1440.00 minutos previos al anchor",
+        11444
+      ],
+      [
+        "no hay vela cerrada dentro de 0..240.00 minutos previos al anchor",
+        1844
+      ],
+      [
+        "no hay vela cerrada dentro de 0..60.00 minutos previos al anchor",
+        432
+      ],
+      [
+        "no hay vela cerrada dentro de 0..15.00 minutos previos al anchor",
+        88
+      ],
+      [
+        "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2025-12-26T00:00:00; requeridas=6",
+        15
+      ],
+      [
+        "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-01-02T00:00:00; requeridas=6",
+        15
+      ],
+      [
+        "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-01-05T00:00:00; requeridas=6",
+        15
+      ],
+      [
+        "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-01-12T00:00:00; requeridas=6",
+        15
+      ],
+      [
+        "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-01-19T00:00:00; requeridas=6",
+        15
+      ],
+      [
+        "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-01-26T00:00:00; requeridas=6",
+        15
+      ],
+      [
+        "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-02-02T00:00:00; requeridas=6",
+        15
+      ],
+      [
+        "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-02-09T00:00:00; requeridas=6",
+        15
+      ],
+      [
+        "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-02-16T00:00:00; requeridas=6",
+        15
+      ],
+      [
+        "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-02-23T00:00:00; requeridas=6",
+        15
+      ],
+      [
+        "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-03-02T00:00:00; requeridas=6",
+        15
+      ],
+      [
+        "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-03-09T00:00:00; requeridas=6",
+        15
+      ],
+      [
+        "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-03-16T00:00:00; requeridas=6",
+        15
+      ],
+      [
+        "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-03-23T00:00:00; requeridas=6",
+        15
+      ],
+      [
+        "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-03-30T00:00:00; requeridas=6",
+        15
+      ],
+      [
+        "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-04-06T00:00:00; requeridas=6",
+        15
+      ]
+    ]
+  },
+  "first_occurrence_metrics_assumed_previous": {
+    "feature_total": 97384,
+    "data_source_status": {
+      "OK": 88987,
+      "ALIGNMENT_ERROR": 6904,
+      "INSUFFICIENT_HISTORY": 1493
+    },
+    "alignment_status": {
+      "ok": 88987,
+      "error": 8397
+    },
+    "data_source_status_pct": {
+      "OK": 91.3774,
+      "ALIGNMENT_ERROR": 7.0895,
+      "INSUFFICIENT_HISTORY": 1.5331
+    },
+    "alignment_status_pct": {
+      "ok": 91.3774,
+      "error": 8.6226
+    },
+    "by_timeframe_data_source_status": {
+      "D1": {
+        "OK": 18624,
+        "ALIGNMENT_ERROR": 5722
+      },
+      "H1": {
+        "OK": 22936,
+        "ALIGNMENT_ERROR": 216,
+        "INSUFFICIENT_HISTORY": 1194
+      },
+      "H4": {
+        "OK": 23424,
+        "ALIGNMENT_ERROR": 922
+      },
+      "M15": {
+        "OK": 24003,
+        "ALIGNMENT_ERROR": 44,
+        "INSUFFICIENT_HISTORY": 299
+      }
+    },
+    "by_timeframe_alignment_status": {
+      "D1": {
+        "ok": 18624,
+        "error": 5722
+      },
+      "H1": {
+        "ok": 22936,
+        "error": 1410
+      },
+      "H4": {
+        "ok": 23424,
+        "error": 922
+      },
+      "M15": {
+        "ok": 24003,
+        "error": 343
+      }
+    },
+    "by_timeframe_failures": {
+      "M15": 343,
+      "H1": 1410,
+      "H4": 922,
+      "D1": 5722
+    },
+    "age_stats": {
+      "M15": {
+        "count": 24302,
+        "min": 0.0,
+        "p50": 5.0,
+        "p95": 10.0,
+        "max": 10.0,
+        "over_limit": 0
+      },
+      "H1": {
+        "count": 24130,
+        "min": 0.0,
+        "p50": 30.0,
+        "p95": 55.0,
+        "max": 55.0,
+        "over_limit": 0
+      },
+      "H4": {
+        "count": 23424,
+        "min": 0.0,
+        "p50": 115.0,
+        "p95": 225.0,
+        "max": 235.0,
+        "over_limit": 0
+      },
+      "D1": {
+        "count": 18624,
+        "min": 0.0,
+        "p50": 715.0,
+        "p95": 1360.0,
+        "max": 1435.0,
+        "over_limit": 0
+      }
+    },
+    "selected_bar_inconsistent": 0,
+    "selected_mismatch_new_after_ordering": 0,
+    "no_closed_bar_within_limit": 6904,
+    "insufficient_history": 1493,
+    "bad_age_values": 6904,
+    "ok_semantic_mismatch": 0,
+    "top_warnings": [
+      [
+        "no hay vela cerrada dentro de 0..1440.00 minutos previos al anchor",
+        5722
+      ],
+      [
+        "no hay vela cerrada dentro de 0..240.00 minutos previos al anchor",
+        922
+      ],
+      [
+        "no hay vela cerrada dentro de 0..60.00 minutos previos al anchor",
+        216
+      ],
+      [
+        "no hay vela cerrada dentro de 0..15.00 minutos previos al anchor",
+        44
+      ],
+      [
+        "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2025-12-26T00:00:00; requeridas=6",
+        15
+      ],
+      [
+        "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-01-02T00:00:00; requeridas=6",
+        15
+      ],
+      [
+        "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-01-05T00:00:00; requeridas=6",
+        15
+      ],
+      [
+        "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-01-12T00:00:00; requeridas=6",
+        15
+      ],
+      [
+        "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-01-19T00:00:00; requeridas=6",
+        15
+      ],
+      [
+        "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-01-26T00:00:00; requeridas=6",
+        15
+      ],
+      [
+        "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-02-02T00:00:00; requeridas=6",
+        15
+      ],
+      [
+        "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-02-09T00:00:00; requeridas=6",
+        15
+      ],
+      [
+        "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-02-16T00:00:00; requeridas=6",
+        15
+      ],
+      [
+        "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-02-23T00:00:00; requeridas=6",
+        15
+      ],
+      [
+        "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-03-02T00:00:00; requeridas=6",
+        15
+      ],
+      [
+        "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-03-09T00:00:00; requeridas=6",
+        15
+      ],
+      [
+        "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-03-16T00:00:00; requeridas=6",
+        15
+      ],
+      [
+        "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-03-23T00:00:00; requeridas=6",
+        15
+      ],
+      [
+        "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-03-30T00:00:00; requeridas=6",
+        15
+      ],
+      [
+        "CopyRates por rango solo produjo 1 velas <= selected_bar_time=2026-04-06T00:00:00; requeridas=6",
+        15
+      ]
+    ]
+  },
+  "last_occurrence_metrics_v4": {
+    "feature_total": 97384,
+    "data_source_status": {
+      "OK": 90480,
+      "ALIGNMENT_ERROR": 6904
+    },
+    "alignment_status": {
+      "ok": 90480,
+      "error": 6904
+    },
+    "data_source_status_pct": {
+      "OK": 92.9105,
+      "ALIGNMENT_ERROR": 7.0895
+    },
+    "alignment_status_pct": {
+      "ok": 92.9105,
+      "error": 7.0895
+    },
+    "by_timeframe_data_source_status": {
+      "D1": {
+        "OK": 18624,
+        "ALIGNMENT_ERROR": 5722
+      },
+      "H1": {
+        "OK": 24130,
+        "ALIGNMENT_ERROR": 216
+      },
+      "H4": {
+        "OK": 23424,
+        "ALIGNMENT_ERROR": 922
+      },
+      "M15": {
+        "OK": 24302,
+        "ALIGNMENT_ERROR": 44
+      }
+    },
+    "by_timeframe_alignment_status": {
+      "D1": {
+        "ok": 18624,
+        "error": 5722
+      },
+      "H1": {
+        "ok": 24130,
+        "error": 216
+      },
+      "H4": {
+        "ok": 23424,
+        "error": 922
+      },
+      "M15": {
+        "ok": 24302,
+        "error": 44
+      }
+    },
+    "by_timeframe_failures": {
+      "M15": 44,
+      "H1": 216,
+      "H4": 922,
+      "D1": 5722
+    },
+    "age_stats": {
+      "M15": {
+        "count": 24302,
+        "min": 0.0,
+        "p50": 5.0,
+        "p95": 10.0,
+        "max": 10.0,
+        "over_limit": 0
+      },
+      "H1": {
+        "count": 24130,
+        "min": 0.0,
+        "p50": 30.0,
+        "p95": 55.0,
+        "max": 55.0,
+        "over_limit": 0
+      },
+      "H4": {
+        "count": 23424,
+        "min": 0.0,
+        "p50": 115.0,
+        "p95": 225.0,
+        "max": 235.0,
+        "over_limit": 0
+      },
+      "D1": {
+        "count": 18624,
+        "min": 0.0,
+        "p50": 715.0,
+        "p95": 1360.0,
+        "max": 1435.0,
+        "over_limit": 0
+      }
+    },
+    "selected_bar_inconsistent": 0,
+    "selected_mismatch_new_after_ordering": 0,
+    "no_closed_bar_within_limit": 6904,
+    "insufficient_history": 0,
+    "bad_age_values": 6904,
+    "ok_semantic_mismatch": 0,
+    "top_warnings": [
+      [
+        "no hay vela cerrada dentro de 0..1440.00 minutos previos al anchor",
+        5722
+      ],
+      [
+        "no hay vela cerrada dentro de 0..240.00 minutos previos al anchor",
+        922
+      ],
+      [
+        "no hay vela cerrada dentro de 0..60.00 minutos previos al anchor",
+        216
+      ],
+      [
+        "no hay vela cerrada dentro de 0..15.00 minutos previos al anchor",
+        44
+      ]
+    ]
+  },
+  "previous_reference": {
+    "feature_total": 97384,
+    "OK": 88987,
+    "OK_pct": 91.38,
+    "ALIGNMENT_ERROR": 6904,
+    "ALIGNMENT_ERROR_pct": 7.09,
+    "INSUFFICIENT_HISTORY": 1493,
+    "INSUFFICIENT_HISTORY_pct": 1.53,
+    "selected_bar_inconsistent": 0,
+    "no_closed_bar_within_limit": 6904
+  },
+  "score": 25,
+  "decision": "NO APTO"
+}

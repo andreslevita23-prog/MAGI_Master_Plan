@@ -1,0 +1,5 @@
+scenario,lot,burned,burn_reason,violated_daily,violated_total,passed_phase1,phase1_date,phase1_days_cal,phase1_trading_days,phase1_balance,passed_phase2,phase2_date,phase2_days_cal,phase2_trading_days,phase2_balance,worst_day_usd,best_day_usd,max_drawdown_usd,min_daily_margin_usd,min_total_margin_usd,max_balance,min_balance,final_balance,comment
+baseline,3.0,False,,False,False,True,2025-08-07,87,20,108283.7,True,2025-09-25,50,11,105159.22,-917.27,2488.3,2053.08,3082.73,8000,108283.7,100000.0,105159.22,punto medio viable
+baseline,5.0,False,,False,False,True,2025-07-25,74,14,108689.89,True,2025-08-07,14,7,105116.27,-1528.78,2466.76,3421.79,2122.78,6122.78,108689.89,98122.78,105116.27,rapido pero agresivo
+cluster_only_3sl,3.0,False,,False,False,True,2025-08-07,87,19,108075.2,True,2025-09-30,55,12,105180.78,-1150.75,2488.3,1240.57,2849.25,8000,108075.2,100000.0,105180.78,punto medio viable
+cluster_only_3sl,5.0,False,,False,False,True,2025-07-25,74,14,108300.76,True,2025-08-07,14,6,105157.91,-1917.91,2530.75,2067.62,2082.09,6122.78,108300.76,98122.78,105157.91,rapido pero agresivo
